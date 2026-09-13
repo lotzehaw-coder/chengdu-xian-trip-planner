@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-14T05:42+08:00",
- "count": 5,
+ "updated": "2026-09-14T07:42+08:00",
+ "count": 6,
  "ballots": {
   "Chia Wei": {
    "picks": {
@@ -21,14 +21,25 @@
    ],
    "t": 1789335401611
   },
+  "Isabel": {
+   "picks": {
+    "d-d1eve": "opera",
+    "d-d2pm": "taikoo"
+   },
+   "hearts": [],
+   "t": 1789342540116
+  },
   "Kennt": {
    "picks": {
     "h-chengdu": "jw",
     "h-chengdu2": "w",
-    "h-xian": "ritzxa"
+    "h-xian": "ritzxa",
+    "d-d1eve": "opera",
+    "d-d2pm": "taikoo",
+    "d-d7": "leshan"
    },
    "hearts": [],
-   "t": 1789306871700
+   "t": 1789342833996
   },
   "Khan": {
    "picks": {
