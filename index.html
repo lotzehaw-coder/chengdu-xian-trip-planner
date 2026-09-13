@@ -350,7 +350,6 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
         <h2>Where we stay</h2>
         <p class="muted">All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Vote for one in each city.</p>
         <div class="tip x">Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.</div>
-        <div class="elite"><b>💎 Everyone is Titanium or Platinum: how to get the suites</b><ol id="eliteList"></ol></div>
         <div id="hotelList"></div>
       </section>
 
@@ -719,7 +718,6 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 
 // ---------- HOTELS ----------
 function renderHotels(){
-  $('#eliteList').innerHTML = SEED.elite.map(x=>`<li>${esc(x)}</li>`).join('');
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([city, st])=>{
     const did = city==='Chengdu'?'h-chengdu':'h-xian'; const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
