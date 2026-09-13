@@ -1,0 +1,25 @@
+{
+ "updated": "2026-09-13T16:57+08:00",
+ "count": 1,
+ "ballots": {
+  "Khan": {
+   "picks": {
+    "d-d1eve": "opera",
+    "d-d2pm": "taikoo",
+    "d-d4pm": "rest",
+    "d-d5eve": "tang",
+    "d-d6am": "goose",
+    "d-d7": "leshan",
+    "d-d8am": "shop",
+    "h-chengdu": "w",
+    "h-xian": "westin"
+   },
+   "hearts": [
+    "p:drumtower-in",
+    "p:tianfu-idea",
+    "p:tangparadise"
+   ],
+   "t": 1789283358492
+  }
+ }
+}
