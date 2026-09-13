@@ -7,3 +7,4 @@ desktop.ini
 .claude/
 tools/__pycache__/
 tools/_app.js
+tools/_check.js

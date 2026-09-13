@@ -30,6 +30,31 @@ def at(k):
 
 IMG = set(f[:-4] for f in os.listdir(os.path.join(HERE, '..', 'img')) if f.endswith('.jpg'))
 def img(k): return f'img/{k}.jpg' if k in IMG else ''
+import glob, re
+def gal(k):
+    """main photo first, then the carousel extras img/g/<k>-<n>.jpg in number order"""
+    extra = sorted(glob.glob(os.path.join(HERE, '..', 'img', 'g', f'{k}-*.jpg')), key=lambda f: int(re.search(r'-(\d+)\.jpg$', f).group(1)))
+    return [x for x in [img(k)] if x] + ['img/g/' + os.path.basename(f) for f in extra]
+# what to search for in Amap / Apple / Google so the place card (photos, reviews) opens. No entry + no Chinese in the name = no Map button.
+MAPQ = {'lunch-mapo': '陈麻婆豆腐', 'peoplespark': '鹤鸣茶社', 'kuanzhai': '宽窄巷子', 'dinner-hotpot': '蜀九香火锅', 'panda': '成都大熊猫繁育研究基地',
+  'lunch-longchaoshou': '龙抄手 春熙路', 'dinner-d2': '马旺子', 'wildgoose': '大雁塔', 'dinner-dapaidang': '长安大牌档', 'datang': '大唐不夜城',
+  'terracotta': '秦始皇帝陵博物院', 'dinner-defachang': '德发长', 'shaanximuseum': '陕西历史博物馆', 'lunch-noodles': '樊记腊汁肉夹馍', 'citywall': '永宁门',
+  'belltower': '西安钟楼', 'night-d6': '春熙路', 'lunch-zhong': '钟水饺', 'opera': '蜀风雅韵', 'jinli-eve': '锦里古街', 'taikooli': '成都远洋太古里',
+  'wuhou': '成都武侯祠', 'huaqing': '华清宫', 'muslimquarter': '回民街', 'tangshow': '唐乐宫', 'yongxingfang': '永兴坊', 'hanfu': '大雁塔',
+  'smallgoose': '小雁塔', 'leshan-train': '成都东站', 'leshan': '乐山大佛', 'dujiangyan': '都江堰景区', 'dufu': '杜甫草堂', 'sichuanmuseum': '四川博物院',
+  'naturalhistory': '成都自然博物馆', 'wenshu': '文殊院', 'shopping': '成都国际金融中心', 'tianfu-idea': '天府广场', 'jinsha': '金沙遗址博物馆',
+  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼'}
+# English search for Google Maps (pre-trip reviews in English)
+MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu", 'kuanzhai': 'Kuanzhai Alley', 'dinner-hotpot': 'Shu Jiu Xiang Hot Pot',
+  'panda': 'Chengdu Research Base of Giant Panda Breeding', 'lunch-longchaoshou': 'Long Chao Shou Chunxi Road', 'dinner-d2': 'Ma Wang Zi restaurant',
+  'wildgoose': 'Big Wild Goose Pagoda', 'dinner-dapaidang': "Chang'an Da Pai Dang", 'datang': 'Great Tang All Day Mall', 'terracotta': 'Terracotta Army Museum',
+  'dinner-defachang': 'De Fa Chang dumpling restaurant', 'shaanximuseum': 'Shaanxi History Museum', 'lunch-noodles': 'Fanji Roujiamo', 'citywall': "Yongningmen South Gate Xi'an City Wall",
+  'belltower': "Bell Tower Xi'an", 'night-d6': 'Chunxi Road', 'lunch-zhong': 'Zhong Shui Jiao', 'opera': 'Shufeng Yayun Sichuan Opera', 'jinli-eve': 'Jinli Ancient Street',
+  'taikooli': 'Sino-Ocean Taikoo Li Chengdu', 'wuhou': 'Wuhou Shrine', 'huaqing': 'Huaqing Palace', 'muslimquarter': "Muslim Quarter Xi'an", 'tangshow': 'Tang Dynasty Show Theater',
+  'yongxingfang': 'Yongxingfang', 'hanfu': 'Big Wild Goose Pagoda', 'smallgoose': 'Small Wild Goose Pagoda', 'leshan-train': 'Chengdu East Railway Station',
+  'leshan': 'Leshan Giant Buddha', 'dujiangyan': 'Dujiangyan Irrigation System', 'dufu': 'Du Fu Thatched Cottage', 'sichuanmuseum': 'Sichuan Museum',
+  'naturalhistory': 'Chengdu Natural History Museum', 'wenshu': 'Wenshu Monastery', 'shopping': 'Chengdu IFS', 'tianfu-idea': 'Tianfu Square', 'jinsha': 'Jinsha Site Museum',
+  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an"}
 
 # ---------- days ----------
 DAYS = [
@@ -53,7 +78,7 @@ def I(id, day, name, city, cat, time='', end='', info='', fam=(), tags=(), key=N
     n = order.get(day, 0) + 1; order[day] = n
     lat, lng = at(key or id)
     items.append({'id': 'p:' + id, 'name': name, 'city': city, 'category': cat, 'time': time, 'end': end, 'info': info,
-                  'fam': list(fam), 'tags': list(tags), 'img': img(pic or id), 'lat': lat, 'lng': lng, 'address': '', 'book': book,
+                  'fam': list(fam), 'tags': list(tags), 'img': img(pic or id), 'gallery': gal(pic or id), 'mapq': MAPQ.get(id, ''), 'mapen': MAPEN.get(id, ''), 'lat': lat, 'lng': lng, 'address': '', 'book': book,
                   'day': day, 'suggestedDay': day, 'status': 'scheduled' if day and not opt else 'wishlist', 'opt': opt, 'order': n})
 
 # Day 1 — Mon 14 Dec
@@ -120,7 +145,7 @@ decisions = []
 def DEC(id, day, time, title, question, options, kind='activity'):
     decisions.append({'id': id, 'day': day, 'time': time, 'title': title, 'question': question, 'kind': kind, 'options': options})
 def O(id, name, city, blurb, fam=(), pic=None, its=()):
-    return {'id': id, 'name': name, 'city': city, 'blurb': blurb, 'fam': list(fam), 'img': img(pic or id), 'items': ['p:' + x for x in its]}
+    return {'id': id, 'name': name, 'city': city, 'blurb': blurb, 'fam': list(fam), 'img': img(pic or id), 'gallery': gal(pic or id), 'items': ['p:' + x for x in its]}
 
 I('opera', D[1], 'Sichuan Opera face-changing show 蜀风雅韵', 'Chengdu', 'Show', '20:00', '21:30',
   "Chengdu's classic evening show in a teahouse theatre: face-changing, fire-spitting, shadow puppets, comic sketches. Seats with tea.", ('indoor', 'book'), opt='d-d1eve:opera', pic='sichuanopera', book='Book 1–2 days ahead on Trip.com.')
@@ -208,9 +233,27 @@ I('biangbiang', '', 'Biangbiang noodles', "Xi'an", 'Food', info='Belt-wide hand-
 I('drumtower-in', '', 'Climb the Drum Tower 鼓楼', "Xi'an", 'Sight', info='Steep steps up for the drum performance and views over the Muslim Quarter.', fam=('stairs',), pic='drumtower', key='drumtower')
 
 # ---------- hotels (Marriott Bonvoy) ----------
+# Each hotel carousel shows the surrounding area, captioned with what's near.
+HGAL = {
+ 'jw': [('taikooli', 'Taikoo Li shopping streets · short walk'), ('g/chunxi-1', 'Chunxi Road · short walk'), ('ifspanda', 'The IFS climbing panda · short walk'), ('g/tianfu-1', 'Tianfu Square · nearby'), ('g/taikooli-4', 'Daci Temple inside Taikoo Li')],
+ 'w': [('g/financialcity-1', 'Modern Chengdu: the hotel is in the southern business district'), ('g/financialcity-3', 'Chengdu skyline'), ('kuanzhai', 'Old-town sights like Kuanzhai Alley · 25–35 min drive')],
+ 'ritz': [('g/tianfu-1', 'Tianfu Square · the hotel overlooks it'), ('g/tianfu-3', 'Tianfu Square towers'), ('peoplespark', "People's Park teahouse · short ride"), ('kuanzhai', 'Kuanzhai Alley · short ride')],
+ 'stregis': [('g/tianfu-2', 'Tianfu Square area · nearby'), ('chunxi', 'Chunxi Road · short ride'), ('g/wenshu-1', 'Wenshu Monastery · short ride')],
+ 'wxian': [('g/qujiangpool-1', 'Qujiang Pool park · by the hotel'), ('tangparadise', 'Tang Paradise · nearby'), ('g/tangparadise-1', 'Tang Paradise lakeside'), ('wildgoose', 'Big Wild Goose Pagoda · short drive'), ('datang', 'Great Tang All Day Mall · short drive')],
+ 'westin': [('wildgoose', 'Big Wild Goose Pagoda · next door'), ('g/wildgoose-4', 'The pagoda at night'), ('datang', 'Great Tang All Day Mall · walk'), ('g/datang-1', 'Night-walk street · walk'), ('g/shaanximuseum-4', 'Shaanxi History Museum · short hop')],
+ 'jwxa': [('hsr', "Handy for Xi'an North high-speed rail station"), ('belltower', 'Old city (Bell Tower) · a drive away'), ('citywall', 'City Wall · a drive away')],
+ 'ritzxa': [('xianhero', "Xi'an city wall lanterns · a drive away"), ('smallgoose', 'Small Wild Goose Pagoda · short drive'), ('g/shaanximuseum-3', 'Shaanxi History Museum · short drive')],
+}
+def hgal(hid):
+    out = []
+    for k, cap in HGAL[hid]:
+        src = f'img/{k}.jpg'
+        assert os.path.exists(os.path.join(HERE, '..', src)), src
+        out.append({'src': src, 'cap': cap})
+    return out
 def H(id, name, cn, area, addr, pros, cons, url, pic, fits, up, upnote, opened, reno):
-    return {'id': id, 'name': name, 'cn': cn, 'area': area, 'address': addr, 'pros': pros, 'cons': cons, 'url': url, 'img': img(pic), 'fits': fits,
-            'up': up, 'upnote': upnote, 'opened': opened, 'reno': reno}
+    return {'id': id, 'name': name, 'cn': cn, 'area': area, 'address': addr, 'pros': pros, 'cons': cons, 'url': url, 
+            'img': img(pic), 'gallery': hgal(id), 'fits': fits, 'up': up, 'upnote': upnote, 'opened': opened, 'reno': reno}
 hotels = {
  'Chengdu': {'nights': 'Sun 13 → Wed 16 Dec (3 nights) and Sat 19 → Mon 21 Dec (2 nights + the evening)',
   'tip': "Book the same hotel for both Chengdu stays: leave the big suitcases with the concierge while you're in Xi'an and take only overnight bags and the baby things on the train. Book the first night from Sun 13 Dec and tell the hotel you'll arrive around 1:30am, so the rooms are held.",
@@ -280,13 +323,15 @@ elite = [
 ]
 for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (both stays)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?")):
     decisions.append({'id': hid, 'day': '', 'time': '', 'title': cityname + ' hotel', 'question': q, 'kind': 'hotel',
-      'options': [{'id': h['id'], 'name': h['name'], 'city': cityname, 'blurb': h['fits'], 'fam': [], 'img': h['img'], 'items': []} for h in hotels[cityname]['options']]})
+      'options': [{'id': h['id'], 'name': h['name'], 'city': cityname, 'blurb': h['fits'], 'fam': [], 'img': h['gallery'][0]['src'], 'gallery': [g['src'] for g in h['gallery']], 'items': []} for h in hotels[cityname]['options']]})
 
 # ---------- fixed blocks ----------
 blocks = []
 def B(id, day, type, title, time='', key=None, **kw):
     b = {'id': 'seed:' + id, 'day': day, 'type': type, 'title': title, 'time': time, 'sort': '', 'number': '', 'from': '', 'to': '', 'tentative': False, 'note': '', 'updatedAt': 0}
     b.update(kw); b['lat'], b['lng'] = at(key) if key else (None, None)
+    b['mapq'] = {'land': '成都天府国际机场', 'tfu': '成都天府国际机场', 'g1': '成都东站', 'x1': '西安北站', 'g2': '西安北站', 'x2': '西安北站', 'd2van': '成都大熊猫繁育研究基地'}.get(id, '')
+    b['mapen'] = {'land': 'Chengdu Tianfu International Airport', 'tfu': 'Chengdu Tianfu International Airport', 'g1': 'Chengdu East Railway Station', 'x1': "Xi'an North Railway Station", 'g2': "Xi'an North Railway Station", 'x2': "Xi'an North Railway Station", 'd2van': 'Chengdu Research Base of Giant Panda Breeding'}.get(id, '')
     if type == 'hotel': b['dec'] = 'h-xian' if id.startswith('h2') else 'h-chengdu'
     blocks.append(b)
 B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:00', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='Business · lands about 00:05–00:15 Monday · confirm exact times on the e-ticket')
@@ -330,7 +375,9 @@ phrases = [['不辣 / 微辣', 'bù là / wēi là', 'Not spicy / mildly spicy']
            ['洗手间在哪里?', 'xǐ shǒu jiān zài nǎ lǐ', 'Where is the toilet?'], ['包间', 'bāo jiān', 'Private dining room']]
 
 used = {i['img'] for i in items} | {o['img'] for d in decisions for o in d['options']} | {h['img'] for c in hotels.values() for h in c['options']} | {'img/chengduhero.jpg', 'img/xianhero.jpg', 'img/panda.jpg'}
+used |= {g for i in items for g in i['gallery']} | {g for d in decisions for o in d['options'] for g in o.get('gallery', [])} | {g['src'] for c in hotels.values() for h in c['options'] for g in h['gallery']}
 credits = {k: v for k, v in json.load(open(os.path.join(HERE, 'credits.json'), encoding='utf-8')).items() if f'img/{k}.jpg' in used}
+credits.update({'g/' + k: v for k, v in json.load(open(os.path.join(HERE, 'gallery_credits.json'), encoding='utf-8')).items() if f'img/g/{k}.jpg' in used})
 unused = sorted(f'img/{k}.jpg' for k in IMG if f'img/{k}.jpg' not in used)
 seed = {'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
 json.dump(seed, open(os.path.join(HERE, 'seed.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))

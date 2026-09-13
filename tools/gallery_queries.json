@@ -1,0 +1,393 @@
+{
+ "panda": {
+  "q": [
+   "giant panda cub Chengdu",
+   "red panda Chengdu research base",
+   "giant panda climbing tree Chengdu"
+  ],
+  "n": 4
+ },
+ "peoplespark": {
+  "q": [
+   "People's Park Chengdu lake",
+   "Chengdu teahouse mahjong",
+   "People's Park Chengdu"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Happy Valley Chengdu (53684109794).jpg"
+  ]
+ },
+ "kuanzhai": {
+  "q": [
+   "Kuanzhai Xiangzi Chengdu street",
+   "Zhai Xiangzi Chengdu",
+   "Kuan Xiangzi"
+  ],
+  "n": 4
+ },
+ "jinli": {
+  "q": [
+   "Jinli ancient street Chengdu",
+   "Jinli Chengdu lanterns",
+   "Jinli street food Chengdu"
+  ],
+  "n": 4
+ },
+ "wuhou": {
+  "q": [
+   "Wuhou Temple Chengdu red wall bamboo",
+   "Wuhou Shrine Chengdu hall",
+   "Temple of Marquis Wu Chengdu"
+  ],
+  "n": 4
+ },
+ "taikooli": {
+  "q": [
+   "Taikoo Li Chengdu street",
+   "Daci Temple Chengdu",
+   "Sino-Ocean Taikoo Li"
+  ],
+  "n": 4
+ },
+ "ifspanda": {
+  "q": [
+   "IFS Chengdu",
+   "Chengdu IFS mall",
+   "Chunxi Road Chengdu IFS"
+  ],
+  "n": 4
+ },
+ "wenshu": {
+  "q": [
+   "Wenshu Monastery Chengdu hall",
+   "Wenshu Yuan temple",
+   "Wenshu Monastery Chengdu incense"
+  ],
+  "n": 4
+ },
+ "dufu": {
+  "q": [
+   "Du Fu Thatched Cottage garden",
+   "Du Fu Thatched Cottage bamboo",
+   "Du Fu cao tang Chengdu"
+  ],
+  "n": 4
+ },
+ "sichuanopera": {
+  "q": [
+   "Sichuan opera Chengdu performance",
+   "Chuanju face changing",
+   "Sichuan opera mask"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Nuo Opera Mask (13918957762).jpg"
+  ]
+ },
+ "hotpot": {
+  "q": [
+   "Sichuan hot pot restaurant Chengdu",
+   "hot pot ingredients China",
+   "Chongqing hot pot"
+  ],
+  "n": 4,
+  "reject": [
+   "File:海底捞校园火锅 电子科技大学清水河校区 2024-05-02.jpg",
+   "File:Thai suki, Thai hot pot ingredients, Bangkok, Thailand.jpg",
+   "File:Thai suki, Thai hot pot preparation, Dining in Bangkok, Thailand.jpg"
+  ]
+ },
+ "mapotofu": {
+  "q": [
+   "Mapo tofu Sichuan",
+   "Sichuan cuisine dishes",
+   "Kung Pao chicken"
+  ],
+  "n": 4
+ },
+ "sichuanmuseum": {
+  "q": [
+   "Sichuan Museum exhibits",
+   "Sichuan Museum Chengdu bronze",
+   "Sichuan Provincial Museum Chengdu"
+  ],
+  "n": 0,
+  "reject": [
+   "File:Unidentified - Sichuan University Museum - Chengdu, China - DSC06227.jpg",
+   "File:Clothing exhibit - Sichuan University Museum - Chengdu, China - DSC06267.jpg",
+   "File:Clothing exhibit - Sichuan University Museum - Chengdu, China - DSC06266.jpg",
+   "File:Lotus coronal with dyani Buddhas, paper - Sichuan University Museum - Chengdu, China - DSC06224.jpg"
+  ]
+ },
+ "jinsha": {
+  "q": [
+   "Jinsha Site Museum",
+   "Jinsha gold mask",
+   "Jinsha site Chengdu"
+  ],
+  "n": 4
+ },
+ "naturalhistory": {
+  "q": [
+   "Chengdu Natural History Museum",
+   "Chengdu University of Technology Museum dinosaur",
+   "Mamenchisaurus skeleton"
+  ],
+  "n": 4
+ },
+ "leshan": {
+  "q": [
+   "Leshan Giant Buddha boat",
+   "Leshan Giant Buddha face",
+   "Leshan Buddha river"
+  ],
+  "n": 4
+ },
+ "dujiangyan": {
+  "q": [
+   "Dujiangyan Anlan Bridge",
+   "Dujiangyan Fish Mouth",
+   "Dujiangyan Scenic Area"
+  ],
+  "n": 4
+ },
+ "qingcheng": {
+  "q": [
+   "Mount Qingcheng",
+   "Qingchengshan temple",
+   "Mount Qingcheng Taoist"
+  ],
+  "n": 4
+ },
+ "chunxi": {
+  "q": [
+   "Chunxi Road Chengdu",
+   "Chunxi Road shopping street",
+   "Chengdu Chunxi Road night"
+  ],
+  "n": 4
+ },
+ "terracotta": {
+  "q": [
+   "Terracotta Army warriors",
+   "Terracotta Army pit 1 rows",
+   "Terracotta Army museum Xian",
+   "bronze chariot Terracotta"
+  ],
+  "n": 4
+ },
+ "huaqing": {
+  "q": [
+   "Huaqing Palace",
+   "Huaqing Pool Lintong",
+   "Huaqingchi"
+  ],
+  "n": 4
+ },
+ "wildgoose": {
+  "q": [
+   "Giant Wild Goose Pagoda north square",
+   "Big Wild Goose Pagoda night",
+   "Da Ci'en Temple Xi'an"
+  ],
+  "n": 4
+ },
+ "datang": {
+  "q": [
+   "Great Tang All Day Mall",
+   "Datang Everbright City night",
+   "Datang Buyecheng Xi'an"
+  ],
+  "n": 4
+ },
+ "citywall": {
+  "q": [
+   "Xi'an city wall bicycle",
+   "Xi'an city wall top",
+   "Fortifications of Xi'an"
+  ],
+  "n": 4
+ },
+ "belltower": {
+  "q": [
+   "Bell Tower Xi'an",
+   "Xi'an Bell Tower night",
+   "Bell Tower of Xi'an"
+  ],
+  "n": 4
+ },
+ "drumtower": {
+  "q": [
+   "Drum Tower Xi'an",
+   "Drum Tower of Xi'an night",
+   "Xi'an Drum Tower drums"
+  ],
+  "n": 4
+ },
+ "muslimquarter": {
+  "q": [
+   "Muslim Quarter Xi'an food",
+   "Huimin Street Xi'an",
+   "Xi'an Muslim street night"
+  ],
+  "n": 4
+ },
+ "shaanximuseum": {
+  "q": [
+   "Shaanxi History Museum",
+   "Shaanxi History Museum exhibit Tang",
+   "Shaanxi History Museum gold"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Shaanxi History Museum Visitor Service Center.jpg",
+   "File:Qin-Han branch of the Shaanxi History Museum.jpg"
+  ]
+ },
+ "smallgoose": {
+  "q": [
+   "Small Wild Goose Pagoda",
+   "Jianfu Temple Xi'an",
+   "Xiaoyan Pagoda"
+  ],
+  "n": 4
+ },
+ "tangparadise": {
+  "q": [
+   "Tang Paradise Xi'an",
+   "Datang Furong Garden",
+   "Tang Paradise night"
+  ],
+  "n": 4
+ },
+ "tangshow": {
+  "q": [
+   "Tang dynasty dance performance",
+   "Tang dynasty show Xi'an",
+   "Chinese classical dance costume"
+  ],
+  "n": 0,
+  "reject": [
+   "File:Great Tang All Day Mall - 54787910792.jpg",
+   "File:Great Tang All Day Mall - 54789084315.jpg",
+   "File:Great Tang All Day Mall - 54788747661.jpg",
+   "File:Great Tang All Day Mall - 54789005323.jpg"
+  ]
+ },
+ "hanfu": {
+  "q": [
+   "Hanfu",
+   "Tang dynasty style clothing",
+   "Hanfu women"
+  ],
+  "n": 4
+ },
+ "dumplings": {
+  "q": [
+   "jiaozi dumplings",
+   "Chinese dumplings",
+   "Xi'an dumplings"
+  ],
+  "n": 4
+ },
+ "roujiamo": {
+  "q": [
+   "Roujiamo",
+   "rou jia mo",
+   "Shaanxi cuisine"
+  ],
+  "n": 4
+ },
+ "biangbiang": {
+  "q": [
+   "Biangbiang noodles",
+   "Biang biang mian",
+   "Shaanxi noodles"
+  ],
+  "n": 4
+ },
+ "paomo": {
+  "q": [
+   "Yangrou paomo",
+   "Paomo",
+   "Xi'an lamb soup bread"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Xiaochao Zhumo at Yellow River Restaurant, Beijing (20230606191446).jpg",
+   "File:Xiaochao Zhumo at Yellow River Restaurant, Beijing (20230606192601).jpg"
+  ]
+ },
+ "yongxingfang": {
+  "q": [
+   "Yongxingfang Xi'an",
+   "Yongxing fang food",
+   "Xi'an food street"
+  ],
+  "n": 4
+ },
+ "hsr": {
+  "q": [
+   "CR400AF",
+   "Fuxing high speed train",
+   "China Railway high-speed train interior"
+  ],
+  "n": 4
+ },
+ "tianfu": {
+  "q": [
+   "Tianfu Square in Chengdu city center",
+   "Chengdu Tianfu Square",
+   "Skyscrapers at Tianfu Square"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Tianfu-Square-1.JPG",
+   "File:Tianfu square in Chengdu in 1988.jpg",
+   "File:Statue of Mao Zedong in People's Square, Chengdu.jpg",
+   "File:Mao Zedong Statue (Tianfu Square).jpg"
+  ]
+ },
+ "financialcity": {
+  "q": [
+   "Chengdu Tianfu Avenue skyline",
+   "Chengdu skyline",
+   "Chengdu New Century Global Center",
+   "Chengdu high-tech zone"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Central Chengdu skyline at dawn - Flickr.jpg"
+  ]
+ },
+ "qujiangpool": {
+  "q": [
+   "Qujiang Pool Heritage Park",
+   "Qujiangchi park Xi'an",
+   "Qujiang Xi'an lake"
+  ],
+  "n": 3
+ },
+ "gaoxin": {
+  "q": [
+   "Xi'an skyline",
+   "Xi'an Greenland Center",
+   "Xi'an high-tech zone"
+  ],
+  "n": 0,
+  "reject": [
+   "File:Drum Tower in Xi'an, Jun 21 2023.jpg",
+   "File:Xi'an International Football Center (under construction), Feb 28 2023.jpg",
+   "File:Crowds in Dayan Tower, Xi'an, April 30 2023.jpg"
+  ]
+ },
+ "xiannorth": {
+  "q": [
+   "Xi'an North railway station",
+   "Xi'anbei railway station",
+   "Xi'an skyline night"
+  ],
+  "n": 0
+ }
+}
