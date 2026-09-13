@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-13T16:57+08:00",
- "count": 1,
+ "updated": "2026-09-13T18:42+08:00",
+ "count": 3,
  "ballots": {
   "Khan": {
    "picks": {
@@ -20,6 +20,24 @@
     "p:tangparadise"
    ],
    "t": 1789283358492
+  },
+  "Mc": {
+   "picks": {
+    "d-d1eve": "opera",
+    "d-d2pm": "taikoo",
+    "d-d5eve": "tang",
+    "d-d4pm": "huaqing"
+   },
+   "hearts": [],
+   "t": 1789295503011
+  },
+  "Tze": {
+   "picks": {
+    "h-xian": "ritzxa",
+    "h-chengdu": "jw"
+   },
+   "hearts": [],
+   "t": 1789295346523
   }
  }
 }
