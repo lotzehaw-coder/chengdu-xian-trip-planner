@@ -216,7 +216,7 @@ details.prep .inner{padding:0 14px 14px}
 .opt .who{font-size:12px;color:var(--ink-3);min-height:16px}
 .opt .pick{margin-top:6px;width:100%}
 .opt.mine .pick{background:var(--c-vote);border-color:var(--c-vote);color:#fff}
-.opt .lockbtn{font-size:12px;color:var(--ink-3);background:none;border:0;padding:2px 0 0;cursor:pointer;text-decoration:underline;text-align:left}
+.lockbtn{font-size:12px;color:var(--ink-3);background:none;border:0;padding:2px 0 0;cursor:pointer;text-decoration:underline;text-align:left}
 .ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media (min-width:640px){.ideas{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -241,6 +241,15 @@ details.prep .inner{padding:0 14px 14px}
 .hotel li.pro::before{content:"✓";color:#23704a;font-weight:700}
 .hotel li.con::before{content:"–";color:#b4362a;font-weight:700}
 .hotel .addr{font-size:13px;color:var(--ink-3)}
+.hotel .up{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px;margin-bottom:2px}
+.hotel .stars{color:var(--gold);font-size:17px;letter-spacing:1px}
+.hotel .stars i{color:var(--line);font-style:normal}
+.hotel .age{margin-left:auto;font-size:12.5px;color:var(--ink-3)}
+.hotel .upnote{font-size:12.5px;color:var(--ink-3);background:var(--paper);border-radius:8px;padding:6px 8px;margin:4px 0 8px}
+.elite{background:#f1ecfb;border-radius:var(--r);padding:12px 14px;margin:10px 0 18px}
+.elite b{display:block;margin-bottom:4px}
+.elite ol{margin:4px 0 0;padding-left:20px;font-size:14px;color:var(--ink-2)}
+.elite li{margin:4px 0}
 .hotel .tally{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-3);margin-top:6px}
 .hotel .tally .bar{flex:1;height:6px;border-radius:3px;background:var(--paper-2);overflow:hidden}
 .hotel .tally .bar i{display:block;height:100%;background:var(--c-vote)}
@@ -339,8 +348,9 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
       <!-- HOTELS -->
       <section class="view" id="v-hotels">
         <h2>Where we stay</h2>
-        <p class="muted">All Marriott Bonvoy, so points and elite perks apply. Vote for one in each city, then book.</p>
+        <p class="muted">All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Vote for one in each city.</p>
         <div class="tip x">Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.</div>
+        <div class="elite"><b>💎 Everyone is Titanium or Platinum: how to get the suites</b><ol id="eliteList"></ol></div>
         <div id="hotelList"></div>
       </section>
 
@@ -709,6 +719,7 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 
 // ---------- HOTELS ----------
 function renderHotels(){
+  $('#eliteList').innerHTML = SEED.elite.map(x=>`<li>${esc(x)}</li>`).join('');
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([city, st])=>{
     const did = city==='Chengdu'?'h-chengdu':'h-xian'; const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
@@ -716,7 +727,9 @@ function renderHotels(){
       <div class="tip">💡 ${esc(st.tip)}</div>
       ${st.options.map((h,k)=>{ const n=t[h.id].length; return `<div class="hotel ${mine===h.id?'mine':''}">
         <div class="banner">${imgTag(h.img,'',city)}${k===0?'<span class="badge">★ Our suggestion</span>':''}<div class="t"><b>${esc(h.name)}</b><span>${esc(h.cn)} · ${esc(h.area)}</span></div></div>
-        <div class="hb"><div class="row"><span class="chip">${esc(h.fits)}</span>${lock===h.id?'<span class="chip lock">locked in ✓</span>':ld&&!ld.tie&&ld.opt===h.id?'<span class="chip lead">leading</span>':''}</div>
+        <div class="hb"><div class="up"><span class="stars" aria-label="Suite upgrade odds ${h.up} of 5">${'★'.repeat(h.up)}<i>${'★'.repeat(5-h.up)}</i></span> <b>Suite upgrade odds</b><span class="age">🏗 Opened ${esc(h.opened)} · ${esc(h.reno)}</span></div>
+          <div class="upnote">${esc(h.upnote)}</div>
+          <div class="row"><span class="chip">${esc(h.fits)}</span>${lock===h.id?'<span class="chip lock">locked in ✓</span>':ld&&!ld.tie&&ld.opt===h.id?'<span class="chip lead">leading</span>':''}</div>
           <ul>${h.pros.map(p=>`<li class="pro">${esc(p)}</li>`).join('')}${h.cons.map(p=>`<li class="con">${esc(p)}</li>`).join('')}</ul>
           <div class="addr">${esc(h.address)}</div>
           <div class="tally"><div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div><span>${n?`${n} · ${esc(t[h.id].join(', '))}`:'no votes yet'}</span></div>

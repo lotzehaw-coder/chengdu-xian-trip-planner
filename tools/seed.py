@@ -208,42 +208,76 @@ I('biangbiang', '', 'Biangbiang noodles', "Xi'an", 'Food', info='Belt-wide hand-
 I('drumtower-in', '', 'Climb the Drum Tower 鼓楼', "Xi'an", 'Sight', info='Steep steps up for the drum performance and views over the Muslim Quarter.', fam=('stairs',), pic='drumtower', key='drumtower')
 
 # ---------- hotels (Marriott Bonvoy) ----------
-def H(id, name, cn, area, addr, pros, cons, url, pic, fits):
-    return {'id': id, 'name': name, 'cn': cn, 'area': area, 'address': addr, 'pros': pros, 'cons': cons, 'url': url, 'img': img(pic), 'fits': fits}
+def H(id, name, cn, area, addr, pros, cons, url, pic, fits, up, upnote, opened, reno):
+    return {'id': id, 'name': name, 'cn': cn, 'area': area, 'address': addr, 'pros': pros, 'cons': cons, 'url': url, 'img': img(pic), 'fits': fits,
+            'up': up, 'upnote': upnote, 'opened': opened, 'reno': reno}
 hotels = {
  'Chengdu': {'nights': 'Sun 13 → Wed 16 Dec (3 nights) and Sat 19 → Mon 21 Dec (2 nights + the evening)',
   'tip': "Book the same hotel for both Chengdu stays: leave the big suitcases with the concierge while you're in Xi'an and take only overnight bags and the baby things on the train. Book the first night from Sun 13 Dec and tell the hotel you'll arrive around 1:30am, so the rooms are held.",
   'options': [
-   H('ritz', 'The Ritz-Carlton, Chengdu', '成都富力丽思卡尔顿酒店', 'Tianfu Square · Qingyang', '269 Shuncheng Avenue 顺城大街269号',
-     ['Overlooks Tianfu Square, right in the centre', 'Club Lounge: easy afternoon tea and snacks for grandparents and kids', "Short ride to People's Park, Kuanzhai and Chunxi Road"],
-     ['City-centre traffic at rush hour'], 'https://www.ritzcarlton.com/en/hotels/cturz-the-ritz-carlton-chengdu/overview/', 'chengduhero', 'Best all-rounder'),
-   H('stregis', 'The St. Regis Chengdu', '成都瑞吉酒店', 'Near Tianfu Square · Qingyang', '88 Taisheng Road South 太升南路88号',
-     ['Spacious rooms, easier with a cot and kids', 'Butler service helps with a big family', 'Close to Tianfu Square and Chunxi Road'],
-     ['Usually the priciest of the four'], 'https://www.marriott.com/en-us/hotels/ctuxr-the-st-regis-chengdu/overview/', 'chunxi', 'Most space'),
-   H('jw', 'JW Marriott Hotel Chengdu', '成都JW万豪酒店', 'Chunxi Road · Jinjiang', '19 Dongyu Street 东御街19号',
-     ['Close to Chunxi Road, Taikoo Li and the IFS panda', 'Executive lounge for qualifying elite members', 'Lots of food within a short stroll'],
-     ['Busy shopping district, lively outside at night'], 'https://www.marriott.com/en-us/hotels/ctumj-jw-marriott-hotel-chengdu/overview/', 'taikooli', 'Near the shopping'),
+   H('jw', 'JW Marriott Hotel Chengdu', '成都茂业JW万豪酒店', 'Chunxi Road · Taikoo Li', '19 Dongyu Street 东御街19号',
+     ['Guests with elite status report upgrades to executive suites', 'Executive lounge and breakfast for Platinum and Titanium', 'Walk to Chunxi Road, Taikoo Li and the IFS panda; Tianfu Square metro nearby'],
+     ['About 10 years old by the trip, with no major renovation found', 'Busy shopping district, lively outside at night'],
+     'https://www.marriott.com/en-us/hotels/ctumj-jw-marriott-hotel-chengdu/overview/', 'taikooli', 'Best for elites + location',
+     4, 'TripAdvisor: Titanium and Ambassador guests upgraded to executive suites with a separate bedroom and two bathrooms. The lounge is included for Platinum and above.',
+     'Oct 2016', 'no major renovation found'),
    H('w', 'W Chengdu', '成都W酒店', 'Financial City · Gaoxin (south)', '300 Jiaozi Avenue 交子大道300号',
-     ['Newer, modern, fun for teens', 'South side of the city: a shorter drive to Tianfu Airport', 'Pool and spa'],
-     ['25–35 min by car to the old-town sights', 'Nightlife vibe rather than a quiet family one'], 'https://www.marriott.com/en-us/hotels/ctuwh-w-chengdu/overview/', 'ifspanda', 'Modern, nearer the airport'),
+     ['Newest in Chengdu (2020)', 'Reported to upgrade generously, often to a suite (panda-themed WOW / Fantastic suites)', 'South side: a shorter drive to Tianfu Airport'],
+     ['No executive lounge: the elite perk is a lobby-bar happy hour', '25–35 min by car to the old-town sights', 'Nightlife vibe'],
+     'https://www.marriott.com/en-us/hotels/ctuwh-w-chengdu/overview/', 'ifspanda', 'Newest + generous, far from sights',
+     4, 'SMZDM (Platinum): "generous with upgrades, basically a suite when availability allows". Elites get a lobby-bar happy hour, with no lounge.',
+     'Oct 2020', 'new'),
+   H('ritz', 'The Ritz-Carlton, Chengdu', '成都富力丽思卡尔顿酒店', 'Tianfu Square · Qingyang', '269 Shuncheng Avenue 顺城大街269号',
+     ['Beautiful suites and Club floors over Tianfu Square (55 suites)', "Short ride to People's Park, Kuanzhai and Chunxi Road"],
+     ['Platinum members get no Club Lounge or free breakfast at Ritz-Carlton', 'Ritz-Carlton suite upgrades are hard even for Titanium', 'Opened 2013'],
+     'https://www.ritzcarlton.com/en/hotels/cturz-the-ritz-carlton-chengdu/overview/', 'chengduhero', 'Luxury, weakest elite perks',
+     2, 'Reviewers advise Platinum members to pick the JW or St. Regis, since the Ritz gives them no lounge or breakfast. Suites are possible for Titanium but not dependable.',
+     'Oct 2013', 'refurbished 2017 (per Ctrip)'),
+   H('stregis', 'The St. Regis Chengdu', '成都瑞吉酒店', 'Near Tianfu Square · Qingyang', '88 Taisheng Road South 太升南路88号',
+     ['Spacious rooms and butler service', 'Close to Tianfu Square and Chunxi Road'],
+     ['Titanium guests report being told suites are not part of free upgrades', 'Opened 2014, no renovation found', 'Usually the priciest'],
+     'https://www.marriott.com/en-us/hotels/ctuxr-the-st-regis-chengdu/overview/', 'chunxi', 'Least likely to upgrade',
+     1, 'TripAdvisor and FlyerTalk, backed up on Flyert (飞客): Titanium guests say the hotel told them suites are excluded from complimentary upgrades. One Ambassador did get a suite.',
+     'Sep 2014', 'no renovation found'),
   ]},
  "Xi'an": {'nights': 'Wed 16 → Sat 19 Dec (3 nights)',
-  'tip': 'Stay in Qujiang, by the Big Wild Goose Pagoda. The evening walks are on the doorstep and the Shaanxi History Museum is a few minutes away, so the grandparents and the baby can pop back to the room whenever they need.',
+  'tip': "Stay in Qujiang, near the Big Wild Goose Pagoda and the night-walk street. The W and the Westin are both there, a short ride apart. Mid-December is low season in Xi'an, which helps the upgrade odds.",
   'options': [
-   H('westin', "The Westin Xi'an", '西安威斯汀酒店', 'Big Wild Goose Pagoda · Qujiang', "66 Ci'en Road 慈恩路66号",
-     ['Next to the Big Wild Goose Pagoda and the Great Tang All Day Mall lights', 'Short hop to the Shaanxi History Museum', 'Calm, family-friendly feel'],
-     ['About an hour to the Terracotta Army (true of any city hotel)'], 'https://www.marriott.com/en-us/hotels/xiywi-the-westin-xian/overview/', 'wildgoose', 'Best location for this trip'),
    H('wxian', "W Xi'an", '西安W酒店', 'Qujiang Pool', '333 Qujiang Chi East Road 曲江池东路333号',
-     ['By Qujiang Pool park and Tang Paradise', 'Striking design', 'Short drive to the pagoda area'],
-     ['Further from the old city wall and the Muslim Quarter', 'Livelier, less restful'], 'https://www.marriott.com/search/findHotels.mi?destinationAddress.destination=W%20Xian%20China', 'tangparadise', 'Stylish'),
+     ['Built 2018: much newer than the Westin', 'A Jan 2025 Flyert stay was upgraded to a 100+ m² suite by default (free minibar)', 'Very good breakfast; by Qujiang Pool park and Tang Paradise, a short ride to the pagoda'],
+     ['Lively W vibe with a nightclub', 'Further from the old city wall and the Muslim Quarter'],
+     'https://www.marriott.com/en-us/hotels/xiywh-w-xian/overview/', 'tangparadise', 'Newer + most generous',
+     4, 'Flyert (Jan 2025): "suite upgrade by default, without asking or a suite certificate". TripAdvisor: a suite upgrade for a Marriott elite guest.',
+     'Aug 2018', 'no renovation needed yet'),
+   H('westin', "The Westin Xi'an", '西安威斯汀大酒店', 'Big Wild Goose Pagoda · Qujiang', "66 Ci'en Road 慈恩路66号",
+     ['Walk to the Big Wild Goose Pagoda and the night-walk street', 'Platinum guests report suite upgrades; lounge with a strong afternoon tea and evening spread', 'Unusual museum hotel (Neri&Hu design)'],
+     ['Oldest of the eight: opened 2012 with no renovation found; reviews say some rooms feel dated'],
+     'https://www.marriott.com/en-us/hotels/xiywi-the-westin-xian/overview/', 'wildgoose', 'Best location, oldest rooms',
+     4, 'Flyert, TripAdvisor and Trip.com (2025): Platinum guests upgraded to deluxe suites, and many Titanium guests to the executive floor. The lounge is included for Platinum and above.',
+     'Mar 2012', 'no renovation found'),
+   H('jwxa', "JW Marriott Hotel Xi'an", '西安海荣JW万豪酒店', 'Economic Development Zone (north)', '168 Fengcheng 8th Road 凤城八路168号',
+     ['Newest of all (2023)', 'Executive lounge on a high floor', "The nearest of these to Xi'an North station"],
+     ['Titanium upgrades reported as corner or executive rooms rather than suites', 'North of the old city: 30+ min to Qujiang sights'],
+     'https://www.marriott.com/en-us/hotels/xiyjw-jw-marriott-hotel-xian/overview/', 'belltower', 'Newest, fewer suites, far',
+     3, "Flyert: Titanium guests at the Xi'an JW Marriotts usually get panoramic corner or executive rooms, plus lounge access.",
+     'Apr 2023', 'new'),
    H('ritzxa', "The Ritz-Carlton, Xi'an", '西安丽思卡尔顿酒店', 'Hi-tech Zone · Gaoxin', '50 Keji 2nd Road 科技二路50号',
-     ['Club Lounge for rest breaks', 'Quiet business district'],
-     ['20–30 min by car to most sights: more van time with the baby and the elderly'], 'https://www.marriott.com/search/findHotels.mi?destinationAddress.destination=Ritz-Carlton%20Xian%20China', 'xianhero', 'Lounge, quieter'),
-   H('jwxa', "JW Marriott Hotel Xi'an", '西安JW万豪酒店', 'Economic Development Zone (north)', '168 Fengcheng 8th Road 凤城八路168号',
-     ["The nearest of these to Xi'an North station", 'Metro by the hotel; executive lounge'],
-     ['North of the old city: the evening sights are a drive away'], 'https://www.marriott.com/en-us/hotels/xiyjw-jw-marriott-hotel-xian/overview/', 'belltower', 'Nearest the station'),
+     ['Opened 2019; big suites (150 m² on high floors)', 'Quiet business district'],
+     ['A 2026 Titanium guest got no automatic upgrade, only one after asking', 'Platinum members get no Club Lounge or breakfast', '20–30 min by car to most sights'],
+     'https://www.ritzcarlton.com/en/hotels/xiyrz-the-ritz-carlton-xian/overview/', 'xianhero', 'Least generous here',
+     2, 'FlyerTalk (2026): a Titanium guest got no upgrade until asking. Ritz-Carlton gives Platinum members no lounge or breakfast.',
+     'Jun 2019', 'no renovation needed yet'),
   ]},
 }
+elite = [
+ "Book each room under a different Platinum/Titanium member's own Bonvoy account, with that person staying in the room. Upgrades, lounge access and breakfast go to the member in the room, so 5 rooms means 5 separate chances at a suite.",
+ "Book direct on Marriott.com or the Bonvoy app. Most third-party bookings (Trip.com, Agoda) don't get elite benefits.",
+ "Titanium members: put Suite Night Awards on the rooms that matter most (the grandparents' room and the room with the baby). They're confirmed a few days before arrival.",
+ 'About 1–2 weeks before, email the hotel: a multi-generational family of 10, all Titanium/Platinum, 5 rooms. Ask for connecting or adjacent rooms, suites if available, a cot, and how many people can use the lounge per room.',
+ 'Chengdu is one hotel with a 3-night + 2-night split: ask them to note the upgrade on both bookings, so you return to the same suite on 19 Dec.',
+ "Check the breakfast and lounge rules for children when you book; hotels often cap it at the member plus one guest, and kids' rules vary.",
+ 'Since 2025 Marriott only promises "an upgrade", not a suite, and upgrades in China are now decided by an algorithm, so treat suites as likely, not guaranteed.',
+]
 for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (both stays)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?")):
     decisions.append({'id': hid, 'day': '', 'time': '', 'title': cityname + ' hotel', 'question': q, 'kind': 'hotel',
       'options': [{'id': h['id'], 'name': h['name'], 'city': cityname, 'blurb': h['fits'], 'fam': [], 'img': h['img'], 'items': []} for h in hotels[cityname]['options']]})
@@ -278,7 +312,7 @@ B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:05', sort='25:05', nu
 
 # ---------- before we go ----------
 prep = [
- ['Now', 'Vote on hotels, then book them early (December rates and award nights go fast). Ask for connecting rooms and a baby cot.'],
+ ['Now', 'Vote on hotels, then book each room direct under a different Platinum/Titanium member (tips in the Hotels tab). Ask for connecting rooms and a baby cot.'],
  ['Now', 'Passports valid 6+ months. Malaysians currently enter China visa-free for up to 30 days; re-check nearer the date.'],
  ['Now', 'Set up Alipay (and/or WeChat Pay) with a Malaysian card and get China eSIMs. Install 高德 Amap, Didi and Trip.com.'],
  ['Tue 1 Dec', "Panda Base tickets + shuttle bus for Tue 15 Dec (14 days ahead). Train tickets to Xi'an for Wed 16 Dec (15 days ahead)."],
@@ -298,7 +332,7 @@ phrases = [['不辣 / 微辣', 'bù là / wēi là', 'Not spicy / mildly spicy']
 used = {i['img'] for i in items} | {o['img'] for d in decisions for o in d['options']} | {h['img'] for c in hotels.values() for h in c['options']} | {'img/chengduhero.jpg', 'img/xianhero.jpg', 'img/panda.jpg'}
 credits = {k: v for k, v in json.load(open(os.path.join(HERE, 'credits.json'), encoding='utf-8')).items() if f'img/{k}.jpg' in used}
 unused = sorted(f'img/{k}.jpg' for k in IMG if f'img/{k}.jpg' not in used)
-seed = {'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
+seed = {'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
 json.dump(seed, open(os.path.join(HERE, 'seed.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 ids = {i['id'] for i in items}
 bad = [x for d in decisions for o in d['options'] for x in o['items'] if x not in ids]
