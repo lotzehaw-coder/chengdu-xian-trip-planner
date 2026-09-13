@@ -36,8 +36,11 @@ finally:
 
 # 3. images referenced exist, are credited, galleries have no duplicates
 refs = {}
+remote = {}
 def ref(src, where):
-    if src: refs.setdefault(src, []).append(where)
+    if not src: return
+    if src.startswith('http'): remote.setdefault(src, []).append(where)   # hotel photos served by Marriott
+    else: refs.setdefault(src, []).append(where)
 for i in seed['items']:
     ref(i['img'], i['id'])
     for g in i.get('gallery', []): ref(g, i['id'])
@@ -50,6 +53,7 @@ for city, st in seed['hotels'].items():
     for h in st['options']:
         caps = [g.get('cap') for g in h['gallery']]
         if not all(caps): E(f'hotel {h["id"]} has a photo without a caption')
+        if not any(g['src'].startswith('http') for g in h['gallery']): E(f'hotel {h["id"]} has no photos of the hotel itself')
         if len({g['src'] for g in h['gallery']}) != len(h['gallery']): E(f'duplicate photo in hotel {h["id"]} carousel')
         if len(h['gallery']) < 3: W(f'hotel {h["id"]} carousel has only {len(h["gallery"])} photos')
         for g in h['gallery']: ref(g['src'], 'hotel:' + h['id'])
@@ -134,6 +138,9 @@ def fetch(url, method='HEAD', tries=3):
         return code or str(e)[:60]
 if '--links' in sys.argv:
     urls = [(h['url'], 'hotel ' + h['id']) for st in seed['hotels'].values() for h in st['options']] + [(c['page'], 'credit ' + k) for k, c in cred.items()]
+    for u, where in remote.items():   # hotel photos must actually load from Marriott, or the card shows a blank
+        st = fetch(u, 'GET')
+        (None if st == 200 else E(f'hotel photo not loading ({st}): {u} used by {where[0]}'))
     for u, what in urls:
         st = fetch(u) if 'marriott.com' not in u and 'ritzcarlton.com' not in u else fetch(u, 'GET')
         if st == 200: continue

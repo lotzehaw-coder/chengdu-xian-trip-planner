@@ -1,0 +1,211 @@
+{
+ "_note": "Official hotel photos, loaded straight from Marriott's image server (not copied into this repo) and credited 'Photo: Marriott'. Sources: each hotel's /photos/ page on marriott.com / ritzcarlton.com, 13 Sep 2026.",
+ "jw": [
+  [
+   "R/CTUMJ/ctumj-entrance-0033",
+   "Hotel entrance"
+  ],
+  [
+   "R/CTUMJ/ctumj-lobby-0035",
+   "Lobby"
+  ],
+  [
+   "R/CTUMJ/ctumj-guestroom-7796",
+   "Guest room"
+  ],
+  [
+   "R/CTUMJ/ctumj-family-suite-1063",
+   "Family suite"
+  ],
+  [
+   "R/CTUMJ/ctumj-lounge-0047",
+   "Executive lounge"
+  ],
+  [
+   "R/CTUMJ/ctumj-pool-0056",
+   "Indoor pool"
+  ]
+ ],
+ "w": [
+  [
+   "R/CTUWH/ctuwh-entrance-2681",
+   "Hotel entrance"
+  ],
+  [
+   "R/CTUWH/ctuwh-lobby-2743",
+   "Lobby"
+  ],
+  [
+   "R/CTUWH/ctuwh-king-wonderfulroom-2718",
+   "Wonderful room"
+  ],
+  [
+   "R/CTUWH/ctuwh-wow-suite-2710",
+   "WOW suite"
+  ],
+  [
+   "R/CTUWH/ctuwh-pool-2666",
+   "Pool"
+  ],
+  [
+   "R/CTUWH/ctuwh-rooftop-bar-9338",
+   "Rooftop bar"
+  ]
+ ],
+ "ritz": [
+  [
+   "S/cturz-skyline-0009",
+   "Hotel tower and skyline"
+  ],
+  [
+   "S/rz-cturz-tianfu-square-view-41196",
+   "Tianfu Square view"
+  ],
+  [
+   "S/rz-cturz-cturz-king-room-29887",
+   "King room"
+  ],
+  [
+   "S/rz-cturz-cturz-premier-suite-15286",
+   "Premier suite"
+  ],
+  [
+   "S/cturz-club-lounge-50050632",
+   "Club Lounge"
+  ],
+  [
+   "S/rz-cturz-cturz-pool-28530",
+   "Pool"
+  ]
+ ],
+ "stregis": [
+  [
+   "R/CTUXR/ctuxr-exterior-9965",
+   "Hotel exterior"
+  ],
+  [
+   "R/CTUXR/ctuxr-reception-9953",
+   "Reception"
+  ],
+  [
+   "R/CTUXR/ctuxr-deluxe-room-2228",
+   "Deluxe room"
+  ],
+  [
+   "R/CTUXR/ctuxr-empire-suite-9925",
+   "Empire suite"
+  ],
+  [
+   "R/CTUXR/ctuxr-pool-9941",
+   "Pool"
+  ],
+  [
+   "R/CTUXR/ctuxr-drawing-room-9944",
+   "Drawing room"
+  ]
+ ],
+ "wxian": [
+  [
+   "R/XIYWH/xiywh-exterior-6750",
+   "Hotel exterior"
+  ],
+  [
+   "R/XIYWH/xiywh-living-room-8132",
+   "Living Room (lobby lounge)"
+  ],
+  [
+   "R/XIYWH/xiywh-king-room-6751",
+   "King room"
+  ],
+  [
+   "R/XIYWH/xiywh-fantastic-suite-8129",
+   "Fantastic suite"
+  ],
+  [
+   "R/XIYWH/xiywh-suite-livingroom-4174",
+   "Lounge area"
+  ],
+  [
+   "R/XIYWH/xiywh-away-spa-4167",
+   "AWAY Spa"
+  ]
+ ],
+ "westin": [
+  [
+   "R/XIYWI/xiywi-exterior-0037",
+   "Hotel exterior"
+  ],
+  [
+   "R/XIYWI/xiywi-pagoda-view-0151",
+   "Room with a view"
+  ],
+  [
+   "R/XIYWI/xiywi-deluxe-king-0034",
+   "Deluxe king room"
+  ],
+  [
+   "R/XIYWI/xiywi-suite-livingroom-0159",
+   "Suite living room"
+  ],
+  [
+   "R/XIYWI/xiywi-club-lounge-0125",
+   "Club lounge"
+  ],
+  [
+   "R/XIYWI/xiywi-spa-0158",
+   "Spa"
+  ]
+ ],
+ "jwxa": [
+  [
+   "S/jw-xiyjw-xiyjw-hotel-exterior-day2-40726",
+   "Hotel exterior"
+  ],
+  [
+   "S/jw-xiyjw-xiyjw-arrival-lobby23524-43380",
+   "Arrival lobby"
+  ],
+  [
+   "S/jw-xiyjw-xiyjw-deluxe-twin-10620",
+   "Deluxe room, 2 doubles"
+  ],
+  [
+   "S/jw-xiyjw-xiyjw-corner-suite-21084",
+   "Corner suite living room"
+  ],
+  [
+   "S/jw-xiyjw-xiyjw-pool-37706",
+   "Indoor infinity pool"
+  ],
+  [
+   "S/jw-xiyjw-xiyjw-executive-lounge166-72008",
+   "Executive lounge"
+  ]
+ ],
+ "ritzxa": [
+  [
+   "R/XIYRZ/xiyrz-lounge-9227",
+   "Lounge"
+  ],
+  [
+   "R/XIYRZ/xiyrz-king-deluxe-0453",
+   "Deluxe king room"
+  ],
+  [
+   "R/XIYRZ/xiyrz-suite-0454",
+   "Suite"
+  ],
+  [
+   "R/XIYRZ/xiyrz-kids-3293",
+   "Kids' room"
+  ],
+  [
+   "R/XIYRZ/xiyrz-pool-3301",
+   "Pool"
+  ],
+  [
+   "R/XIYRZ/xiyrz-bar-3288",
+   "Bar"
+  ]
+ ]
+}

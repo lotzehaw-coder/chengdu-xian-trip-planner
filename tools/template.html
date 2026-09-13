@@ -512,23 +512,19 @@ function mapTargets(o){
     apple: `https://maps.apple.com/?q=${enc(kw)}${near?`&sll=${o.lat},${o.lng}`:''}`,
   };
 }
-function launch(app, web){
-  if (!app){ window.open(web, '_blank', 'noopener'); return; }
-  let left=false; const onHide=()=>{ left=true; };
-  document.addEventListener('visibilitychange', onHide); window.addEventListener('pagehide', onHide);
-  const t0=now(); location.href=app;
-  setTimeout(()=>{ document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', onHide);
-    if (!left && document.visibilityState==='visible' && now()-t0<3000) location.href=web; }, 1400);
-}
+// Open maps WITHOUT touching this page: a new tab that hands off to the app (Amap's link page calls the app itself;
+// Apple/Google links open their apps). The old "location.href = app, then fall back to the web page" replaced the
+// itinerary whenever the phone's browser couldn't open the app directly (e.g. inside WhatsApp).
+function openOut(url){ const w=window.open(url, '_blank', 'noopener'); if (!w){ const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); } }
 function openMap(o){
   const t=mapTargets(o);
-  const m=$('#mapMenu'); m.innerHTML=`<h3>${esc(t.title)}</h3><p>Opens the place itself so you can see its photos and reviews. No directions until you're there.</p>
+  const m=$('#mapMenu'); m.innerHTML=`<h3>${esc(t.title)}</h3><p>Opens in a new tab or the map app, so this page stays where it is. Shows the place itself (photos, reviews), not directions.</p>
     <button class="btn map" data-go="amap"><svg><use href="#ico-map"/></svg> 高德地图 Amap <small style="font-weight:400;opacity:.85">· best in China</small></button>
     <button class="btn" data-go="google">Google Maps <small style="color:var(--ink-3)">· English reviews, before the trip</small></button>
     ${isIOS?'<button class="btn" data-go="apple">Apple Maps</button>':''}<button class="btn ghost" data-go="x">Cancel</button>`;
   $('#mapOverlay').classList.remove('hidden');
   m.onclick=(e)=>{ const b=e.target.closest('[data-go]'); if(!b) return; $('#mapOverlay').classList.add('hidden');
-    if (b.dataset.go==='amap') launch(t.amapApp, t.amapWeb); else if (b.dataset.go==='google') window.open(t.google,'_blank','noopener'); else if (b.dataset.go==='apple') location.href=t.apple; };
+    if (b.dataset.go==='amap') openOut(t.amapWeb); else if (b.dataset.go==='google') openOut(t.google); else if (b.dataset.go==='apple') openOut(t.apple); };
 }
 $('#mapOverlay').addEventListener('click', e=>{ if (e.target.id==='mapOverlay') e.target.classList.add('hidden'); });
 document.addEventListener('click', e=>{ const b=e.target.closest('[data-map]'); if(!b) return; e.preventDefault(); e.stopPropagation(); try{ openMap(JSON.parse(b.dataset.map)); }catch(err){ toast('Could not open the map'); } }, true);
@@ -540,7 +536,7 @@ const mapBtn = (o) => o.q ? `<button class="btn small map" data-map="${esc(JSON.
 function car(list, cls, alt){
   const g=(list||[]).map(x=>typeof x==='string'?{src:x,cap:''}:x).filter(x=>x&&x.src);
   if (!g.length) return '';
-  return `<div class="car ${cls||''}" data-n="${g.length}"><div class="track">${g.map(x=>`<figure><img src="${esc(x.src)}" alt="${esc(x.cap||alt||'')}" loading="lazy" decoding="async">${x.cap?`<figcaption>${esc(x.cap)}</figcaption>`:''}</figure>`).join('')}</div>
+  return `<div class="car ${cls||''}" data-n="${g.length}"><div class="track">${g.map(x=>`<figure><img src="${esc(x.src)}" alt="${esc(x.cap||alt||'')}" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade" onerror="this.closest('figure').remove()">${x.cap?`<figcaption>${esc(x.cap)}</figcaption>`:''}</figure>`).join('')}</div>
     ${g.length>1?`<button class="nav prev" data-car="-1" aria-label="Previous photo">‹</button><button class="nav next" data-car="1" aria-label="Next photo">›</button><div class="dots">${g.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`;
 }
 document.addEventListener('click', e=>{ const b=e.target.closest('[data-car]'); if(!b) return; e.preventDefault(); e.stopPropagation();

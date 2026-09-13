@@ -249,9 +249,14 @@ HGAL = {
  'jwxa': [('hsr', "Handy for Xi'an North high-speed rail station"), ('belltower', 'Old city (Bell Tower) · a drive away'), ('citywall', 'City Wall · a drive away')],
  'ritzxa': [('citywall', 'Old city wall · a drive away'), ('smallgoose', 'Small Wild Goose Pagoda · short drive'), ('g/shaanximuseum-4', 'Shaanxi History Museum · short drive')],
 }
+# The hotel's own photos come first (hotlinked from Marriott's image server, credited), then 2 of the neighbourhood.
+HOTEL_PHOTOS = json.load(open(os.path.join(HERE, 'hotel_photos.json'), encoding='utf-8'))
+def marriott(k):
+    if k.startswith('R/'): return 'https://cache.marriott.com/content/dam/marriott-renditions/' + k[2:] + '-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=800px:*'
+    return 'https://cache.marriott.com/is/image/marriotts7prod/' + k[2:] + ':Wide-Hor?wid=800&fit=constrain'
 def hgal(hid):
-    out = []
-    for k, cap in HGAL[hid]:
+    out = [{'src': marriott(k), 'cap': cap + ' · © Marriott'} for k, cap in HOTEL_PHOTOS[hid]]
+    for k, cap in HGAL[hid][:2]:
         src = f'img/{k}.jpg'
         assert os.path.exists(os.path.join(HERE, '..', src)), src
         out.append({'src': src, 'cap': cap})
@@ -381,7 +386,7 @@ phrases = [['不辣 / 微辣', 'bù là / wēi là', 'Not spicy / mildly spicy']
            ['洗手间在哪里?', 'xǐ shǒu jiān zài nǎ lǐ', 'Where is the toilet?'], ['包间', 'bāo jiān', 'Private dining room']]
 
 used = {i['img'] for i in items} | {o['img'] for d in decisions for o in d['options']} | {h['img'] for c in hotels.values() for h in c['options']} | {'img/chengduhero.jpg', 'img/xianhero.jpg', 'img/panda.jpg'}
-used |= {g for i in items for g in i['gallery']} | {g for d in decisions for o in d['options'] for g in o.get('gallery', [])} | {g['src'] for c in hotels.values() for h in c['options'] for g in h['gallery']}
+used |= {g for i in items for g in i['gallery']} | {g for d in decisions for o in d['options'] for g in o.get('gallery', []) if not g.startswith('http')} | {g['src'] for c in hotels.values() for h in c['options'] for g in h['gallery'] if not g['src'].startswith('http')}
 credits = {k: v for k, v in json.load(open(os.path.join(HERE, 'credits.json'), encoding='utf-8')).items() if f'img/{k}.jpg' in used}
 credits.update({'g/' + k: v for k, v in json.load(open(os.path.join(HERE, 'gallery_credits.json'), encoding='utf-8')).items() if f'img/g/{k}.jpg' in used})
 unused = sorted(f'img/{k}.jpg' for k in IMG if f'img/{k}.jpg' not in used)
