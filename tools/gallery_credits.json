@@ -1,38 +1,8 @@
 {
- "panda-1": {
-  "file": "File:Tourists at Year Old Panda Cub Enclosure - Panda Research Centre, Chengdu (1483867220).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Tourists_at_Year_Old_Panda_Cub_Enclosure_-_Panda_Research_Centre,_Chengdu_(1483867220).jpg",
-  "author": "Alpha from Melbourne, Australia",
-  "license": "CC BY-SA 2.0"
- },
- "panda-2": {
-  "file": "File:Red Panda - Panda Research Centre, Chengdu (1483002937).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Red_Panda_-_Panda_Research_Centre,_Chengdu_(1483002937).jpg",
-  "author": "Alpha from Melbourne, Australia",
-  "license": "CC BY-SA 2.0"
- },
- "panda-3": {
-  "file": "File:3 red pandas play-fighting.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:3_red_pandas_play-fighting.jpg",
-  "author": "MSK",
-  "license": "CC BY-SA 3.0"
- },
- "panda-4": {
-  "file": "File:Panda minore (o Panda rosso) al Giant Panda Breeding Research Base Chengdu.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Panda_minore_(o_Panda_rosso)_al_Giant_Panda_Breeding_Research_Base_Chengdu.jpg",
-  "author": "Enricoroberto5",
-  "license": "CC BY-SA 3.0"
- },
  "peoplespark-1": {
   "file": "File:Peoples Park Chengdu lake and stone bridges 2026 01 23 dllu.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Peoples_Park_Chengdu_lake_and_stone_bridges_2026_01_23_dllu.jpg",
   "author": "Daniel Lu (User:dllu)",
-  "license": "CC BY-SA 4.0"
- },
- "peoplespark-3": {
-  "file": "File:成都人民公园.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:%E6%88%90%E9%83%BD%E4%BA%BA%E6%B0%91%E5%85%AC%E5%9B%AD.jpg",
-  "author": "Zfzf",
   "license": "CC BY-SA 4.0"
  },
  "peoplespark-4": {
@@ -50,18 +20,6 @@
  "kuanzhai-2": {
   "file": "File:Wide and Narrow Alleys (53691508020).jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Wide_and_Narrow_Alleys_(53691508020).jpg",
-  "author": "xiquinhosilva",
-  "license": "CC BY 2.0"
- },
- "kuanzhai-3": {
-  "file": "File:Wide and Narrow Alleys (53690188937).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Wide_and_Narrow_Alleys_(53690188937).jpg",
-  "author": "xiquinhosilva",
-  "license": "CC BY 2.0"
- },
- "kuanzhai-4": {
-  "file": "File:Wide and Narrow Alleys (53691070821).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Wide_and_Narrow_Alleys_(53691070821).jpg",
   "author": "xiquinhosilva",
   "license": "CC BY 2.0"
  },
@@ -101,30 +59,6 @@
   "author": "Mitch Altman",
   "license": "CC BY-SA 2.0"
  },
- "wuhou-3": {
-  "file": "File:Temple of Marquis Wu, Chengdu, Oct-2019 02.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Temple_of_Marquis_Wu,_Chengdu,_Oct-2019_02.jpg",
-  "author": "Mitch Altman",
-  "license": "CC BY-SA 2.0"
- },
- "wuhou-4": {
-  "file": "File:Temple of Marquis Wu, Chengdu, Oct-2019 01.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Temple_of_Marquis_Wu,_Chengdu,_Oct-2019_01.jpg",
-  "author": "Mitch Altman",
-  "license": "CC BY-SA 2.0"
- },
- "taikooli-1": {
-  "file": "File:Apple Taikoo Li Chengdu June 2020.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Apple_Taikoo_Li_Chengdu_June_2020.jpg",
-  "author": "Joseph Gong",
-  "license": "CC BY-SA 4.0"
- },
- "taikooli-2": {
-  "file": "File:Sino-Ocean Taikoo-Li.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Sino-Ocean_Taikoo-Li.jpg",
-  "author": "Kkkev999",
-  "license": "CC BY-SA 4.0"
- },
  "taikooli-3": {
   "file": "File:The Temple House Hotel in Chengdu Tai Koo Li 10 25 00 905000.jpeg",
   "page": "https://commons.wikimedia.org/wiki/File:The_Temple_House_Hotel_in_Chengdu_Tai_Koo_Li_10_25_00_905000.jpeg",
@@ -137,21 +71,9 @@
   "author": "来斤小仓鼠吧",
   "license": "CC BY-SA 4.0"
  },
- "ifspanda-1": {
-  "file": "File:IFS chengdu hotel.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:IFS_chengdu_hotel.jpg",
-  "author": "来斤小仓鼠吧",
-  "license": "CC BY-SA 4.0"
- },
  "ifspanda-2": {
   "file": "File:Chengdu IFS 5.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Chengdu_IFS_5.jpg",
-  "author": "EditQ",
-  "license": "CC0"
- },
- "ifspanda-3": {
-  "file": "File:Chengdu IFS 3.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_IFS_3.jpg",
   "author": "EditQ",
   "license": "CC0"
  },
@@ -221,12 +143,6 @@
   "author": "David Stanley from Nanaimo, Canada",
   "license": "CC BY 2.0"
  },
- "sichuanopera-3": {
-  "file": "File:Sichuan opera (3772221980).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Sichuan_opera_(3772221980).jpg",
-  "author": "Bernt Rostad from Oslo, Norway",
-  "license": "CC BY 2.0"
- },
  "hotpot-1": {
   "file": "File:Chengdu hot pot restaurant.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Chengdu_hot_pot_restaurant.jpg",
@@ -238,24 +154,6 @@
   "page": "https://commons.wikimedia.org/wiki/File:Mapo_Tofu,_Les_Saveurs_du_Sichuan,_Paris_003.jpg",
   "author": "Guilhem Vellut from Paris, France",
   "license": "CC BY 2.0"
- },
- "mapotofu-2": {
-  "file": "File:Mapo Tofu, Les Saveurs du Sichuan, Paris 002.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Mapo_Tofu,_Les_Saveurs_du_Sichuan,_Paris_002.jpg",
-  "author": "Guilhem Vellut from Paris, France",
-  "license": "CC BY 2.0"
- },
- "mapotofu-3": {
-  "file": "File:Mapo Tofu, Les Saveurs du Sichuan, Paris 001.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Mapo_Tofu,_Les_Saveurs_du_Sichuan,_Paris_001.jpg",
-  "author": "Guilhem Vellut from Paris, France",
-  "license": "CC BY 2.0"
- },
- "mapotofu-4": {
-  "file": "File:Authentic Mapo Tofu.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Authentic_Mapo_Tofu.jpg",
-  "author": "Sichuanfoodlover",
-  "license": "CC BY-SA 4.0"
  },
  "jinsha-1": {
   "file": "File:金沙遗址 Jinsha Site 2018.jpg",
@@ -281,27 +179,9 @@
   "author": "Gary Todd",
   "license": "CC0"
  },
- "naturalhistory-1": {
-  "file": "File:Chengdu Natural History Museum 01.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Natural_History_Museum_01.jpg",
-  "author": "STW932",
-  "license": "CC BY-SA 4.0"
- },
- "naturalhistory-2": {
-  "file": "File:Chengdu Natural History Museum 02.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Natural_History_Museum_02.jpg",
-  "author": "STW932",
-  "license": "CC BY-SA 4.0"
- },
  "naturalhistory-3": {
   "file": "File:Entrance of Chengdu Natural History Museum.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Entrance_of_Chengdu_Natural_History_Museum.jpg",
-  "author": "MspreilsCN",
-  "license": "CC0"
- },
- "naturalhistory-4": {
-  "file": "File:Side view of Chengdu Natural History Museum.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Side_view_of_Chengdu_Natural_History_Museum.jpg",
   "author": "MspreilsCN",
   "license": "CC0"
  },
@@ -316,36 +196,6 @@
   "page": "https://commons.wikimedia.org/wiki/File:Leshan-Giant-Buddha_and_Min-River.jpg",
   "author": "Kounosu",
   "license": "CC BY-SA 3.0"
- },
- "leshan-3": {
-  "file": "File:Leshan as seen from the giant Buddha statue in 1988.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Leshan_as_seen_from_the_giant_Buddha_statue_in_1988.jpg",
-  "author": "Jan Kranendonk (https://www.jankranendonk.nl)",
-  "license": "CC0"
- },
- "leshan-4": {
-  "file": "File:Leshan Giant Buddha.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Leshan_Giant_Buddha.jpg",
-  "author": "Bernt Rostad from Oslo, Norway; Modified by Rbmk",
-  "license": "CC BY 2.0"
- },
- "dujiangyan-1": {
-  "file": "File:Dujiangyan 1991 (10564480013).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Dujiangyan_1991_(10564480013).jpg",
-  "author": "Gary Todd from Xinzheng, China",
-  "license": "CC0"
- },
- "dujiangyan-2": {
-  "file": "File:36665-Dujiangyan (30418293747).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:36665-Dujiangyan_(30418293747).jpg",
-  "author": "xiquinhosilva",
-  "license": "CC BY 2.0"
- },
- "dujiangyan-3": {
-  "file": "File:Dujiangyan 1991 (10564264784).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Dujiangyan_1991_(10564264784).jpg",
-  "author": "Gary Todd from Xinzheng, China",
-  "license": "CC0"
  },
  "dujiangyan-4": {
   "file": "File:Dujiangyan Irrigation System (50620354352).jpg",
@@ -407,18 +257,6 @@
   "author": "Ideophagous",
   "license": "CC BY-SA 4.0"
  },
- "terracotta-3": {
-  "file": "File:Terracotta warriors (46989).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Terracotta_warriors_(46989).jpg",
-  "author": "Ideophagous",
-  "license": "CC BY-SA 4.0"
- },
- "terracotta-4": {
-  "file": "File:Terracotta warriors (68428).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Terracotta_warriors_(68428).jpg",
-  "author": "Ideophagous",
-  "license": "CC BY-SA 4.0"
- },
  "huaqing-1": {
   "file": "File:华清宫.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:%E5%8D%8E%E6%B8%85%E5%AE%AB.jpg",
@@ -442,18 +280,6 @@
   "page": "https://commons.wikimedia.org/wiki/File:Huaqing_Hot_Springs_-_Emperor_Xuanzong_of_Tang_Dynasty_(21)_(50440048712).jpg",
   "author": "Larry Koester",
   "license": "CC BY 2.0"
- },
- "wildgoose-1": {
-  "file": "File:雁塔 在雁塔北路上向南看大雁塔北广场之喷泉与大雁塔 02.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:%E9%9B%81%E5%A1%94_%E5%9C%A8%E9%9B%81%E5%A1%94%E5%8C%97%E8%B7%AF%E4%B8%8A%E5%90%91%E5%8D%97%E7%9C%8B%E5%A4%A7%E9%9B%81%E5%A1%94%E5%8C%97%E5%B9%BF%E5%9C%BA%E4%B9%8B%E5%96%B7%E6%B3%89%E4%B8%8E%E5%A4%A7%E9%9B%81%E5%A1%94_02.jpg",
-  "author": "Liuxingy",
-  "license": "CC BY-SA 4.0"
- },
- "wildgoose-2": {
-  "file": "File:雁塔 在雁塔北路上向南看大雁塔北广场之喷泉与大雁塔 01.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:%E9%9B%81%E5%A1%94_%E5%9C%A8%E9%9B%81%E5%A1%94%E5%8C%97%E8%B7%AF%E4%B8%8A%E5%90%91%E5%8D%97%E7%9C%8B%E5%A4%A7%E9%9B%81%E5%A1%94%E5%8C%97%E5%B9%BF%E5%9C%BA%E4%B9%8B%E5%96%B7%E6%B3%89%E4%B8%8E%E5%A4%A7%E9%9B%81%E5%A1%94_01.jpg",
-  "author": "Liuxingy",
-  "license": "CC BY-SA 4.0"
  },
  "wildgoose-3": {
   "file": "File:Dayan \"Big Wild Goose\" Pagoda (9911561896).jpg",
@@ -527,12 +353,6 @@
   "author": "Mingli Yuan",
   "license": "CC BY-SA 2.0"
  },
- "belltower-3": {
-  "file": "File:Xi'an Bell Tower at night.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Xi%27an_Bell_Tower_at_night.jpg",
-  "author": "TarnishedPath",
-  "license": "CC BY-SA 4.0"
- },
  "belltower-4": {
   "file": "File:Bell Tower of Xi'an at night.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Bell_Tower_of_Xi%27an_at_night.jpg",
@@ -550,12 +370,6 @@
   "page": "https://commons.wikimedia.org/wiki/File:Xi%27an_Drum_Tower_-_outside_upstairs.jpg",
   "author": "User:Not Samuel Pepys",
   "license": "CC BY-SA 4.0"
- },
- "drumtower-3": {
-  "file": "File:Xi'an Drum Tower & McDonald's.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Xi%27an_Drum_Tower_%26_McDonald%27s.jpg",
-  "author": "BrokenSphere",
-  "license": "CC BY-SA 3.0"
  },
  "drumtower-4": {
   "file": "File:Drum Tower in Xi'an, Jun 21 2023.jpg",
@@ -587,12 +401,6 @@
   "author": "thierrytutin",
   "license": "CC BY 2.0"
  },
- "shaanximuseum-3": {
-  "file": "File:Ancient Civilization of Shaanxi.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Ancient_Civilization_of_Shaanxi.jpg",
-  "author": "Nishino Asuka",
-  "license": "CC BY-SA 4.0"
- },
  "shaanximuseum-4": {
   "file": "File:Shaanxi History Museum architecture.JPG",
   "page": "https://commons.wikimedia.org/wiki/File:Shaanxi_History_Museum_architecture.JPG",
@@ -611,12 +419,6 @@
   "author": "Gary Todd from Xinzheng, China",
   "license": "CC0"
  },
- "smallgoose-3": {
-  "file": "File:Little Goose Pagoda.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Little_Goose_Pagoda.jpg",
-  "author": "David Stanley",
-  "license": "CC BY 2.0"
- },
  "smallgoose-4": {
   "file": "File:Xiaoyan \"Little Wild Goose\" Pagoda (9911764916).jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Xiaoyan_%22Little_Wild_Goose%22_Pagoda_(9911764916).jpg",
@@ -629,47 +431,11 @@
   "author": "xiquinhosilva",
   "license": "CC BY 4.0"
  },
- "tangparadise-2": {
-  "file": "File:Tang Paradise 2024 01.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Tang_Paradise_2024_01.jpg",
-  "author": "xiquinhosilva",
-  "license": "CC BY 4.0"
- },
- "tangparadise-3": {
-  "file": "File:Tang Paradise 2024 02.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Tang_Paradise_2024_02.jpg",
-  "author": "xiquinhosilva",
-  "license": "CC BY 4.0"
- },
  "tangparadise-4": {
   "file": "File:FRY Ziyun.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:FRY_Ziyun.jpg",
   "author": "W:zh:User:WaitinZ",
   "license": "CC BY-SA 3.0"
- },
- "hanfu-1": {
-  "file": "File:Some students in Hanfu having a picnic.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Some_students_in_Hanfu_having_a_picnic.jpg",
-  "author": "Allervous",
-  "license": "CC BY-SA 4.0"
- },
- "hanfu-2": {
-  "file": "File:Archery department of a Hanfu club.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Archery_department_of_a_Hanfu_club.jpg",
-  "author": "Allervous",
-  "license": "CC BY-SA 4.0"
- },
- "hanfu-3": {
-  "file": "File:Han clothing Hanfu movement.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Han_clothing_Hanfu_movement.jpg",
-  "author": "The original uploader was 赵里昱 at English Wikipedia.",
-  "license": "Public domain"
- },
- "hanfu-4": {
-  "file": "File:Students in Hanfu, 2021(2).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Students_in_Hanfu,_2021(2).jpg",
-  "author": "Allervous",
-  "license": "CC BY-SA 4.0"
  },
  "dumplings-1": {
   "file": "File:Mushroom pork dumplings for lunch.jpg",
@@ -689,12 +455,6 @@
   "author": "David Pursehouse from Kawasaki, Japan",
   "license": "CC BY 2.0"
  },
- "dumplings-4": {
-  "file": "File:Chinese dumplings (Jiaozi) (2195217717).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Chinese_dumplings_(Jiaozi)_(2195217717).jpg",
-  "author": "David Pursehouse from Kawasaki, Japan",
-  "license": "CC BY 2.0"
- },
  "roujiamo-1": {
   "file": "File:King Baos - Roujiamo.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:King_Baos_-_Roujiamo.jpg",
@@ -705,12 +465,6 @@
   "file": "File:古城樊氏腊汁肉夹馍1.JPG",
   "page": "https://commons.wikimedia.org/wiki/File:%E5%8F%A4%E5%9F%8E%E6%A8%8A%E6%B0%8F%E8%85%8A%E6%B1%81%E8%82%89%E5%A4%B9%E9%A6%8D1.JPG",
   "author": "Steetsweet",
-  "license": "CC BY-SA 4.0"
- },
- "roujiamo-3": {
-  "file": "File:King Baos Roujiamo.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:King_Baos_Roujiamo.jpg",
-  "author": "Francesc Fort",
   "license": "CC BY-SA 4.0"
  },
  "roujiamo-4": {
@@ -724,12 +478,6 @@
   "page": "https://commons.wikimedia.org/wiki/File:Biang_Biang_Mian.jpg",
   "author": "Gary Soup",
   "license": "CC BY 2.0"
- },
- "biangbiang-2": {
-  "file": "File:Biangbiang noodles.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Biangbiang_noodles.jpg",
-  "author": "我乃野云鹤",
-  "license": "CC BY-SA 4.0"
  },
  "biangbiang-3": {
   "file": "File:Spicy Cumin Lamb Hand-Ripped Noodles in Soup- biangbiang wide, hand-ripped noodles, topped with sauteed spicy cumin lamb, in lamb broth.jpg",
@@ -755,18 +503,6 @@
   "author": "我乃野云鹤",
   "license": "CC BY-SA 4.0"
  },
- "yongxingfang-1": {
-  "file": "File:西安永兴坊.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E5%AE%89%E6%B0%B8%E5%85%B4%E5%9D%8A.jpg",
-  "author": "LIYULUN",
-  "license": "CC BY-SA 4.0"
- },
- "yongxingfang-2": {
-  "file": "File:西安永兴坊 07.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E5%AE%89%E6%B0%B8%E5%85%B4%E5%9D%8A_07.jpg",
-  "author": "Liuxingy",
-  "license": "CC BY-SA 4.0"
- },
  "yongxingfang-3": {
   "file": "File:西安永兴坊 11.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E5%AE%89%E6%B0%B8%E5%85%B4%E5%9D%8A_11.jpg",
@@ -779,27 +515,9 @@
   "author": "Liuxingy",
   "license": "CC BY-SA 4.0"
  },
- "hsr-1": {
-  "file": "File:CR400AF-2027@BJX (20171103100132).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:CR400AF-2027@BJX_(20171103100132).jpg",
-  "author": "N509FZ",
-  "license": "CC BY-SA 4.0"
- },
  "hsr-2": {
   "file": "File:CR400AF-2007 at Guangnan (20181107092901).jpg",
   "page": "https://commons.wikimedia.org/wiki/File:CR400AF-2007_at_Guangnan_(20181107092901).jpg",
-  "author": "N509FZ",
-  "license": "CC BY-SA 4.0"
- },
- "hsr-3": {
-  "file": "File:CR400AF-2002 near Shijingshannan (20240318105519).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:CR400AF-2002_near_Shijingshannan_(20240318105519).jpg",
-  "author": "N509FZ",
-  "license": "CC BY-SA 4.0"
- },
- "hsr-4": {
-  "file": "File:CR400AF-2185@BJI (20231004142847).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:CR400AF-2185@BJI_(20231004142847).jpg",
   "author": "N509FZ",
   "license": "CC BY-SA 4.0"
  },
@@ -821,12 +539,6 @@
   "author": "xiquinhosilva",
   "license": "CC BY 2.0"
  },
- "financialcity-1": {
-  "file": "File:Chengdu skyline June 2017.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_skyline_June_2017.jpg",
-  "author": "George N",
-  "license": "CC BY 2.0"
- },
  "financialcity-3": {
   "file": "File:在成都遥望雪山 Chengdu skyline with a view of Mount Siguniang.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:%E5%9C%A8%E6%88%90%E9%83%BD%E9%81%A5%E6%9C%9B%E9%9B%AA%E5%B1%B1_Chengdu_skyline_with_a_view_of_Mount_Siguniang.jpg",
@@ -837,6 +549,78 @@
   "file": "File:曲江池公园航拍图.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:%E6%9B%B2%E6%B1%9F%E6%B1%A0%E5%85%AC%E5%9B%AD%E8%88%AA%E6%8B%8D%E5%9B%BE.jpg",
   "author": "Ghrkya",
+  "license": "CC BY-SA 4.0"
+ },
+ "wonton-1": {
+  "file": "File:Red Oil Wontons (红油抄手).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Red_Oil_Wontons_(%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B).jpg",
+  "author": "NeoBatfreak",
+  "license": "CC BY-SA 4.0"
+ },
+ "wonton-2": {
+  "file": "File:Red Oil Wontons (红油抄手) (2).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Red_Oil_Wontons_(%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B)_(2).jpg",
+  "author": "NeoBatfreak",
+  "license": "CC BY-SA 4.0"
+ },
+ "wonton-3": {
+  "file": "File:Food 四川紅油抄手, Pork Dumpling with Hot Chilli Vinaigrette, 樂天皇朝, PARADISE DYNASTY, 台北 (23072061063).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Food_%E5%9B%9B%E5%B7%9D%E7%B4%85%E6%B2%B9%E6%8A%84%E6%89%8B,_Pork_Dumpling_with_Hot_Chilli_Vinaigrette,_%E6%A8%82%E5%A4%A9%E7%9A%87%E6%9C%9D,_PARADISE_DYNASTY,_%E5%8F%B0%E5%8C%97_(23072061063).jpg",
+  "author": "bryan... from Taipei, Taiwan",
+  "license": "CC BY-SA 2.0"
+ },
+ "sichuandishes-1": {
+  "file": "File:Kung Pao Chicken at Yujiayan Restaurant (20230510123120).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Kung_Pao_Chicken_at_Yujiayan_Restaurant_(20230510123120).jpg",
+  "author": "N509FZ",
+  "license": "CC BY-SA 4.0"
+ },
+ "sichuandishes-2": {
+  "file": "File:Kung Pao Chicken at Liqiaoshun Restaurant (20220310175424).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Kung_Pao_Chicken_at_Liqiaoshun_Restaurant_(20220310175424).jpg",
+  "author": "N509FZ",
+  "license": "CC BY-SA 4.0"
+ },
+ "rest-1": {
+  "file": "File:Indoor pool and showers of the spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Indoor_pool_and_showers_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+  "author": "Basile Morin",
+  "license": "CC BY-SA 4.0"
+ },
+ "rest-2": {
+  "file": "File:Indoor pool of spa with open door at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Indoor_pool_of_spa_with_open_door_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
+  "author": "Basile Morin",
+  "license": "CC BY-SA 4.0"
+ },
+ "financial-1": {
+  "file": "File:Chengdu Financial City Performing Arts Center.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Financial_City_Performing_Arts_Center.jpg",
+  "author": "G2 Esports",
+  "license": "CC BY 3.0"
+ },
+ "panda-1": {
+  "file": "File:Chengdu Chengdu Panda Reserve Base Große Pandas 21.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Chengdu_Panda_Reserve_Base_Gro%C3%9Fe_Pandas_21.jpg",
+  "author": "Zairon",
+  "license": "CC BY-SA 4.0"
+ },
+ "panda-2": {
+  "file": "File:Chengdu Chengdu Panda Reserve Base Große Pandas 11.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Chengdu_Panda_Reserve_Base_Gro%C3%9Fe_Pandas_11.jpg",
+  "author": "Zairon",
+  "license": "CC BY-SA 4.0"
+ },
+ "panda-3": {
+  "file": "File:Panda in Chengdu Research Base of Giant Panda Breeding - 7708872342.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Panda_in_Chengdu_Research_Base_of_Giant_Panda_Breeding_-_7708872342.jpg",
+  "author": "George Lu",
+  "license": "CC BY 2.0"
+ },
+ "panda-5": {
+  "file": "File:Chengdu Chengdu Panda Reserve Base Große Pandas 06.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Chengdu_Panda_Reserve_Base_Gro%C3%9Fe_Pandas_06.jpg",
+  "author": "Zairon",
   "license": "CC BY-SA 4.0"
  }
 }

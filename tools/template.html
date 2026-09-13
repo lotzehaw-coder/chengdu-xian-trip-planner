@@ -435,7 +435,7 @@ const SEED = __SEED__;
 const DAYS = SEED.days;
 const SITE = location.origin + location.pathname;
 const CITIES = ['Chengdu', "Xi'an"];
-const CN = {Chengdu:'成都', "Xi'an":'西安', Travel:''};
+const CN = {Chengdu:'成都', "Xi'an":'西安', Leshan:'乐山', Dujiangyan:'都江堰', Travel:''};
 const CITY_VAR = {Chengdu:'var(--city-chengdu)', "Xi'an":'var(--city-xian)', Travel:'var(--city-travel)'};
 const LAND = {Chengdu:'land-chengdu', "Xi'an":'land-xian', Travel:'land-travel'};
 const CAT_VAR = {Sight:'var(--c-sight)', Food:'var(--c-food)', Night:'var(--c-night)', Show:'var(--c-show)', Shop:'var(--c-shop)', Rest:'var(--c-rest)', Travel:'var(--c-travel)', hotel:'var(--c-hotel)', flight:'var(--c-flight)', train:'var(--c-train)', car:'var(--c-car)', vote:'var(--c-vote)'};
@@ -532,7 +532,7 @@ function openMap(o){
 }
 $('#mapOverlay').addEventListener('click', e=>{ if (e.target.id==='mapOverlay') e.target.classList.add('hidden'); });
 document.addEventListener('click', e=>{ const b=e.target.closest('[data-map]'); if(!b) return; e.preventDefault(); e.stopPropagation(); try{ openMap(JSON.parse(b.dataset.map)); }catch(err){ toast('Could not open the map'); } }, true);
-const CITY_EN = {Chengdu:'Chengdu', "Xi'an":"Xi'an", Travel:''};
+const CITY_EN = {Chengdu:'Chengdu', "Xi'an":"Xi'an", Leshan:'Leshan', Dujiangyan:'Dujiangyan', Travel:''};
 // o: {q (Chinese search), en (English search), label, city, lat, lng}; no q means no button
 const mapBtn = (o) => o.q ? `<button class="btn small map" data-map="${esc(JSON.stringify({q:o.q, en:o.en||'', label:o.label||o.q, city:o.city, cityEn:CITY_EN[o.city]||'', lat:o.lat||null, lng:o.lng||null}))}"><svg><use href="#ico-map"/></svg>Map</button>` : '';
 
@@ -654,7 +654,7 @@ function itemStop(i, isNext){
     ${car(i.gallery&&i.gallery.length?i.gallery:[i.img],'big',i.name)}
     ${i.book?`<div class="bookbox">🎟 ${esc(i.book)}</div>`:''}
     <div class="acts">
-      ${mapBtn({q:i.mapq,en:i.mapen,label:i.name,city:i.city==='Travel'?'Chengdu':i.city,lat:i.lat,lng:i.lng})}
+      ${mapBtn({q:i.mapq,en:i.mapen,label:i.name,city:(i.mapcity&&i.mapcity!=='Travel')?i.mapcity:(i.city==='Travel'?'Chengdu':i.city),lat:i.lat,lng:i.lng})}
       <button class="heart" data-act="heart" aria-pressed="${mine?'true':'false'}">❤ ${hs.length||''}</button>
       <input type="time" data-act="time" value="${esc(i.time)}" aria-label="Start time">
       <select data-act="day" aria-label="Move to day">${dayOptions(i.day)}</select>

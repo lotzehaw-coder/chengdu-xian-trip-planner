@@ -103,6 +103,13 @@ for d in days:
         for o in x['options']:
             opts = [i for i in seed['items'] if i['id'] in o['items']]
             if not opts: E(f"vote {x['id']} option {o['id']} has no stops")
+            for oi in opts:   # if this option wins, does it collide with a fixed stop that day?
+                if not (oi['time'] and oi['end']): continue
+                for f in its:
+                    if mins(oi['time']) < mins(f['end']) and mins(f['time']) < mins(oi['end']):
+                        E(f"{d}: vote option '{oi['name']}' ({oi['time']}-{oi['end']}) clashes with '{f['name']}' ({f['time']}-{f['end']})")
+            for a2, b2 in zip(sorted(opts, key=lambda i: i['time']), sorted(opts, key=lambda i: i['time'])[1:]):
+                if a2['end'] and b2['time'] and mins(b2['time']) < mins(a2['end']): E(f"{d}: within option {o['id']}, {a2['name']} overlaps {b2['name']}")
 for i in seed['items']:
     if i['opt']:
         did, oid = i['opt'].split(':')
@@ -111,13 +118,20 @@ for i in seed['items']:
 OK('plan sanity checked')
 
 # 6. external links
-def fetch(url, method='HEAD'):
+import ssl
+try:
+    import certifi; CTX = ssl.create_default_context(cafile=certifi.where())   # this Python ships without a CA bundle
+except ImportError:
+    CTX = ssl.create_default_context()
+def fetch(url, method='HEAD', tries=3):
     import urllib.request
     req = urllib.request.Request(url, method=method, headers={'User-Agent': 'Mozilla/5.0 (trip-planner link check)'})
     try:
-        with urllib.request.urlopen(req, timeout=25) as r: return r.status
+        with urllib.request.urlopen(req, timeout=25, context=CTX) as r: return r.status
     except Exception as e:
-        return getattr(e, 'code', None) or str(e)[:60]
+        code = getattr(e, 'code', None)
+        if code == 429 and tries > 1: time.sleep(3); return fetch(url, method, tries - 1)
+        return code or str(e)[:60]
 if '--links' in sys.argv:
     urls = [(h['url'], 'hotel ' + h['id']) for st in seed['hotels'].values() for h in st['options']] + [(c['page'], 'credit ' + k) for k, c in cred.items()]
     for u, what in urls:
@@ -133,7 +147,7 @@ if '--links' in sys.argv:
 if '--live' in sys.argv:
     import urllib.request
     try:
-        live = urllib.request.urlopen(urllib.request.Request(LIVE + '?check=' + str(int(time.time())), headers={'User-Agent': 'Mozilla/5.0'}), timeout=30).read().decode('utf-8')
+        live = urllib.request.urlopen(urllib.request.Request(LIVE + '?check=' + str(int(time.time())), headers={'User-Agent': 'Mozilla/5.0'}), timeout=30, context=CTX).read().decode('utf-8')
         (OK('live site matches local index.html') if hashlib.sha1(live.encode()).hexdigest() == hashlib.sha1(html.encode()).hexdigest()
          else W('live site differs from local index.html (not pushed yet, or Pages still building)'))
     except Exception as e:

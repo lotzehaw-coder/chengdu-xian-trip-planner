@@ -1,11 +1,16 @@
 {
  "panda": {
-  "q": [
-   "giant panda cub Chengdu",
-   "red panda Chengdu research base",
-   "giant panda climbing tree Chengdu"
+  "q": [],
+  "n": 5,
+  "pins": [
+   "File:Chengdu Chengdu Panda Reserve Base Große Pandas 21.jpg",
+   "File:Chengdu Chengdu Panda Reserve Base Große Pandas 11.jpg",
+   "File:Panda in Chengdu Research Base of Giant Panda Breeding - 7708872342.jpg",
+   "File:Chengdu Chengdu Panda Reserve Base Große Pandas 06.jpg"
   ],
-  "n": 4
+  "reject": [
+   "File:娇子 Jiaozi with her cubs - Panda Research Centre, Chengdu (1483835296).jpg"
+  ]
  },
  "peoplespark": {
   "q": [
@@ -15,7 +20,8 @@
   ],
   "n": 4,
   "reject": [
-   "File:Happy Valley Chengdu (53684109794).jpg"
+   "File:Happy Valley Chengdu (53684109794).jpg",
+   "File:成都人民公园.jpg"
   ]
  },
  "kuanzhai": {
@@ -24,7 +30,11 @@
    "Zhai Xiangzi Chengdu",
    "Kuan Xiangzi"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Wide and Narrow Alleys (53690188937).jpg",
+   "File:Wide and Narrow Alleys (53691070821).jpg"
+  ]
  },
  "jinli": {
   "q": [
@@ -40,7 +50,11 @@
    "Wuhou Shrine Chengdu hall",
    "Temple of Marquis Wu Chengdu"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Temple of Marquis Wu, Chengdu, Oct-2019 02.jpg",
+   "File:Temple of Marquis Wu, Chengdu, Oct-2019 01.jpg"
+  ]
  },
  "taikooli": {
   "q": [
@@ -48,7 +62,11 @@
    "Daci Temple Chengdu",
    "Sino-Ocean Taikoo Li"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Apple Taikoo Li Chengdu June 2020.jpg",
+   "File:Sino-Ocean Taikoo-Li.jpg"
+  ]
  },
  "ifspanda": {
   "q": [
@@ -56,7 +74,11 @@
    "Chengdu IFS mall",
    "Chunxi Road Chengdu IFS"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:IFS chengdu hotel.jpg",
+   "File:Chengdu IFS 3.jpg"
+  ]
  },
  "wenshu": {
   "q": [
@@ -82,7 +104,8 @@
   ],
   "n": 4,
   "reject": [
-   "File:Nuo Opera Mask (13918957762).jpg"
+   "File:Nuo Opera Mask (13918957762).jpg",
+   "File:Sichuan opera (3772221980).jpg"
   ]
  },
  "hotpot": {
@@ -104,7 +127,12 @@
    "Sichuan cuisine dishes",
    "Kung Pao chicken"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Mapo Tofu, Les Saveurs du Sichuan, Paris 002.jpg",
+   "File:Mapo Tofu, Les Saveurs du Sichuan, Paris 001.jpg",
+   "File:Hot & Spicy Ma Po Bean Curd (Mixed Vegetables) - Ho Chiak.jpg"
+  ]
  },
  "sichuanmuseum": {
   "q": [
@@ -134,7 +162,12 @@
    "Chengdu University of Technology Museum dinosaur",
    "Mamenchisaurus skeleton"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Chengdu Natural History Museum 01.jpg",
+   "File:Chengdu Natural History Museum 02.jpg",
+   "File:Side view of Chengdu Natural History Museum.jpg"
+  ]
  },
  "leshan": {
   "q": [
@@ -142,7 +175,11 @@
    "Leshan Giant Buddha face",
    "Leshan Buddha river"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Leshan as seen from the giant Buddha statue in 1988.jpg",
+   "File:Leshan Giant Buddha.jpg"
+  ]
  },
  "dujiangyan": {
   "q": [
@@ -150,7 +187,12 @@
    "Dujiangyan Fish Mouth",
    "Dujiangyan Scenic Area"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Dujiangyan 1991 (10564480013).jpg",
+   "File:36665-Dujiangyan (30418293747).jpg",
+   "File:Dujiangyan 1991 (10564264784).jpg"
+  ]
  },
  "qingcheng": {
   "q": [
@@ -175,7 +217,11 @@
    "Terracotta Army museum Xian",
    "bronze chariot Terracotta"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Terracotta warriors (46989).jpg",
+   "File:Terracotta warriors (68428).jpg"
+  ]
  },
  "huaqing": {
   "q": [
@@ -191,7 +237,11 @@
    "Big Wild Goose Pagoda night",
    "Da Ci'en Temple Xi'an"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:雁塔 在雁塔北路上向南看大雁塔北广场之喷泉与大雁塔 02.jpg",
+   "File:雁塔 在雁塔北路上向南看大雁塔北广场之喷泉与大雁塔 01.jpg"
+  ]
  },
  "datang": {
   "q": [
@@ -215,7 +265,10 @@
    "Xi'an Bell Tower night",
    "Bell Tower of Xi'an"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Xi'an Bell Tower at night.jpg"
+  ]
  },
  "drumtower": {
   "q": [
@@ -223,7 +276,10 @@
    "Drum Tower of Xi'an night",
    "Xi'an Drum Tower drums"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Xi'an Drum Tower & McDonald's.jpg"
+  ]
  },
  "muslimquarter": {
   "q": [
@@ -242,7 +298,8 @@
   "n": 4,
   "reject": [
    "File:Shaanxi History Museum Visitor Service Center.jpg",
-   "File:Qin-Han branch of the Shaanxi History Museum.jpg"
+   "File:Qin-Han branch of the Shaanxi History Museum.jpg",
+   "File:Ancient Civilization of Shaanxi.jpg"
   ]
  },
  "smallgoose": {
@@ -251,7 +308,10 @@
    "Jianfu Temple Xi'an",
    "Xiaoyan Pagoda"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Small Wild Goose Pagoda.jpg"
+  ]
  },
  "tangparadise": {
   "q": [
@@ -259,7 +319,11 @@
    "Datang Furong Garden",
    "Tang Paradise night"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Tang Paradise 2024 01.jpg",
+   "File:Tang Paradise 2024 02.jpg"
+  ]
  },
  "tangshow": {
   "q": [
@@ -281,7 +345,13 @@
    "Tang dynasty style clothing",
    "Hanfu women"
   ],
-  "n": 4
+  "n": 0,
+  "reject": [
+   "File:Some students in Hanfu having a picnic.jpg",
+   "File:Archery department of a Hanfu club.jpg",
+   "File:Han clothing Hanfu movement.jpg",
+   "File:Students in Hanfu, 2021(2).jpg"
+  ]
  },
  "dumplings": {
   "q": [
@@ -289,7 +359,10 @@
    "Chinese dumplings",
    "Xi'an dumplings"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Chinese dumplings (Jiaozi) (2195217717).jpg"
+  ]
  },
  "roujiamo": {
   "q": [
@@ -297,7 +370,10 @@
    "rou jia mo",
    "Shaanxi cuisine"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:King Baos Roujiamo.jpg"
+  ]
  },
  "biangbiang": {
   "q": [
@@ -305,7 +381,10 @@
    "Biang biang mian",
    "Shaanxi noodles"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:Biangbiang noodles.jpg"
+  ]
  },
  "paomo": {
   "q": [
@@ -325,7 +404,11 @@
    "Yongxing fang food",
    "Xi'an food street"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:西安永兴坊.jpg",
+   "File:西安永兴坊 07.jpg"
+  ]
  },
  "hsr": {
   "q": [
@@ -333,7 +416,12 @@
    "Fuxing high speed train",
    "China Railway high-speed train interior"
   ],
-  "n": 4
+  "n": 4,
+  "reject": [
+   "File:CR400AF-2027@BJX (20171103100132).jpg",
+   "File:CR400AF-2002 near Shijingshannan (20240318105519).jpg",
+   "File:CR400AF-2185@BJI (20231004142847).jpg"
+  ]
  },
  "tianfu": {
   "q": [
@@ -358,7 +446,8 @@
   ],
   "n": 3,
   "reject": [
-   "File:Central Chengdu skyline at dawn - Flickr.jpg"
+   "File:Central Chengdu skyline at dawn - Flickr.jpg",
+   "File:Chengdu skyline June 2017.jpg"
   ]
  },
  "qujiangpool": {
@@ -387,6 +476,92 @@
    "Xi'an North railway station",
    "Xi'anbei railway station",
    "Xi'an skyline night"
+  ],
+  "n": 0
+ },
+ "pandacub": {
+  "q": [
+   "giant panda cub",
+   "giant pandas eating bamboo Chengdu",
+   "giant panda Chengdu Research Base",
+   "Giant Panda Breeding Research Base Chengdu panda"
+  ],
+  "n": 0,
+  "reject": [
+   "File:Tourists at Year Old Panda Cub Enclosure - Panda Research Centre, Chengdu (1483867220).jpg",
+   "File:Su Lin giant panda bear cub at the San Diego Zoo.jpg",
+   "File:Bei Bei -- Panda Cub at the National Zoo NW Washington DC November 2017.jpg",
+   "File:Giant Panda 2.JPG",
+   "File:Panda Cub from Wolong, Sichuan, China.JPG"
+  ]
+ },
+ "wonton": {
+  "q": [
+   "chaoshou wonton Sichuan",
+   "red oil wontons",
+   "Sichuan wontons chili oil",
+   "wonton soup"
+  ],
+  "n": 3
+ },
+ "sichuandishes": {
+  "q": [
+   "Kung Pao chicken",
+   "twice cooked pork",
+   "Sichuan cuisine dish",
+   "Chinese stir fried dishes table"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Rice topped with Kung Pao Chicken at Beixinqiao (20221101114219).jpg"
+  ]
+ },
+ "rest": {
+  "q": [
+   "hotel indoor swimming pool",
+   "hotel swimming pool night",
+   "afternoon tea set hotel"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Indoor pool and shower of spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos front view.jpg"
+  ]
+ },
+ "datangnight": {
+  "q": [
+   "Great Tang All Day Mall night",
+   "大唐不夜城 夜景",
+   "Datang Everbright City night",
+   "Xi'an night Tang lights"
+  ],
+  "n": 0,
+  "reject": [
+   "File:Great Tang All Day Mall - 54787907302.jpg",
+   "File:Great Tang All Day Mall - 54789084315.jpg",
+   "File:Great Tang All Day Mall - 54787910792.jpg",
+   "File:Great Tang All Day Mall - 54789059645.jpg"
+  ]
+ },
+ "financial": {
+  "q": [
+   "Chengdu Financial City",
+   "交子公园 成都",
+   "Tianfu Financial City Chengdu",
+   "Chengdu Hi-tech Zone",
+   "成都高新区"
+  ],
+  "n": 3,
+  "reject": [
+   "File:金融城东B.jpg",
+   "File:金融城东 站台.jpg"
+  ]
+ },
+ "tangcostume": {
+  "q": [
+   "Tang dynasty costume Xi'an",
+   "唐装 大唐不夜城",
+   "Great Tang All Day Mall performer",
+   "tourists Tang costume Xi'an"
   ],
   "n": 0
  }
