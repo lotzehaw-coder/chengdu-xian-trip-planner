@@ -350,6 +350,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
         <div class="vhead"><div class="ring" id="ring"><span id="ringTxt">0/0</span></div>
           <div><h2 style="margin:0">Where do you want to go?</h2><p class="muted" style="margin:2px 0 0" id="voteSub">Tap a picture to vote. You can change your mind any time.</p></div></div>
         <div class="pills" id="voteCity"></div>
+        <p class="muted" id="autoNote" style="color:#23704a"></p>
         <div id="decList"></div>
         <h2 id="ideasH">Ideas: ❤ the ones you'd like</h2>
         <p class="muted">Not on a day yet. If lots of people heart one, we'll find it a slot.</p>
@@ -375,8 +376,8 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
         <p class="muted">Sends a short message with a link to the family group. When the organiser taps the link, your votes are counted on their phone.</p>
         <div class="row"><button class="btn wa" data-send>Send my votes on WhatsApp</button><button class="btn" id="copyVotes">Copy instead</button></div>
 
-        <h2 style="margin-top:28px">Count everyone's votes</h2>
-        <p class="muted">Tap each person's link in WhatsApp, or paste their messages here (several at once is fine).</p>
+        <h2 style="margin-top:28px">Everyone's votes</h2>
+        <p class="muted">Votes sent on WhatsApp are collected and counted here automatically; nobody needs to tap the links. If someone's vote is missing, paste their message below.</p>
         <textarea id="pasteVotes" placeholder="Paste WhatsApp vote messages here…"></textarea>
         <div class="row" style="margin-top:8px"><button class="btn primary" id="addVotes">Count these votes</button></div>
         <div id="voteStatus"></div>
@@ -702,7 +703,7 @@ document.addEventListener('click', e=>{
   const hb=e.target.closest('[data-heart]'); if (hb){ heart(hb.dataset.heart); rerender(); return; }
   const sd=e.target.closest('[data-send]'); if (sd){ sendVotes(); return; }
 });
-function rerender(){ const on=$('section.view.on').id.slice(2); ({itin:renderItin, vote:renderVote, hotels:renderHotels, share:renderShare})[on](); updateBadge(); }
+function rerender(){ const on=$('section.view.on').id.slice(2); ({itin:renderItin, vote:renderVote, hotels:renderHotels, share:renderShare})[on](); updateBadge(); updateAutoNote(); }
 $('#itin').addEventListener('click', e=>{
   const dh=e.target.closest('.dh[data-day]'); if (dh){ L.closed[dh.dataset.day]=!L.closed[dh.dataset.day]; saveLocal(); dh.parentElement.classList.toggle('closed'); $('#toggleAll').textContent = DAYS.every(d=>L.closed[d.d]) ? 'Expand all' : 'Collapse all'; return; }
   const bb=e.target.closest('[data-bact]');
@@ -887,6 +888,25 @@ $('#importFile').addEventListener('change', e=>{ const f=e.target.files[0]; if(!
   rd.readAsText(f); });
 $('#resetAll').addEventListener('click', ()=>{ if (confirm('Clear everything on this phone?')){ [LS_PLAN, LS_LOCAL].forEach(k=>localStorage.removeItem(k)); location.hash=''; location.reload(); } });
 
+// ---------- votes collected automatically from WhatsApp (tools/collect_votes.py -> votes.json) ----------
+let AUTO = null;
+async function loadAutoVotes(){
+  try{
+    const r = await fetch('votes.json?'+Date.now(), {cache:'no-store'}); if (!r.ok) return;
+    const j = await r.json(); AUTO = j; let changed = false;
+    for (const [name, b] of Object.entries(j.ballots||{})){
+      const cur = P.ballots[name];
+      if (!cur || (b.t||0) > (cur.t||0)){ P.ballots[name] = {picks:b.picks||{}, hearts:b.hearts||[], t:b.t||0}; changed = true; }
+    }
+    if (changed){ savePlan(); rerender(); } else updateAutoNote();
+  }catch(e){}
+}
+function updateAutoNote(){
+  const el=$('#autoNote'); if (!el) return;
+  if (!AUTO){ el.textContent=''; return; }
+  const when = AUTO.updated ? new Date(AUTO.updated).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+  el.textContent = `✓ ${AUTO.count||0} ${AUTO.count===1?'person has':'people have'} voted so far (collected from WhatsApp automatically${when?', last '+when:''}).`;
+}
 // ---------- boot ----------
 function askName(){ $('#setup').classList.remove('hidden'); setTimeout(()=>$('#suName').focus(),50); }
 $('#setupForm').addEventListener('submit', e=>{ e.preventDefault(); L.me=$('#suName').value.trim().slice(0,40); saveLocal(); myBallot(); savePlan(); $('#setup').classList.add('hidden'); updateBadge(); showTab('vote'); toast('Welcome, '+L.me+'! Tap the pictures you like.'); });
@@ -895,9 +915,10 @@ function boot(){
   let incoming=null;
   if (m){ const r=importBallots(m[1]); history.replaceState(null,'',location.pathname); incoming=r; }
   updateBadge();
-  if (incoming && incoming.found){ showTab('share'); toast(incoming.added.length?`Counted ${incoming.added.join(', ')}'s votes ✓`:'Those votes were already counted'); if (!L.me) setTimeout(askName, 1600); return; }
+  if (incoming && incoming.found){ loadAutoVotes(); showTab('share'); toast(incoming.added.length?`Counted ${incoming.added.join(', ')}'s votes ✓`:'Those votes were already counted'); if (!L.me) setTimeout(askName, 1600); return; }
   showTab('itin');
   if (!L.me) askName();
+  loadAutoVotes(); setInterval(loadAutoVotes, 5*60*1000);
   const t=todayKey(); if (DAYS.some(d=>d.d===t)) setTimeout(()=>{ const el=$('#day-'+t); if (el) el.scrollIntoView({block:'start'}); }, 80);
 }
 boot();
