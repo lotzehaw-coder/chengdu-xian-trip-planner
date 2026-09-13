@@ -836,7 +836,7 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 
 // ---------- DETAILS sheet: photos, what it is, when, price, kids/grandparents, videos; then vote from inside ----------
 const vidLinks = (q) => q ? `<div class="watch"><span style="font-size:13px;color:var(--ink-3);align-self:center">▶ See it in videos:</span>
-  <button class="btn small" data-out="https://www.xiaohongshu.com/search_result?keyword=${encodeURIComponent(q)}">小红书</button>
+  <button class="btn small" data-xhs="${esc(q)}">小红书</button>
   <button class="btn small" data-out="https://search.bilibili.com/all?keyword=${encodeURIComponent(q)}">Bilibili</button>
   <button class="btn small" data-out="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}">YouTube</button></div>` : '';
 function showDetails(spec){
@@ -864,6 +864,13 @@ function showDetails(spec){
 }
 document.addEventListener('click', e=>{
   const o=e.target.closest('[data-out]'); if (o){ e.preventDefault(); openOut(o.dataset.out); return; }
+  // Xiaohongshu's website shows nothing without a login (Tze, 13 Sep: "the XHS link isn't working"), so phones open the app's own search
+  const x=e.target.closest('[data-xhs]'); if (x){ e.preventDefault(); const q=encodeURIComponent(x.dataset.xhs), web='https://www.xiaohongshu.com/search_result?keyword='+q;
+    if (isIOS||isAndroid) openApp(isAndroid?`intent://search/result?keyword=${q}#Intent;scheme=xhsdiscover;package=com.xingin.xhs;end`:`xhsdiscover://search/result?keyword=${q}`,
+      ()=>{ const m=$('#mapMenu'); m.innerHTML=`<h3>小红书 didn't open</h3><p>Is the Xiaohongshu app installed? Its website needs a login to show posts.</p><button class="btn map" data-web="${esc(web)}">Try the website ↗</button><button class="btn ghost" data-go="x">Close</button>`;
+        m.onclick=(ev)=>{ const w=ev.target.closest('[data-web]'); $('#mapOverlay').classList.add('hidden'); if (w) openOut(w.dataset.web); }; $('#mapOverlay').classList.remove('hidden'); });
+    else openOut(web);
+    return; }
   const d=e.target.closest('[data-det]'); if (d && !e.target.closest('[data-car]')){ e.preventDefault(); showDetails(d.dataset.det); return; }
 });
 $('#detOverlay').addEventListener('click', e=>{ if (e.target.id==='detOverlay' || (e.target.closest('[data-detclose]') && !e.target.closest('[data-pick],[data-heart]'))) $('#detOverlay').classList.add('hidden');
