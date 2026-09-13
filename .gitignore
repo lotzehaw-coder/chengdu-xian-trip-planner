@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.key
+.env*
+.claude/
+tools/__pycache__/
+tools/_app.js

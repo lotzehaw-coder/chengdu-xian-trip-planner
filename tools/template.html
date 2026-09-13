@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#1d2a26">
+<meta property="og:title" content="Chengdu · Xi'an family trip — 13–22 Dec 2026">
+<meta property="og:description" content="Vote on where we go. Pandas, the Terracotta Army, hot pot and dumplings.">
+<meta property="og:image" content="img/panda.jpg">
+<title>Chengdu · Xi'an Family Trip</title>
+<style>
+:root{
+  --paper:#f5f2ea; --paper-2:#ebe6da; --ink:#1d2a26; --ink-2:#3e4b47; --ink-3:#7c8783; --line:#ddd6c8; --card:#fffefa;
+  --shadow:0 1px 2px rgba(29,42,38,.06), 0 8px 22px -14px rgba(29,42,38,.3);
+  --r:16px; --nav:64px;
+  --c-sight:#2b6f9e; --c-food:#d8602f; --c-night:#4d4aa6; --c-show:#b23a78; --c-shop:#c38d22; --c-rest:#6f8a7c; --c-travel:#62707c;
+  --c-hotel:#b0862a; --c-flight:#2e8b57; --c-train:#2e8b57; --c-car:#62707c; --c-vote:#7a4fc4; --c-other:#5c6b73;
+  --city-chengdu:#2f7a55; --city-xian:#a3432a; --city-travel:#34506b;
+  --gold:#e7b54a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.45 -apple-system,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;-webkit-text-size-adjust:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--c-sight)}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--c-food);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+.app{min-height:100vh;display:flex;flex-direction:column}
+main{flex:1;padding:0 14px calc(var(--nav) + 28px);max-width:880px;width:100%;margin:0 auto}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;height:calc(var(--nav) + env(safe-area-inset-bottom));background:rgba(255,254,250,.94);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);
+  border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);z-index:20}
+nav.tabs button{flex:1;border:0;background:none;color:var(--ink-3);font-size:12px;padding:8px 0 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative}
+nav.tabs button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav.tabs button[aria-current="page"]{color:var(--ink);font-weight:600}
+nav.tabs button[aria-current="page"]::after{content:"";position:absolute;top:0;width:28px;height:3px;border-radius:0 0 3px 3px;background:var(--ink)}
+nav.tabs button .badge{position:absolute;top:5px;left:calc(50% + 6px);background:var(--c-vote);color:#fff;font-size:10px;line-height:16px;min-width:16px;padding:0 4px;border-radius:8px;text-align:center;font-weight:600}
+.brand{display:none}
+@media (min-width:900px){
+  .app{flex-direction:row}
+  nav.tabs{position:sticky;top:0;bottom:auto;height:100vh;width:236px;flex-direction:column;border-top:0;border-right:1px solid var(--line);padding:22px 12px;gap:4px;background:var(--card);backdrop-filter:none}
+  .brand{display:block;padding:0 10px 18px;font-size:20px;font-weight:750;letter-spacing:-.2px}
+  .brand small{display:block;font-weight:400;color:var(--ink-3);font-size:13px;margin-top:2px}
+  nav.tabs button{flex:0 0 auto;flex-direction:row;justify-content:flex-start;gap:12px;font-size:15px;padding:10px 12px;border-radius:10px}
+  nav.tabs button[aria-current="page"]{background:var(--paper-2)}
+  nav.tabs button[aria-current="page"]::after{display:none}
+  nav.tabs button .badge{position:static;margin-left:auto}
+  main{padding:0 32px 48px}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:0 0 24px 24px;margin:0 -14px 14px;padding:22px 18px 16px;color:#fff;background:var(--ink);min-height:188px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+@media (min-width:900px){.hero{border-radius:24px;margin:22px 0 18px;min-height:230px}}
+.hero .bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.25) 40%,var(--hc,rgba(29,42,38,.92)) 100%)}
+.hero h1{margin:0;font-size:28px;font-weight:760;letter-spacing:-.4px;line-height:1.1}
+.hero h1 span{color:var(--gold)}
+.hero .sub{opacity:.88;font-size:14px;margin-top:4px}
+.hero .now{margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border-radius:999px;padding:5px 12px 5px 6px;font-size:13px;align-self:flex-start;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero .now b{background:#fff;color:var(--ink);border-radius:999px;padding:1px 9px;font-size:12px}
+.hero svg.land{position:absolute;right:10px;top:12px;height:54px;width:auto;opacity:.75;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+section.view{display:none}
+section.view.on{display:block}
+h2{font-size:20px;font-weight:750;margin:18px 0 10px;letter-spacing:-.25px}
+h3{font-size:16px;margin:0}
+p.muted{color:var(--ink-3);font-size:14px;margin:6px 0}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row > *{min-width:0}
+.grow{flex:1}
+input[type=text],input[type=search],input[type=time],select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);min-height:42px}
+textarea{min-height:70px;resize:vertical}
+label.f{display:block;font-size:13px;color:var(--ink-2);margin:10px 0 4px}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 14px;cursor:pointer;min-height:42px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;color:var(--ink)}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.wa{background:#1fa855;border-color:#1fa855;color:#fff;font-weight:600}
+.btn.vote{background:var(--c-vote);border-color:var(--c-vote);color:#fff;font-weight:600}
+.btn.small{min-height:32px;padding:4px 10px;font-size:13.5px;border-radius:8px}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--ink-2)}
+.btn.danger{color:#b4362a}
+.btn.map{background:var(--c-sight);border-color:var(--c-sight);color:#fff;font-weight:600}
+.btn.map svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn:disabled{opacity:.45;cursor:default}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card);max-width:100%}
+.seg button{border:0;background:none;padding:8px 12px;cursor:pointer;color:var(--ink-2);min-height:40px;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.pills{display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;margin:10px -14px;padding:2px 14px;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-size:13.5px;cursor:pointer;min-height:34px;display:inline-flex;align-items:center;gap:6px}
+.pill[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.pill i{width:9px;height:9px;border-radius:50%;background:var(--pc,var(--ink-3));display:inline-block}
+.chip{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--paper-2);color:var(--ink-2);margin:0 4px 2px 0;vertical-align:middle;font-weight:500}
+.chip.cat{color:#fff;background:var(--cc,var(--c-other))}
+.chip.city{background:var(--ci,var(--ink-3));color:#fff}
+.chip.tent{background:#f3e3d0;color:#8a5a1e}
+.chip.must{background:#fdeee6;color:#b44a1c}
+.chip.next{background:var(--ink);color:#fff}
+.chip.lead{background:#efe6fb;color:var(--c-vote)}
+.chip.lock{background:#e3f1e8;color:#23704a}
+.fam{font-size:13px;letter-spacing:1px;white-space:nowrap}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px;margin-bottom:10px;position:relative}
+.empty{padding:26px 14px;text-align:center;color:var(--ink-3);border:1px dashed var(--line);border-radius:var(--r);font-size:14.5px}
+.count{color:var(--ink-3);font-size:13px;margin:4px 0 8px}
+.hidden{display:none!important}
+
+/* before we go */
+details.prep{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);margin:0 0 12px;overflow:hidden}
+details.prep > summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;gap:10px;font-weight:650}
+details.prep > summary::-webkit-details-marker{display:none}
+details.prep > summary .prog{margin-left:auto;font-weight:500;font-size:13px;color:var(--ink-3)}
+details.prep .inner{padding:0 14px 14px}
+.todo{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--paper-2);font-size:14px;align-items:flex-start}
+.todo input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--city-chengdu)}
+.todo b{display:inline-block;min-width:74px;color:var(--c-food);font-size:13px}
+.todo.done span{text-decoration:line-through;color:var(--ink-3)}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:8px 0}
+.phr{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
+.phr b{font-size:16px}
+.phr span{color:var(--ink-3)}
+
+/* day strip + days */
+.strip{display:flex;gap:6px;overflow-x:auto;margin:0 -14px 8px;padding:2px 14px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:6px 10px;min-width:58px;cursor:pointer;text-align:left;line-height:1.15}
+.strip button b{display:block;font-size:15px}
+.strip button span{font-size:11px;color:var(--ink-3)}
+.strip button i{display:block;height:3px;border-radius:2px;background:var(--ci);margin-top:5px}
+.strip button.today{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.day{margin-bottom:18px;border-radius:var(--r);background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+.day .dh{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:12px 14px;color:#fff;background:var(--ci);cursor:pointer;user-select:none;overflow:hidden}
+.day .dh .dn{font-size:12px;opacity:.85;letter-spacing:.6px;text-transform:uppercase}
+.day .dh b{font-size:17px;display:block}
+.day .dh .dl{font-size:13px;opacity:.92}
+.day .dh svg.land{position:absolute;right:48px;bottom:-2px;height:44px;width:auto;opacity:.35;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+@media (min-width:600px){.day .dh svg.land{height:58px;opacity:.45}}
+.day .dh .tog{margin-left:auto;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;transition:transform .2s;flex:0 0 auto;position:relative;z-index:1}
+.day.closed .dh .tog{transform:rotate(-90deg)}
+.day .dh .tog svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round}
+.day .body{padding:12px 12px 6px}
+.day.closed .body{display:none}
+.day .stats{font-size:12.5px;color:var(--ink-3);padding:0 2px 8px}
+.line{position:relative;padding-left:26px}
+.line::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.stop{position:relative;margin-bottom:8px}
+.stop .dot{position:absolute;left:-23px;top:13px;width:14px;height:14px;border-radius:50%;background:var(--card);border:2.5px solid var(--cc,var(--c-other));cursor:pointer;display:grid;place-items:center;z-index:1}
+.stop .dot svg{width:9px;height:9px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;display:none}
+.stop.done .dot{background:var(--cc)}
+.stop.done .dot svg{display:block}
+.stop.block .dot{border-radius:4px}
+.stop .card{margin:0;padding:10px 12px;border-left:4px solid var(--cc,var(--c-other));cursor:pointer}
+.stop.block .card{cursor:default;background:#fbf9f3}
+.stop.done .card{opacity:.55}
+.stop.done .name{text-decoration:line-through}
+.stop.next .card{box-shadow:0 0 0 2px var(--ink), var(--shadow)}
+.stop .flex{display:flex;gap:10px}
+.stop .flex > div:first-child{flex:1;min-width:0}
+.stop .thumb{width:76px;height:76px;border-radius:10px;object-fit:cover;flex:0 0 auto;background:var(--paper-2)}
+.stop.open .thumb{display:none}
+.stop .big{display:none;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin:10px 0 2px;background:var(--paper-2)}
+.stop.open .big{display:block}
+.stop .top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.stop .t{font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--cc,var(--ink-2));background:color-mix(in srgb,var(--cc,var(--ink-3)) 12%,transparent);border-radius:6px;padding:1px 7px}
+.stop .kind{font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.5px}
+.stop .name{font-weight:650;margin-top:3px;line-height:1.3}
+.stop .sub{color:var(--ink-3);font-size:13px}
+.stop .info{color:var(--ink-2);font-size:13.5px;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.stop.open .info{display:block}
+.bookbox{display:none;margin-top:8px;background:#fdf3e2;border-radius:10px;padding:8px 10px;font-size:13.5px;color:#7a5314}
+.stop.open .bookbox{display:block}
+.stop .acts{margin-top:10px;display:none;gap:6px;flex-wrap:wrap;align-items:center}
+.stop.open .acts{display:flex}
+.stop .acts select,.stop .acts input{width:auto;min-height:32px;padding:4px 8px;font-size:13.5px}
+.edit{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.stop.editing .edit{display:block}
+.heart{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--card);cursor:pointer;min-height:32px;font-size:13.5px}
+.heart[aria-pressed="true"]{border-color:#d0433a;color:#d0433a;background:#fdeceb}
+/* vote block inside a day */
+.stop.vblock .card{border-left:4px solid var(--c-vote);background:linear-gradient(135deg,#f6f0ff,#fffefa 70%);cursor:default}
+.mini{display:flex;gap:8px;overflow-x:auto;margin:8px -4px 2px;padding:2px 4px;scrollbar-width:none}
+.mini::-webkit-scrollbar{display:none}
+.mini .mo{display:flex;flex-direction:column;justify-content:flex-start;align-self:stretch;flex:0 0 132px;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);cursor:pointer;position:relative;text-align:left;padding:0}
+.mini .mo img{width:100%;height:74px;object-fit:cover}
+.mini .mo div{padding:5px 8px 7px;font-size:12.5px;line-height:1.25}
+.mini .mo b{display:block;font-weight:650}
+.mini .mo.mine{border-color:var(--c-vote);box-shadow:0 0 0 2px var(--c-vote)}
+.mini .mo .n{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.6);color:#fff;border-radius:999px;font-size:11.5px;padding:1px 7px;font-weight:600}
+.mini .mo.lead .n{background:var(--c-vote)}
+
+/* VOTE tab */
+.vhead{display:flex;align-items:center;gap:12px;margin:18px 0 6px}
+.ring{--p:0;width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--c-vote) calc(var(--p)*1%),var(--paper-2) 0);display:grid;place-items:center;flex:0 0 auto}
+.ring span{width:40px;height:40px;border-radius:50%;background:var(--paper);display:grid;place-items:center;font-size:13px;font-weight:700}
+.dec{margin:0 0 22px}
+.dec .dt{font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--ci,var(--ink-3));font-weight:700}
+.dec h3{font-size:18px;margin:2px 0 2px;letter-spacing:-.2px}
+.dec .q{color:var(--ink-2);font-size:14.5px;margin-bottom:8px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:640px){.opts{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:640px){.opts.o4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.opt{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative;border:2px solid transparent;transition:border-color .15s, transform .15s}
+.opt.mine{border-color:var(--c-vote)}
+.opt .ph{position:relative;aspect-ratio:4/3;background:var(--paper-2)}
+.opt .ph img{width:100%;height:100%;object-fit:cover}
+.opt .ph .fam{position:absolute;left:6px;bottom:6px;background:rgba(255,255,255,.9);border-radius:999px;padding:1px 7px}
+.opt .ph .tick{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:var(--c-vote);display:none;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.opt.mine .ph .tick{display:grid}
+.opt .ph .tick svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.opt .bd{padding:8px 10px 10px;display:flex;flex-direction:column;gap:4px;flex:1}
+.opt .bd b{font-size:14.5px;line-height:1.25}
+.opt .bd p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.35;flex:1}
+.opt .bar{height:6px;border-radius:3px;background:var(--paper-2);overflow:hidden;margin-top:4px}
+.opt .bar i{display:block;height:100%;background:var(--c-vote);border-radius:3px;width:0;transition:width .3s}
+.opt .who{font-size:12px;color:var(--ink-3);min-height:16px}
+.opt .pick{margin-top:6px;width:100%}
+.opt.mine .pick{background:var(--c-vote);border-color:var(--c-vote);color:#fff}
+.opt .lockbtn{font-size:12px;color:var(--ink-3);background:none;border:0;padding:2px 0 0;cursor:pointer;text-decoration:underline;text-align:left}
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:640px){.ideas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* hotels */
+.stay{margin-bottom:26px}
+.stay .nights{font-size:13.5px;color:var(--ink-3)}
+.tip{background:#eaf3ee;color:#1f5a3c;border-radius:12px;padding:10px 12px;font-size:14px;margin:8px 0 12px}
+.tip.x{background:#f8ebe5;color:#7b3420}
+.hotel{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-bottom:12px;border:2px solid transparent}
+.hotel.mine{border-color:var(--c-vote)}
+.hotel .banner{position:relative;height:130px;background:var(--paper-2)}
+.hotel .banner img{width:100%;height:100%;object-fit:cover}
+.hotel .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.65))}
+.hotel .banner .t{position:absolute;left:14px;right:14px;bottom:10px;color:#fff;z-index:1}
+.hotel .banner .t b{font-size:18px;display:block;line-height:1.2}
+.hotel .banner .t span{font-size:13px;opacity:.9}
+.hotel .banner .badge{position:absolute;top:10px;left:12px;z-index:1;background:var(--gold);color:#3a2a05;font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px}
+.hotel .hb{padding:10px 14px 12px}
+.hotel ul{margin:6px 0;padding:0;list-style:none;font-size:14px}
+.hotel li{padding:2px 0 2px 22px;position:relative}
+.hotel li::before{position:absolute;left:0;top:2px}
+.hotel li.pro::before{content:"✓";color:#23704a;font-weight:700}
+.hotel li.con::before{content:"–";color:#b4362a;font-weight:700}
+.hotel .addr{font-size:13px;color:var(--ink-3)}
+.hotel .tally{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-3);margin-top:6px}
+.hotel .tally .bar{flex:1;height:6px;border-radius:3px;background:var(--paper-2);overflow:hidden}
+.hotel .tally .bar i{display:block;height:100%;background:var(--c-vote)}
+
+/* share */
+.results .r{padding:10px 0;border-top:1px solid var(--paper-2)}
+.results .r:first-child{border-top:0}
+.results .r b{font-size:14.5px}
+.results .rl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:13.5px;margin-top:4px;align-items:center}
+.results .rl .bar{grid-column:1/-1;height:5px;border-radius:3px;background:var(--paper-2);overflow:hidden;margin-bottom:4px}
+.results .rl .bar i{display:block;height:100%;background:var(--c-vote)}
+.voters{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.voters span{background:var(--paper-2);border-radius:999px;padding:3px 6px 3px 10px;font-size:13px;display:inline-flex;align-items:center;gap:4px}
+.voters button{border:0;background:none;cursor:pointer;color:var(--ink-3);font-size:14px;padding:0 4px}
+.status{font-size:13.5px;padding:8px 10px;border-radius:10px;background:var(--paper-2);margin-top:8px}
+.status.ok{background:#e2efe9;color:#1f5a3c}
+.status.bad{background:#fbeeeb;color:#b4362a}
+.credits{font-size:12px;color:var(--ink-3);columns:2 260px}
+.credits div{break-inside:avoid;padding:2px 0}
+details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0}
+
+.overlay{position:fixed;inset:0;background:rgba(20,28,26,.62);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+@media (min-width:600px){.overlay{align-items:center;padding:20px}}
+.sheet{background:var(--card);width:100%;max-width:470px;border-radius:20px 20px 0 0;padding:0 0 26px;max-height:94vh;overflow:auto}
+@media (min-width:600px){.sheet{border-radius:18px}}
+.sheet .sh-img{height:150px;background:url(img/panda.jpg) center/cover;border-radius:20px 20px 0 0}
+@media (min-width:600px){.sheet .sh-img{border-radius:18px 18px 0 0}}
+.sheet .sh-b{padding:16px 18px 0}
+.sheet h2{margin-top:0}
+.sheet ol{padding-left:20px;font-size:14.5px;color:var(--ink-2);margin:8px 0}
+.sheet ol li{margin:4px 0}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--nav) + 18px);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:14px;z-index:60;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+@media (min-width:900px){.toast{bottom:24px}}
+.mapmenu{position:fixed;inset:auto 0 0 0;background:var(--card);border-radius:18px 18px 0 0;padding:14px 16px calc(16px + env(safe-area-inset-bottom));z-index:70;box-shadow:0 -8px 30px rgba(0,0,0,.2)}
+.mapmenu h3{margin:0 0 4px}
+.mapmenu p{margin:0 0 10px;color:var(--ink-3);font-size:13px}
+.mapmenu .btn{width:100%;margin-top:8px;min-height:46px}
+@media (min-width:600px){.mapmenu{inset:auto;left:50%;bottom:24px;transform:translateX(-50%);width:380px;border-radius:16px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="land-chengdu" viewBox="0 0 160 64"><path d="M2 58h156M4 58c6-12 16-12 22 0M26 58c6-12 16-12 22 0M48 58c6-12 16-12 22 0M2 46h70M8 46l4-6h52l4 6M36 40v-4M30 36h12l-6-5z"/><path d="M128 58V8M140 58V14M128 20h2M128 34h2M140 28h2M140 44h2M128 20c8-6 14-6 20-4M140 28c-8-8-16-8-24-4M128 34c-6 2-12 8-14 12"/><circle cx="98" cy="42" r="12"/><circle cx="88" cy="31" r="4"/><circle cx="108" cy="31" r="4"/><path d="M92 41c1-3 4-3 5 0M99 41c1-3 4-3 5 0M96 48c1 1 3 1 4 0"/></symbol>
+  <symbol id="land-xian" viewBox="0 0 160 64"><path d="M2 58h156M2 58V40h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h4v18M24 58v-8c0-7 14-7 14 0v8M104 58V22h22v36M100 50h30M101 42h28M102 34h26M103 27h24M107 22v-6h16v6M111 16l4-7 4 7M115 9V4M112 58v-6h6v6M140 58V46M136 46h8l-4-5z"/></symbol>
+  <symbol id="land-travel" viewBox="0 0 160 64"><path d="M30 44l84-22c10-3 20-2 22 2s-6 9-16 12L36 58l-10-2 14-12-18-4zM76 32 60 12h10l30 14M92 40l4 18h-8L74 44"/><path d="M4 20c10 0 14-6 22-6M120 56c10 0 16-4 30-4" stroke-dasharray="3 5"/></symbol>
+  <symbol id="ico-map" viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></symbol>
+  <symbol id="ico-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+  <symbol id="ico-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+</svg>
+<div class="app">
+  <nav class="tabs" aria-label="Sections">
+    <div class="brand">Chengdu · Xi'an<small>13–22 Dec 2026 · family of 10</small></div>
+    <button data-tab="itin"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Itinerary</button>
+    <button data-tab="vote"><svg viewBox="0 0 24 24"><path d="M4 13l3-3 4 4 9-9M4 20h16"/></svg>Vote<span class="badge hidden" id="voteBadge"></span></button>
+    <button data-tab="hotels"><svg viewBox="0 0 24 24"><path d="M3 20V8l9-4 9 4v12M3 20h18M8 20v-5h8v5M8 10h.01M12 10h.01M16 10h.01"/></svg>Hotels</button>
+    <button data-tab="share"><svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 3v12m0-12-4 4m4-4 4 4"/></svg>Share</button>
+  </nav>
+
+  <div class="grow">
+    <main>
+      <!-- ITINERARY -->
+      <section class="view on" id="v-itin">
+        <div class="hero" id="hero"></div>
+        <details class="prep" id="prep"><summary>✅ Before we go <span class="prog" id="prepProg"></span></summary><div class="inner" id="prepList"></div></details>
+        <details class="prep"><summary>👶🧓 Family guide &amp; handy phrases</summary><div class="inner">
+          <div class="legend" id="famLegend"></div>
+          <p class="muted" style="margin-top:10px">Show these to a waiter, taxi driver or hotel staff:</p>
+          <div class="phr" id="phrases"></div>
+        </div></details>
+        <div class="strip" id="daySeg"></div>
+        <div class="pills" id="catPills"></div>
+        <div class="row" style="margin:2px 0 10px">
+          <button class="btn small" id="copySummary">Copy plan for WhatsApp</button>
+          <button class="btn small ghost" id="toggleAll">Collapse all</button>
+        </div>
+        <div id="itin"></div>
+      </section>
+
+      <!-- VOTE -->
+      <section class="view" id="v-vote">
+        <div class="vhead"><div class="ring" id="ring"><span id="ringTxt">0/0</span></div>
+          <div><h2 style="margin:0">Where do you want to go?</h2><p class="muted" style="margin:2px 0 0" id="voteSub">Tap a picture to vote. You can change your mind any time.</p></div></div>
+        <div class="pills" id="voteCity"></div>
+        <div id="decList"></div>
+        <h2 id="ideasH">Ideas: ❤ the ones you'd like</h2>
+        <p class="muted">Not on a day yet. If lots of people heart one, we'll find it a slot.</p>
+        <div class="ideas" id="ideaList"></div>
+        <div class="card" style="margin-top:18px;background:#f1ecfb">
+          <b>Done voting?</b>
+          <p class="muted" style="margin:4px 0 10px">Send your picks to the family WhatsApp group so they're counted.</p>
+          <button class="btn wa" data-send>Send my votes on WhatsApp</button>
+        </div>
+      </section>
+
+      <!-- HOTELS -->
+      <section class="view" id="v-hotels">
+        <h2>Where we stay</h2>
+        <p class="muted">All Marriott Bonvoy, so points and elite perks apply. Vote for one in each city, then book.</p>
+        <div class="tip x">Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.</div>
+        <div id="hotelList"></div>
+      </section>
+
+      <!-- SHARE -->
+      <section class="view" id="v-share">
+        <h2>Send your votes</h2>
+        <p class="muted">Sends a short message with a link to the family group. When the organiser taps the link, your votes are counted on their phone.</p>
+        <div class="row"><button class="btn wa" data-send>Send my votes on WhatsApp</button><button class="btn" id="copyVotes">Copy instead</button></div>
+
+        <h2 style="margin-top:28px">Count everyone's votes</h2>
+        <p class="muted">Tap each person's link in WhatsApp, or paste their messages here (several at once is fine).</p>
+        <textarea id="pasteVotes" placeholder="Paste WhatsApp vote messages here…"></textarea>
+        <div class="row" style="margin-top:8px"><button class="btn primary" id="addVotes">Count these votes</button></div>
+        <div id="voteStatus"></div>
+        <div class="voters" id="voters"></div>
+        <div class="card results" id="results"></div>
+        <div class="row"><button class="btn small" id="copyResults">Copy results for WhatsApp</button></div>
+
+        <h2 style="margin-top:28px">Co-planning (full plan)</h2>
+        <p class="muted">For whoever is building the final itinerary with you. Export the whole plan (moves, times, notes, locked choices), send it, and they import it here. Import <b>merges</b> — nothing is overwritten.</p>
+        <div class="row">
+          <button class="btn" id="exportBtn">Export plan (.json)</button>
+          <label class="btn" for="importFile">Import &amp; merge<input type="file" id="importFile" accept=".json,application/json" class="hidden"></label>
+        </div>
+        <div id="shareStatus"></div>
+
+        <h2 style="margin-top:28px">You</h2>
+        <label class="f" for="sName">Your name (as the family knows you)</label>
+        <input type="text" id="sName" maxlength="40">
+        <div class="row" style="margin-top:8px"><button class="btn primary" id="saveName">Save</button></div>
+
+        <h2 style="margin-top:28px">About</h2>
+        <p class="muted">Flights MH526 / MH527 are booked; exact times are on the e-ticket. Trains, vans and hotels are not booked yet and are marked <span class="chip tent">tentative</span>. <b>Map</b> opens 高德地图 Amap directly (or Apple Maps on iPhone). Everything is saved in this browser only: no accounts, no server.</p>
+        <details><summary>Photo credits (Wikimedia Commons)</summary><div class="credits" id="credits"></div></details>
+        <details><summary>Reset this device</summary>
+          <p class="muted">Clears your name, your votes, the counted votes and any changes on this phone.</p>
+          <button class="btn danger" id="resetAll">Reset</button></details>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="overlay hidden" id="setup">
+  <form class="sheet" id="setupForm">
+    <div class="sh-img" role="img" aria-label="A giant panda"></div>
+    <div class="sh-b">
+      <h2>Chengdu &amp; Xi'an, 13–22 Dec</h2>
+      <p class="muted" style="margin-top:-4px">Help plan the family trip: pandas, the Terracotta Army, hot pot and dumplings.</p>
+      <ol><li><b>Vote</b>: tap the pictures you like for the open slots, and ❤ any extra ideas.</li>
+        <li><b>Hotels</b>: pick one in each city.</li>
+        <li><b>Send</b>: one tap sends your votes to the family WhatsApp group.</li></ol>
+      <label class="f" for="suName">Your name</label>
+      <input type="text" id="suName" required maxlength="40" placeholder="e.g. Ah Ma, Uncle Wei, Mei" autocomplete="off">
+      <div style="margin-top:14px"><button class="btn primary" type="submit" style="width:100%">Let's plan</button></div>
+    </div>
+  </form>
+</div>
+<div class="overlay hidden" id="mapOverlay"><div class="mapmenu" id="mapMenu"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+const SEED = __SEED__;
+const DAYS = SEED.days;
+const SITE = location.origin + location.pathname;
+const CITIES = ['Chengdu', "Xi'an"];
+const CN = {Chengdu:'成都', "Xi'an":'西安', Travel:''};
+const CITY_VAR = {Chengdu:'var(--city-chengdu)', "Xi'an":'var(--city-xian)', Travel:'var(--city-travel)'};
+const LAND = {Chengdu:'land-chengdu', "Xi'an":'land-xian', Travel:'land-travel'};
+const CAT_VAR = {Sight:'var(--c-sight)', Food:'var(--c-food)', Night:'var(--c-night)', Show:'var(--c-show)', Shop:'var(--c-shop)', Rest:'var(--c-rest)', Travel:'var(--c-travel)', hotel:'var(--c-hotel)', flight:'var(--c-flight)', train:'var(--c-train)', car:'var(--c-car)', vote:'var(--c-vote)'};
+const catVar = (c) => CAT_VAR[c] || 'var(--c-other)';
+const KIND_ICON = {flight:'✈', train:'🚄', hotel:'🏨', car:'🚐'};
+const FAM = Object.fromEntries(SEED.family.map(([k,i,l])=>[k,{i,l}]));
+const famIcons = (a) => (a||[]).map(k=>FAM[k]?`<span title="${esc(FAM[k].l)}">${FAM[k].i}</span>`:'').join('');
+const FILTERS = [['all','Everything',''],['must','Must-see','var(--c-sight)'],['eat','Food','var(--c-food)'],['kids','Stroller-friendly',''],['travel','Travel','var(--c-travel)']];
+const LS_PLAN = 'cdxa.plan.v1', LS_LOCAL = 'cdxa.local.v1';
+const DEC = Object.fromEntries(SEED.decisions.map(d=>[d.id,d]));
+const ACT_DECS = SEED.decisions.filter(d=>d.kind==='activity');
+
+const now = () => Date.now();
+const uid = (p) => p + ':' + Math.random().toString(36).slice(2,10) + now().toString(36);
+function seedItems(){ const o={}; for (const s of SEED.items) o[s.id]=Object.assign({notes:{},done:false,addedBy:'plan',updatedAt:0,src:'plan'}, JSON.parse(JSON.stringify(s))); return o; }
+const seedBlocks = () => JSON.parse(JSON.stringify(SEED.blocks));
+const defPlan  = () => ({v:1, items:seedItems(), blocks:seedBlocks(), ballots:{}, locks:{}, updatedAt:0});
+const defLocal = () => ({me:'', filter:'all', closed:{}, voteCity:'', prep:{}});
+function read(k, def){ try{ const j=JSON.parse(localStorage.getItem(k)); if (j && typeof j==='object') return Object.assign(def(), j); }catch(e){} return def(); }
+let P = read(LS_PLAN, defPlan), L = read(LS_LOCAL, defLocal);
+// pick up plan edits from newer builds without losing anyone's changes
+for (const s of Object.values(seedItems())){ const cur=P.items[s.id]; if (!cur) P.items[s.id]=s; else if (!cur.updatedAt){ const keep={notes:cur.notes,done:cur.done,doneAt:cur.doneAt}; Object.assign(cur, s, keep); } else { for (const f of ['img','info','book','fam','lat','lng','opt']) cur[f]=s[f]; } }
+for (const sb of seedBlocks()){ const cur=P.blocks.find(b=>b.id===sb.id); if (!cur) P.blocks.push(sb); else if (!cur.updatedAt) Object.assign(cur, sb); }
+P.blocks = P.blocks.filter(b=>!String(b.id).startsWith('seed:') || SEED.blocks.some(s=>s.id===b.id));
+function savePlan(){ P.updatedAt=now(); try{ localStorage.setItem(LS_PLAN, JSON.stringify(P)); }catch(e){ toast('Could not save — is storage blocked?'); } }
+function saveLocal(){ try{ localStorage.setItem(LS_LOCAL, JSON.stringify(L)); }catch(e){} }
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmtDay = (d) => new Date(d+'T00:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+const fmtShort = (d) => new Date(d+'T00:00:00').toLocaleDateString('en-GB',{weekday:'short'});
+let toastT; function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),2400); }
+const tk = (t) => t ? t : '99:99';
+const timeSpan = (i) => i.time ? (i.end ? `${i.time}–${i.end}` : i.time) : '';
+const cjk = (s) => (String(s||'').match(/[㐀-鿿]+/g)||[]).sort((a,b)=>b.length-a.length)[0]||'';
+const imgTag = (src, cls, alt) => src ? `<img class="${cls}" src="${esc(src)}" alt="${esc(alt||'')}" loading="lazy" decoding="async">` : '';
+
+// ---------- ballots ----------
+function myBallot(){ if (!L.me) return null; if (!P.ballots[L.me]) P.ballots[L.me]={picks:{}, hearts:[], t:0}; return P.ballots[L.me]; }
+function pick(did, oid){ const b=myBallot(); if(!b){ askName(); return; } if (b.picks[did]===oid) delete b.picks[did]; else b.picks[did]=oid; b.t=now(); savePlan(); updateBadge(); }
+function heart(id){ const b=myBallot(); if(!b){ askName(); return; } const s=new Set(b.hearts); s.has(id)?s.delete(id):s.add(id); b.hearts=[...s]; b.t=now(); savePlan(); }
+function tally(did){ const out={}; for (const o of DEC[did].options) out[o.id]=[]; for (const [who,b] of Object.entries(P.ballots)){ const v=b.picks&&b.picks[did]; if (v && out[v]) out[v].push(who); } return out; }
+function heartsFor(id){ return Object.entries(P.ballots).filter(([,b])=>(b.hearts||[]).includes(id)).map(([w])=>w); }
+function leader(did){ const t=tally(did); let best=null, n=0, tie=false; for (const [k,v] of Object.entries(t)){ if (v.length>n){ best=k; n=v.length; tie=false; } else if (v.length===n && n>0) tie=true; } return n? {opt:best, n, tie} : null; }
+const chosen = (did) => (P.locks[did]||{}).opt || '';
+const optName = (did, oid) => ((DEC[did].options.find(o=>o.id===oid))||{}).name || '';
+const votedCount = () => { const b=L.me&&P.ballots[L.me]; return b ? SEED.decisions.filter(d=>b.picks[d.id]).length : 0; };
+function updateBadge(){ const left=SEED.decisions.length - votedCount(); const b=$('#voteBadge'); b.textContent=left; b.classList.toggle('hidden', !L.me || left<=0); }
+function lockIn(did, oid){ P.locks[did] = {opt: oid, t: now()}; for (const o of DEC[did].options) for (const id of o.items){ const it=P.items[id]; if (!it) continue; it.status = o.id===oid ? 'scheduled' : 'wishlist'; if (o.id===oid && !it.day) it.day=DEC[did].day; it.updatedAt=now(); } savePlan(); }
+function unlock(did){ const o=chosen(did); if (o) for (const id of (DEC[did].options.find(x=>x.id===o)||{items:[]}).items){ const it=P.items[id]; if (it){ it.status='wishlist'; it.updatedAt=now(); } } P.locks[did]={opt:'', t:now()}; savePlan(); }
+
+// ---------- China time ----------
+function cnNow(){ const d=new Date(); return new Date(d.getTime()+d.getTimezoneOffset()*60000+8*3600000); }
+function todayKey(){ const c=cnNow(); return `${c.getFullYear()}-${String(c.getMonth()+1).padStart(2,'0')}-${String(c.getDate()).padStart(2,'0')}`; }
+const active = (i) => i.status==='scheduled' && i.day && (!i.opt || chosen(i.opt.split(':')[0])===i.opt.split(':')[1]);
+const dayItems = (d) => Object.values(P.items).filter(i=>i.day===d && active(i)).sort((a,b)=> tk(a.time).localeCompare(tk(b.time)) || (a.order||0)-(b.order||0));
+function nextStop(){ const t=todayKey(); if (!DAYS.some(d=>d.d===t)) return null; const c=cnNow(); const hm=`${String(c.getHours()).padStart(2,'0')}:${String(c.getMinutes()).padStart(2,'0')}`; return dayItems(t).find(i=>!i.done && i.time && (i.end||i.time)>=hm) || null; }
+
+// ---------- MAP: straight into the app ----------
+const UA=navigator.userAgent, isIOS=/iPhone|iPad|iPod/.test(UA), isAndroid=/Android/.test(UA);
+function mapTargets(o){
+  const name=cjk(o.name)||String(o.name||'').replace(/\(.*?\)/g,'').trim(); const kw=cjk(o.name)||name; const city=CN[o.city]||'';
+  const t={name, kw};
+  if (o.lat && o.lng){
+    t.app = isIOS ? `iosamap://path?sourceApplication=cdxa&dlat=${o.lat}&dlon=${o.lng}&dname=${encodeURIComponent(name)}&dev=0&t=1`
+          : isAndroid ? `androidamap://route?sourceApplication=cdxa&dlat=${o.lat}&dlon=${o.lng}&dname=${encodeURIComponent(name)}&dev=0&t=1` : '';
+    t.web = `https://uri.amap.com/navigation?to=${o.lng},${o.lat},${encodeURIComponent(name)}&mode=bus&src=cdxa&callnative=1`;
+    t.apple = `https://maps.apple.com/?daddr=${o.lat},${o.lng}&q=${encodeURIComponent(name)}&dirflg=r`;
+  } else {
+    t.app = isIOS ? `iosamap://poi?sourceApplication=cdxa&keywords=${encodeURIComponent(kw)}&city=${encodeURIComponent(city)}`
+          : isAndroid ? `androidamap://poi?sourceApplication=cdxa&keywords=${encodeURIComponent(kw)}&city=${encodeURIComponent(city)}&dev=0` : '';
+    t.web = `https://uri.amap.com/search?keyword=${encodeURIComponent(kw)}&city=${encodeURIComponent(city)}&src=cdxa&callnative=1`;
+    t.apple = `https://maps.apple.com/?q=${encodeURIComponent(kw+' '+city)}`;
+  }
+  return t;
+}
+function launch(app, web){
+  if (!app){ window.open(web, '_blank', 'noopener'); return; }
+  let left=false; const onHide=()=>{ left=true; };
+  document.addEventListener('visibilitychange', onHide); window.addEventListener('pagehide', onHide);
+  const t0=now(); location.href=app;
+  setTimeout(()=>{ document.removeEventListener('visibilitychange', onHide); window.removeEventListener('pagehide', onHide);
+    if (!left && document.visibilityState==='visible' && now()-t0<3000) location.href=web; }, 1400);
+}
+function openMap(o){
+  const t=mapTargets(o);
+  if (!isIOS){ launch(t.app, t.web); return; }
+  const m=$('#mapMenu'); m.innerHTML=`<h3>${esc(t.name)}</h3><p>${o.lat?'Directions by public transport':'Search on the map'}. Opens the app directly.</p>
+    <button class="btn map" data-go="amap"><svg><use href="#ico-map"/></svg> 高德地图 Amap</button>
+    <button class="btn" data-go="apple">Apple Maps</button><button class="btn ghost" data-go="x">Cancel</button>`;
+  $('#mapOverlay').classList.remove('hidden');
+  m.onclick=(e)=>{ const b=e.target.closest('[data-go]'); if(!b) return; $('#mapOverlay').classList.add('hidden'); if (b.dataset.go==='amap') launch(t.app, t.web); else if (b.dataset.go==='apple') location.href=t.apple; };
+}
+$('#mapOverlay').addEventListener('click', e=>{ if (e.target.id==='mapOverlay') e.target.classList.add('hidden'); });
+document.addEventListener('click', e=>{ const b=e.target.closest('[data-map]'); if(!b) return; e.preventDefault(); e.stopPropagation(); try{ openMap(JSON.parse(b.dataset.map)); }catch(err){ toast('Could not open the map'); } }, true);
+const mapBtn = (o) => `<button class="btn small map" data-map="${esc(JSON.stringify({name:o.name, city:o.city, lat:o.lat||null, lng:o.lng||null}))}"><svg><use href="#ico-map"/></svg>Map</button>`;
+
+// ---------- tabs ----------
+function showTab(name){
+  $$('section.view').forEach(s=>s.classList.toggle('on', s.id==='v-'+name));
+  $$('nav.tabs button').forEach(b=>{ if (b.dataset.tab===name) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+  ({itin:renderItin, vote:renderVote, hotels:renderHotels, share:renderShare})[name]();
+  window.scrollTo({top:0});
+}
+$$('nav.tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function goVote(did){ showTab(DEC[did].kind==='hotel'?'hotels':'vote'); setTimeout(()=>{ const el=$('#dec-'+CSS.escape(did)); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60); }
+
+// ---------- ITINERARY ----------
+function renderHero(){
+  const t=todayKey(); const td=DAYS.find(d=>d.d===t); const city = td ? (td.city==='Travel'?'Chengdu':td.city) : 'Chengdu';
+  const start=new Date('2026-12-13T19:00:00+08:00'); const daysTo=Math.ceil((start-new Date())/86400000);
+  const ns = td ? nextStop() : null;
+  const pic = city==="Xi'an" ? 'img/xianhero.jpg' : 'img/chengduhero.jpg';
+  $('#hero').style.setProperty('--hc', city==="Xi'an" ? 'rgba(92,32,18,.94)' : 'rgba(18,52,38,.94)');
+  $('#hero').innerHTML = `<div class="bg" style="background-image:url(${pic})"></div><svg class="land"><use href="#${LAND[city]}"/></svg>
+    <h1>Chengdu <span>·</span> Xi'an</h1><div class="sub">13–22 Dec 2026 · family of 10 · pandas, warriors &amp; dumplings</div>
+    ${td ? `<div class="now"><b>Day ${DAYS.indexOf(td)}</b> ${esc(td.city)} · ${ns?`up next ${esc(ns.time)} ${esc(ns.name)}`:'nothing left today'}</div>`
+         : daysTo>0 ? `<div class="now"><b>${daysTo} days</b> to go · ${SEED.decisions.length - votedCount()} of your votes left</div>` : `<div class="now"><b>Home</b> Hope it was a great trip</div>`}`;
+}
+function renderPrep(){
+  const done=SEED.prep.filter((_,i)=>L.prep[i]).length;
+  $('#prepProg').textContent=`${done}/${SEED.prep.length}`;
+  $('#prepList').innerHTML=SEED.prep.map(([w,t],i)=>`<label class="todo ${L.prep[i]?'done':''}"><input type="checkbox" data-prep="${i}" ${L.prep[i]?'checked':''}><span><b>${esc(w)}</b> ${esc(t)}</span></label>`).join('');
+  $('#famLegend').innerHTML=SEED.family.map(([k,i,l])=>`<span>${i} ${esc(l)}</span>`).join('');
+  $('#phrases').innerHTML=SEED.phrases.map(([c,p,e])=>`<b>${esc(c)}</b><div>${esc(e)}<br><span>${esc(p)}</span></div>`).join('');
+}
+$('#prepList').addEventListener('change', e=>{ const c=e.target.closest('[data-prep]'); if(!c) return; L.prep[c.dataset.prep]=c.checked; saveLocal(); renderPrep(); });
+function dayEntries(d){
+  const blocks=P.blocks.filter(b=>b.day===d).map(b=>({kind:'block', t:b.sort||tk(b.time), o:0, b}));
+  const items=dayItems(d).map(i=>({kind:'item', t:tk(i.time), o:i.order||0, i}));
+  const votes=ACT_DECS.filter(x=>x.day===d && !chosen(x.id)).map(x=>({kind:'vote', t:x.time, o:0, x}));
+  return [...blocks,...items,...votes].sort((a,b)=> a.t.localeCompare(b.t) || (a.o-b.o));
+}
+function passes(i){ const f=L.filter||'all'; if (f==='all') return true; if (f==='must') return (i.tags||[]).includes('must-see'); if (f==='eat') return i.category==='Food'; if (f==='kids') return (i.fam||[]).includes('stroller'); if (f==='travel') return i.category==='Travel'; return true; }
+function renderItin(){
+  renderHero(); renderPrep();
+  const t=todayKey();
+  $('#daySeg').innerHTML = DAYS.map((d,i)=>`<button type="button" data-jump="${d.d}" class="${d.d===t?'today':''}" style="--ci:${CITY_VAR[d.city]}"><b>${new Date(d.d+'T00:00:00').getDate()}</b><span>${fmtShort(d.d)} · ${esc(d.city==='Travel'?'Fly':d.city.slice(0,3))}</span><i></i></button>`).join('');
+  $('#catPills').innerHTML = FILTERS.map(([k,l,c])=>`<button class="pill" data-filter="${k}" aria-pressed="${(L.filter||'all')===k}" ${c?`style="--pc:${c}"`:''}>${c?'<i></i>':''}${l}</button>`).join('');
+  const ns=nextStop();
+  $('#itin').innerHTML = DAYS.map((d,idx)=>{
+    const ents=dayEntries(d.d); const its=ents.filter(e=>e.kind==='item').map(e=>e.i); const dn=its.filter(i=>i.done).length;
+    const nv=ents.filter(e=>e.kind==='vote').length;
+    const vis=ents.filter(e=>e.kind!=='item'||passes(e.i));
+    return `<div class="day ${L.closed[d.d]?'closed':''}" id="day-${d.d}" style="--ci:${CITY_VAR[d.city]}">
+      <div class="dh" data-day="${d.d}"><div><div class="dn">${idx===0?'Departure':'Day '+idx}${d.d===t?' · today':''}</div><b>${fmtDay(d.d)}${d.city!=='Travel'?' · '+esc(d.city):''}</b><div class="dl">${esc(d.label)}</div></div>
+        <svg class="land"><use href="#${LAND[d.city]}"/></svg><div class="tog"><svg><use href="#ico-chev"/></svg></div></div>
+      <div class="body"><div class="stats">${its.length?`${its.length} stop${its.length===1?'':'s'}`:'Travel day'}${dn?` · ${dn} done`:''}${nv?` · <b style="color:var(--c-vote)">${nv} to vote on</b>`:''}</div>
+      <div class="line">${vis.map(e=>e.kind==='block'?blockStop(e.b):e.kind==='vote'?voteStop(e.x):itemStop(e.i, ns&&ns.id===e.i.id)).join('') || '<div class="empty" style="padding:14px">Nothing here for this filter.</div>'}</div></div></div>`;
+  }).join('');
+  $('#toggleAll').textContent = DAYS.every(d=>L.closed[d.d]) ? 'Expand all' : 'Collapse all';
+}
+$('#daySeg').addEventListener('click', e=>{ const b=e.target.closest('[data-jump]'); if(!b) return; L.closed[b.dataset.jump]=false; saveLocal(); renderItin(); const el=$('#day-'+b.dataset.jump); if (el) el.scrollIntoView({behavior:'smooth',block:'start'}); });
+$('#catPills').addEventListener('click', e=>{ const b=e.target.closest('[data-filter]'); if(!b) return; L.filter=b.dataset.filter; saveLocal(); renderItin(); });
+$('#toggleAll').addEventListener('click', ()=>{ const all=DAYS.every(d=>L.closed[d.d]); DAYS.forEach(d=>L.closed[d.d]=!all); saveLocal(); renderItin(); });
+function hotelLabel(b){
+  if (!b.dec) return b.title;
+  const c=chosen(b.dec), ld=leader(b.dec);
+  const nm = c ? optName(b.dec,c) : ld&&!ld.tie ? optName(b.dec, ld.opt)+' (leading)' : (b.dec==='h-xian'?"Xi'an":'Chengdu')+' hotel (vote in Hotels)';
+  return b.title.replace('{hotel}', nm);
+}
+function blockStop(b){
+  const title=hotelLabel(b);
+  const sub=[b.number, (b.from||b.to)?`${esc(b.from||'?')} → ${esc(b.to||'?')}`:'', esc(b.note)].filter(Boolean).join(' · ');
+  const city=(DAYS.find(d=>d.d===b.day)||{}).city;
+  const shownTime = b.sort && b.sort>='24:00' ? `${b.time}<sup>+1</sup>` : esc(b.time||'—');
+  return `<div class="stop block" data-bid="${esc(b.id)}" style="--cc:${catVar(b.type)}"><div class="dot"></div><div class="card">
+    <div class="top"><span class="t">${shownTime}</span><span class="kind">${KIND_ICON[b.type]||''} ${b.type}</span> ${b.tentative?'<span class="chip tent">tentative</span>':''}</div>
+    <div class="name">${esc(title)}</div>${sub?`<div class="sub">${sub}</div>`:''}
+    <div class="row" style="margin-top:8px">${b.dec?`<button class="btn small" data-govote="${b.dec}">${chosen(b.dec)?'Change hotel':'Vote hotel'}</button>`:''}${b.lat?mapBtn({name:title,city,lat:b.lat,lng:b.lng}):''}<button class="btn small ghost" data-bact="edit">Edit</button></div>
+    <div class="edit"><label class="f">Title</label><input type="text" data-f="title" value="${esc(b.title)}">
+      <div class="row"><div class="grow"><label class="f">${b.type==='hotel'?'Booking ref':'Number'}</label><input type="text" data-f="number" value="${esc(b.number)}"></div><div class="grow"><label class="f">Time</label><input type="time" data-f="time" value="${esc(b.time)}"></div></div>
+      <label class="f">Note</label><input type="text" data-f="note" value="${esc(b.note)}">
+      <label style="display:block;margin-top:8px;font-size:14px"><input type="checkbox" data-f="tentative" ${b.tentative?'checked':''}> tentative</label>
+      <div class="row" style="margin-top:10px"><button class="btn small primary" data-bact="save">Save</button><button class="btn small ghost" data-bact="cancel">Cancel</button></div></div>
+  </div></div>`;
+}
+function voteStop(x){
+  const t=tally(x.id), ld=leader(x.id); const mine=(myBallot()||{picks:{}}).picks[x.id];
+  return `<div class="stop vblock" style="--cc:var(--c-vote)"><div class="dot"></div><div class="card">
+    <div class="top"><span class="t">${esc(x.time)}</span><span class="kind">🗳 vote</span>${ld?`<span class="chip lead">${ld.tie?'tied':'leading: '+esc(optName(x.id,ld.opt))}</span>`:''}</div>
+    <div class="name">${esc(x.title)}: ${esc(x.question)}</div>
+    <div class="mini">${x.options.map(o=>`<button class="mo ${mine===o.id?'mine':''} ${ld&&!ld.tie&&ld.opt===o.id?'lead':''}" data-pick="${x.id}|${o.id}">${imgTag(o.img,'',o.name)}<span class="n">${t[o.id].length}</span><div><b>${esc(o.name)}</b>${famIcons(o.fam)}</div></button>`).join('')}</div>
+    <div class="row" style="margin-top:6px"><button class="btn small" data-govote="${x.id}">See details</button>${ld&&!ld.tie?`<button class="btn small ghost" data-lock="${x.id}|${ld.opt}">Lock in "${esc(optName(x.id,ld.opt))}"</button>`:''}</div>
+  </div></div>`;
+}
+function itemStop(i, isNext){
+  const hs=heartsFor(i.id), mine=L.me&&hs.includes(L.me);
+  const notes=Object.entries(i.notes||{}).map(([w,t])=>`<b>${esc(w)}:</b> ${esc(t)}`).join(' · ');
+  const dec=i.opt?i.opt.split(':')[0]:'';
+  return `<div class="stop ${i.done?'done':''} ${isNext?'next':''}" data-id="${esc(i.id)}" style="--cc:${catVar(i.category)}"><div class="dot" data-act="done" title="Tick when done"><svg><use href="#ico-check"/></svg></div><div class="card">
+    <div class="flex"><div>
+      <div class="top"><span class="t">${esc(timeSpan(i)||'—')}</span><span class="chip cat" style="--cc:${catVar(i.category)}">${esc(i.category)}</span>${(i.tags||[]).includes('must-see')?'<span class="chip must">must-see</span>':''}${dec?`<span class="chip lock">voted in</span>`:''}${isNext?'<span class="chip next">up next</span>':''}${hs.length?`<span class="chip" style="color:#d0433a">❤ ${hs.length}</span>`:''}<span class="fam">${famIcons(i.fam)}</span></div>
+      <div class="name">${esc(i.name)}</div>${i.info?`<div class="info">${esc(i.info)}</div>`:''}${notes?`<div class="sub" style="margin-top:3px">${notes}</div>`:''}
+    </div>${imgTag(i.img,'thumb',i.name)}</div>
+    ${imgTag(i.img,'big',i.name)}
+    ${i.book?`<div class="bookbox">🎟 ${esc(i.book)}</div>`:''}
+    <div class="acts">
+      ${i.category!=='Rest'?mapBtn(i):''}
+      <button class="heart" data-act="heart" aria-pressed="${mine?'true':'false'}">❤ ${hs.length||''}</button>
+      <input type="time" data-act="time" value="${esc(i.time)}" aria-label="Start time">
+      <select data-act="day" aria-label="Move to day">${dayOptions(i.day)}</select>
+      <button class="btn small ghost" data-act="note">Note</button>
+      ${dec?`<button class="btn small ghost" data-govote="${dec}">Change vote</button>`:`<button class="btn small ghost" data-act="drop">Take off plan</button>`}
+    </div>
+    <div class="edit" data-edit="note"><label class="f">Your note (${esc(L.me||'you')})</label><textarea data-note>${esc((i.notes||{})[L.me]||'')}</textarea><div class="row" style="margin-top:6px"><button class="btn small primary" data-act="savenote">Save note</button></div></div>
+  </div></div>`;
+}
+const dayOptions = (sel) => ['<option value="">— not on a day —</option>'].concat(DAYS.map((d,i)=>`<option value="${d.d}" ${sel===d.d?'selected':''}>${fmtDay(d.d)} · ${esc(d.city)}</option>`)).join('');
+function setNote(id, text){ const it=P.items[id]; if(!it||!L.me) return; it.notes=it.notes||{}; if (text.trim()) it.notes[L.me]=text.trim(); else delete it.notes[L.me]; it.updatedAt=it.updatedAt||0; savePlan(); }
+function schedule(id, day){ const it=P.items[id]; if(!it) return; it.day=day||''; it.status=day?'scheduled':'wishlist'; if (day && it.opt){ it.opt=''; } it.updatedAt=now(); savePlan(); }
+function openStop(id){ const el=$(`.stop[data-id="${CSS.escape(id)}"]`); if (el) el.classList.add('open'); }
+document.addEventListener('click', e=>{
+  const gv=e.target.closest('[data-govote]'); if (gv){ goVote(gv.dataset.govote); return; }
+  const pk=e.target.closest('[data-pick]'); if (pk){ const [d,o]=pk.dataset.pick.split('|'); pick(d,o); rerender(); return; }
+  const lk=e.target.closest('[data-lock]'); if (lk){ const [d,o]=lk.dataset.lock.split('|'); if (chosen(d)===o){ unlock(d); toast('Unlocked'); } else if (confirm(`Lock in "${optName(d,o)}" for ${DEC[d].title}? It goes onto the itinerary. You can change it later.`)){ lockIn(d,o); toast('Locked in ✓'); } rerender(); return; }
+  const hb=e.target.closest('[data-heart]'); if (hb){ heart(hb.dataset.heart); rerender(); return; }
+  const sd=e.target.closest('[data-send]'); if (sd){ sendVotes(); return; }
+});
+function rerender(){ const on=$('section.view.on').id.slice(2); ({itin:renderItin, vote:renderVote, hotels:renderHotels, share:renderShare})[on](); updateBadge(); }
+$('#itin').addEventListener('click', e=>{
+  const dh=e.target.closest('.dh[data-day]'); if (dh){ L.closed[dh.dataset.day]=!L.closed[dh.dataset.day]; saveLocal(); dh.parentElement.classList.toggle('closed'); $('#toggleAll').textContent = DAYS.every(d=>L.closed[d.d]) ? 'Expand all' : 'Collapse all'; return; }
+  const bb=e.target.closest('[data-bact]');
+  if (bb){ const stop=bb.closest('[data-bid]'); const act=bb.dataset.bact;
+    if (act==='edit'){ stop.classList.add('editing'); $('input',$('.edit',stop)).focus(); }
+    else if (act==='cancel') renderItin();
+    else if (act==='save'){ const b=P.blocks.find(x=>x.id===stop.dataset.bid); $$('[data-f]',stop).forEach(f=>{ b[f.dataset.f] = f.type==='checkbox'?f.checked:f.value.trim(); }); if (b.sort && b.time && b.time>='06:00') b.sort=''; b.updatedAt=now(); savePlan(); renderItin(); toast('Saved'); }
+    return; }
+  if (e.target.closest('[data-map],[data-govote],[data-pick],[data-lock]')) return;
+  const stop=e.target.closest('.stop[data-id]'); if (!stop) return;
+  const a=e.target.closest('[data-act]');
+  if (!a){ if (!e.target.closest('input,select,textarea,button,a')) stop.classList.toggle('open'); return; }
+  const id=stop.dataset.id, act=a.dataset.act;
+  if (act==='done'){ const it=P.items[id]; it.done=!it.done; it.doneAt=now(); savePlan(); renderItin(); toast(it.done?'Done ✓':'Not done'); }
+  else if (act==='heart'){ heart(id); renderItin(); openStop(id); }
+  else if (act==='note'){ const ed=$('[data-edit=note]',stop); ed.style.display = ed.style.display==='block'?'none':'block'; }
+  else if (act==='savenote'){ setNote(id, $('[data-note]',stop).value); renderItin(); toast('Note saved'); }
+  else if (act==='drop'){ schedule(id,''); renderItin(); toast('Moved to Ideas in the Vote tab'); }
+});
+$('#itin').addEventListener('change', e=>{
+  const a=e.target.closest('[data-act]'); if(!a) return; const idEl=a.closest('[data-id]'); if(!idEl) return; const it=P.items[idEl.dataset.id]; if(!it) return;
+  if (a.dataset.act==='time'){ it.time=a.value; if (it.end && it.end<=it.time) it.end=''; it.updatedAt=now(); savePlan(); renderItin(); openStop(it.id); }
+  else if (a.dataset.act==='day'){ schedule(it.id, a.value); renderItin(); toast(a.value?'Moved to '+fmtDay(a.value):'Moved to Ideas'); }
+});
+function summaryText(){
+  const out=["*Chengdu · Xi'an family trip, 13–22 Dec 2026*", SITE, ''];
+  for (const [idx,d] of DAYS.entries()){
+    out.push(`*${fmtDay(d.d)}${d.city!=='Travel'?' · '+d.city:''}*: ${d.label}`);
+    for (const e of dayEntries(d.d)){
+      if (e.kind==='block'){ const b=e.b; out.push(`${b.time?b.time+(b.sort>='24:00'?'(+1)':'')+' ':''}${KIND_ICON[b.type]||''} ${hotelLabel(b)}${b.number?' '+b.number:''}${b.tentative?' (tentative)':''}`); }
+      else if (e.kind==='vote'){ const ld=leader(e.x.id); out.push(`${e.x.time} 🗳 ${e.x.title}: still voting${ld&&!ld.tie?` (leading: ${optName(e.x.id,ld.opt)})`:''}`); }
+      else { const i=e.i; out.push(`${timeSpan(i)?timeSpan(i)+' ':''}${i.done?'✅':'•'} ${i.name}`); }
+    }
+    out.push('');
+  }
+  return out.join('\n');
+}
+async function copy(t, msg){ try{ await navigator.clipboard.writeText(t); toast(msg||'Copied'); }catch(e){ const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); toast(msg||'Copied'); }catch(_){ prompt('Copy this:', t); } ta.remove(); } }
+$('#copySummary').addEventListener('click', ()=>copy(summaryText(), 'Copied: paste it into WhatsApp'));
+
+// ---------- VOTE ----------
+function optCard(d, o, t, max){
+  const mine=(myBallot()||{picks:{}}).picks[d.id]===o.id; const n=t[o.id].length; const locked=chosen(d.id)===o.id;
+  return `<div class="opt ${mine?'mine':''}">
+    <div class="ph" data-pick="${d.id}|${o.id}" style="cursor:pointer">${imgTag(o.img,'',o.name)}<span class="fam">${famIcons(o.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
+    <div class="bd"><b>${esc(o.name)}</b>${locked?'<span><span class="chip lock">locked in ✓</span></span>':''}<p>${esc(o.blurb)}</p>
+      <div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div>
+      <div class="who">${n?`${n} · ${esc(t[o.id].join(', '))}`:'no votes yet'}</div>
+      <button class="btn small pick" data-pick="${d.id}|${o.id}">${mine?'✓ Your pick':'Pick this'}</button>
+      <button class="lockbtn" data-lock="${d.id}|${o.id}">${locked?'unlock':'lock in (organiser)'}</button>
+    </div></div>`;
+}
+function decBlock(d){
+  const t=tally(d.id); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const day=DAYS.find(x=>x.d===d.day);
+  return `<div class="dec" id="dec-${esc(d.id)}" style="--ci:${day?CITY_VAR[day.city]:'var(--ink-3)'}">
+    <div class="dt">${day?`${fmtDay(d.day)} · ${esc(day.city)} · ${esc(d.time)}`:''}</div><h3>${esc(d.title)}</h3><div class="q">${esc(d.question)}</div>
+    <div class="opts ${d.options.length===4?'o4':''}">${d.options.map(o=>optCard(d,o,t,max)).join('')}</div></div>`;
+}
+function renderVote(){
+  const total=SEED.decisions.length, n=votedCount();
+  $('#ring').style.setProperty('--p', total?Math.round(n/total*100):0); $('#ringTxt').textContent=`${n}/${total}`;
+  $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Now send your votes on WhatsApp.` : `Hi ${L.me}: tap a picture to vote. ${total-n} left (hotels are in the Hotels tab).`;
+  $('#voteCity').innerHTML=[['','All days'],['Chengdu','Chengdu'],["Xi'an","Xi'an"]].map(([k,l])=>`<button class="pill" data-vcity="${esc(k)}" aria-pressed="${(L.voteCity||'')===k}" ${k?`style="--pc:${CITY_VAR[k]}"`:''}>${k?'<i></i>':''}${l}</button>`).join('');
+  const decs=ACT_DECS.filter(d=>!L.voteCity || (DAYS.find(x=>x.d===d.day)||{}).city===L.voteCity);
+  $('#decList').innerHTML=decs.map(decBlock).join('') || '<div class="empty">Nothing for this city.</div>';
+  const ideas=Object.values(P.items).filter(i=>!i.opt && i.status!=='scheduled' && (!L.voteCity || i.city===L.voteCity));
+  ideas.sort((a,b)=>heartsFor(b.id).length-heartsFor(a.id).length);
+  $('#ideaList').innerHTML=ideas.map(i=>{ const hs=heartsFor(i.id), mine=L.me&&hs.includes(L.me);
+    return `<div class="opt ${mine?'mine':''}"><div class="ph" data-heart="${esc(i.id)}" style="cursor:pointer">${imgTag(i.img,'',i.name)}<span class="fam">${famIcons(i.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
+      <div class="bd"><b>${esc(i.name)}</b><span><span class="chip city" style="--ci:${CITY_VAR[i.city]||'var(--ink-3)'}">${esc(i.city)}</span></span><p>${esc(i.info)}</p>
+      <div class="who">${hs.length?`❤ ${hs.length} · ${esc(hs.join(', '))}`:''}</div>
+      <div class="row"><button class="heart grow" data-heart="${esc(i.id)}" aria-pressed="${mine?'true':'false'}">❤ ${mine?'Want to go':'I\'d like this'}</button></div>
+      <select data-sched="${esc(i.id)}" style="margin-top:6px;min-height:32px;padding:4px 8px;font-size:13px">${dayOptions(i.day)}</select></div></div>`; }).join('') || '<div class="empty">No extra ideas here.</div>';
+}
+$('#voteCity').addEventListener('click', e=>{ const b=e.target.closest('[data-vcity]'); if(!b) return; L.voteCity=b.dataset.vcity; saveLocal(); renderVote(); });
+$('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-sched]'); if(!s) return; schedule(s.dataset.sched, s.value); renderVote(); toast(s.value?'Added to '+fmtDay(s.value):'Back to ideas'); });
+
+// ---------- HOTELS ----------
+function renderHotels(){
+  $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([city, st])=>{
+    const did = city==='Chengdu'?'h-chengdu':'h-xian'; const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
+    const ld=leader(did), lock=chosen(did);
+    return `<div class="stay" id="dec-${did}"><h2 style="margin-bottom:2px;color:${CITY_VAR[city]}">${esc(city)} ${CN[city]}</h2><div class="nights">${esc(st.nights)}</div>
+      <div class="tip">💡 ${esc(st.tip)}</div>
+      ${st.options.map((h,k)=>{ const n=t[h.id].length; return `<div class="hotel ${mine===h.id?'mine':''}">
+        <div class="banner">${imgTag(h.img,'',city)}${k===0?'<span class="badge">★ Our suggestion</span>':''}<div class="t"><b>${esc(h.name)}</b><span>${esc(h.cn)} · ${esc(h.area)}</span></div></div>
+        <div class="hb"><div class="row"><span class="chip">${esc(h.fits)}</span>${lock===h.id?'<span class="chip lock">locked in ✓</span>':ld&&!ld.tie&&ld.opt===h.id?'<span class="chip lead">leading</span>':''}</div>
+          <ul>${h.pros.map(p=>`<li class="pro">${esc(p)}</li>`).join('')}${h.cons.map(p=>`<li class="con">${esc(p)}</li>`).join('')}</ul>
+          <div class="addr">${esc(h.address)}</div>
+          <div class="tally"><div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div><span>${n?`${n} · ${esc(t[h.id].join(', '))}`:'no votes yet'}</span></div>
+          <div class="row" style="margin-top:10px"><button class="btn small ${mine===h.id?'vote':''}" data-pick="${did}|${h.id}">${mine===h.id?'✓ Your pick':'Pick this hotel'}</button>
+            ${mapBtn({name:h.cn, city})}<a class="btn small ghost" href="${esc(h.url)}" target="_blank" rel="noopener">Marriott ↗</a>
+            <button class="lockbtn" data-lock="${did}|${h.id}">${lock===h.id?'unlock':'lock in'}</button></div></div></div>`; }).join('')}</div>`;
+  }).join('');
+}
+
+// ---------- SHARE: votes travel as a link ----------
+const b64e = (s) => btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64d = (s) => decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));
+function ballotCode(){ const b=myBallot(); return 'CX1.'+b64e(JSON.stringify({n:L.me, p:b.picks, h:b.hearts.map(h=>h.replace(/^p:/,'')), t:b.t||now()})); }
+function voteMessage(){
+  const b=myBallot(); const lines=[`🗳 *${L.me}'s votes · Chengdu–Xi'an trip*`];
+  for (const d of SEED.decisions){ const o=b.picks[d.id]; if (o) lines.push(`• ${d.title}: ${optName(d.id,o)}`); }
+  const hs=b.hearts.map(id=>P.items[id]&&P.items[id].name).filter(Boolean); if (hs.length) lines.push(`❤ ${hs.join(', ')}`);
+  const left=SEED.decisions.length-votedCount(); if (left) lines.push(`(${left} not voted yet)`);
+  lines.push('', 'Tap to count my votes 👇', `${SITE}#v=${ballotCode()}`);
+  return lines.join('\n');
+}
+function sendVotes(){
+  if (!L.me){ askName(); return; }
+  if (!votedCount() && !myBallot().hearts.length){ toast('Pick something first (Vote and Hotels tabs)'); showTab('vote'); return; }
+  const txt=voteMessage();
+  if (navigator.share && (isIOS||isAndroid)){ navigator.share({text:txt}).catch(()=>{}); }
+  else window.open('https://wa.me/?text='+encodeURIComponent(txt), '_blank', 'noopener');
+}
+$('#copyVotes').addEventListener('click', ()=>{ if (!L.me){ askName(); return; } copy(voteMessage(), 'Copied: paste it into the family group'); });
+function importBallots(text){
+  const codes=[...String(text).matchAll(/CX1\.([A-Za-z0-9_-]+)/g)].map(m=>m[1]); let added=[], bad=0;
+  for (const c of codes){
+    try{ const o=JSON.parse(b64d(c)); const name=String(o.n||'').trim().slice(0,40); if (!name || typeof o.p!=='object') throw 0;
+      const picks={}; for (const [d,v] of Object.entries(o.p||{})) if (DEC[d] && DEC[d].options.some(x=>x.id===v)) picks[d]=v;
+      const hearts=(Array.isArray(o.h)?o.h:[]).map(h=>'p:'+String(h)).filter(h=>P.items[h]);
+      const cur=P.ballots[name]; const t=Number(o.t)||0;
+      if (!cur || t>=(cur.t||0)){ P.ballots[name]={picks, hearts, t}; added.push(name); }
+    }catch(e){ bad++; }
+  }
+  if (added.length) savePlan();
+  return {added:[...new Set(added)], bad, found:codes.length};
+}
+$('#addVotes').addEventListener('click', ()=>{
+  const r=importBallots($('#pasteVotes').value);
+  $('#voteStatus').innerHTML = !r.found ? '<div class="status bad">No vote codes found. Paste the whole WhatsApp message, including the link.</div>'
+    : `<div class="status ok">Counted ${r.added.length? esc(r.added.join(', ')) : 'nothing new (those votes were already in)'}${r.bad?` · ${r.bad} unreadable`:''}.</div>`;
+  if (r.added.length) $('#pasteVotes').value='';
+  renderShare(); updateBadge();
+});
+function resultsText(){
+  const out=["🗳 *Vote results · Chengdu–Xi'an trip*", `${Object.keys(P.ballots).length} voted: ${Object.keys(P.ballots).join(', ')}`, ''];
+  for (const d of SEED.decisions){ const t=tally(d.id); const rows=Object.entries(t).sort((a,b)=>b[1].length-a[1].length);
+    out.push(`*${d.title}*${chosen(d.id)?' ✓ '+optName(d.id,chosen(d.id)):''}`); for (const [o,v] of rows) if (v.length) out.push(`  ${optName(d.id,o)}: ${v.length}`); }
+  const hs=Object.values(P.items).map(i=>[i,heartsFor(i.id).length]).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]);
+  if (hs.length){ out.push('', '*Most ❤*'); for (const [i,n] of hs.slice(0,8)) out.push(`  ${i.name}: ${n}`); }
+  out.push('', SITE); return out.join('\n');
+}
+$('#copyResults').addEventListener('click', ()=>copy(resultsText(), 'Results copied'));
+function renderShare(){
+  $('#sName').value=L.me;
+  const names=Object.keys(P.ballots).sort();
+  $('#voters').innerHTML = names.length ? names.map(n=>`<span>${esc(n)} <small style="color:var(--ink-3)">${SEED.decisions.filter(d=>P.ballots[n].picks[d.id]).length}/${SEED.decisions.length}</small><button data-rmvoter="${esc(n)}" title="Remove" aria-label="Remove ${esc(n)}">×</button></span>`).join('') : '';
+  $('#results').innerHTML = !names.length ? '<div class="empty" style="border:0">No votes counted yet.</div>' : SEED.decisions.map(d=>{ const t=tally(d.id); const max=Math.max(1,...Object.values(t).map(v=>v.length));
+    return `<div class="r"><b>${esc(d.title)}</b>${chosen(d.id)?` <span class="chip lock">✓ ${esc(optName(d.id,chosen(d.id)))}</span>`:''}<div class="rl">${d.options.map(o=>`<span>${esc(o.name)}</span><span>${t[o.id].length}</span><div class="bar"><i style="width:${Math.round(t[o.id].length/max*100)}%"></i></div>`).join('')}</div></div>`; }).join('');
+  $('#credits').innerHTML = Object.entries(SEED.credits).map(([k,c])=>`<div><a href="${esc(c.page)}" target="_blank" rel="noopener">${esc(k)}</a>: ${esc(c.author||'unknown')} · ${esc(c.license)}</div>`).join('');
+}
+$('#voters').addEventListener('click', e=>{ const b=e.target.closest('[data-rmvoter]'); if(!b) return; if (confirm(`Remove ${b.dataset.rmvoter}'s votes from this phone?`)){ delete P.ballots[b.dataset.rmvoter]; savePlan(); renderShare(); updateBadge(); } });
+$('#saveName').addEventListener('click', ()=>{ const n=$('#sName').value.trim().slice(0,40); if(!n){ toast('A name is needed'); return; } if (L.me && L.me!==n && P.ballots[L.me]){ P.ballots[n]=P.ballots[L.me]; delete P.ballots[L.me]; savePlan(); } L.me=n; saveLocal(); toast('Saved'); renderShare(); updateBadge(); });
+function exportPlan(){
+  const data={app:'chengdu-xian-trip-planner', v:1, exportedBy:L.me, exportedAt:new Date().toISOString(), items:P.items, blocks:P.blocks, ballots:P.ballots, locks:P.locks};
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'}));
+  a.download=`cdxa-plan-${(L.me||'me').replace(/\W+/g,'')}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+  $('#shareStatus').innerHTML='<div class="status ok">Exported. Send the file on WhatsApp; they import it from this screen.</div>';
+}
+$('#exportBtn').addEventListener('click', exportPlan);
+function mergePlan(inc){
+  if (!inc || inc.app!=='chengdu-xian-trip-planner' || !inc.items) throw new Error('That file is not a Chengdu–Xi\'an plan export.');
+  let added=0, merged=0;
+  for (const [id,it] of Object.entries(inc.items)){ const cur=P.items[id]; if (!cur){ P.items[id]=it; added++; continue; } merged++;
+    cur.notes=cur.notes||{}; for (const [w,t] of Object.entries(it.notes||{})) if (w!==L.me) cur.notes[w]=t;
+    if ((it.doneAt||0)>(cur.doneAt||0)){ cur.done=!!it.done; cur.doneAt=it.doneAt; }
+    if ((it.updatedAt||0)>(cur.updatedAt||0)){ for (const f of ['status','day','order','time','end','opt']) cur[f]=it[f]; cur.updatedAt=it.updatedAt; } }
+  for (const b of (inc.blocks||[])){ const cur=P.blocks.find(x=>x.id===b.id); if (!cur) P.blocks.push(b); else if ((b.updatedAt||0)>(cur.updatedAt||0)) Object.assign(cur,b); }
+  for (const [n,b] of Object.entries(inc.ballots||{})){ if (!P.ballots[n] || (b.t||0)>(P.ballots[n].t||0)) P.ballots[n]=b; }
+  for (const [d,l] of Object.entries(inc.locks||{})){ if (!P.locks[d] || (l.t||0)>(P.locks[d].t||0)) P.locks[d]=l; }
+  savePlan(); return {added, merged, from:inc.exportedBy||'?'};
+}
+$('#importFile').addEventListener('change', e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader();
+  rd.onload=()=>{ try{ const r=mergePlan(JSON.parse(rd.result)); $('#shareStatus').innerHTML=`<div class="status ok">Merged ${esc(r.from)}'s plan: ${r.added} new, ${r.merged} combined. Votes and locked choices merged too.</div>`; updateBadge(); }
+    catch(err){ $('#shareStatus').innerHTML=`<div class="status bad">Import failed: ${esc(err.message||err)}</div>`; } e.target.value=''; };
+  rd.readAsText(f); });
+$('#resetAll').addEventListener('click', ()=>{ if (confirm('Clear everything on this phone?')){ [LS_PLAN, LS_LOCAL].forEach(k=>localStorage.removeItem(k)); location.hash=''; location.reload(); } });
+
+// ---------- boot ----------
+function askName(){ $('#setup').classList.remove('hidden'); setTimeout(()=>$('#suName').focus(),50); }
+$('#setupForm').addEventListener('submit', e=>{ e.preventDefault(); L.me=$('#suName').value.trim().slice(0,40); saveLocal(); myBallot(); savePlan(); $('#setup').classList.add('hidden'); updateBadge(); showTab('vote'); toast('Welcome, '+L.me+'! Tap the pictures you like.'); });
+function boot(){
+  const m=location.hash.match(/v=(CX1\.[A-Za-z0-9_-]+)/);
+  let incoming=null;
+  if (m){ const r=importBallots(m[1]); history.replaceState(null,'',location.pathname); incoming=r; }
+  updateBadge();
+  if (incoming && incoming.found){ showTab('share'); toast(incoming.added.length?`Counted ${incoming.added.join(', ')}'s votes ✓`:'Those votes were already counted'); if (!L.me) setTimeout(askName, 1600); return; }
+  showTab('itin');
+  if (!L.me) askName();
+  const t=todayKey(); if (DAYS.some(d=>d.d===t)) setTimeout(()=>{ const el=$('#day-'+t); if (el) el.scrollIntoView({block:'start'}); }, 80);
+}
+boot();
+})();
+</script>
+</body>
+</html>

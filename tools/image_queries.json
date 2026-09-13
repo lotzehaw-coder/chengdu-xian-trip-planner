@@ -1,0 +1,256 @@
+{
+ "panda": {
+  "q": [
+   "Chengdu Research Base of Giant Panda Breeding giant panda eating bamboo",
+   "giant panda Chengdu research base"
+  ]
+ },
+ "peoplespark": {
+  "q": [
+   "People's Park Chengdu teahouse",
+   "Heming teahouse People's Park Chengdu"
+  ]
+ },
+ "kuanzhai": {
+  "q": [
+   "Kuanzhai Alley Chengdu",
+   "Kuanzhai Xiangzi"
+  ]
+ },
+ "jinli": {
+  "q": [
+   "Jinli street Chengdu lanterns night",
+   "Jinli Chengdu"
+  ],
+  "pin": "File:锦里2.JPG"
+ },
+ "wuhou": {
+  "q": [
+   "Wuhou Shrine Chengdu",
+   "Wuhou Temple Chengdu"
+  ],
+  "pin": "File:Liu Bei statue in Wuhou Shrine - Chengdu, China - DSC05413.jpg"
+ },
+ "taikooli": {
+  "q": [
+   "Taikoo Li Chengdu",
+   "Daci Temple Chengdu"
+  ]
+ },
+ "ifspanda": {
+  "q": [
+   "IFS Chengdu panda sculpture",
+   "Chengdu IFS panda"
+  ]
+ },
+ "wenshu": {
+  "q": [
+   "Wenshu Monastery Chengdu",
+   "Wenshu Yuan Chengdu"
+  ]
+ },
+ "dufu": {
+  "q": [
+   "Du Fu Thatched Cottage Chengdu",
+   "Dufu Caotang"
+  ],
+  "pin": "File:Traditional housing inside Du Fu Thatched Cottage.jpg"
+ },
+ "sichuanopera": {
+  "q": [
+   "Sichuan opera face changing",
+   "Bian lian Sichuan opera"
+  ]
+ },
+ "hotpot": {
+  "q": [
+   "Sichuan hotpot",
+   "Hot pot Chengdu",
+   "Yuanyang hot pot",
+   "hotpot spicy broth"
+  ],
+  "pick": 1
+ },
+ "mapotofu": {
+  "q": [
+   "Mapo tofu",
+   "Mapo doufu dish"
+  ]
+ },
+ "sichuanmuseum": {
+  "q": [
+   "Sichuan Museum Chengdu",
+   "Sichuan Provincial Museum"
+  ]
+ },
+ "jinsha": {
+  "q": [
+   "Jinsha Site Museum Chengdu",
+   "Jinsha museum sun bird gold"
+  ]
+ },
+ "naturalhistory": {
+  "q": [
+   "Chengdu Natural History Museum dinosaur",
+   "Chengdu University of Technology museum natural history"
+  ]
+ },
+ "leshan": {
+  "q": [
+   "Leshan Giant Buddha",
+   "Leshan Giant Buddha river view"
+  ]
+ },
+ "dujiangyan": {
+  "q": [
+   "Dujiangyan irrigation system",
+   "Dujiangyan Anlan cable bridge"
+  ],
+  "pin": "File:Dujiangyan Scenic Area 36666-Dujiangyan (49067677318).jpg"
+ },
+ "qingcheng": {
+  "q": [
+   "Mount Qingcheng Taoist temple",
+   "Qingchengshan"
+  ]
+ },
+ "chunxi": {
+  "q": [
+   "Chunxi Road Chengdu night",
+   "Chunxi Road Chengdu"
+  ]
+ },
+ "terracotta": {
+  "q": [
+   "Terracotta Army pit 1",
+   "Terracotta Army Xi'an pit"
+  ]
+ },
+ "huaqing": {
+  "q": [
+   "Huaqing Palace Lintong",
+   "Huaqing Pool Xi'an"
+  ]
+ },
+ "wildgoose": {
+  "q": [
+   "Giant Wild Goose Pagoda",
+   "Big Wild Goose Pagoda Xi'an"
+  ]
+ },
+ "datang": {
+  "q": [
+   "Great Tang All Day Mall",
+   "Datang Everbright City",
+   "Tang West Market Xi'an night"
+  ],
+  "pick": 1
+ },
+ "citywall": {
+  "q": [
+   "Xi'an city wall south gate Yongningmen",
+   "Fortifications of Xi'an city wall"
+  ]
+ },
+ "belltower": {
+  "q": [
+   "Bell Tower of Xi'an night",
+   "Xi'an Bell Tower"
+  ]
+ },
+ "drumtower": {
+  "q": [
+   "Drum Tower Xi'an",
+   "Xi'an Drum Tower"
+  ]
+ },
+ "muslimquarter": {
+  "q": [
+   "Muslim Quarter Xi'an Huimin street",
+   "Beiyuanmen Muslim street Xi'an"
+  ]
+ },
+ "shaanximuseum": {
+  "q": [
+   "Shaanxi History Museum",
+   "Shaanxi History Museum building"
+  ],
+  "pin": "File:Bodhisattva in the Shaanxi History Museum.jpg"
+ },
+ "smallgoose": {
+  "q": [
+   "Small Wild Goose Pagoda",
+   "Xiaoyan pagoda Xi'an"
+  ],
+  "pin": "File:Small Wild Goose Pagoda.jpg"
+ },
+ "tangparadise": {
+  "q": [
+   "Tang Paradise Xi'an",
+   "Datang Furong Yuan"
+  ]
+ },
+ "tangshow": {
+  "q": [
+   "Tang Dynasty show Xi'an theatre",
+   "Chinese classical dance Tang costume",
+   "Xi'an Tang dance performance"
+  ]
+ },
+ "hanfu": {
+  "q": [
+   "Hanfu women Tang dynasty style",
+   "Tang-style hanfu",
+   "Hanfu photo"
+  ]
+ },
+ "dumplings": {
+  "q": [
+   "jiaozi",
+   "Chinese dumplings jiaozi plate",
+   "boiled dumplings China"
+  ]
+ },
+ "roujiamo": {
+  "q": [
+   "Roujiamo",
+   "Rou jia mo Chinese hamburger"
+  ]
+ },
+ "biangbiang": {
+  "q": [
+   "Biangbiang noodles",
+   "Biang biang mian"
+  ]
+ },
+ "paomo": {
+  "q": [
+   "Yangrou paomo",
+   "Paomo Xi'an"
+  ]
+ },
+ "yongxingfang": {
+  "q": [
+   "Yongxingfang Xi'an",
+   "Yongxing fang food street"
+  ]
+ },
+ "hsr": {
+  "q": [
+   "CR400AF Fuxing train",
+   "China Railway CR400AF"
+  ]
+ },
+ "chengduhero": {
+  "q": [
+   "Anshun Bridge Chengdu night",
+   "Chengdu skyline Jinjiang river night"
+  ]
+ },
+ "xianhero": {
+  "q": [
+   "Xi'an city wall night lanterns",
+   "Xi'an Bell Tower night"
+  ]
+ }
+}
