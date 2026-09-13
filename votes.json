@@ -1,7 +1,21 @@
 {
- "updated": "2026-09-13T18:42+08:00",
- "count": 3,
+ "updated": "2026-09-13T19:12+08:00",
+ "count": 4,
  "ballots": {
+  "Chia Wei": {
+   "picks": {
+    "d-d1eve": "opera",
+    "d-d2pm": "taikoo",
+    "d-d4pm": "huaqing",
+    "d-d5eve": "tang",
+    "d-d7": "leshan",
+    "d-d8am": "shop"
+   },
+   "hearts": [
+    "p:tangparadise"
+   ],
+   "t": 1789297924439
+  },
   "Khan": {
    "picks": {
     "d-d1eve": "opera",
@@ -26,18 +40,33 @@
     "d-d1eve": "opera",
     "d-d2pm": "taikoo",
     "d-d5eve": "tang",
-    "d-d4pm": "huaqing"
+    "d-d4pm": "huaqing",
+    "d-d6am": "hanfu",
+    "d-d7": "leshan",
+    "d-d8am": "shop",
+    "h-chengdu": "jw",
+    "h-xian": "jwxa"
    },
-   "hearts": [],
-   "t": 1789295503011
+   "hearts": [
+    "p:drumtower-in",
+    "p:tangparadise",
+    "p:tianfu-idea",
+    "p:biangbiang"
+   ],
+   "t": 1789297881818
   },
   "Tze": {
    "picks": {
     "h-xian": "ritzxa",
-    "h-chengdu": "jw"
+    "h-chengdu": "jw",
+    "d-d2pm": "taikoo",
+    "d-d1eve": "opera",
+    "d-d4pm": "huaqing",
+    "d-d5eve": "tang",
+    "d-d8am": "shop"
    },
    "hearts": [],
-   "t": 1789295346523
+   "t": 1789297832477
   }
  }
 }
