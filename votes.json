@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-13T21:12+08:00",
- "count": 4,
+ "updated": "2026-09-13T21:42+08:00",
+ "count": 5,
  "ballots": {
   "Chia Wei": {
    "picks": {
@@ -20,6 +20,15 @@
     "p:biangbiang"
    ],
    "t": 1789299547202
+  },
+  "Kennt": {
+   "picks": {
+    "h-chengdu": "jw",
+    "h-chengdu2": "w",
+    "h-xian": "ritzxa"
+   },
+   "hearts": [],
+   "t": 1789306871700
   },
   "Khan": {
    "picks": {
@@ -43,15 +52,15 @@
   "Mc": {
    "picks": {
     "d-d1eve": "opera",
-    "d-d2pm": "taikoo",
     "d-d5eve": "tang",
     "d-d4pm": "huaqing",
-    "d-d6am": "hanfu",
     "d-d7": "leshan",
     "d-d8am": "shop",
     "h-chengdu": "jw",
     "h-xian": "jwxa",
-    "h-chengdu2": "w"
+    "h-chengdu2": "w",
+    "d-d2pm": "taikoo",
+    "d-d6am": "hanfu"
    },
    "hearts": [
     "p:drumtower-in",
@@ -59,21 +68,20 @@
     "p:tianfu-idea",
     "p:biangbiang"
    ],
-   "t": 1789304049467
+   "t": 1789305725271
   },
   "Tze": {
    "picks": {
     "h-xian": "ritzxa",
-    "h-chengdu": "jw",
-    "d-d2pm": "taikoo",
+    "d-d2pm": "dongjiao",
     "d-d1eve": "opera",
     "d-d5eve": "tang",
     "d-d8am": "shop",
     "h-chengdu2": "w",
-    "d-d4pm": "huaqing"
+    "h-chengdu": "jw"
    },
    "hearts": [],
-   "t": 1789301754059
+   "t": 1789306419768
   }
  }
 }
