@@ -322,7 +322,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
     <button data-tab="itin"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Itinerary</button>
     <button data-tab="vote"><svg viewBox="0 0 24 24"><path d="M4 13l3-3 4 4 9-9M4 20h16"/></svg>Vote<span class="badge hidden" id="voteBadge"></span></button>
     <button data-tab="hotels"><svg viewBox="0 0 24 24"><path d="M3 20V8l9-4 9 4v12M3 20h18M8 20v-5h8v5M8 10h.01M12 10h.01M16 10h.01"/></svg>Hotels</button>
-    <button data-tab="share"><svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 3v12m0-12-4 4m4-4 4 4"/></svg>Share</button>
+    <button data-tab="share"><svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M12 3v12m0-12-4 4m4-4 4 4"/></svg>Results</button>
   </nav>
 
   <div class="grow">
@@ -355,10 +355,9 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
         <h2 id="ideasH">Ideas: ❤ the ones you'd like</h2>
         <p class="muted">Not on a day yet. If lots of people heart one, we'll find it a slot.</p>
         <div class="ideas" id="ideaList"></div>
-        <div class="card" style="margin-top:18px;background:#f1ecfb">
-          <b>Done voting?</b>
-          <p class="muted" style="margin:4px 0 10px">Send your picks to the family WhatsApp group so they're counted.</p>
-          <button class="btn wa" data-send>Send my votes on WhatsApp</button>
+        <div class="card" style="margin-top:18px;background:#eaf3ee">
+          <b>Your votes save automatically ✓</b>
+          <p class="muted" style="margin:4px 0 0" id="syncNote">Every tap is saved for the whole family. Change your mind any time; your latest choice counts. See everyone's votes in the Results tab.</p>
         </div>
       </section>
 
@@ -372,15 +371,9 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 
       <!-- SHARE -->
       <section class="view" id="v-share">
-        <h2>Send your votes</h2>
-        <p class="muted">Sends a short message with a link to the family group. When the organiser taps the link, your votes are counted on their phone.</p>
-        <div class="row"><button class="btn wa" data-send>Send my votes on WhatsApp</button><button class="btn" id="copyVotes">Copy instead</button></div>
-
-        <h2 style="margin-top:28px">Everyone's votes</h2>
-        <p class="muted">Votes sent on WhatsApp are collected and counted here automatically; nobody needs to tap the links. If someone's vote is missing, paste their message below.</p>
-        <textarea id="pasteVotes" placeholder="Paste WhatsApp vote messages here…"></textarea>
-        <div class="row" style="margin-top:8px"><button class="btn primary" id="addVotes">Count these votes</button></div>
-        <div id="voteStatus"></div>
+        <h2>Everyone's votes</h2>
+        <p class="muted" id="autoNote2">Votes save on this website as people tap, and results update by themselves.</p>
+        <div class="row"><button class="btn small" id="refreshVotes">↻ Refresh results</button></div>
         <div class="voters" id="voters"></div>
         <div class="card results" id="results"></div>
         <div class="row"><button class="btn small" id="copyResults">Copy results for WhatsApp</button></div>
@@ -417,7 +410,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
       <p class="muted" style="margin-top:-4px">{{welcome_text}}</p>
       <ol><li><b>Vote</b>: tap the pictures you like for the open slots, and ❤ any extra ideas.</li>
         <li><b>Hotels</b>: pick one in each city.</li>
-        <li><b>Send</b>: one tap sends your votes to the family WhatsApp group.</li></ol>
+        <li>That's it: votes save automatically. See everyone's in <b>Results</b>.</li></ol>
       <label class="f" for="suName">Your name</label>
       <input type="text" id="suName" required maxlength="40" placeholder="e.g. Ah Ma, Uncle Wei, Mei" autocomplete="off">
       <div style="margin-top:14px"><button class="btn primary" type="submit" style="width:100%">Let's plan</button></div>
@@ -486,8 +479,8 @@ const imgTag = (src, cls, alt) => src ? `<img class="${cls}" src="${esc(src)}" a
 
 // ---------- ballots ----------
 function myBallot(){ if (!L.me) return null; if (!P.ballots[L.me]) P.ballots[L.me]={picks:{}, hearts:[], t:0}; return P.ballots[L.me]; }
-function pick(did, oid){ const b=myBallot(); if(!b){ askName(); return; } if (b.picks[did]===oid) delete b.picks[did]; else b.picks[did]=oid; b.t=now(); savePlan(); updateBadge(); }
-function heart(id){ const b=myBallot(); if(!b){ askName(); return; } const s=new Set(b.hearts); s.has(id)?s.delete(id):s.add(id); b.hearts=[...s]; b.t=now(); savePlan(); }
+function pick(did, oid){ const b=myBallot(); if(!b){ askName(); return; } if (b.picks[did]===oid) delete b.picks[did]; else b.picks[did]=oid; b.t=now(); savePlan(); updateBadge(); queueSync(); }
+function heart(id){ const b=myBallot(); if(!b){ askName(); return; } const s=new Set(b.hearts); s.has(id)?s.delete(id):s.add(id); b.hearts=[...s]; b.t=now(); savePlan(); queueSync(); }
 function tally(did){ const out={}; for (const o of DEC[did].options) out[o.id]=[]; for (const [who,b] of Object.entries(P.ballots)){ const v=b.picks&&b.picks[did]; if (v && out[v]) out[v].push(who); } return out; }
 function heartsFor(id){ return Object.entries(P.ballots).filter(([,b])=>(b.hearts||[]).includes(id)).map(([w])=>w); }
 function leader(did){ const t=tally(did); let best=null, n=0, tie=false; for (const [k,v] of Object.entries(t)){ if (v.length>n){ best=k; n=v.length; tie=false; } else if (v.length===n && n>0) tie=true; } return n? {opt:best, n, tie} : null; }
@@ -701,7 +694,6 @@ document.addEventListener('click', e=>{
   const pk=e.target.closest('[data-pick]'); if (pk){ const [d,o]=pk.dataset.pick.split('|'); pick(d,o); rerender(); return; }
   const lk=e.target.closest('[data-lock]'); if (lk){ const [d,o]=lk.dataset.lock.split('|'); if (chosen(d)===o){ unlock(d); toast('Unlocked'); } else if (confirm(`Lock in "${optName(d,o)}" for ${DEC[d].title}? It goes onto the itinerary. You can change it later.`)){ lockIn(d,o); toast('Locked in ✓'); } rerender(); return; }
   const hb=e.target.closest('[data-heart]'); if (hb){ heart(hb.dataset.heart); rerender(); return; }
-  const sd=e.target.closest('[data-send]'); if (sd){ sendVotes(); return; }
 });
 function rerender(){ const on=$('section.view.on').id.slice(2); ({itin:renderItin, vote:renderVote, hotels:renderHotels, share:renderShare})[on](); updateBadge(); updateAutoNote(); }
 $('#itin').addEventListener('click', e=>{
@@ -765,7 +757,7 @@ function decBlock(d){
 function renderVote(){
   const total=SEED.decisions.length, n=votedCount();
   $('#ring').style.setProperty('--p', total?Math.round(n/total*100):0); $('#ringTxt').textContent=`${n}/${total}`;
-  $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Now send your votes on WhatsApp.` : `Hi ${L.me}: tap a picture to vote. ${total-n} left (hotels are in the Hotels tab).`;
+  $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Your votes are saved.` : `Hi ${L.me}: tap a picture to vote. ${total-n} left (hotels are in the Hotels tab). Votes save automatically.`;
   $('#voteCity').innerHTML=[['','All days'], ...CITIES.map(c=>[c,c])].map(([k,l])=>`<button class="pill" data-vcity="${esc(k)}" aria-pressed="${(L.voteCity||'')===k}" ${k?`style="--pc:${CITY_VAR[k]}"`:''}>${k?'<i></i>':''}${l}</button>`).join('');
   const decs=ACT_DECS.filter(d=>!L.voteCity || (DAYS.find(x=>x.d===d.day)||{}).city===L.voteCity);
   $('#decList').innerHTML=decs.map(decBlock).join('') || '<div class="empty">Nothing for this city.</div>';
@@ -815,14 +807,6 @@ function voteMessage(){
   lines.push('', 'Tap to count my votes 👇', `${SITE}#v=${ballotCode()}`);
   return lines.join('\n');
 }
-function sendVotes(){
-  if (!L.me){ askName(); return; }
-  if (!votedCount() && !myBallot().hearts.length){ toast('Pick something first (Vote and Hotels tabs)'); showTab('vote'); return; }
-  const txt=voteMessage();
-  if (navigator.share && (isIOS||isAndroid)){ navigator.share({text:txt}).catch(()=>{}); }
-  else window.open('https://wa.me/?text='+encodeURIComponent(txt), '_blank', 'noopener');
-}
-$('#copyVotes').addEventListener('click', ()=>{ if (!L.me){ askName(); return; } copy(voteMessage(), 'Copied: paste it into the family group'); });
 function importBallots(text){
   const codes=[...String(text).matchAll(/CX1\.([A-Za-z0-9_-]+)/g)].map(m=>m[1]); let added=[], bad=0;
   for (const c of codes){
@@ -836,15 +820,9 @@ function importBallots(text){
   if (added.length) savePlan();
   return {added:[...new Set(added)], bad, found:codes.length};
 }
-$('#addVotes').addEventListener('click', ()=>{
-  const r=importBallots($('#pasteVotes').value);
-  $('#voteStatus').innerHTML = !r.found ? '<div class="status bad">No vote codes found. Paste the whole WhatsApp message, including the link.</div>'
-    : `<div class="status ok">Counted ${r.added.length? esc(r.added.join(', ')) : 'nothing new (those votes were already in)'}${r.bad?` · ${r.bad} unreadable`:''}.</div>`;
-  if (r.added.length) $('#pasteVotes').value='';
-  renderShare(); updateBadge();
-});
+$('#refreshVotes').addEventListener('click', ()=>{ loadAutoVotes(true); toast('Refreshing…'); });
 function resultsText(){
-  const out=[`🗳 *Vote results · ${TRIP.name}*`, `${Object.keys(P.ballots).length} voted: ${Object.keys(P.ballots).join(', ')}`, ''];
+  const out=[`🗳 *Vote results · ${TRIP.name}*`, `${realVoters().length} voted: ${realVoters().join(', ')}`, ''];
   for (const d of SEED.decisions){ const t=tally(d.id); const rows=Object.entries(t).sort((a,b)=>b[1].length-a[1].length);
     out.push(`*${d.title}*${chosen(d.id)?' ✓ '+optName(d.id,chosen(d.id)):''}`); for (const [o,v] of rows) if (v.length) out.push(`  ${optName(d.id,o)}: ${v.length}`); }
   const hs=Object.values(P.items).map(i=>[i,heartsFor(i.id).length]).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]);
@@ -855,14 +833,14 @@ $('#copyResults').addEventListener('click', ()=>copy(resultsText(), 'Results cop
 function renderShare(){
   $('#aboutText').textContent = TRIP.about || 'Everything is saved in this browser only: no accounts, no server.';
   $('#sName').value=L.me;
-  const names=Object.keys(P.ballots).sort();
-  $('#voters').innerHTML = names.length ? names.map(n=>`<span>${esc(n)} <small style="color:var(--ink-3)">${SEED.decisions.filter(d=>P.ballots[n].picks[d.id]).length}/${SEED.decisions.length}</small><button data-rmvoter="${esc(n)}" title="Remove" aria-label="Remove ${esc(n)}">×</button></span>`).join('') : '';
+  const names=realVoters().sort();
+  $('#voters').innerHTML = names.map(n=>`<span>${esc(n)} <small style="color:var(--ink-3)">${SEED.decisions.filter(d=>P.ballots[n].picks[d.id]).length}/${SEED.decisions.length}</small></span>`).join('');
   $('#results').innerHTML = !names.length ? '<div class="empty" style="border:0">No votes counted yet.</div>' : SEED.decisions.map(d=>{ const t=tally(d.id); const max=Math.max(1,...Object.values(t).map(v=>v.length));
     return `<div class="r"><b>${esc(d.title)}</b>${chosen(d.id)?` <span class="chip lock">✓ ${esc(optName(d.id,chosen(d.id)))}</span>`:''}<div class="rl">${d.options.map(o=>`<span>${esc(o.name)}</span><span>${t[o.id].length}</span><div class="bar"><i style="width:${Math.round(t[o.id].length/max*100)}%"></i></div>`).join('')}</div></div>`; }).join('');
   $('#credits').innerHTML = Object.entries(SEED.credits).map(([k,c])=>`<div><a href="${esc(c.page)}" target="_blank" rel="noopener">${esc(k)}</a>: ${esc(c.author||'unknown')} · ${esc(c.license)}</div>`).join('');
 }
 $('#voters').addEventListener('click', e=>{ const b=e.target.closest('[data-rmvoter]'); if(!b) return; if (confirm(`Remove ${b.dataset.rmvoter}'s votes from this phone?`)){ delete P.ballots[b.dataset.rmvoter]; savePlan(); renderShare(); updateBadge(); } });
-$('#saveName').addEventListener('click', ()=>{ const n=$('#sName').value.trim().slice(0,40); if(!n){ toast('A name is needed'); return; } if (L.me && L.me!==n && P.ballots[L.me]){ P.ballots[n]=P.ballots[L.me]; delete P.ballots[L.me]; savePlan(); } L.me=n; saveLocal(); toast('Saved'); renderShare(); updateBadge(); });
+$('#saveName').addEventListener('click', ()=>{ const n=$('#sName').value.trim().slice(0,40); if(!n){ toast('A name is needed'); return; } if (L.me && L.me!==n && P.ballots[L.me]){ P.ballots[n]=P.ballots[L.me]; delete P.ballots[L.me]; savePlan(); } L.me=n; saveLocal(); toast('Saved'); renderShare(); updateBadge(); if (P.ballots[n]) queueSync(); });
 function exportPlan(){
   const data={app:TRIP.app, v:1, exportedBy:L.me, exportedAt:new Date().toISOString(), items:P.items, blocks:P.blocks, ballots:P.ballots, locks:P.locks};
   const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'}));
@@ -888,25 +866,50 @@ $('#importFile').addEventListener('change', e=>{ const f=e.target.files[0]; if(!
   rd.readAsText(f); });
 $('#resetAll').addEventListener('click', ()=>{ if (confirm('Clear everything on this phone?')){ [LS_PLAN, LS_LOCAL].forEach(k=>localStorage.removeItem(k)); location.hash=''; location.reload(); } });
 
-// ---------- votes collected automatically from WhatsApp (tools/collect_votes.py -> votes.json) ----------
-let AUTO = null;
-async function loadAutoVotes(){
+// ---------- online voting: taps save to TRIP.voteRelay; results = votes.json (durable, in GitHub) + recent relay messages ----------
+let AUTO = null, syncTimer = null, lastLoad = 0;
+function queueSync(){ L.unsynced = true; saveLocal(); clearTimeout(syncTimer); syncTimer = setTimeout(syncVote, 1200); }
+async function syncVote(){
+  const b = L.me && P.ballots[L.me]; if (!b || !TRIP.voteRelay) return;
+  const body = JSON.stringify({n:L.me, p:b.picks, h:b.hearts.map(x=>x.replace(/^p:/,'')), t:b.t, d:deviceId()});
   try{
-    const r = await fetch('votes.json?'+Date.now(), {cache:'no-store'}); if (!r.ok) return;
-    const j = await r.json(); AUTO = j; let changed = false;
-    for (const [name, b] of Object.entries(j.ballots||{})){
-      const cur = P.ballots[name];
-      if (!cur || (b.t||0) > (cur.t||0)){ P.ballots[name] = {picks:b.picks||{}, hearts:b.hearts||[], t:b.t||0}; changed = true; }
-    }
-    if (changed){ savePlan(); rerender(); } else updateAutoNote();
-  }catch(e){}
+    const r = await fetch(TRIP.voteRelay, {method:'POST', body});
+    if (!r.ok) throw new Error(r.status);
+    L.unsynced = false; saveLocal(); setSync('✓ Saved for everyone');
+  }catch(e){ setSync("⚠ Couldn't save just now (no internet?). It will retry automatically."); }
 }
+function deviceId(){ if (!L.dev){ L.dev = Math.random().toString(36).slice(2,10); saveLocal(); } return L.dev; }
+function setSync(msg){ const el=$('#syncNote'); if (el) el.textContent = msg + ' Your latest choice counts; see everyone in Results.'; toast(msg); }
+function acceptBallot(o){
+  const name = String(o.n||'').trim().slice(0,40); if (!name || typeof o.p!=='object') return false;
+  const picks = {}; for (const [d,v] of Object.entries(o.p||{})) if (DEC[d] && DEC[d].options.some(x=>x.id===v)) picks[d]=v;
+  const hearts = (Array.isArray(o.h)?o.h:[]).map(h=>String(h).startsWith('p:')?String(h):'p:'+h).filter(h=>P.items[h]);
+  if (!Object.keys(picks).length && !hearts.length) return false;           // empty test/blank submissions don't count
+  const t = Number(o.t)||0; const cur = P.ballots[name];
+  if (name===L.me && L.unsynced) return false;                           // don't let an older copy overwrite my unsent taps
+  if (!cur || t > (cur.t||0)){ P.ballots[name] = {picks, hearts, t}; return true; }
+  return false;
+}
+async function loadAutoVotes(force){
+  if (!force && now()-lastLoad < 20000) return; lastLoad = now();
+  let changed = false, count = 0, relayOk = false;
+  try{ const r = await fetch('votes.json?'+Date.now(), {cache:'no-store'}); if (r.ok){ const j = await r.json(); AUTO = j; for (const [n,b] of Object.entries(j.ballots||{})) changed = acceptBallot(Object.assign({n}, b, {h:b.hearts, p:b.picks})) || changed; } }catch(e){}
+  if (TRIP.voteRelay){
+    try{ const r = await fetch(TRIP.voteRelay + '/json?poll=1&since=all', {cache:'no-store'}); if (r.ok){ relayOk = true;
+      for (const line of (await r.text()).split('\n')){ if (!line.trim()) continue; try{ const m = JSON.parse(line); if (m.event==='message') changed = acceptBallot(JSON.parse(m.message)) || changed; }catch(e){} } } }catch(e){}
+  }
+  if (L.me && L.unsynced) syncVote();
+  if (changed){ savePlan(); rerender(); } else updateAutoNote();
+}
+const realVoters = () => Object.entries(P.ballots).filter(([,b])=>Object.keys(b.picks||{}).length || (b.hearts||[]).length).map(([n])=>n);
 function updateAutoNote(){
-  const el=$('#autoNote'); if (!el) return;
-  if (!AUTO){ el.textContent=''; return; }
-  const when = AUTO.updated ? new Date(AUTO.updated).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
-  el.textContent = `✓ ${AUTO.count||0} ${AUTO.count===1?'person has':'people have'} voted so far (collected from WhatsApp automatically${when?', last '+when:''}).`;
+  const n = realVoters().length;
+  const txt = n ? `✓ ${n} ${n===1?'person has':'people have'} voted so far.` : 'No votes yet. Be the first!';
+  const a=$('#autoNote'); if (a) a.textContent = txt;
+  const b=$('#autoNote2'); if (b) b.textContent = txt + ' Votes save on this website as people tap, and results update by themselves.';
 }
+document.addEventListener('visibilitychange', ()=>{ if (document.visibilityState==='visible') loadAutoVotes(); });
+window.addEventListener('online', ()=>{ if (L.unsynced) syncVote(); });
 // ---------- boot ----------
 function askName(){ $('#setup').classList.remove('hidden'); setTimeout(()=>$('#suName').focus(),50); }
 $('#setupForm').addEventListener('submit', e=>{ e.preventDefault(); L.me=$('#suName').value.trim().slice(0,40); saveLocal(); myBallot(); savePlan(); $('#setup').classList.add('hidden'); updateBadge(); showTab('vote'); toast('Welcome, '+L.me+'! Tap the pictures you like.'); });
@@ -915,10 +918,10 @@ function boot(){
   let incoming=null;
   if (m){ const r=importBallots(m[1]); history.replaceState(null,'',location.pathname); incoming=r; }
   updateBadge();
-  if (incoming && incoming.found){ loadAutoVotes(); showTab('share'); toast(incoming.added.length?`Counted ${incoming.added.join(', ')}'s votes ✓`:'Those votes were already counted'); if (!L.me) setTimeout(askName, 1600); return; }
+  if (incoming && incoming.found){ loadAutoVotes(true); showTab('share'); toast(incoming.added.length?`Counted ${incoming.added.join(', ')}'s votes ✓`:'Those votes were already counted'); if (!L.me) setTimeout(askName, 1600); return; }
   showTab('itin');
   if (!L.me) askName();
-  loadAutoVotes(); setInterval(loadAutoVotes, 5*60*1000);
+  loadAutoVotes(true); setInterval(()=>loadAutoVotes(), 60*1000);
   const t=todayKey(); if (DAYS.some(d=>d.d===t)) setTimeout(()=>{ const el=$('#day-'+t); if (el) el.scrollIntoView({block:'start'}); }, 80);
 }
 boot();

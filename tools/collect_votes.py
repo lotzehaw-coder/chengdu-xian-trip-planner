@@ -1,68 +1,68 @@
-"""Collect family votes from WhatsApp into votes.json, then publish it with the site.
+"""Keep a permanent copy of the family's votes in GitHub (votes.json).
 
-People tap "Send my votes on WhatsApp" and post the message (with its #v=CX1.<code> link) into any chat Tze is in.
-Tze's WhatsApp bridge logs every chat he's in to messages.db, so this script can read those links without anyone
-tapping them. The page loads votes.json and shows live results to everyone.
+People vote on the website; each tap is posted to TRIP.voteRelay (an ntfy.sh topic: free, no account, append-only).
+ntfy keeps messages for about 12 hours, so this script runs every 30 minutes (Windows Task Scheduler,
+"Trip planner - collect votes"), merges everything into ../votes.json (each person's latest vote wins),
+and pushes it. The page reads votes.json + the relay's recent messages, so results survive the 12-hour window.
 
-    python collect_votes.py            # read, write ../votes.json, commit + push if anything changed
-    python collect_votes.py --dry      # read and print, write nothing
+    python collect_votes.py          # merge, write, commit + push if anything changed
+    python collect_votes.py --dry    # print only
 
-Reads a COPY of the bridge database (never the live file). Only vote links for THIS site count.
-votes.json holds only the name each person typed and their picks; no phone numbers or chat names."""
-import base64, json, os, re, shutil, sqlite3, subprocess, sys, tempfile, datetime
+votes.json holds only the name each person typed and their picks."""
+import json, os, ssl, subprocess, sys, urllib.request, datetime
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, '..')
-DB = os.environ.get('WA_MESSAGES_DB', r'C:\Users\User\wa-probe\store\messages.db')
 seed = json.load(open(os.path.join(HERE, 'seed.json'), encoding='utf-8'))
-SITE = seed['trip']['site'].rstrip('/')
-PATH = re.sub(r'^https?://', '', SITE)                     # lotzehaw-coder.github.io/chengdu-xian-trip-planner
+RELAY = seed['trip'].get('voteRelay')
 DEC = {d['id']: {o['id'] for o in d['options']} for d in seed['decisions']}
 ITEMS = {i['id'] for i in seed['items']}
 OUT = os.path.join(ROOT, 'votes.json')
+try:
+    import certifi; CTX = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    CTX = ssl.create_default_context()
 
-def decode(code):
-    b = code.replace('-', '+').replace('_', '/'); b += '=' * (-len(b) % 4)
-    return json.loads(base64.b64decode(b).decode('utf-8'))
+def clean(o):
+    name = str(o.get('n', '')).strip()[:40]
+    if not name: return None, None
+    picks = {d: v for d, v in (o.get('p') or o.get('picks') or {}).items() if d in DEC and v in DEC[d]}
+    hearts = []
+    for h in (o.get('h') or o.get('hearts') or []):
+        h = str(h); h = h if h.startswith('p:') else 'p:' + h
+        if h in ITEMS: hearts.append(h)
+    if not picks and not hearts: return None, None      # blank/test submissions don't count
+    return name, {'picks': picks, 'hearts': hearts, 't': int(o.get('t') or 0)}
 
-def read_codes():
-    tmp = os.path.join(tempfile.gettempdir(), 'votes_messages_copy.db')
-    shutil.copy2(DB, tmp)
-    c = sqlite3.connect(tmp)
-    rows = c.execute("select timestamp, content from messages where content like '%#v=CX1.%' order by timestamp").fetchall()
-    c.close()
+def relay_messages():
+    if not RELAY: return []
+    req = urllib.request.Request(RELAY + '/json?poll=1&since=all', headers={'User-Agent': 'trip-planner-collector'})
     out = []
-    for ts, content in rows:
-        for m in re.finditer(r'(\S*?)#v=CX1\.([A-Za-z0-9_-]+)', content or ''):
-            if PATH not in m.group(1): continue                # a vote link for another trip's page
-            out.append((ts, m.group(2)))
+    with urllib.request.urlopen(req, timeout=30, context=CTX) as r:
+        for line in r.read().decode('utf-8').splitlines():
+            if not line.strip(): continue
+            m = json.loads(line)
+            if m.get('event') == 'message':
+                try: out.append(json.loads(m['message']))
+                except Exception: pass
     return out
 
-def tally():
-    ballots = {}; seen = 0; bad = 0
-    for ts, code in read_codes():
-        seen += 1
-        try:
-            o = decode(code)
-            name = str(o.get('n', '')).strip()[:40]
-            if not name: raise ValueError('no name')
-            picks = {d: v for d, v in (o.get('p') or {}).items() if d in DEC and v in DEC[d]}
-            hearts = [('p:' + str(h)) for h in (o.get('h') or []) if ('p:' + str(h)) in ITEMS]
-            t = int(o.get('t') or 0)
-        except Exception:
-            bad += 1; continue
-        cur = ballots.get(name)
-        if not cur or t >= cur['t']:                            # a person's latest message wins
-            ballots[name] = {'picks': picks, 'hearts': hearts, 't': t}
-    return ballots, seen, bad
-
 def main():
-    ballots, seen, bad = tally()
+    old = json.load(open(OUT, encoding='utf-8')) if os.path.exists(OUT) else {}
+    ballots = {}
+    for n, b in (old.get('ballots') or {}).items():
+        name, clean_b = clean(dict(b, n=n))
+        if name: ballots[name] = clean_b
+    msgs = relay_messages(); taken = 0
+    for o in msgs:
+        name, b = clean(o)
+        if not name: continue
+        if name not in ballots or b['t'] > ballots[name]['t']:
+            ballots[name] = b; taken += 1
+    print(f'{len(msgs)} relay messages, {taken} newer votes, {len(ballots)} people: {", ".join(sorted(ballots)) or "-"}')
     data = {'updated': datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(timespec='minutes'),
             'count': len(ballots), 'ballots': dict(sorted(ballots.items()))}
-    print(f'{seen} vote links found, {bad} unreadable, {len(ballots)} people: {", ".join(ballots) or "-"}')
     if '--dry' in sys.argv:
         print(json.dumps(data, ensure_ascii=False, indent=1)); return
-    old = json.load(open(OUT, encoding='utf-8')) if os.path.exists(OUT) else {}
     if old.get('ballots') == data['ballots']:
         print('no change'); return
     json.dump(data, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
@@ -71,6 +71,7 @@ def main():
     n = len(ballots)
     r = git('commit', '-m', f'Votes: {n} {"person" if n == 1 else "people"} ({data["updated"]})')
     if r.returncode: print('commit failed:', r.stdout[-300:], r.stderr[-300:]); sys.exit(1)
+    r = git('pull', '--rebase', '-q')
     r = git('push', '-q')
     if r.returncode: print('push failed:', r.stderr[-400:]); sys.exit(1)
     print('published votes.json')
