@@ -64,6 +64,7 @@ TRIP = {
     'name': "Chengdu · Xi'an family trip", 'dates': '13–22 Dec 2026',
     'app': 'chengdu-xian-trip-planner', 'key': 'cdxa',                 # key: localStorage prefix + map source id. NEVER change once shared (it holds everyone's votes)
     'site': 'https://lotzehaw-coder.github.io/chengdu-xian-trip-planner/',
+    'nightsFoot': ['✈ land ~00:15 Mon 14 (13th night booked)', 'Mon 21: rooms to the evening · ✈ 01:05'],   # the two ends of the Hotels-tab nights bar
     'title': "Chengdu · Xi'an Family Trip", 'brand': "Chengdu · Xi'an", 'brand_sub': '13–22 Dec 2026 · family of 10',
     'subtitle': '13–22 Dec 2026 · family of 10 · pandas, warriors & dumplings',
     'og_title': "Chengdu · Xi'an family trip — 13–22 Dec 2026", 'og_desc': 'Vote on where we go. Pandas, the Terracotta Army, hot pot and dumplings.',
@@ -311,11 +312,13 @@ def hgal(hid):
         assert os.path.exists(os.path.join(HERE, '..', src)), src
         out.append({'src': src, 'cap': cap})
     return out
+SHORT = {'jw': 'JW Marriott', 'w': 'W Chengdu', 'ritz': 'Ritz-Carlton', 'stregis': 'St. Regis', 'wxian': "W Xi'an", 'westin': 'Westin', 'jwxa': 'JW Marriott', 'ritzxa': 'Ritz-Carlton'}   # names that fit the nights bar
 def H(id, name, cn, area, addr, pros, cons, url, pic, fits, up, upnote, opened, reno):
     return {'id': id, 'name': name, 'cn': cn, 'area': area, 'address': addr, 'pros': pros, 'cons': cons, 'url': url, 
-            'img': img(pic), 'gallery': hgal(id), 'fits': fits, 'up': up, 'upnote': upnote, 'opened': opened, 'reno': reno}
+            'img': img(pic), 'gallery': hgal(id), 'fits': fits, 'up': up, 'upnote': upnote, 'opened': opened, 'reno': reno,
+            'short': SHORT.get(id, name)}
 hotels = {
- 'Chengdu': {'title': 'Chengdu · first stay', 'dec': 'h-chengdu', 'city': 'Chengdu', 'nights': 'Sun 13 → Wed 16 Dec (3 nights)',
+ 'Chengdu': {'title': 'Chengdu · first stay', 'dec': 'h-chengdu', 'city': 'Chengdu', 'nights': 'Sun 13 → Wed 16 Dec (3 nights)', 'start': '2026-12-13', 'n': 3, 'short': 'Chengdu',
   'tip': "Book the first night from Sun 13 Dec and tell the hotel you'll arrive around 2am, so the rooms are held. The second stay (19–21 Dec) has its own vote below: pick the same hotel to leave the big bags with the concierge while you're in Xi'an, or try a second hotel.",
   'options': [
    H('jw', 'JW Marriott Hotel Chengdu', '成都茂业JW万豪酒店', 'Chunxi Road · Taikoo Li', '19 Dongyu Street 东御街19号',
@@ -343,7 +346,7 @@ hotels = {
      1, 'TripAdvisor and FlyerTalk, backed up on Flyert (飞客): Titanium guests say the hotel told them suites are excluded from complimentary upgrades. One Ambassador did get a suite.',
      'Sep 2014', 'no renovation found'),
   ]},
- "Xi'an": {'dec': 'h-xian', 'city': "Xi'an", 'nights': 'Wed 16 → Sat 19 Dec (3 nights)',
+ "Xi'an": {'dec': 'h-xian', 'city': "Xi'an", 'nights': 'Wed 16 → Sat 19 Dec (3 nights)', 'start': '2026-12-16', 'n': 3,
   'tip': "Stay in Qujiang, near the Big Wild Goose Pagoda and the night-walk street. The W and the Westin are both there, a short ride apart. Mid-December is low season in Xi'an, which helps the upgrade odds.",
   'options': [
    H('wxian', "W Xi'an", '西安W酒店', 'Qujiang Pool', '333 Qujiang Chi East Road 曲江池东路333号',
@@ -382,7 +385,7 @@ elite = [
  'Since 2025 Marriott only promises "an upgrade", not a suite, and upgrades in China are now decided by an algorithm, so treat suites as likely, not guaranteed.',
 ]
 # second Chengdu stay: same hotel list, its own vote (same hotel = bags stay; a different one = experience two hotels)
-hotels['Chengdu (2nd stay)'] = dict(hotels['Chengdu'], title='Chengdu · second stay', city='Chengdu', dec='h-chengdu2', fallback='h-chengdu', nights='Sat 19 → Mon 21 Dec (2 nights + the evening)',
+hotels['Chengdu (2nd stay)'] = dict(hotels['Chengdu'], title='Chengdu · second stay', city='Chengdu', dec='h-chengdu2', fallback='h-chengdu', nights='Sat 19 → Mon 21 Dec (2 nights + the evening)', start='2026-12-19', n=2,
     tip="Pick the same hotel as the first stay to keep it simple (the big bags wait with the concierge while you're in Xi'an), or pick a different one to experience two hotels.")
 hotels = {"Chengdu": hotels['Chengdu'], "Xi'an": hotels["Xi'an"], 'Chengdu (2nd stay)': hotels['Chengdu (2nd stay)']}
 for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (first stay, 13–16 Dec)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?"), ('Chengdu', 'h-chengdu2', 'Chengdu second stay (19–21 Dec): same hotel, or try another?')):

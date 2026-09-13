@@ -307,6 +307,27 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 .mapmenu p{margin:0 0 10px;color:var(--ink-3);font-size:13px}
 .mapmenu .btn{width:100%;margin-top:8px;min-height:46px}
 @media (min-width:600px){.mapmenu{inset:auto;left:50%;bottom:24px;transform:translateX(-50%);width:380px;border-radius:16px}}
+/* hotels: the nights bar pinned at the top, filled in with YOUR picks (stays need 'start' + 'n' in SEED.hotels) */
+.nightbar{position:sticky;top:0;z-index:8;background:var(--paper);margin:0 -14px;padding:8px 14px 10px;border-bottom:1px solid var(--line)}
+@media (min-width:900px){.nightbar{margin:0;padding:10px 0 12px}}
+.nightbar .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px;color:var(--ink-3);margin-bottom:6px}
+.nightbar .hd b{color:var(--ink);font-size:14.5px;white-space:nowrap}
+.nightbar .hd span{text-align:right}
+.nb{display:grid;gap:3px}
+.nb .dl{font-size:10.5px;color:var(--ink-3);text-align:center;line-height:1.15}
+.nb .dl b{display:block;color:var(--ink-2);font-size:12px}
+.nb .seg{border:0;border-radius:8px;min-height:44px;padding:4px 3px;font-size:11.5px;line-height:1.15;font-weight:650;color:#fff;background:var(--ci);cursor:pointer;text-align:center;display:flex;flex-direction:column;justify-content:center;overflow:hidden;font-family:inherit}
+.nb .seg small{font-weight:400;opacity:.9;font-size:10.5px}
+.nb .seg.empty{background:transparent;color:var(--ci);border:2px dashed var(--ci);font-weight:600}
+.nightbar .foot{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--ink-3);margin-top:5px}
+.stayrows{margin:12px 0 4px}
+.stayrow{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--card);border-radius:12px;box-shadow:var(--shadow);margin-bottom:6px;border-left:5px solid var(--ci);cursor:pointer}
+.stayrow .w{flex:1;min-width:0}
+.stayrow .w b{display:block;font-size:14.5px}
+.stayrow .w span{font-size:12.5px;color:var(--ink-3)}
+.stayrow .pr{text-align:right;font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.stayrow.todo .w b{color:var(--ci)}
+.stay .more{width:100%;justify-content:center;margin:-2px 0 10px}
 </style>
 </head>
 <body>
@@ -366,6 +387,8 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
         <h2>Where we stay</h2>
         <p class="muted" id="hotelsIntro"></p>
         <div class="tip x" id="hotelsTip"></div>
+        <div class="nightbar" id="nightBar" hidden></div>
+        <div class="stayrows" id="stayRows"></div>
         <div id="hotelList"></div>
       </section>
 
@@ -783,14 +806,44 @@ $('#voteCity').addEventListener('click', e=>{ const b=e.target.closest('[data-vc
 $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-sched]'); if(!s) return; schedule(s.dataset.sched, s.value); renderVote(); toast(s.value?'Added to '+fmtDay(s.value):'Back to ideas'); });
 
 // ---------- HOTELS ----------
+function renderNightBar(){
+  const stays=Object.entries(SEED.hotels).map(([key,st])=>Object.assign({key, city:st.city||key, did:st.dec||hotelDec(st.city||key)}, st)).filter(st=>st.start&&st.n);
+  const bar=$('#nightBar'); if (!stays.length){ bar.hidden=true; $('#stayRows').innerHTML=''; return; }
+  const mine=(myBallot()||{picks:{}}).picks, first=stays[0].start;
+  const off=(d)=>Math.round((new Date(d+'T00:00:00')-new Date(first+'T00:00:00'))/864e5);
+  const nights=Math.max(...stays.map(st=>off(st.start)+st.n));
+  const day=(k)=>{ const d=new Date(first+'T00:00:00'); d.setDate(d.getDate()+k); return d; };
+  const hotel=(st,id)=>st.options.find(h=>h.id===id);
+  const picked=stays.filter(st=>hotel(st,mine[st.did]));
+  bar.hidden=false;
+  bar.innerHTML = `<div class="hd"><b>🌙 Your hotel nights</b><span>${picked.length} of ${stays.length} stays picked</span></div>
+    <div class="nb" style="grid-template-columns:repeat(${nights},minmax(0,1fr))">${Array.from({length:nights},(_,k)=>{ const d=day(k); return `<div class="dl"><b>${d.getDate()}</b>${d.toLocaleDateString('en-GB',{weekday:'short'})}</div>`; }).join('')}
+    ${stays.map(st=>{ const h=hotel(st,mine[st.did]);
+      return `<button type="button" class="seg ${h?'':'empty'}" style="grid-row:2;grid-column:${off(st.start)+1} / span ${st.n};--ci:${CITY_VAR[st.city]}" data-gostay="${st.did}" aria-label="${esc(st.title||st.city)}">${h?`${esc(h.short||h.name)}<small>${st.n} night${st.n>1?'s':''}</small>`:`Pick<small>${st.n>1?esc(st.short||st.city):'&nbsp;'}</small>`}</button>`; }).join('')}</div>
+    ${TRIP.nightsFoot?`<div class="foot"><span>${esc(TRIP.nightsFoot[0]||'')}</span><span style="text-align:right">${esc(TRIP.nightsFoot[1]||'')}</span></div>`:''}`;
+  $('#stayRows').innerHTML = stays.map(st=>{ const h=hotel(st,mine[st.did]); const hp=hotelPick(st.did); const now=hp&&hotel(st,hp.id);
+    return `<div class="stayrow ${h?'':'todo'}" style="--ci:${CITY_VAR[st.city]}" data-gostay="${st.did}"><div class="w"><b>${h?esc(h.name):`${esc(st.title||st.city)}: tap to pick`}</b><span>${h?esc(st.title||st.city)+' · ':''}${esc(st.nights)}</span></div>
+      <div class="pr">${h?'✓ your pick':(now?`now: ${esc(now.short||now.name)}${esc(hp.how||'')}`:`${st.options.length} options ›`)}</div></div>`; }).join('');
+}
+function scrollToStay(did){ const el=$('#dec-'+did); if (!el) return; const y=el.getBoundingClientRect().top+scrollY-($('#nightBar').offsetHeight+8); window.scrollTo({top:y, behavior:'smooth'}); }
+document.addEventListener('click', e=>{ const g=e.target.closest('[data-gostay]'); if(!g) return; const did=g.dataset.gostay; L.hopen=L.hopen||{};
+  if (!((myBallot()||{picks:{}}).picks[did])){ L.hopen[did]=true; saveLocal(); renderHotels(); }
+  scrollToStay(did); });
+$('#hotelList').addEventListener('click', e=>{
+  const m=e.target.closest('[data-hmore]'); if (m){ L.hopen=L.hopen||{}; L.hopen[m.dataset.hmore]=!L.hopen[m.dataset.hmore]; saveLocal(); renderHotels(); return; }
+  const pk=e.target.closest('.hotel [data-pick]'); if (!pk || !L.me) return;
+  const [did,oid]=pk.dataset.pick.split('|'); const was=(myBallot()||{picks:{}}).picks[did]; L.hopen=L.hopen||{}; L.hopen[did]=false; saveLocal();
+  if (was!==oid) setTimeout(()=>{ const b=myBallot()||{picks:{}}; const next=Object.entries(SEED.hotels).map(([k,st])=>st.dec||hotelDec(st.city||k)).find(d=>!b.picks[d]); scrollToStay(next||did); }, 120);   // picked: fold this stay, move on to the next empty one
+});
 function renderHotels(){
+  renderNightBar();
   $('#hotelsIntro').textContent = TRIP.hotelsIntro || 'Vote for a hotel for each stay.'; $('#hotelsTip').textContent = TRIP.hotelsTip || ''; $('#hotelsTip').hidden = !TRIP.hotelsTip;
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([key, st])=>{
     const city = st.city || key; const did = st.dec || hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
     return `<div class="stay" id="dec-${did}"><h2 style="margin-bottom:2px;color:${CITY_VAR[city]}">${esc(st.title||city)} ${CN[city]}</h2><div class="nights">${esc(st.nights)}</div>
       <div class="tip">💡 ${esc(st.tip)}</div>
-      ${st.options.map((h,k)=>{ const n=t[h.id].length; return `<div class="hotel ${mine===h.id?'mine':''}">
+      ${st.options.map((h,k)=>{ const n=t[h.id].length; if (mine && mine!==h.id && !(L.hopen&&L.hopen[did])) return ''; return `<div class="hotel ${mine===h.id?'mine':''}">
         <div class="banner">${car(h.gallery,'',h.name)}${k===0?'<span class="badge">★ Our suggestion</span>':''}<div class="t"><b>${esc(h.name)}</b><span>${esc(h.cn)} · ${esc(h.area)}</span></div></div>
         <div class="hb"><div class="up">${h.up?`<span class="stars" aria-label="Suite upgrade odds ${h.up} of 5">${'★'.repeat(h.up)}<i>${'★'.repeat(5-h.up)}</i></span> <b>Suite upgrade odds</b>`:''}${h.opened?`<span class="age">🏗 Opened ${esc(h.opened)}${h.reno?' · '+esc(h.reno):''}</span>`:''}</div>
           ${h.upnote?`<div class="upnote">${esc(h.upnote)}</div>`:''}
@@ -800,7 +853,8 @@ function renderHotels(){
           <div class="tally"><div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div><span>${n?`${n} · ${esc(t[h.id].join(', '))}`:'no votes yet'}</span></div>
           <div class="row" style="margin-top:10px"><button class="btn small ${mine===h.id?'vote':''}" data-pick="${did}|${h.id}">${mine===h.id?'✓ Your pick':'Pick this hotel'}</button>
             ${mapBtn({q:h.cn, en:h.name, label:h.name, city})}${h.url?`<a class="btn small ghost" href="${esc(h.url)}" target="_blank" rel="noopener">${esc(TRIP.hotelLinkLabel||'Hotel site')} ↗</a>`:''}
-            <button class="lockbtn" data-lock="${did}|${h.id}">${lock===h.id?'unlock':'lock in'}</button></div></div></div>`; }).join('')}</div>`;
+            <button class="lockbtn" data-lock="${did}|${h.id}">${lock===h.id?'unlock':'lock in'}</button></div></div></div>`; }).join('')}
+      ${mine?`<button class="btn small more" data-hmore="${did}">${L.hopen&&L.hopen[did]?'Hide the other options':`See all ${st.options.length} options`}</button>`:''}</div>`;
   }).join('');
 }
 
