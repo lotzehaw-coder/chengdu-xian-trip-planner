@@ -141,7 +141,7 @@ def fetch(url, method='HEAD', tries=3):
         if code == 429 and tries > 1: time.sleep(3); return fetch(url, method, tries - 1)
         return code or str(e)[:60]
 if '--links' in sys.argv:
-    urls = [(h['url'], 'hotel ' + h['id']) for st in seed['hotels'].values() for h in st['options']] + [(c['page'], 'credit ' + k) for k, c in cred.items()]
+    urls = list({h['url']: (h['url'], 'hotel ' + h['id']) for st in seed['hotels'].values() for h in st['options']}.values()) + [(c['page'], 'credit ' + k) for k, c in cred.items()]
     for u, where in remote.items():   # hotel photos must actually load from Marriott, or the card shows a blank
         st = fetch(u, 'GET')
         (None if st == 200 else E(f'hotel photo not loading ({st}): {u} used by {where[0]}'))

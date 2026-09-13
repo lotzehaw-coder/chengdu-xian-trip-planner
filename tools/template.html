@@ -409,7 +409,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
       <h2>{{welcome_title}}</h2>
       <p class="muted" style="margin-top:-4px">{{welcome_text}}</p>
       <ol><li><b>Vote</b>: tap the pictures you like for the open slots, and ❤ any extra ideas.</li>
-        <li><b>Hotels</b>: pick one in each city.</li>
+        <li><b>Hotels</b>: pick a hotel for each stay.</li>
         <li>That's it: votes save automatically. See everyone's in <b>Results</b>.</li></ol>
       <label class="f" for="suName">Your name</label>
       <input type="text" id="suName" required maxlength="40" placeholder="e.g. Ah Ma, Uncle Wei, Mei" autocomplete="off">
@@ -631,13 +631,22 @@ function renderItin(){
 $('#daySeg').addEventListener('click', e=>{ const b=e.target.closest('[data-jump]'); if(!b) return; L.closed[b.dataset.jump]=false; saveLocal(); renderItin(); const el=$('#day-'+b.dataset.jump); if (el) el.scrollIntoView({behavior:'smooth',block:'start'}); });
 $('#catPills').addEventListener('click', e=>{ const b=e.target.closest('[data-filter]'); if(!b) return; L.filter=b.dataset.filter; saveLocal(); renderItin(); });
 $('#toggleAll').addEventListener('click', ()=>{ const all=DAYS.every(d=>L.closed[d.d]); DAYS.forEach(d=>L.closed[d.d]=!all); saveLocal(); renderItin(); });
+// which hotel a stay currently points to: locked choice, else the leader, else (2nd Chengdu stay) the first stay's pick
+const stayFor = (did) => Object.entries(SEED.hotels).map(([k,x])=>Object.assign({key:k}, x)).find(x=>(x.dec || hotelDec(x.city || x.key)) === did);
+function hotelPick(did, depth){
+  const c = chosen(did); if (c) return {id:c, how:''};
+  const ld = leader(did); if (ld && !ld.tie) return {id:ld.opt, how:' (leading)'};
+  const st = stayFor(did); if (st && st.fallback && !depth){ const f = hotelPick(st.fallback, 1); if (f) return {id:f.id, how:' (same as first stay, until voted)'}; }
+  return null;
+}
 function hotelLabel(b){
   if (!b.dec) return b.title;
-  const c=chosen(b.dec), ld=leader(b.dec);
-  const nm = c ? optName(b.dec,c) : ld&&!ld.tie ? optName(b.dec, ld.opt)+' (leading)' : decCity(b.dec)+' hotel (vote in Hotels)';
+  const p = hotelPick(b.dec); const st = stayFor(b.dec);
+  const h = p && st ? st.options.find(x=>x.id===p.id) : null;
+  const nm = h ? h.name + p.how : decCity(b.dec)+' hotel (vote in Hotels)';
   return b.title.replace('{hotel}', nm);
 }
-function hotelMapBtn(did){ const id=chosen(did) || ((leader(did)||{}).opt); if (!id) return ''; const city=decCity(did); const st=Object.values(SEED.hotels).find(x=>(x.dec||hotelDec(x.city||city))===did) || SEED.hotels[city] || {options:[]}; const h=st.options.find(x=>x.id===id); return h?mapBtn({q:h.cn,en:h.name,label:h.name,city}):''; }
+function hotelMapBtn(did){ const p=hotelPick(did); const st=stayFor(did); const h=p&&st?st.options.find(x=>x.id===p.id):null; return h?mapBtn({q:h.cn,en:h.name,label:h.name,city:decCity(did)}):''; }
 function blockStop(b){
   const title=hotelLabel(b);
   const sub=[b.number, (b.from||b.to)?`${esc(b.from||'?')} → ${esc(b.to||'?')}`:'', esc(b.note)].filter(Boolean).join(' · ');
@@ -775,7 +784,7 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 
 // ---------- HOTELS ----------
 function renderHotels(){
-  $('#hotelsIntro').textContent = TRIP.hotelsIntro || 'Vote for one hotel in each city.'; $('#hotelsTip').textContent = TRIP.hotelsTip || ''; $('#hotelsTip').hidden = !TRIP.hotelsTip;
+  $('#hotelsIntro').textContent = TRIP.hotelsIntro || 'Vote for a hotel for each stay.'; $('#hotelsTip').textContent = TRIP.hotelsTip || ''; $('#hotelsTip').hidden = !TRIP.hotelsTip;
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([key, st])=>{
     const city = st.city || key; const did = st.dec || hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
