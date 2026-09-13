@@ -74,7 +74,11 @@ TRIP = {
         {'name': "Xi'an", 'local': '西安', 'color': '#a3432a', 'tint': 'rgba(92,32,18,.94)', 'hero': 'img/xianhero.jpg', 'hotelDec': 'h-xian', 'land': LANDS['xian']},
     ],
     'mapCities': {'Leshan': '乐山', 'Dujiangyan': '都江堰'},
-    'bbox': [28, 102, 36, 111],                                         # sanity box for coordinates (Sichuan + Shaanxi)            # day-trip towns, so map searches land in the right city
+    'bbox': [28, 102, 36, 111],
+    'country': 'China', 'hotelLinkLabel': 'Marriott',
+    'hotelsIntro': 'All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Vote for one in each city.',
+    'hotelsTip': "Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.",
+    'about': 'Flights MH526 / MH527 are booked; exact times are on the e-ticket. Trains, vans and hotels are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps, in a new tab. Everything is saved in this browser only: no accounts, no server.',                                         # sanity box for coordinates (Sichuan + Shaanxi)            # day-trip towns, so map searches land in the right city
 }
 
 # ---------- days ----------

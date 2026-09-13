@@ -364,8 +364,8 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
       <!-- HOTELS -->
       <section class="view" id="v-hotels">
         <h2>Where we stay</h2>
-        <p class="muted">All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Vote for one in each city.</p>
-        <div class="tip x">Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.</div>
+        <p class="muted" id="hotelsIntro"></p>
+        <div class="tip x" id="hotelsTip"></div>
         <div id="hotelList"></div>
       </section>
 
@@ -398,7 +398,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
         <div class="row" style="margin-top:8px"><button class="btn primary" id="saveName">Save</button></div>
 
         <h2 style="margin-top:28px">About</h2>
-        <p class="muted">Flights MH526 / MH527 are booked; exact times are on the e-ticket. Trains, vans and hotels are not booked yet and are marked <span class="chip tent">tentative</span>. <b>Map</b> opens 高德地图 Amap directly (or Apple Maps on iPhone). Everything is saved in this browser only: no accounts, no server.</p>
+        <p class="muted" id="aboutText"></p>
         <details><summary>Photo credits (Wikimedia Commons)</summary><div class="credits" id="credits"></div></details>
         <details><summary>Reset this device</summary>
           <p class="muted">Clears your name, your votes, the counted votes and any changes on this phone.</p>
@@ -497,7 +497,7 @@ function updateBadge(){ const left=SEED.decisions.length - votedCount(); const b
 function lockIn(did, oid){ P.locks[did] = {opt: oid, t: now()}; for (const o of DEC[did].options) for (const id of o.items){ const it=P.items[id]; if (!it) continue; it.status = o.id===oid ? 'scheduled' : 'wishlist'; if (o.id===oid && !it.day) it.day=DEC[did].day; it.updatedAt=now(); } savePlan(); }
 function unlock(did){ const o=chosen(did); if (o) for (const id of (DEC[did].options.find(x=>x.id===o)||{items:[]}).items){ const it=P.items[id]; if (it){ it.status='wishlist'; it.updatedAt=now(); } } P.locks[did]={opt:'', t:now()}; savePlan(); }
 
-// ---------- China time ----------
+// ---------- trip-local time ----------
 function cnNow(){ const d=new Date(); return new Date(d.getTime()+d.getTimezoneOffset()*60000+(TRIP.utcOffset??8)*3600000); }
 function todayKey(){ const c=cnNow(); return `${c.getFullYear()}-${String(c.getMonth()+1).padStart(2,'0')}-${String(c.getDate()).padStart(2,'0')}`; }
 const active = (i) => i.status==='scheduled' && i.day && (!i.opt || chosen(i.opt.split(':')[0])===i.opt.split(':')[1]);
@@ -511,7 +511,7 @@ function mapTargets(o){
   const city=CN[o.city]||''; const q=o.q; const near=o.lat&&o.lng;
   const kw = near ? q : (city && !q.startsWith(city) ? city+' '+q : q);   // no pin: add the city so the search doesn't land on a branch elsewhere
   const box = near ? `&lat1=${(o.lat-0.04).toFixed(5)}&lon1=${(o.lng-0.04).toFixed(5)}&lat2=${(o.lat+0.04).toFixed(5)}&lon2=${(o.lng+0.04).toFixed(5)}` : '';
-  const en = (o.en||q) + (o.cityEn ? ', '+o.cityEn : '') + ', China';
+  const en = (o.en||q) + (o.cityEn ? ', '+o.cityEn : '') + (TRIP.country ? ', '+TRIP.country : '');
   return {
     title: o.label||q,
     amapApp: isIOS ? `iosamap://poi?sourceApplication=${TRIP.key}&name=${enc(kw)}${box}&dev=0`
@@ -538,7 +538,7 @@ function openMap(o){
 $('#mapOverlay').addEventListener('click', e=>{ if (e.target.id==='mapOverlay') e.target.classList.add('hidden'); });
 document.addEventListener('click', e=>{ const b=e.target.closest('[data-map]'); if(!b) return; e.preventDefault(); e.stopPropagation(); try{ openMap(JSON.parse(b.dataset.map)); }catch(err){ toast('Could not open the map'); } }, true);
 // o: {q (Chinese search), en (English search), label, city, lat, lng}; no q means no button
-const mapBtn = (o) => o.q ? `<button class="btn small map" data-map="${esc(JSON.stringify({q:o.q, en:o.en||'', label:o.label||o.q, city:o.city, cityEn:CITY_EN[o.city]||'', lat:o.lat||null, lng:o.lng||null}))}"><svg><use href="#ico-map"/></svg>Map</button>` : '';
+const mapBtn = (o) => (o.q||(!TRIP.amap&&o.en)) ? `<button class="btn small map" data-map="${esc(JSON.stringify({q:o.q||o.en, en:o.en||'', label:o.label||o.q||o.en, city:o.city, cityEn:CITY_EN[o.city]||'', lat:o.lat||null, lng:o.lng||null}))}"><svg><use href="#ico-map"/></svg>Map</button>` : '';
 
 // ---------- carousel: swipe on phones, arrows on desktop ----------
 function car(list, cls, alt){
@@ -760,6 +760,7 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 
 // ---------- HOTELS ----------
 function renderHotels(){
+  $('#hotelsIntro').textContent = TRIP.hotelsIntro || 'Vote for one hotel in each city.'; $('#hotelsTip').textContent = TRIP.hotelsTip || ''; $('#hotelsTip').hidden = !TRIP.hotelsTip;
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([city, st])=>{
     const did = hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
@@ -774,7 +775,7 @@ function renderHotels(){
           <div class="addr">${esc(h.address)}</div>
           <div class="tally"><div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div><span>${n?`${n} · ${esc(t[h.id].join(', '))}`:'no votes yet'}</span></div>
           <div class="row" style="margin-top:10px"><button class="btn small ${mine===h.id?'vote':''}" data-pick="${did}|${h.id}">${mine===h.id?'✓ Your pick':'Pick this hotel'}</button>
-            ${mapBtn({q:h.cn, en:h.name, label:h.name, city})}<a class="btn small ghost" href="${esc(h.url)}" target="_blank" rel="noopener">Marriott ↗</a>
+            ${mapBtn({q:h.cn, en:h.name, label:h.name, city})}${h.url?`<a class="btn small ghost" href="${esc(h.url)}" target="_blank" rel="noopener">${esc(TRIP.hotelLinkLabel||'Hotel site')} ↗</a>`:''}
             <button class="lockbtn" data-lock="${did}|${h.id}">${lock===h.id?'unlock':'lock in'}</button></div></div></div>`; }).join('')}</div>`;
   }).join('');
 }
@@ -829,6 +830,7 @@ function resultsText(){
 }
 $('#copyResults').addEventListener('click', ()=>copy(resultsText(), 'Results copied'));
 function renderShare(){
+  $('#aboutText').textContent = TRIP.about || 'Everything is saved in this browser only: no accounts, no server.';
   $('#sName').value=L.me;
   const names=Object.keys(P.ballots).sort();
   $('#voters').innerHTML = names.length ? names.map(n=>`<span>${esc(n)} <small style="color:var(--ink-3)">${SEED.decisions.filter(d=>P.ballots[n].picks[d.id]).length}/${SEED.decisions.length}</small><button data-rmvoter="${esc(n)}" title="Remove" aria-label="Remove ${esc(n)}">×</button></span>`).join('') : '';
