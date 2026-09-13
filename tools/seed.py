@@ -447,6 +447,42 @@ used |= {g for i in items for g in i['gallery']} | {g for d in decisions for o i
 credits = {k: v for k, v in json.load(open(os.path.join(HERE, 'credits.json'), encoding='utf-8')).items() if f'img/{k}.jpg' in used}
 credits.update({'g/' + k: v for k, v in json.load(open(os.path.join(HERE, 'gallery_credits.json'), encoding='utf-8')).items() if f'img/g/{k}.jpg' in used})
 unused = sorted(f'img/{k}.jpg' for k in IMG if f'img/{k}.jpg' not in used)
+# ---------- details for ticketed items: what someone needs before voting (Tze, 13 Sep: "I do not know what it is from just that one picture") ----------
+# Checked 13 Sep 2026 on Bendibao / Dahepiao / Qunar / Ctrip listings; times and prices change by season, so the sheet says "confirm nearer the date".
+DETAILS = {
+ 'p:opera': {'what': "A 90-minute variety show of Sichuan opera highlights in a teahouse theatre: face-changing (masks switch in a blink), fire-spitting, hand-shadow puppets, the rolling-lamp comedy and folk music. Easy to enjoy without understanding Chinese.",
+   'when': 'Nightly 20:00', 'length': '90 min', 'price': '¥88–¥498 depending on seat (蜀风雅韵, Culture Park); similar at 锦江剧场 near Chunxi Road',
+   'kids': 'Fast and colourful, kids love the face-changing; gongs are loud for the baby, and it ends ~21:30', 'elderly': 'Seated with tea, no walking', 'watch': '蜀风雅韵 川剧变脸'},
+ 'p:pandatower': {'what': "Chengdu's 339 m TV tower, rebranded Tianfu Panda Tower: a 1-minute lift to the 230 m indoor deck for the city lights, with riverside bars below.",
+   'when': 'Winter 10:00–21:00 (check last entry)', 'length': 'About 1 hour', 'price': '¥80 standard lift / ¥100 sightseeing lift; under 1.2 m free, discounts for 1.2–1.4 m and over-60s',
+   'kids': 'Fine, indoor and warm', 'elderly': 'Lift all the way, little walking', 'watch': '天府熊猫塔 夜景'},
+ 'p:dongjiao': {'what': "A 1950s electronics factory turned art and music park: red-brick halls, chimneys, cafés and the red 'Chengdu wall' photo spot.",
+   'when': 'Open all day', 'length': '1–2 hours', 'price': 'Free to enter', 'kids': 'Open space to run around', 'elderly': 'Flat paths, cafés to sit in', 'watch': '东郊记忆 拍照'},
+ 'p:qianguqing': {'what': "Songcheng's indoor song-and-dance spectacle of Xi'an's history from the Zhou to the Tang dynasties: rain falling on stage, flying sets, horses and hundreds of dancers.",
+   'when': 'Usually 13:00 / 15:30 / 17:30 / 19:00 (varies by day)', 'length': 'About 60 min', 'price': '¥278 / ¥328 / ¥580 by seat; under 1.2 m or under 6 free without a seat',
+   'kids': 'Big effects, short enough', 'elderly': 'About a 20-min walk from the park gate to the theatre', 'watch': '西安千古情 演出'},
+ 'p:tangshow': {'what': "Xi'an's classic Tang-court dinner show at 唐乐宫: a seated dinner, then costumed palace music and dance with a live traditional orchestra.",
+   'when': 'Dinner from 18:00, show about 20:15', 'length': 'Show about 85 min', 'price': 'Show from about ¥218; dinner packages cost more',
+   'kids': 'Seated the whole evening; late finish (~21:40)', 'elderly': 'Warm, comfortable, no walking', 'watch': '唐乐宫 仿唐乐舞', 'photo': 'Photo: a Tang dance performance, not this theatre.'},
+ 'p:gongyan': {'what': "Dinner inside the show: Tang palace dishes served while dance, aerial acts and light play on a revolving stage around the tables. You can dress in Tang costume first.",
+   'when': 'Evening 19:00 (lunch sitting 12:00)', 'length': 'About 2 hours incl. a 15-min interval', 'price': 'From about ¥263 per person with the meal; children pay adult price; costume styling extra (kids\' costumes for ages 6–16)',
+   'kids': 'Very photogenic; long sitting for the baby', 'elderly': 'Seated at tables throughout', 'watch': '大明宫宴', 'photo': 'Photo: a similar Tang performance, not this venue. Tap a video to see it.'},
+ 'p:changan12': {'what': "An indoor Tang-dynasty market street: costumed performers, snack stalls, costume rental and photo corners, based on the TV drama.",
+   'when': '10:00–22:00', 'length': '2–3 hours', 'price': 'Entry ¥128 adult / ¥68 child; under 1.2 m free (the banquet show inside is extra)',
+   'kids': 'Lots to look at; crowded at night', 'elderly': 'Indoor and warm, but on your feet', 'watch': '长安十二时辰 主题街区', 'photo': 'Photo: the Great Tang All Day Mall next door, not the street itself.'},
+ 'p:everlasting': {'what': "Xi'an's most famous show: an outdoor dance-drama on the real lake at Huaqing Palace, with Mount Li as the backdrop. It tells the love story of Emperor Xuanzong and Yang Guifei with a rising lake stage, water, fire and light effects. In winter it runs as 冰火长恨歌 with heated seats.",
+   'when': 'Last winter (1 Dec–28 Feb): 18:30 / 19:55 / 21:20 / 22:45', 'length': '70 min', 'price': 'From ¥249; under 1.3 m free without a seat. No Huaqing Palace ticket needed for the evening show',
+   'kids': 'Spectacular, but outdoors at night in December; the 18:30 show is the sensible one', 'elderly': 'Seated; dress very warmly', 'getting': 'Lintong, about 1 hour from the city, next to the Terracotta Army: fits after Thursday\'s Terracotta visit',
+   'watch': '冰火长恨歌', 'photo': 'Photos show Huaqing Palace, the venue. Tap a video to see the show itself.'},
+ 'p:tuoling': {'what': "An indoor Silk Road epic: real camels and horses on stage, a sandstorm, and a caravan story set on the road out of Chang'an.",
+   'when': 'Afternoons to early evening (about 15:00–19:00; varies by day)', 'length': 'About 60 min', 'price': '¥288 / ¥338 / ¥388 / ¥458 by seat; under 1.2 m free with an adult',
+   'kids': 'Animals on stage are a hit', 'elderly': 'Indoor, seated', 'getting': 'Chanba, near Metro Line 3 务庄', 'watch': '驼铃传奇 秀'},
+ 'p:emei': {'what': "Wang Chaoge's giant immersive theatre village at the foot of Mount Emei: you walk through dozens of small stages and courtyards, then watch the main show.",
+   'when': 'Main show 19:30–21:00', 'length': 'Allow 3 hours on site', 'price': 'From ¥258', 'kids': 'Lots of walking between stages', 'elderly': 'Walking and stairs between stages',
+   'getting': 'About 2 hours from Chengdu: a late night or a night in Emei; pairs with the Leshan day trip', 'watch': '只有峨眉山 演出'},
+}
+for it in items:
+    if it['id'] in DETAILS: it['details'] = DETAILS[it['id']]
 seed = {'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
 json.dump(seed, open(os.path.join(HERE, 'seed.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 ids = {i['id'] for i in items}

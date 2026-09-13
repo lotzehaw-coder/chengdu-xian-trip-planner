@@ -328,6 +328,33 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 .stayrow .pr{text-align:right;font-size:12.5px;color:var(--ink-3);white-space:nowrap}
 .stayrow.todo .w b{color:var(--ci)}
 .stay .more{width:100%;justify-content:center;margin:-2px 0 10px}
+/* details sheet: what an option actually is, before voting */
+.det .sheet{padding:0 0 22px}
+.det .car{height:230px;border-radius:20px 20px 0 0}
+.det .sh-b{padding:14px 18px 0}
+.det h2{margin:0 0 2px;font-size:20px}
+.det .lede{color:var(--ink-2);font-size:14.5px;margin:8px 0 10px;line-height:1.45}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:7px 10px;font-size:14px;margin:6px 0 12px}
+.facts dt{color:var(--ink-3);white-space:nowrap}
+.facts dd{margin:0}
+.watch{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+.det .note{font-size:12.5px;color:var(--ink-3);margin:0 0 12px}
+.det .acts2{display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;bottom:0;background:var(--card);padding:10px 0 6px;box-shadow:0 -10px 12px -8px rgba(0,0,0,.12)}
+.det .acts2 .btn{min-height:44px}
+.btn.info{background:var(--paper-2);border-color:var(--paper-2);color:var(--ink)}
+/* collapsed explanations: short by default, open when wanted (Tze, 13 Sep: "collapse all the explanations … less clutter") */
+details.explain{background:var(--card);border-radius:12px;padding:8px 12px;margin:8px 0;box-shadow:var(--shadow)}
+details.explain > summary{cursor:pointer;font-size:14px;color:var(--ink-2);font-weight:600;list-style:none}
+details.explain > summary::-webkit-details-marker{display:none}
+details.explain > summary::after{content:" ▾";color:var(--ink-3)}
+details.explain[open] > summary::after{content:" ▴"}
+details.explain > *:not(summary){margin-top:8px}
+details.more{margin-top:6px}
+details.more > summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);list-style:none;font-weight:600}
+details.more > summary::-webkit-details-marker{display:none}
+details.more > summary::after{content:" ▾";color:var(--ink-3)}
+details.more[open] > summary::after{content:" ▴"}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 </style>
 </head>
 <body>
@@ -369,7 +396,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
       <!-- VOTE -->
       <section class="view" id="v-vote">
         <div class="vhead"><div class="ring" id="ring"><span id="ringTxt">0/0</span></div>
-          <div><h2 style="margin:0">Where do you want to go?</h2><p class="muted" style="margin:2px 0 0" id="voteSub">Tap a picture to vote. You can change your mind any time.</p></div></div>
+          <div><h2 style="margin:0">Where do you want to go?</h2><p class="muted" style="margin:2px 0 0" id="voteSub">Tap a picture to see what it is, then Pick. You can change your mind any time.</p></div></div>
         <div class="pills" id="voteCity"></div>
         <p class="muted" id="autoNote" style="color:#23704a"></p>
         <div id="decList"></div>
@@ -385,8 +412,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
       <!-- HOTELS -->
       <section class="view" id="v-hotels">
         <h2>Where we stay</h2>
-        <p class="muted" id="hotelsIntro"></p>
-        <div class="tip x" id="hotelsTip"></div>
+        <details class="explain" id="hotelsExplain"><summary>How we chose these hotels</summary><p class="muted" id="hotelsIntro"></p><div class="tip x" id="hotelsTip"></div></details>
         <div class="nightbar" id="nightBar" hidden></div>
         <div class="stayrows" id="stayRows"></div>
         <div id="hotelList"></div>
@@ -440,6 +466,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
     </div>
   </form>
 </div>
+<div class="overlay hidden det" id="detOverlay"><div class="sheet" id="detSheet" role="dialog" aria-modal="true"></div></div>
 <div class="overlay hidden" id="mapOverlay"><div class="mapmenu" id="mapMenu"></div></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -772,8 +799,9 @@ $('#copySummary').addEventListener('click', ()=>copy(summaryText(), 'Copied: pas
 function optCard(d, o, t, max){
   const mine=(myBallot()||{picks:{}}).picks[d.id]===o.id; const n=t[o.id].length; const locked=chosen(d.id)===o.id;
   return `<div class="opt ${mine?'mine':''}">
-    <div class="ph" data-pick="${d.id}|${o.id}" style="cursor:pointer">${car(o.gallery&&o.gallery.length?o.gallery:[o.img],'',o.name)}<span class="fam">${famIcons(o.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
+    <div class="ph" data-det="opt|${d.id}|${o.id}" style="cursor:pointer">${car(o.gallery&&o.gallery.length?o.gallery:[o.img],'',o.name)}<span class="fam">${famIcons(o.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
     <div class="bd"><b>${esc(o.name)}</b>${locked?'<span><span class="chip lock">locked in ✓</span></span>':''}<p>${esc(o.blurb)}</p>
+      <button class="btn small info" data-det="opt|${d.id}|${o.id}">ⓘ What is it?</button>
       <div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div>
       <div class="who">${n?`${n} · ${esc(t[o.id].join(', '))}`:'no votes yet'}</div>
       <button class="btn small pick" data-pick="${d.id}|${o.id}">${mine?'✓ Your pick':'Pick this'}</button>
@@ -789,21 +817,57 @@ function decBlock(d){
 function renderVote(){
   const total=SEED.decisions.length, n=votedCount();
   $('#ring').style.setProperty('--p', total?Math.round(n/total*100):0); $('#ringTxt').textContent=`${n}/${total}`;
-  $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Your votes are saved.` : `Hi ${L.me}: tap a picture to vote. ${total-n} left (hotels are in the Hotels tab). Votes save automatically.`;
+  $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Your votes are saved.` : `Hi ${L.me}: tap a picture to see what it is, then Pick. ${total-n} left (hotels are in the Hotels tab).`;
   $('#voteCity').innerHTML=[['','All days'], ...CITIES.map(c=>[c,c])].map(([k,l])=>`<button class="pill" data-vcity="${esc(k)}" aria-pressed="${(L.voteCity||'')===k}" ${k?`style="--pc:${CITY_VAR[k]}"`:''}>${k?'<i></i>':''}${l}</button>`).join('');
   const decs=ACT_DECS.filter(d=>!L.voteCity || (DAYS.find(x=>x.d===d.day)||{}).city===L.voteCity);
   $('#decList').innerHTML=decs.map(decBlock).join('') || '<div class="empty">Nothing for this city.</div>';
   const ideas=Object.values(P.items).filter(i=>!i.opt && i.status!=='scheduled' && (!L.voteCity || i.city===L.voteCity));
   ideas.sort((a,b)=>heartsFor(b.id).length-heartsFor(a.id).length);
   $('#ideaList').innerHTML=ideas.map(i=>{ const hs=heartsFor(i.id), mine=L.me&&hs.includes(L.me);
-    return `<div class="opt ${mine?'mine':''}"><div class="ph" data-heart="${esc(i.id)}" style="cursor:pointer">${car(i.gallery&&i.gallery.length?i.gallery:[i.img],'',i.name)}<span class="fam">${famIcons(i.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
-      <div class="bd"><b>${esc(i.name)}</b><span><span class="chip city" style="--ci:${CITY_VAR[i.city]||'var(--ink-3)'}">${esc(i.city)}</span></span><p>${esc(i.info)}</p>
+    return `<div class="opt ${mine?'mine':''}"><div class="ph" data-det="idea|${esc(i.id)}" style="cursor:pointer">${car(i.gallery&&i.gallery.length?i.gallery:[i.img],'',i.name)}<span class="fam">${famIcons(i.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
+      <div class="bd"><b>${esc(i.name)}</b><span><span class="chip city" style="--ci:${CITY_VAR[i.city]||'var(--ink-3)'}">${esc(i.city)}</span></span><p class="clamp2">${esc(i.info)}</p>
+      <button class="btn small info" data-det="idea|${esc(i.id)}">ⓘ What is it?</button>
       <div class="who">${hs.length?`❤ ${hs.length} · ${esc(hs.join(', '))}`:''}</div>
       <div class="row"><button class="heart grow" data-heart="${esc(i.id)}" aria-pressed="${mine?'true':'false'}">❤ ${mine?'Want to go':'I\'d like this'}</button></div>
       <select data-sched="${esc(i.id)}" style="margin-top:6px;min-height:32px;padding:4px 8px;font-size:13px">${dayOptions(i.day)}</select></div></div>`; }).join('') || '<div class="empty">No extra ideas here.</div>';
 }
 $('#voteCity').addEventListener('click', e=>{ const b=e.target.closest('[data-vcity]'); if(!b) return; L.voteCity=b.dataset.vcity; saveLocal(); renderVote(); });
 $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-sched]'); if(!s) return; schedule(s.dataset.sched, s.value); renderVote(); toast(s.value?'Added to '+fmtDay(s.value):'Back to ideas'); });
+
+// ---------- DETAILS sheet: photos, what it is, when, price, kids/grandparents, videos; then vote from inside ----------
+const vidLinks = (q) => q ? `<div class="watch"><span style="font-size:13px;color:var(--ink-3);align-self:center">▶ See it in videos:</span>
+  <button class="btn small" data-out="https://www.xiaohongshu.com/search_result?keyword=${encodeURIComponent(q)}">小红书</button>
+  <button class="btn small" data-out="https://search.bilibili.com/all?keyword=${encodeURIComponent(q)}">Bilibili</button>
+  <button class="btn small" data-out="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}">YouTube</button></div>` : '';
+function showDetails(spec){
+  const [kind,a,b]=spec.split('|'); let title, items, gallery, action, fam;
+  if (kind==='opt'){ const d=DEC[a], o=d&&d.options.find(x=>x.id===b); if(!o) return; const mine=(myBallot()||{picks:{}}).picks[a]===b;
+    title=o.name; fam=o.fam; items=(o.items||[]).map(id=>P.items[id]).filter(Boolean); gallery=o.gallery&&o.gallery.length?o.gallery:[o.img];
+    action=`<button class="btn primary grow" data-pick="${a}|${b}" data-detclose>${mine?'✓ Your pick (tap to undo)':'Pick this for '+esc(d.title)}</button>`; }
+  else { const i=P.items[a]; if(!i) return; const hs=heartsFor(i.id), mine=L.me&&hs.includes(L.me);
+    title=i.name; fam=i.fam; items=[i]; gallery=i.gallery&&i.gallery.length?i.gallery:[i.img];
+    action=`<button class="heart grow" data-heart="${esc(i.id)}" data-detclose aria-pressed="${mine?'true':'false'}" style="min-height:44px">❤ ${mine?'Want to go':'I\'d like this'}</button>`; }
+  const main=items.find(x=>x.details)||items[items.length-1]||{}; const D=main.details||{};
+  const row=(k,v)=>v?`<dt>${k}</dt><dd>${esc(v)}</dd>`:'';
+  $('#detSheet').innerHTML = `${car(gallery.map(x=>typeof x==='string'?{src:x,cap:''}:x),'',title)}
+    <div class="sh-b"><h2>${esc(title)}</h2><div>${famIcons(fam||main.fam)}</div>
+      <p class="lede">${esc(D.what||main.info||'')}</p>
+      ${D.photo?`<p class="note">📷 ${esc(D.photo)}</p>`:''}
+      ${vidLinks(D.watch||cjk(main.name))}
+      ${D.what?`<dl class="facts">${row('🕖 When',D.when)}${row('⏱ How long',D.length)}${row('🎟 Price',D.price)}${row('👶 Kids',D.kids)}${row('🧓 Grandparents',D.elderly)}${row('📍 Getting there',D.getting)}</dl>`:''}
+      ${D.what&&main.info?`<details class="more"><summary>More about it</summary><p style="font-size:13.5px;color:var(--ink-2)">${esc(main.info)}</p></details>`:''}
+      ${items.filter(x=>x!==main&&x.info).map(x=>`<p style="font-size:13.5px;color:var(--ink-2)"><b>${esc(x.name)}:</b> ${esc(x.info)}</p>`).join('')}
+      ${main.book?`<div class="bookbox" style="display:block">🎟 ${esc(main.book)}</div>`:''}
+      ${D.what?'<p class="note">Times and prices checked Sep 2026; they change by season, so confirm nearer the date.</p>':''}
+      <div class="acts2">${action}${main.mapq||main.mapen?mapBtn({q:main.mapq,en:main.mapen,label:main.name,city:(main.mapcity&&main.mapcity!=='Travel')?main.mapcity:main.city,lat:main.lat,lng:main.lng}):''}<button class="btn ghost" data-detclose>Close</button></div></div>`;
+  $('#detOverlay').classList.remove('hidden'); $('#detSheet').scrollTop=0;
+}
+document.addEventListener('click', e=>{
+  const o=e.target.closest('[data-out]'); if (o){ e.preventDefault(); openOut(o.dataset.out); return; }
+  const d=e.target.closest('[data-det]'); if (d && !e.target.closest('[data-car]')){ e.preventDefault(); showDetails(d.dataset.det); return; }
+});
+$('#detOverlay').addEventListener('click', e=>{ if (e.target.id==='detOverlay' || (e.target.closest('[data-detclose]') && !e.target.closest('[data-pick],[data-heart]'))) $('#detOverlay').classList.add('hidden');
+  else if (e.target.closest('[data-pick],[data-heart]')) setTimeout(()=>$('#detOverlay').classList.add('hidden'), 250); });
 
 // ---------- HOTELS ----------
 function renderNightBar(){
@@ -842,14 +906,15 @@ function renderHotels(){
     const city = st.city || key; const did = st.dec || hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
     return `<div class="stay" id="dec-${did}"><h2 style="margin-bottom:2px;color:${CITY_VAR[city]}">${esc(st.title||city)} ${CN[city]}</h2><div class="nights">${esc(st.nights)}</div>
-      <div class="tip">💡 ${esc(st.tip)}</div>
+      ${st.tip?`<details class="explain"><summary>💡 Tip for this stay</summary><div style="font-size:14px;color:var(--ink-2)">${esc(st.tip)}</div></details>`:''}
       ${st.options.map((h,k)=>{ const n=t[h.id].length; if (mine && mine!==h.id && !(L.hopen&&L.hopen[did])) return ''; return `<div class="hotel ${mine===h.id?'mine':''}">
         <div class="banner">${car(h.gallery,'',h.name)}${k===0?'<span class="badge">★ Our suggestion</span>':''}<div class="t"><b>${esc(h.name)}</b><span>${esc(h.cn)} · ${esc(h.area)}</span></div></div>
         <div class="hb"><div class="up">${h.up?`<span class="stars" aria-label="Suite upgrade odds ${h.up} of 5">${'★'.repeat(h.up)}<i>${'★'.repeat(5-h.up)}</i></span> <b>Suite upgrade odds</b>`:''}${h.opened?`<span class="age">🏗 Opened ${esc(h.opened)}${h.reno?' · '+esc(h.reno):''}</span>`:''}</div>
-          ${h.upnote?`<div class="upnote">${esc(h.upnote)}</div>`:''}
           <div class="row"><span class="chip">${esc(h.fits)}</span>${lock===h.id?'<span class="chip lock">locked in ✓</span>':ld&&!ld.tie&&ld.opt===h.id?'<span class="chip lead">leading</span>':''}</div>
-          <ul>${h.pros.map(p=>`<li class="pro">${esc(p)}</li>`).join('')}${h.cons.map(p=>`<li class="con">${esc(p)}</li>`).join('')}</ul>
-          <div class="addr">${esc(h.address)}</div>
+          <details class="more"><summary>Pros, cons${h.upnote?' & upgrade reports':''}</summary>
+            ${h.upnote?`<div class="upnote">${esc(h.upnote)}</div>`:''}
+            <ul>${h.pros.map(p=>`<li class="pro">${esc(p)}</li>`).join('')}${h.cons.map(p=>`<li class="con">${esc(p)}</li>`).join('')}</ul>
+            <div class="addr">${esc(h.address)}</div></details>
           <div class="tally"><div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div><span>${n?`${n} · ${esc(t[h.id].join(', '))}`:'no votes yet'}</span></div>
           <div class="row" style="margin-top:10px"><button class="btn small ${mine===h.id?'vote':''}" data-pick="${did}|${h.id}">${mine===h.id?'✓ Your pick':'Pick this hotel'}</button>
             ${mapBtn({q:h.cn, en:h.name, label:h.name, city})}${h.url?`<a class="btn small ghost" href="${esc(h.url)}" target="_blank" rel="noopener">${esc(TRIP.hotelLinkLabel||'Hotel site')} ↗</a>`:''}
