@@ -8,7 +8,7 @@ Exit code 1 if anything is an ERROR. WARN lines are for a human to judge."""
 import json, os, sys, re, subprocess, hashlib, urllib.parse, time
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, '..')
-LIVE = 'https://lotzehaw-coder.github.io/chengdu-xian-trip-planner/'
+LIVE = json.load(open(os.path.join(HERE, 'seed.json'), encoding='utf-8'))['trip']['site']
 errors, warns, oks = [], [], []
 def E(m): errors.append(m)
 def W(m): warns.append(m)
@@ -17,11 +17,11 @@ def OK(m): oks.append(m)
 seed = json.load(open(os.path.join(HERE, 'seed.json'), encoding='utf-8'))
 html = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
 
-# 1. build is up to date with seed.json + template.html
-tpl = open(os.path.join(HERE, 'template.html'), encoding='utf-8').read()
-raw = open(os.path.join(HERE, 'seed.json'), encoding='utf-8').read()
-expect = tpl.replace('__SEED__', raw.replace('</script', r'<\/script'))
-(OK if expect == html else E)('index.html matches template.html + seed.json' if expect == html else 'index.html is stale: run python seed.py && python build.py')
+# 1. build is up to date with seed.json + template.html (same render as build.py)
+sys.path.insert(0, HERE)
+import build
+expect = build.render()
+(OK('index.html matches template.html + seed.json') if expect == html else E('index.html is stale: run python seed.py && python build.py'))
 
 # 2. JS syntax
 js = re.search(r'<script>(.*)</script>', html, re.S).group(1); tmp = os.path.join(HERE, '_check.js'); open(tmp, 'w', encoding='utf-8').write(js)
@@ -60,7 +60,8 @@ for city, st in seed['hotels'].items():
 missing = [s for s in refs if not os.path.exists(os.path.join(ROOT, s))]
 for s in missing: E(f'missing image {s} (used by {refs[s][0]})')
 on_disk = {os.path.relpath(os.path.join(dp, f), ROOT).replace('\\', '/') for dp, _, fs in os.walk(os.path.join(ROOT, 'img')) for f in fs if f.endswith('.jpg')}
-unused = sorted(on_disk - set(refs) - {'img/chengduhero.jpg', 'img/xianhero.jpg', 'img/panda.jpg'})
+TRIPD = seed['trip']
+unused = sorted(on_disk - set(refs) - {c['hero'] for c in TRIPD['cities']} - {TRIPD['welcome']['img']})
 if unused: W(f'{len(unused)} image files on disk not used: {unused[:8]}')
 cred = seed['credits']
 uncredited = [s for s in refs if s[4:-4] not in cred]
@@ -80,15 +81,16 @@ for i in seed['items']:
     rest = i['category'] == 'Rest' or not re.search(r'[㐀-鿿]', i['name'] + i.get('mapq', ''))
     if not i.get('mapq') and not rest: W(f"no map search for {i['id']} ({i['name']})")
     if i.get('mapq') and not i.get('mapen'): W(f"no English Google search for {i['id']}")
-    if i.get('mapq') and not re.search(r'[㐀-鿿]', i['mapq']): W(f"map search for {i['id']} is not Chinese: {i['mapq']}")
-    if i.get('lat') and not (28 < i['lat'] < 36 and 102 < i['lng'] < 111): E(f"coordinates for {i['id']} are outside Sichuan/Shaanxi: {i['lat']},{i['lng']}")
+    if seed['trip'].get('amap') and i.get('mapq') and not re.search(r'[㐀-鿿]', i['mapq']): W(f"map search for {i['id']} is not Chinese: {i['mapq']}")
+    bb = seed['trip'].get('bbox')   # [minLat, minLng, maxLat, maxLng] of the trip region
+    if bb and i.get('lat') and not (bb[0] < i['lat'] < bb[2] and bb[1] < i['lng'] < bb[3]): E(f"coordinates for {i['id']} are outside the trip region: {i['lat']},{i['lng']}")
 for b in seed['blocks']:
     if b['type'] in ('train', 'flight') and b['type'] == 'train' and not b.get('mapq'): W(f"train block {b['id']} has no station search")
     q = b.get('mapq')
     if q: urllib.parse.quote(q)
 for city, st in seed['hotels'].items():
     for h in st['options']:
-        if not re.search(r'[㐀-鿿]', h['cn']): E(f'hotel {h["id"]} has no Chinese name for the map search')
+        if seed['trip'].get('amap') and not re.search(r'[㐀-鿿]', h['cn']): E(f'hotel {h["id"]} has no Chinese name for the map search')
 OK('map search terms checked')
 
 # 5. plan sanity

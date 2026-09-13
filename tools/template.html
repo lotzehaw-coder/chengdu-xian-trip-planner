@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#1d2a26">
-<meta property="og:title" content="Chengdu · Xi'an family trip — 13–22 Dec 2026">
-<meta property="og:description" content="Vote on where we go. Pandas, the Terracotta Army, hot pot and dumplings.">
-<meta property="og:image" content="img/panda.jpg">
-<title>Chengdu · Xi'an Family Trip</title>
+<meta property="og:title" content="{{og_title}}">
+<meta property="og:description" content="{{og_desc}}">
+<meta property="og:image" content="{{welcome_img}}">
+<title>{{title}}</title>
 <style>
 :root{
   --paper:#f5f2ea; --paper-2:#ebe6da; --ink:#1d2a26; --ink-2:#3e4b47; --ink-3:#7c8783; --line:#ddd6c8; --card:#fffefa;
@@ -16,7 +16,7 @@
   --r:16px; --nav:64px;
   --c-sight:#2b6f9e; --c-food:#d8602f; --c-night:#4d4aa6; --c-show:#b23a78; --c-shop:#c38d22; --c-rest:#6f8a7c; --c-travel:#62707c;
   --c-hotel:#b0862a; --c-flight:#2e8b57; --c-train:#2e8b57; --c-car:#62707c; --c-vote:#7a4fc4; --c-other:#5c6b73;
-  --city-chengdu:#2f7a55; --city-xian:#a3432a; --city-travel:#34506b;
+  --city-travel:#34506b; --accent:#2f7a55; /* per-city colours are set from SEED.trip.cities at boot */
   --gold:#e7b54a;
 }
 *{box-sizing:border-box}
@@ -113,7 +113,7 @@ details.prep > summary::-webkit-details-marker{display:none}
 details.prep > summary .prog{margin-left:auto;font-weight:500;font-size:13px;color:var(--ink-3)}
 details.prep .inner{padding:0 14px 14px}
 .todo{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--paper-2);font-size:14px;align-items:flex-start}
-.todo input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--city-chengdu)}
+.todo input{width:20px;height:20px;margin-top:1px;flex:0 0 auto;accent-color:var(--accent)}
 .todo b{display:inline-block;min-width:74px;color:var(--c-food);font-size:13px}
 .todo.done span{text-decoration:line-through;color:var(--ink-3)}
 .legend{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:8px 0}
@@ -293,7 +293,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 @media (min-width:600px){.overlay{align-items:center;padding:20px}}
 .sheet{background:var(--card);width:100%;max-width:470px;border-radius:20px 20px 0 0;padding:0 0 26px;max-height:94vh;overflow:auto}
 @media (min-width:600px){.sheet{border-radius:18px}}
-.sheet .sh-img{height:150px;background:url(img/panda.jpg) center/cover;border-radius:20px 20px 0 0}
+.sheet .sh-img{height:150px;background:var(--welcome-img) center/cover;border-radius:20px 20px 0 0}
 @media (min-width:600px){.sheet .sh-img{border-radius:18px 18px 0 0}}
 .sheet .sh-b{padding:16px 18px 0}
 .sheet h2{margin-top:0}
@@ -310,9 +310,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="land-chengdu" viewBox="0 0 160 64"><path d="M2 58h156M4 58c6-12 16-12 22 0M26 58c6-12 16-12 22 0M48 58c6-12 16-12 22 0M2 46h70M8 46l4-6h52l4 6M36 40v-4M30 36h12l-6-5z"/><path d="M128 58V8M140 58V14M128 20h2M128 34h2M140 28h2M140 44h2M128 20c8-6 14-6 20-4M140 28c-8-8-16-8-24-4M128 34c-6 2-12 8-14 12"/><circle cx="98" cy="42" r="12"/><circle cx="88" cy="31" r="4"/><circle cx="108" cy="31" r="4"/><path d="M92 41c1-3 4-3 5 0M99 41c1-3 4-3 5 0M96 48c1 1 3 1 4 0"/></symbol>
-  <symbol id="land-xian" viewBox="0 0 160 64"><path d="M2 58h156M2 58V40h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h4v18M24 58v-8c0-7 14-7 14 0v8M104 58V22h22v36M100 50h30M101 42h28M102 34h26M103 27h24M107 22v-6h16v6M111 16l4-7 4 7M115 9V4M112 58v-6h6v6M140 58V46M136 46h8l-4-5z"/></symbol>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" id="sprite">
   <symbol id="land-travel" viewBox="0 0 160 64"><path d="M30 44l84-22c10-3 20-2 22 2s-6 9-16 12L36 58l-10-2 14-12-18-4zM76 32 60 12h10l30 14M92 40l4 18h-8L74 44"/><path d="M4 20c10 0 14-6 22-6M120 56c10 0 16-4 30-4" stroke-dasharray="3 5"/></symbol>
   <symbol id="ico-map" viewBox="0 0 24 24"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></symbol>
   <symbol id="ico-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
@@ -320,7 +318,7 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 </svg>
 <div class="app">
   <nav class="tabs" aria-label="Sections">
-    <div class="brand">Chengdu · Xi'an<small>13–22 Dec 2026 · family of 10</small></div>
+    <div class="brand">{{brand}}<small>{{brand_sub}}</small></div>
     <button data-tab="itin"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Itinerary</button>
     <button data-tab="vote"><svg viewBox="0 0 24 24"><path d="M4 13l3-3 4 4 9-9M4 20h16"/></svg>Vote<span class="badge hidden" id="voteBadge"></span></button>
     <button data-tab="hotels"><svg viewBox="0 0 24 24"><path d="M3 20V8l9-4 9 4v12M3 20h18M8 20v-5h8v5M8 10h.01M12 10h.01M16 10h.01"/></svg>Hotels</button>
@@ -412,10 +410,10 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 
 <div class="overlay hidden" id="setup">
   <form class="sheet" id="setupForm">
-    <div class="sh-img" role="img" aria-label="A giant panda"></div>
+    <div class="sh-img" role="img" aria-label="{{welcome_alt}}"></div>
     <div class="sh-b">
-      <h2>Chengdu &amp; Xi'an, 13–22 Dec</h2>
-      <p class="muted" style="margin-top:-4px">Help plan the family trip: pandas, the Terracotta Army, hot pot and dumplings.</p>
+      <h2>{{welcome_title}}</h2>
+      <p class="muted" style="margin-top:-4px">{{welcome_text}}</p>
       <ol><li><b>Vote</b>: tap the pictures you like for the open slots, and ❤ any extra ideas.</li>
         <li><b>Hotels</b>: pick one in each city.</li>
         <li><b>Send</b>: one tap sends your votes to the family WhatsApp group.</li></ol>
@@ -434,17 +432,28 @@ details summary{cursor:pointer;color:var(--ink-2);font-size:14.5px;padding:6px 0
 const SEED = __SEED__;
 const DAYS = SEED.days;
 const SITE = location.origin + location.pathname;
-const CITIES = ['Chengdu', "Xi'an"];
-const CN = {Chengdu:'成都', "Xi'an":'西安', Leshan:'乐山', Dujiangyan:'都江堰', Travel:''};
-const CITY_VAR = {Chengdu:'var(--city-chengdu)', "Xi'an":'var(--city-xian)', Travel:'var(--city-travel)'};
-const LAND = {Chengdu:'land-chengdu', "Xi'an":'land-xian', Travel:'land-travel'};
+const TRIP = SEED.trip;
+const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const CITIES = TRIP.cities.map(c=>c.name);
+const HOME = CITIES[0];                                   // stand-in city for travel days
+const CN = Object.assign({Travel:''}, TRIP.mapCities||{}, ...TRIP.cities.map(c=>({[c.name]:c.local||''})));   // city name as the local map app wants it
+const CITY_EN = Object.assign({Travel:''}, ...Object.keys(TRIP.mapCities||{}).map(k=>({[k]:k})), ...TRIP.cities.map(c=>({[c.name]:c.name})));
+const CITY_VAR = Object.assign({Travel:'var(--city-travel)'}, ...TRIP.cities.map(c=>({[c.name]:`var(--city-${slug(c.name)})`})));
+const LAND = Object.assign({Travel:'land-travel'}, ...TRIP.cities.map(c=>({[c.name]:`land-${slug(c.name)}`})));
+const hotelDec = (city) => ((TRIP.cities.find(c=>c.name===city)||{}).hotelDec) || 'h-' + slug(city);
+const decCity = (did) => (DEC[did]||{}).city || HOME;
+(function(){   // per-city colours + landmark drawings come from the trip data
+  const root=document.documentElement.style; root.setProperty('--accent', TRIP.cities[0].color); root.setProperty('--welcome-img', `url(${TRIP.welcome.img})`);
+  for (const c of TRIP.cities){ root.setProperty(`--city-${slug(c.name)}`, c.color);
+    if (c.land) document.getElementById('sprite').insertAdjacentHTML('beforeend', `<symbol id="land-${slug(c.name)}" viewBox="0 0 160 64">${c.land}</symbol>`); }
+})();
 const CAT_VAR = {Sight:'var(--c-sight)', Food:'var(--c-food)', Night:'var(--c-night)', Show:'var(--c-show)', Shop:'var(--c-shop)', Rest:'var(--c-rest)', Travel:'var(--c-travel)', hotel:'var(--c-hotel)', flight:'var(--c-flight)', train:'var(--c-train)', car:'var(--c-car)', vote:'var(--c-vote)'};
 const catVar = (c) => CAT_VAR[c] || 'var(--c-other)';
 const KIND_ICON = {flight:'✈', train:'🚄', hotel:'🏨', car:'🚐'};
 const FAM = Object.fromEntries(SEED.family.map(([k,i,l])=>[k,{i,l}]));
 const famIcons = (a) => (a||[]).map(k=>FAM[k]?`<span title="${esc(FAM[k].l)}">${FAM[k].i}</span>`:'').join('');
 const FILTERS = [['all','Everything',''],['must','Must-see','var(--c-sight)'],['eat','Food','var(--c-food)'],['kids','Stroller-friendly',''],['travel','Travel','var(--c-travel)']];
-const LS_PLAN = 'cdxa.plan.v1', LS_LOCAL = 'cdxa.local.v1';
+const LS_PLAN = TRIP.key+'.plan.v1', LS_LOCAL = TRIP.key+'.local.v1';
 const DEC = Object.fromEntries(SEED.decisions.map(d=>[d.id,d]));
 const ACT_DECS = SEED.decisions.filter(d=>d.kind==='activity');
 
@@ -489,7 +498,7 @@ function lockIn(did, oid){ P.locks[did] = {opt: oid, t: now()}; for (const o of 
 function unlock(did){ const o=chosen(did); if (o) for (const id of (DEC[did].options.find(x=>x.id===o)||{items:[]}).items){ const it=P.items[id]; if (it){ it.status='wishlist'; it.updatedAt=now(); } } P.locks[did]={opt:'', t:now()}; savePlan(); }
 
 // ---------- China time ----------
-function cnNow(){ const d=new Date(); return new Date(d.getTime()+d.getTimezoneOffset()*60000+8*3600000); }
+function cnNow(){ const d=new Date(); return new Date(d.getTime()+d.getTimezoneOffset()*60000+(TRIP.utcOffset??8)*3600000); }
 function todayKey(){ const c=cnNow(); return `${c.getFullYear()}-${String(c.getMonth()+1).padStart(2,'0')}-${String(c.getDate()).padStart(2,'0')}`; }
 const active = (i) => i.status==='scheduled' && i.day && (!i.opt || chosen(i.opt.split(':')[0])===i.opt.split(':')[1]);
 const dayItems = (d) => Object.values(P.items).filter(i=>i.day===d && active(i)).sort((a,b)=> tk(a.time).localeCompare(tk(b.time)) || (a.order||0)-(b.order||0));
@@ -505,9 +514,9 @@ function mapTargets(o){
   const en = (o.en||q) + (o.cityEn ? ', '+o.cityEn : '') + ', China';
   return {
     title: o.label||q,
-    amapApp: isIOS ? `iosamap://poi?sourceApplication=cdxa&name=${enc(kw)}${box}&dev=0`
-           : isAndroid ? `androidamap://poi?sourceApplication=cdxa&keywords=${enc(kw)}${near?`&lat=${o.lat}&lon=${o.lng}`:''}&dev=0` : '',
-    amapWeb: `https://uri.amap.com/search?keyword=${enc(q)}${city?`&city=${enc(city)}`:''}${near?`&center=${o.lng},${o.lat}`:''}&view=map&src=cdxa&callnative=1`,
+    amapApp: isIOS ? `iosamap://poi?sourceApplication=${TRIP.key}&name=${enc(kw)}${box}&dev=0`
+           : isAndroid ? `androidamap://poi?sourceApplication=${TRIP.key}&keywords=${enc(kw)}${near?`&lat=${o.lat}&lon=${o.lng}`:''}&dev=0` : '',
+    amapWeb: `https://uri.amap.com/search?keyword=${enc(q)}${city?`&city=${enc(city)}`:''}${near?`&center=${o.lng},${o.lat}`:''}&view=map&src=${TRIP.key}&callnative=1`,
     google: `https://www.google.com/maps/search/?api=1&query=${enc(en)}`,
     apple: `https://maps.apple.com/?q=${enc(kw)}${near?`&sll=${o.lat},${o.lng}`:''}`,
   };
@@ -519,8 +528,8 @@ function openOut(url){ const w=window.open(url, '_blank', 'noopener'); if (!w){ 
 function openMap(o){
   const t=mapTargets(o);
   const m=$('#mapMenu'); m.innerHTML=`<h3>${esc(t.title)}</h3><p>Opens in a new tab or the map app, so this page stays where it is. Shows the place itself (photos, reviews), not directions.</p>
-    <button class="btn map" data-go="amap"><svg><use href="#ico-map"/></svg> 高德地图 Amap <small style="font-weight:400;opacity:.85">· best in China</small></button>
-    <button class="btn" data-go="google">Google Maps <small style="color:var(--ink-3)">· English reviews, before the trip</small></button>
+    ${TRIP.amap?`<button class="btn map" data-go="amap"><svg><use href="#ico-map"/></svg> 高德地图 Amap <small style="font-weight:400;opacity:.85">· best in China</small></button>`:''}
+    <button class="btn ${TRIP.amap?'':'map'}" data-go="google">Google Maps <small style="${TRIP.amap?'color:var(--ink-3)':'font-weight:400;opacity:.85'}">· photos & reviews</small></button>
     ${isIOS?'<button class="btn" data-go="apple">Apple Maps</button>':''}<button class="btn ghost" data-go="x">Cancel</button>`;
   $('#mapOverlay').classList.remove('hidden');
   m.onclick=(e)=>{ const b=e.target.closest('[data-go]'); if(!b) return; $('#mapOverlay').classList.add('hidden');
@@ -528,7 +537,6 @@ function openMap(o){
 }
 $('#mapOverlay').addEventListener('click', e=>{ if (e.target.id==='mapOverlay') e.target.classList.add('hidden'); });
 document.addEventListener('click', e=>{ const b=e.target.closest('[data-map]'); if(!b) return; e.preventDefault(); e.stopPropagation(); try{ openMap(JSON.parse(b.dataset.map)); }catch(err){ toast('Could not open the map'); } }, true);
-const CITY_EN = {Chengdu:'Chengdu', "Xi'an":"Xi'an", Leshan:'Leshan', Dujiangyan:'Dujiangyan', Travel:''};
 // o: {q (Chinese search), en (English search), label, city, lat, lng}; no q means no button
 const mapBtn = (o) => o.q ? `<button class="btn small map" data-map="${esc(JSON.stringify({q:o.q, en:o.en||'', label:o.label||o.q, city:o.city, cityEn:CITY_EN[o.city]||'', lat:o.lat||null, lng:o.lng||null}))}"><svg><use href="#ico-map"/></svg>Map</button>` : '';
 
@@ -560,13 +568,14 @@ function goVote(did){ showTab(DEC[did].kind==='hotel'?'hotels':'vote'); setTimeo
 
 // ---------- ITINERARY ----------
 function renderHero(){
-  const t=todayKey(); const td=DAYS.find(d=>d.d===t); const city = td ? (td.city==='Travel'?'Chengdu':td.city) : 'Chengdu';
-  const start=new Date('2026-12-13T19:00:00+08:00'); const daysTo=Math.ceil((start-new Date())/86400000);
+  const t=todayKey(); const td=DAYS.find(d=>d.d===t); const city = td ? (td.city==='Travel'?HOME:td.city) : HOME;
+  const start=new Date(TRIP.start); const daysTo=Math.ceil((start-new Date())/86400000);
+  const cc=TRIP.cities.find(c=>c.name===city)||TRIP.cities[0];
   const ns = td ? nextStop() : null;
-  const pic = city==="Xi'an" ? 'img/xianhero.jpg' : 'img/chengduhero.jpg';
-  $('#hero').style.setProperty('--hc', city==="Xi'an" ? 'rgba(92,32,18,.94)' : 'rgba(18,52,38,.94)');
+  const pic = cc.hero;
+  $('#hero').style.setProperty('--hc', cc.tint);
   $('#hero').innerHTML = `<div class="bg" style="background-image:url(${pic})"></div><svg class="land"><use href="#${LAND[city]}"/></svg>
-    <h1>Chengdu <span>·</span> Xi'an</h1><div class="sub">13–22 Dec 2026 · family of 10 · pandas, warriors &amp; dumplings</div>
+    <h1>${TRIP.cities.map(c=>esc(c.name)).join(' <span>·</span> ')}</h1><div class="sub">${esc(TRIP.subtitle)}</div>
     ${td ? `<div class="now"><b>Day ${DAYS.indexOf(td)}</b> ${esc(td.city)} · ${ns?`up next ${esc(ns.time)} ${esc(ns.name)}`:'nothing left today'}</div>`
          : daysTo>0 ? `<div class="now"><b>${daysTo} days</b> to go · ${SEED.decisions.length - votedCount()} of your votes left</div>` : `<div class="now"><b>Home</b> Hope it was a great trip</div>`}`;
 }
@@ -609,10 +618,10 @@ $('#toggleAll').addEventListener('click', ()=>{ const all=DAYS.every(d=>L.closed
 function hotelLabel(b){
   if (!b.dec) return b.title;
   const c=chosen(b.dec), ld=leader(b.dec);
-  const nm = c ? optName(b.dec,c) : ld&&!ld.tie ? optName(b.dec, ld.opt)+' (leading)' : (b.dec==='h-xian'?"Xi'an":'Chengdu')+' hotel (vote in Hotels)';
+  const nm = c ? optName(b.dec,c) : ld&&!ld.tie ? optName(b.dec, ld.opt)+' (leading)' : decCity(b.dec)+' hotel (vote in Hotels)';
   return b.title.replace('{hotel}', nm);
 }
-function hotelMapBtn(did){ const id=chosen(did) || ((leader(did)||{}).opt); if (!id) return ''; const city=did==='h-xian'?"Xi'an":'Chengdu'; const h=SEED.hotels[city].options.find(x=>x.id===id); return h?mapBtn({q:h.cn,en:h.name,label:h.name,city}):''; }
+function hotelMapBtn(did){ const id=chosen(did) || ((leader(did)||{}).opt); if (!id) return ''; const city=decCity(did); const h=(SEED.hotels[city]||{options:[]}).options.find(x=>x.id===id); return h?mapBtn({q:h.cn,en:h.name,label:h.name,city}):''; }
 function blockStop(b){
   const title=hotelLabel(b);
   const sub=[b.number, (b.from||b.to)?`${esc(b.from||'?')} → ${esc(b.to||'?')}`:'', esc(b.note)].filter(Boolean).join(' · ');
@@ -621,7 +630,7 @@ function blockStop(b){
   return `<div class="stop block" data-bid="${esc(b.id)}" style="--cc:${catVar(b.type)}"><div class="dot"></div><div class="card">
     <div class="top"><span class="t">${shownTime}</span><span class="kind">${KIND_ICON[b.type]||''} ${b.type}</span> ${b.tentative?'<span class="chip tent">tentative</span>':''}</div>
     <div class="name">${esc(title)}</div>${sub?`<div class="sub">${sub}</div>`:''}
-    <div class="row" style="margin-top:8px">${b.dec?`<button class="btn small" data-govote="${b.dec}">${chosen(b.dec)?'Change hotel':'Vote hotel'}</button>`:''}${b.dec?hotelMapBtn(b.dec):mapBtn({q:b.mapq,en:b.mapen,label:title,city:city==='Travel'?'Chengdu':city,lat:b.lat,lng:b.lng})}<button class="btn small ghost" data-bact="edit">Edit</button></div>
+    <div class="row" style="margin-top:8px">${b.dec?`<button class="btn small" data-govote="${b.dec}">${chosen(b.dec)?'Change hotel':'Vote hotel'}</button>`:''}${b.dec?hotelMapBtn(b.dec):mapBtn({q:b.mapq,en:b.mapen,label:title,city:city==='Travel'?HOME:city,lat:b.lat,lng:b.lng})}<button class="btn small ghost" data-bact="edit">Edit</button></div>
     <div class="edit"><label class="f">Title</label><input type="text" data-f="title" value="${esc(b.title)}">
       <div class="row"><div class="grow"><label class="f">${b.type==='hotel'?'Booking ref':'Number'}</label><input type="text" data-f="number" value="${esc(b.number)}"></div><div class="grow"><label class="f">Time</label><input type="time" data-f="time" value="${esc(b.time)}"></div></div>
       <label class="f">Note</label><input type="text" data-f="note" value="${esc(b.note)}">
@@ -650,7 +659,7 @@ function itemStop(i, isNext){
     ${car(i.gallery&&i.gallery.length?i.gallery:[i.img],'big',i.name)}
     ${i.book?`<div class="bookbox">🎟 ${esc(i.book)}</div>`:''}
     <div class="acts">
-      ${mapBtn({q:i.mapq,en:i.mapen,label:i.name,city:(i.mapcity&&i.mapcity!=='Travel')?i.mapcity:(i.city==='Travel'?'Chengdu':i.city),lat:i.lat,lng:i.lng})}
+      ${mapBtn({q:i.mapq,en:i.mapen,label:i.name,city:(i.mapcity&&i.mapcity!=='Travel')?i.mapcity:(i.city==='Travel'?HOME:i.city),lat:i.lat,lng:i.lng})}
       <button class="heart" data-act="heart" aria-pressed="${mine?'true':'false'}">❤ ${hs.length||''}</button>
       <input type="time" data-act="time" value="${esc(i.time)}" aria-label="Start time">
       <select data-act="day" aria-label="Move to day">${dayOptions(i.day)}</select>
@@ -697,7 +706,7 @@ $('#itin').addEventListener('change', e=>{
   else if (a.dataset.act==='day'){ schedule(it.id, a.value); renderItin(); toast(a.value?'Moved to '+fmtDay(a.value):'Moved to Ideas'); }
 });
 function summaryText(){
-  const out=["*Chengdu · Xi'an family trip, 13–22 Dec 2026*", SITE, ''];
+  const out=[`*${TRIP.name}, ${TRIP.dates}*`, SITE, ''];
   for (const [idx,d] of DAYS.entries()){
     out.push(`*${fmtDay(d.d)}${d.city!=='Travel'?' · '+d.city:''}*: ${d.label}`);
     for (const e of dayEntries(d.d)){
@@ -734,7 +743,7 @@ function renderVote(){
   const total=SEED.decisions.length, n=votedCount();
   $('#ring').style.setProperty('--p', total?Math.round(n/total*100):0); $('#ringTxt').textContent=`${n}/${total}`;
   $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Now send your votes on WhatsApp.` : `Hi ${L.me}: tap a picture to vote. ${total-n} left (hotels are in the Hotels tab).`;
-  $('#voteCity').innerHTML=[['','All days'],['Chengdu','Chengdu'],["Xi'an","Xi'an"]].map(([k,l])=>`<button class="pill" data-vcity="${esc(k)}" aria-pressed="${(L.voteCity||'')===k}" ${k?`style="--pc:${CITY_VAR[k]}"`:''}>${k?'<i></i>':''}${l}</button>`).join('');
+  $('#voteCity').innerHTML=[['','All days'], ...CITIES.map(c=>[c,c])].map(([k,l])=>`<button class="pill" data-vcity="${esc(k)}" aria-pressed="${(L.voteCity||'')===k}" ${k?`style="--pc:${CITY_VAR[k]}"`:''}>${k?'<i></i>':''}${l}</button>`).join('');
   const decs=ACT_DECS.filter(d=>!L.voteCity || (DAYS.find(x=>x.d===d.day)||{}).city===L.voteCity);
   $('#decList').innerHTML=decs.map(decBlock).join('') || '<div class="empty">Nothing for this city.</div>';
   const ideas=Object.values(P.items).filter(i=>!i.opt && i.status!=='scheduled' && (!L.voteCity || i.city===L.voteCity));
@@ -752,7 +761,7 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 // ---------- HOTELS ----------
 function renderHotels(){
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([city, st])=>{
-    const did = city==='Chengdu'?'h-chengdu':'h-xian'; const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
+    const did = hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
     return `<div class="stay" id="dec-${did}"><h2 style="margin-bottom:2px;color:${CITY_VAR[city]}">${esc(city)} ${CN[city]}</h2><div class="nights">${esc(st.nights)}</div>
       <div class="tip">💡 ${esc(st.tip)}</div>
@@ -775,7 +784,7 @@ const b64e = (s) => btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').rep
 const b64d = (s) => decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));
 function ballotCode(){ const b=myBallot(); return 'CX1.'+b64e(JSON.stringify({n:L.me, p:b.picks, h:b.hearts.map(h=>h.replace(/^p:/,'')), t:b.t||now()})); }
 function voteMessage(){
-  const b=myBallot(); const lines=[`🗳 *${L.me}'s votes · Chengdu–Xi'an trip*`];
+  const b=myBallot(); const lines=[`🗳 *${L.me}'s votes · ${TRIP.name}*`];
   for (const d of SEED.decisions){ const o=b.picks[d.id]; if (o) lines.push(`• ${d.title}: ${optName(d.id,o)}`); }
   const hs=b.hearts.map(id=>P.items[id]&&P.items[id].name).filter(Boolean); if (hs.length) lines.push(`❤ ${hs.join(', ')}`);
   const left=SEED.decisions.length-votedCount(); if (left) lines.push(`(${left} not voted yet)`);
@@ -811,7 +820,7 @@ $('#addVotes').addEventListener('click', ()=>{
   renderShare(); updateBadge();
 });
 function resultsText(){
-  const out=["🗳 *Vote results · Chengdu–Xi'an trip*", `${Object.keys(P.ballots).length} voted: ${Object.keys(P.ballots).join(', ')}`, ''];
+  const out=[`🗳 *Vote results · ${TRIP.name}*`, `${Object.keys(P.ballots).length} voted: ${Object.keys(P.ballots).join(', ')}`, ''];
   for (const d of SEED.decisions){ const t=tally(d.id); const rows=Object.entries(t).sort((a,b)=>b[1].length-a[1].length);
     out.push(`*${d.title}*${chosen(d.id)?' ✓ '+optName(d.id,chosen(d.id)):''}`); for (const [o,v] of rows) if (v.length) out.push(`  ${optName(d.id,o)}: ${v.length}`); }
   const hs=Object.values(P.items).map(i=>[i,heartsFor(i.id).length]).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]);
@@ -830,14 +839,14 @@ function renderShare(){
 $('#voters').addEventListener('click', e=>{ const b=e.target.closest('[data-rmvoter]'); if(!b) return; if (confirm(`Remove ${b.dataset.rmvoter}'s votes from this phone?`)){ delete P.ballots[b.dataset.rmvoter]; savePlan(); renderShare(); updateBadge(); } });
 $('#saveName').addEventListener('click', ()=>{ const n=$('#sName').value.trim().slice(0,40); if(!n){ toast('A name is needed'); return; } if (L.me && L.me!==n && P.ballots[L.me]){ P.ballots[n]=P.ballots[L.me]; delete P.ballots[L.me]; savePlan(); } L.me=n; saveLocal(); toast('Saved'); renderShare(); updateBadge(); });
 function exportPlan(){
-  const data={app:'chengdu-xian-trip-planner', v:1, exportedBy:L.me, exportedAt:new Date().toISOString(), items:P.items, blocks:P.blocks, ballots:P.ballots, locks:P.locks};
+  const data={app:TRIP.app, v:1, exportedBy:L.me, exportedAt:new Date().toISOString(), items:P.items, blocks:P.blocks, ballots:P.ballots, locks:P.locks};
   const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'}));
-  a.download=`cdxa-plan-${(L.me||'me').replace(/\W+/g,'')}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+  a.download=`${TRIP.key}-plan-${(L.me||'me').replace(/\W+/g,'')}-${new Date().toISOString().slice(0,10)}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
   $('#shareStatus').innerHTML='<div class="status ok">Exported. Send the file on WhatsApp; they import it from this screen.</div>';
 }
 $('#exportBtn').addEventListener('click', exportPlan);
 function mergePlan(inc){
-  if (!inc || inc.app!=='chengdu-xian-trip-planner' || !inc.items) throw new Error('That file is not a Chengdu–Xi\'an plan export.');
+  if (!inc || inc.app!==TRIP.app || !inc.items) throw new Error(`That file is not a ${TRIP.name} plan export.`);
   let added=0, merged=0;
   for (const [id,it] of Object.entries(inc.items)){ const cur=P.items[id]; if (!cur){ P.items[id]=it; added++; continue; } merged++;
     cur.notes=cur.notes||{}; for (const [w,t] of Object.entries(it.notes||{})) if (w!==L.me) cur.notes[w]=t;

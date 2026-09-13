@@ -58,6 +58,25 @@ MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu",
   'naturalhistory': 'Chengdu Natural History Museum', 'wenshu': 'Wenshu Monastery', 'shopping': 'Chengdu IFS', 'tianfu-idea': 'Tianfu Square', 'jinsha': 'Jinsha Site Museum',
   'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station'}
 
+LANDS = {"chengdu": "<path d=\"M2 58h156M4 58c6-12 16-12 22 0M26 58c6-12 16-12 22 0M48 58c6-12 16-12 22 0M2 46h70M8 46l4-6h52l4 6M36 40v-4M30 36h12l-6-5z\"/><path d=\"M128 58V8M140 58V14M128 20h2M128 34h2M140 28h2M140 44h2M128 20c8-6 14-6 20-4M140 28c-8-8-16-8-24-4M128 34c-6 2-12 8-14 12\"/><circle cx=\"98\" cy=\"42\" r=\"12\"/><circle cx=\"88\" cy=\"31\" r=\"4\"/><circle cx=\"108\" cy=\"31\" r=\"4\"/><path d=\"M92 41c1-3 4-3 5 0M99 41c1-3 4-3 5 0M96 48c1 1 3 1 4 0\"/>", "xian": "<path d=\"M2 58h156M2 58V40h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h4v18M24 58v-8c0-7 14-7 14 0v8M104 58V22h22v36M100 50h30M101 42h28M102 34h26M103 27h24M107 22v-6h16v6M111 16l4-7 4 7M115 9V4M112 58v-6h6v6M140 58V46M136 46h8l-4-5z\"/>"}   # landmark line drawings for the day headers / hero (SVG path markup, 160x64)
+# ---------- the trip itself: everything the page shows that is specific to THIS trip ----------
+TRIP = {
+    'name': "Chengdu · Xi'an family trip", 'dates': '13–22 Dec 2026',
+    'app': 'chengdu-xian-trip-planner', 'key': 'cdxa',                 # key: localStorage prefix + map source id. NEVER change once shared (it holds everyone's votes)
+    'site': 'https://lotzehaw-coder.github.io/chengdu-xian-trip-planner/',
+    'title': "Chengdu · Xi'an Family Trip", 'brand': "Chengdu · Xi'an", 'brand_sub': '13–22 Dec 2026 · family of 10',
+    'subtitle': '13–22 Dec 2026 · family of 10 · pandas, warriors & dumplings',
+    'og_title': "Chengdu · Xi'an family trip — 13–22 Dec 2026", 'og_desc': 'Vote on where we go. Pandas, the Terracotta Army, hot pot and dumplings.',
+    'welcome': {'title': "Chengdu & Xi'an, 13–22 Dec", 'text': 'Help plan the family trip: pandas, the Terracotta Army, hot pot and dumplings.', 'img': 'img/panda.jpg', 'alt': 'A giant panda'},
+    'start': '2026-12-13T19:00:00+08:00', 'utcOffset': 8, 'amap': True,   # amap: China trips get 高德 Amap in the map menu
+    'cities': [
+        {'name': 'Chengdu', 'local': '成都', 'color': '#2f7a55', 'tint': 'rgba(18,52,38,.94)', 'hero': 'img/chengduhero.jpg', 'hotelDec': 'h-chengdu', 'land': LANDS['chengdu']},
+        {'name': "Xi'an", 'local': '西安', 'color': '#a3432a', 'tint': 'rgba(92,32,18,.94)', 'hero': 'img/xianhero.jpg', 'hotelDec': 'h-xian', 'land': LANDS['xian']},
+    ],
+    'mapCities': {'Leshan': '乐山', 'Dujiangyan': '都江堰'},
+    'bbox': [28, 102, 36, 111],                                         # sanity box for coordinates (Sichuan + Shaanxi)            # day-trip towns, so map searches land in the right city
+}
+
 # ---------- days ----------
 DAYS = [
  ('2026-12-13', 'Travel',  'KL → Chengdu, landing after midnight'),
@@ -332,7 +351,7 @@ elite = [
  'Since 2025 Marriott only promises "an upgrade", not a suite, and upgrades in China are now decided by an algorithm, so treat suites as likely, not guaranteed.',
 ]
 for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (both stays)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?")):
-    decisions.append({'id': hid, 'day': '', 'time': '', 'title': cityname + ' hotel', 'question': q, 'kind': 'hotel',
+    decisions.append({'id': hid, 'city': cityname, 'day': '', 'time': '', 'title': cityname + ' hotel', 'question': q, 'kind': 'hotel',
       'options': [{'id': h['id'], 'name': h['name'], 'city': cityname, 'blurb': h['fits'], 'fam': [], 'img': h['gallery'][0]['src'], 'gallery': [g['src'] for g in h['gallery']], 'items': []} for h in hotels[cityname]['options']]})
 
 # ---------- fixed blocks ----------
@@ -390,7 +409,7 @@ used |= {g for i in items for g in i['gallery']} | {g for d in decisions for o i
 credits = {k: v for k, v in json.load(open(os.path.join(HERE, 'credits.json'), encoding='utf-8')).items() if f'img/{k}.jpg' in used}
 credits.update({'g/' + k: v for k, v in json.load(open(os.path.join(HERE, 'gallery_credits.json'), encoding='utf-8')).items() if f'img/g/{k}.jpg' in used})
 unused = sorted(f'img/{k}.jpg' for k in IMG if f'img/{k}.jpg' not in used)
-seed = {'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
+seed = {'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
 json.dump(seed, open(os.path.join(HERE, 'seed.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 ids = {i['id'] for i in items}
 bad = [x for d in decisions for o in d['options'] for x in o['items'] if x not in ids]
