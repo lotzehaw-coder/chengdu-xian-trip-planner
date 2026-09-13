@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-13T20:42+08:00",
+ "updated": "2026-09-13T21:12+08:00",
  "count": 4,
  "ballots": {
   "Chia Wei": {
@@ -50,7 +50,8 @@
     "d-d7": "leshan",
     "d-d8am": "shop",
     "h-chengdu": "jw",
-    "h-xian": "jwxa"
+    "h-xian": "jwxa",
+    "h-chengdu2": "w"
    },
    "hearts": [
     "p:drumtower-in",
@@ -58,7 +59,7 @@
     "p:tianfu-idea",
     "p:biangbiang"
    ],
-   "t": 1789297881818
+   "t": 1789304049467
   },
   "Tze": {
    "picks": {
