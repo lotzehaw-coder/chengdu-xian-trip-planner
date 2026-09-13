@@ -355,6 +355,7 @@ details.more > summary::-webkit-details-marker{display:none}
 details.more > summary::after{content:" ▾";color:var(--ink-3)}
 details.more[open] > summary::after{content:" ▴"}
 .clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.info-b{border:0;background:var(--paper-2);color:var(--ink-2);border-radius:999px;width:26px;height:26px;font-size:14px;font-weight:700;cursor:pointer;flex:0 0 auto;line-height:26px;padding:0;font-family:Georgia,serif;font-style:italic}
 </style>
 </head>
 <body>
@@ -729,7 +730,7 @@ function itemStop(i, isNext){
   return `<div class="stop ${i.done?'done':''} ${isNext?'next':''}" data-id="${esc(i.id)}" style="--cc:${catVar(i.category)}"><div class="dot" data-act="done" title="Tick when done"><svg><use href="#ico-check"/></svg></div><div class="card">
     <div class="flex"><div>
       <div class="top"><span class="t">${esc(timeSpan(i)||'—')}</span><span class="chip cat" style="--cc:${catVar(i.category)}">${esc(i.category)}</span>${(i.tags||[]).includes('must-see')?'<span class="chip must">must-see</span>':''}${dec?`<span class="chip lock">voted in</span>`:''}${isNext?'<span class="chip next">up next</span>':''}${hs.length?`<span class="chip" style="color:#d0433a">❤ ${hs.length}</span>`:''}<span class="fam">${famIcons(i.fam)}</span></div>
-      <div class="name">${esc(i.name)}</div>${i.info?`<div class="info">${esc(i.info)}</div>`:''}${notes?`<div class="sub" style="margin-top:3px">${notes}</div>`:''}
+      <div class="name" style="display:flex;gap:8px;align-items:flex-start"><span style="flex:1">${esc(i.name)}</span>${!['Travel','Rest'].includes(i.category)?`<button type="button" class="info-b" data-det="idea|${esc(i.id)}" aria-label="More about this place">i</button>`:''}</div>${i.info?`<div class="info">${esc(i.info)}</div>`:''}${notes?`<div class="sub" style="margin-top:3px">${notes}</div>`:''}
     </div>${imgTag(i.img,'thumb',i.name)}</div>
     ${car(i.gallery&&i.gallery.length?i.gallery:[i.img],'big',i.name)}
     ${i.book?`<div class="bookbox">🎟 ${esc(i.book)}</div>`:''}
@@ -835,10 +836,12 @@ $('#voteCity').addEventListener('click', e=>{ const b=e.target.closest('[data-vc
 $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-sched]'); if(!s) return; schedule(s.dataset.sched, s.value); renderVote(); toast(s.value?'Added to '+fmtDay(s.value):'Back to ideas'); });
 
 // ---------- DETAILS sheet: photos, what it is, when, price, kids/grandparents, videos; then vote from inside ----------
-const vidLinks = (q) => q ? `<div class="watch"><span style="font-size:13px;color:var(--ink-3);align-self:center">▶ See it in videos:</span>
+const vidLinks = (q, food, gq) => !q ? '' : food ? `<div class="watch"><span style="font-size:13px;color:var(--ink-3);align-self:center;width:100%">⭐ Reviews & photos from diners:</span>
+  <button class="btn small" data-xhs="${esc(q)}">小红书</button><button class="btn small" data-dp="${esc(q)}">大众点评</button>
+  <button class="btn small" data-out="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gq||q)}">Google reviews</button></div>` : `<div class="watch"><span style="font-size:13px;color:var(--ink-3);align-self:center">▶ See it in videos:</span>
   <button class="btn small" data-xhs="${esc(q)}">小红书</button>
   <button class="btn small" data-out="https://search.bilibili.com/all?keyword=${encodeURIComponent(q)}">Bilibili</button>
-  <button class="btn small" data-out="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}">YouTube</button></div>` : '';
+  <button class="btn small" data-out="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}">YouTube</button></div>`;
 function showDetails(spec){
   const [kind,a,b]=spec.split('|'); let title, items, gallery, action, fam;
   if (kind==='opt'){ const d=DEC[a], o=d&&d.options.find(x=>x.id===b); if(!o) return; const mine=(myBallot()||{picks:{}}).picks[a]===b;
@@ -853,7 +856,7 @@ function showDetails(spec){
     <div class="sh-b"><h2>${esc(title)}</h2><div>${famIcons(fam||main.fam)}</div>
       <p class="lede">${esc(D.what||main.info||'')}</p>
       ${D.photo?`<p class="note">📷 ${esc(D.photo)}</p>`:''}
-      ${vidLinks(D.watch||cjk(main.name))}
+      ${vidLinks(D.watch||[CN[main.city]||'', cjk(main.name)||main.mapq||''].join(' ').trim(), main.category==='Food', (main.mapen||main.name)+', '+(CITY_EN[main.city]||main.city||''))}
       ${D.what?`<dl class="facts">${row('🕖 When',D.when)}${row('⏱ How long',D.length)}${row('🎟 Price',D.price)}${row('👶 Kids',D.kids)}${row('🧓 Grandparents',D.elderly)}${row('📍 Getting there',D.getting)}</dl>`:''}
       ${D.what&&main.info?`<details class="more"><summary>More about it</summary><p style="font-size:13.5px;color:var(--ink-2)">${esc(main.info)}</p></details>`:''}
       ${items.filter(x=>x!==main&&x.info).map(x=>`<p style="font-size:13.5px;color:var(--ink-2)"><b>${esc(x.name)}:</b> ${esc(x.info)}</p>`).join('')}
@@ -865,14 +868,20 @@ function showDetails(spec){
 document.addEventListener('click', e=>{
   const o=e.target.closest('[data-out]'); if (o){ e.preventDefault(); openOut(o.dataset.out); return; }
   // Xiaohongshu's website shows nothing without a login (Tze, 13 Sep: "the XHS link isn't working"), so phones open the app's own search
+  const dp=e.target.closest('[data-dp]'); if (dp){ e.preventDefault(); const q=encodeURIComponent(dp.dataset.dp), web='https://www.dianping.com/search/keyword/0/0_'+q;
+    if (isIOS||isAndroid) openApp(isAndroid?`intent://searchshoplist?keyword=${q}#Intent;scheme=dianping;package=com.dianping.v1;end`:`dianping://searchshoplist?keyword=${q}`,
+      ()=>{ const m=$('#mapMenu'); m.innerHTML=`<h3>大众点评 didn't open</h3><p>Is the Dianping app installed? Its website usually needs a login.</p><button class="btn map" data-web="${esc(web)}">Try the website ↗</button><button class="btn ghost" data-go="x">Close</button>`;
+        m.onclick=(ev)=>{ const w=ev.target.closest('[data-web]'); $('#mapOverlay').classList.add('hidden'); if (w) openOut(w.dataset.web); }; $('#mapOverlay').classList.remove('hidden'); });
+    else openOut(web);
+    return; }
   const x=e.target.closest('[data-xhs]'); if (x){ e.preventDefault(); const q=encodeURIComponent(x.dataset.xhs), web='https://www.xiaohongshu.com/search_result?keyword='+q;
     if (isIOS||isAndroid) openApp(isAndroid?`intent://search/result?keyword=${q}#Intent;scheme=xhsdiscover;package=com.xingin.xhs;end`:`xhsdiscover://search/result?keyword=${q}`,
       ()=>{ const m=$('#mapMenu'); m.innerHTML=`<h3>小红书 didn't open</h3><p>Is the Xiaohongshu app installed? Its website needs a login to show posts.</p><button class="btn map" data-web="${esc(web)}">Try the website ↗</button><button class="btn ghost" data-go="x">Close</button>`;
         m.onclick=(ev)=>{ const w=ev.target.closest('[data-web]'); $('#mapOverlay').classList.add('hidden'); if (w) openOut(w.dataset.web); }; $('#mapOverlay').classList.remove('hidden'); });
     else openOut(web);
     return; }
-  const d=e.target.closest('[data-det]'); if (d && !e.target.closest('[data-car]')){ e.preventDefault(); showDetails(d.dataset.det); return; }
-});
+  const d=e.target.closest('[data-det]'); if (d && !e.target.closest('[data-car]')){ e.preventDefault(); e.stopPropagation(); showDetails(d.dataset.det); return; }
+}, true);
 $('#detOverlay').addEventListener('click', e=>{ if (e.target.id==='detOverlay' || (e.target.closest('[data-detclose]') && !e.target.closest('[data-pick],[data-heart]'))) $('#detOverlay').classList.add('hidden');
   else if (e.target.closest('[data-pick],[data-heart]')) setTimeout(()=>$('#detOverlay').classList.add('hidden'), 250); });
 
