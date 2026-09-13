@@ -45,7 +45,7 @@ MAPQ = {'lunch-mapo': '陈麻婆豆腐', 'peoplespark': '鹤鸣茶社', 'kuanzha
   'wuhou': '成都武侯祠', 'huaqing': '华清宫', 'muslimquarter': '回民街', 'tangshow': '唐乐宫', 'yongxingfang': '永兴坊', 'hanfu': '大雁塔',
   'smallgoose': '小雁塔', 'leshan-train': '成都东站', 'leshan': '乐山大佛', 'dujiangyan': '都江堰景区', 'dufu': '杜甫草堂', 'sichuanmuseum': '四川博物院',
   'naturalhistory': '成都自然博物馆', 'wenshu': '文殊院', 'shopping': '成都国际金融中心', 'tianfu-idea': '天府广场', 'jinsha': '金沙遗址博物馆',
-  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼', 'leshan-back': '乐山站'}
+  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼', 'leshan-back': '乐山站', 'pandatower': '天府熊猫塔', 'dongjiao': '东郊记忆', 'qianguqing': '西安千古情景区', 'gongyan': '大明宫宴', 'changan12': '长安十二时辰主题街区', 'emei': '只有峨眉山戏剧幻城', 'everlasting': '华清宫', 'tuoling': '华夏文旅大剧院'}
 # English search for Google Maps (pre-trip reviews in English)
 MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu", 'kuanzhai': 'Kuanzhai Alley', 'dinner-hotpot': 'Shu Jiu Xiang Hot Pot',
   'panda': 'Chengdu Research Base of Giant Panda Breeding', 'lunch-longchaoshou': 'Long Chao Shou Chunxi Road', 'dinner-d2': 'Ma Wang Zi restaurant',
@@ -56,7 +56,7 @@ MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu",
   'yongxingfang': 'Yongxingfang', 'hanfu': 'Big Wild Goose Pagoda', 'smallgoose': 'Small Wild Goose Pagoda', 'leshan-train': 'Chengdu East Railway Station',
   'leshan': 'Leshan Giant Buddha', 'dujiangyan': 'Dujiangyan Irrigation System', 'dufu': 'Du Fu Thatched Cottage', 'sichuanmuseum': 'Sichuan Museum',
   'naturalhistory': 'Chengdu Natural History Museum', 'wenshu': 'Wenshu Monastery', 'shopping': 'Chengdu IFS', 'tianfu-idea': 'Tianfu Square', 'jinsha': 'Jinsha Site Museum',
-  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station'}
+  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station', 'pandatower': 'Tianfu Panda Tower Chengdu', 'dongjiao': 'Eastern Suburb Memory Chengdu', 'qianguqing': "Xi'an Romance Park", 'gongyan': 'Da Ming Gong Yan Tang banquet Xian', 'changan12': "Chang'an Twelve Hours Xi'an", 'emei': 'Only Emei Mountain Drama Fantasy City', 'everlasting': 'Huaqing Palace', 'tuoling': 'Huaxia Wenlv Grand Theatre Xian'}
 
 LANDS = {"chengdu": "<path d=\"M2 58h156M4 58c6-12 16-12 22 0M26 58c6-12 16-12 22 0M48 58c6-12 16-12 22 0M2 46h70M8 46l4-6h52l4 6M36 40v-4M30 36h12l-6-5z\"/><path d=\"M128 58V8M140 58V14M128 20h2M128 34h2M140 28h2M140 44h2M128 20c8-6 14-6 20-4M140 28c-8-8-16-8-24-4M128 34c-6 2-12 8-14 12\"/><circle cx=\"98\" cy=\"42\" r=\"12\"/><circle cx=\"88\" cy=\"31\" r=\"4\"/><circle cx=\"108\" cy=\"31\" r=\"4\"/><path d=\"M92 41c1-3 4-3 5 0M99 41c1-3 4-3 5 0M96 48c1 1 3 1 4 0\"/>", "xian": "<path d=\"M2 58h156M2 58V40h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h4v18M24 58v-8c0-7 14-7 14 0v8M104 58V22h22v36M100 50h30M101 42h28M102 34h26M103 27h24M107 22v-6h16v6M111 16l4-7 4 7M115 9V4M112 58v-6h6v6M140 58V46M136 46h8l-4-5z\"/>"}   # landmark line drawings for the day headers / hero (SVG path markup, 160x64)
 # ---------- the trip itself: everything the page shows that is specific to THIS trip ----------
@@ -100,7 +100,7 @@ D = [d for d, _, _ in DAYS]
 # fam tags: stroller = pram-friendly, easy = little walking, stairs = many steps, cold = outdoors in winter,
 #           indoor, book = book ahead, spicy = watch the chilli, rest = downtime
 items = []; order = {}
-MAPCITY = {'leshan': 'Leshan', 'leshan-back': 'Leshan', 'dujiangyan': 'Dujiangyan', 'qingcheng': 'Dujiangyan'}
+MAPCITY = {'leshan': 'Leshan', 'leshan-back': 'Leshan', 'dujiangyan': 'Dujiangyan', 'qingcheng': 'Dujiangyan', 'emei': 'Emeishan'}
 def I(id, day, name, city, cat, time='', end='', info='', fam=(), tags=(), key=None, pic=None, opt='', book=''):
     n = order.get(day, 0) + 1; order[day] = n
     lat, lng = at(key or id)
@@ -176,41 +176,64 @@ def O(id, name, city, blurb, fam=(), pic=None, its=()):
     return {'id': id, 'name': name, 'city': city, 'blurb': blurb, 'fam': list(fam), 'img': (gal(pic or id) or [''])[0], 'gallery': gal(pic or id), 'items': ['p:' + x for x in its]}
 
 I('opera', D[1], 'Sichuan Opera face-changing show 蜀风雅韵', 'Chengdu', 'Show', '20:00', '21:30',
-  "Chengdu's classic evening show in a teahouse theatre: face-changing, fire-spitting, shadow puppets, comic sketches. Seats with tea.", ('indoor', 'book'), opt='d-d1eve:opera', pic='sichuanopera', book='Book 1–2 days ahead on Trip.com.')
+  "Chengdu's classic evening show in a teahouse theatre: face-changing, fire-spitting, shadow puppets, comic sketches. Seats with tea. Closer to the JW Marriott: 锦江剧场 Jinjiang Theatre's 《川剧秀·传奇变脸》, nightly 20:00 (weekends 20:30).", ('indoor', 'book'), opt='d-d1eve:opera', pic='sichuanopera', book='Book 1–2 days ahead on Trip.com.')
 I('jinli-eve', D[1], 'Jinli Street lanterns 锦里', 'Chengdu', 'Night', '20:15', '21:15', 'Red lanterns reflected in the ponds, snack stalls, next to Wuhou Shrine. Pretty and short.', ('stroller', 'cold'), opt='d-d1eve:jinli', pic='jinli', key='jinli')
 I('earlynight', D[1], 'Early night: jet-lag recovery', 'Chengdu', 'Rest', '20:15', '', 'We landed after midnight. Bath, bed.', ('rest',), opt='d-d1eve:rest', pic=REST)
+I('pandatower', D[1], 'Panda Tower night view 天府熊猫塔', 'Chengdu', 'Night', '19:50', '20:50',
+  "The 339m TV tower, now 'Tianfu Panda Tower': a 1-minute lift to the 230m deck for Chengdu's best night view, with the Mengzhuiwan riverside bars below. Indoor deck, warm in December.", ('easy', 'indoor', 'book'),
+  opt='d-d1eve:tower', pic=['img/g/pandatower-1.jpg', 'img/g/mengzhuiwan-1.jpg', 'img/g/pandatower-2.jpg'],
+  book='Free but must be booked online, one QR code per person (under 1.2m free with an adult). Winter hours 10:00–21:00; closed Tuesdays.')
 DEC('d-d1eve', D[1], '20:00', 'Monday evening', 'After hot pot on the first night, what next?', [
   O('opera', 'Sichuan Opera face-changing', 'Chengdu', 'The masks that change in a flash. 1.5h, seats with tea. Late-ish for the baby.', ('indoor', 'book'), 'sichuanopera', ['opera']),
   O('jinli', 'Jinli lanterns stroll', 'Chengdu', 'Short, pretty, lantern-lit old street. About 1 hour.', ('stroller', 'cold'), 'jinli', ['jinli-eve']),
-  O('rest', 'Early night', 'Chengdu', 'We land after midnight the night before. Sleep wins.', ('rest',), REST, ['earlynight'])])
+  O('rest', 'Early night', 'Chengdu', 'We land after midnight the night before. Sleep wins.', ('rest',), REST, ['earlynight']),
+  O('tower', 'Panda Tower night view', 'Chengdu', "Lift up the 339m tower for Chengdu's best city-lights view. Free, book online.", ('easy', 'indoor', 'book'), ['img/g/pandatower-1.jpg', 'img/g/mengzhuiwan-1.jpg', 'img/g/pandatower-2.jpg'], ['pandatower'])])
 
 I('taikooli', D[2], 'Taikoo Li, Daci Temple & the IFS panda 太古里 · 大慈寺', 'Chengdu', 'Shop', '16:00', '18:30',
   'Low-rise open-air shopping streets around a Buddhist temple, then the giant panda climbing the side of IFS. Christmas lights in December.', ('stroller', 'easy'), opt='d-d2pm:taikoo')
 I('wuhou', D[2], 'Wuhou Shrine & Jinli 武侯祠 · 锦里', 'Chengdu', 'Sight', '16:00', '18:30',
   'Memorial temple to the Three Kingdoms heroes (Zhuge Liang, Liu Bei) with red walls and bamboo, then the lantern street next door.', ('stroller', 'easy'), opt='d-d2pm:wuhou')
 I('pool-d2', D[2], 'Hotel pool, lounge & free time', 'Chengdu', 'Rest', '16:00', '18:30', "Swim, tea, naps. Save energy for Xi'an.", ('rest',), opt='d-d2pm:rest', pic=REST)
+I('dongjiao', D[2], 'Eastern Suburb Memory 东郊记忆', 'Chengdu', 'Shop', '16:00', '18:30',
+  "A 1950s electronics factory turned art and music park: red-brick halls, old chimneys, cafés, and the red 'Chengdu wall' that fills Xiaohongshu. Free, open all day, flat paths.", ('stroller', 'easy', 'cold'),
+  opt='d-d2pm:dongjiao', pic=['img/g/dongjiao-1.jpg'])
 DEC('d-d2pm', D[2], '16:00', 'Tuesday late afternoon', 'After the pandas and a nap:', [
   O('taikoo', 'Taikoo Li + IFS panda', 'Chengdu', 'Shopping streets around an old temple, Christmas lights, the famous climbing panda.', ('stroller', 'easy'), 'taikooli', ['taikooli']),
   O('wuhou', 'Wuhou Shrine + Jinli', 'Chengdu', 'Three Kingdoms temple and bamboo gardens, then the lantern street.', ('stroller', 'easy'), 'wuhou', ['wuhou']),
-  O('rest', 'Pool & lounge', 'Chengdu', 'A quiet afternoon at the hotel.', ('rest',), REST, ['pool-d2'])])
+  O('rest', 'Pool & lounge', 'Chengdu', 'A quiet afternoon at the hotel.', ('rest',), REST, ['pool-d2']),
+  O('dongjiao', 'Eastern Suburb Memory', 'Chengdu', 'Old factory art park with the famous red Chengdu wall. Free.', ('stroller', 'easy'), ['img/g/dongjiao-1.jpg'], ['dongjiao'])])
 
 I('huaqing', D[4], 'Huaqing Palace 华清宫', "Xi'an", 'Sight', '14:00', '16:00',
   "Tang emperors' hot-spring palace at the foot of Mount Li, next to the Terracotta Army. Gardens and pavilions by a lake.", ('stroller', 'cold'), opt='d-d4pm:huaqing')
 I('rest-d4', D[4], 'Back to the hotel to rest', "Xi'an", 'Rest', '14:00', '17:30', 'The Terracotta Army is a long morning on foot. Warm up and nap.', ('rest',), opt='d-d4pm:rest', pic=REST)
+I('qianguqing', D[4], "Xi'an Romance show 西安千古情", "Xi'an", 'Show', '15:30', '16:45',
+  "A big indoor song-and-dance spectacle (Songcheng) about Xi'an's history: rain on stage, flying sets and horses. On the way back from the Terracotta Army, so no extra drive. Warm, seated, kids love it.", ('indoor', 'easy', 'book'),
+  opt='d-d4pm:qgq', pic=['img/g/qianguqing-1.jpg'],
+  book='Tickets about ¥298–580; under 1.2m or under 6 free without a seat (one per adult). Shows 13:00 / 15:30 / 17:30; confirm winter times on its WeChat. Similar indoor show nearby: 驼铃传奇 Camel Bell Legend (15:30 / 18:15, from ¥288).')
 DEC('d-d4pm', D[4], '14:00', 'Thursday afternoon', 'After the Terracotta Army:', [
   O('huaqing', 'Huaqing Palace', "Xi'an", 'Imperial hot-spring gardens nearby, no extra long drive.', ('stroller', 'cold'), 'huaqing', ['huaqing']),
-  O('rest', 'Hotel & rest', "Xi'an", 'Head back, warm up and nap before the dumpling dinner.', ('rest',), REST, ['rest-d4'])])
+  O('rest', 'Hotel & rest', "Xi'an", 'Head back, warm up and nap before the dumpling dinner.', ('rest',), REST, ['rest-d4']),
+  O('qgq', "Xi'an Romance show", "Xi'an", 'Big indoor spectacle on the drive back. About ¥298+, little ones free.', ('indoor', 'easy', 'book'), ['img/g/qianguqing-1.jpg'], ['qianguqing'])])
 
 I('muslimquarter', D[5], 'Muslim Quarter street food 回民街', "Xi'an", 'Food', '17:30', '19:30',
   'The old Hui neighbourhood behind the Drum Tower: lamb skewers, persimmon cakes, sticky rice cake, pomegranate juice. Very crowded, so bring the baby carrier rather than the stroller.', ('cold',), opt='d-d5eve:muslim')
 I('tangshow', D[5], 'Tang Dynasty dinner & show 唐乐宫', "Xi'an", 'Show', '18:00', '21:40',
   'Seated dinner from 18:00, then a big costumed Tang-court music and dance show (about 20:15–21:40). Warm, comfortable, no walking.', ('indoor', 'easy', 'book'), opt='d-d5eve:tang', book='Book a few days ahead on Trip.com.')
-I('yongxingfang', D[5], 'Yongxingfang food street 永兴坊', "Xi'an", 'Food', '17:30', '19:30',
-  'A calmer, tidier food street by the city wall, with snacks from all over Shaanxi.', ('stroller', 'cold'), opt='d-d5eve:yxf')
+I('gongyan', D[5], 'Tang palace banquet 大明宫宴', "Xi'an", 'Show', '17:45', '20:45',
+  "The Xiaohongshu-famous 'go to the palace for dinner': guests get Tang court styling, then a banquet of Tang palace dishes (tea, osmanthus wine, paomo) while eight acts of dance, music and light play out around the tables. Next to the Great Tang All Day Mall.", ('indoor', 'book'),
+  opt='d-d5eve:gongyan', pic=['img/tangshow.jpg', 'img/g/datang-4.jpg', 'img/g/datang-3.jpg'],
+  book='About ¥888+ per person with the show; book at least a day ahead (WeChat mini-program or Trip.com). Ask for a table for 10 and child prices.')
+I('changan12', D[5], "Chang'an Twelve Hours Tang street 长安十二时辰", "Xi'an", 'Show', '17:45', '21:00',
+  "An indoor Tang-dynasty market street: costumed performers, snack stalls, costume rental and photo corners, with the 乐宴·盛唐 banquet show upstairs. Warm and indoor, beside the Great Tang All Day Mall.", ('indoor', 'stroller', 'book'),
+  opt='d-d5eve:c12', pic=['img/g/datang-3.jpg', 'img/g/datang-4.jpg'],
+  book='Entry ¥128 adult / ¥68 child, under 1.2m free; open 10:00–22:00. The 乐宴·盛唐 banquet inside is booked separately.')
+I('yongxingfang', '', 'Yongxingfang food street 永兴坊', "Xi'an", 'Food', '', '',
+  'A calmer, tidier food street by the city wall, with snacks from all over Shaanxi.', ('stroller', 'cold'))
 DEC('d-d5eve', D[5], '17:30', 'Friday evening', "Last night in Xi'an:", [
   O('muslim', 'Muslim Quarter food crawl', "Xi'an", 'The famous one: loud, crowded, delicious.', ('cold',), 'muslimquarter', ['muslimquarter']),
   O('tang', 'Tang Dynasty dinner show', "Xi'an", 'Sit-down dinner with a big costumed show. Easiest for the grandparents.', ('indoor', 'easy', 'book'), 'tangshow', ['tangshow']),
-  O('yxf', 'Yongxingfang food street', "Xi'an", 'Same snacks, fewer crowds, stroller works.', ('stroller', 'cold'), 'yongxingfang', ['yongxingfang'])])
+  O('gongyan', 'Tang palace banquet', "Xi'an", 'Dress up and dine like a Tang emperor, with a show around the table. About ¥888+ each.', ('indoor', 'book'), ['img/tangshow.jpg', 'img/g/datang-4.jpg', 'img/g/datang-3.jpg'], ['gongyan']),
+  O('c12', "Chang'an Twelve Hours street", "Xi'an", 'Indoor Tang market street: performers, snacks, costumes. ¥128 entry.', ('indoor', 'stroller', 'book'), ['img/g/datang-3.jpg', 'img/g/datang-4.jpg'], ['changan12'])])
 
 I('hanfu', D[6], 'Tang costume family photoshoot 唐装 · 汉服', "Xi'an", 'Show', '08:30', '11:15',
   "Rent Tang-style robes near the Big Wild Goose Pagoda and take family portraits. Hair and make-up for 10 is slow, so start at opening, or dress just the kids and a few adults. Back for the 12:00 check-out.", ('easy', 'book'), opt='d-d6am:hanfu', pic=['img/g/datang-4.jpg', 'img/g/datang-3.jpg'], book='Book a studio 1–2 days ahead.')
@@ -253,6 +276,9 @@ DEC('d-d8am', D[8], '10:30', 'Monday morning', 'Last morning (most museums are c
   O('rest', 'Pool & slow morning', 'Chengdu', 'Save energy for the 1am flight.', ('rest',), REST, ['pool-d8'])])
 
 # ---------- ideas: not on a day; heart the ones you want ----------
+I('emei', '', 'Only Emei Mountain theatre city 只有峨眉山', 'Chengdu', 'Show', info="Wang Chaoge's giant immersive theatre village at the foot of Mount Emei (the 'Only' series). Main show 19:30–21:00 (from ¥258). About 2h from Chengdu, so it means a late night or a night in Emei; pairs with the Leshan day trip.", fam=('book',), pic=[])
+I('everlasting', '', 'Everlasting Regret show at Huaqing Palace 长恨歌', "Xi'an", 'Show', info="The famous outdoor lake-and-mountain show about Emperor Xuanzong and Yang Guifei. It is outdoors and usually pauses from November to early March, though some years run early 18:00 shows in late December. Only worth it if that schedule is confirmed nearer the time.", fam=('cold', 'book'), pic='huaqing')
+I('tuoling', '', 'Camel Bell Legend show 驼铃传奇', "Xi'an", 'Show', info="Indoor Silk Road epic in a 3,000-seat dome (Chanba): camels, horses and a sandstorm on stage. Shows 15:30 / 18:15, from ¥288; under 1.2m free with an adult.", fam=('indoor', 'book'), pic=[])
 I('tianfu-idea', '', 'Tianfu Square & Chunxi Road 天府广场', 'Chengdu', 'Shop', info='The central square and main shopping street, walkable from the central Marriott hotels.', fam=('stroller', 'easy'), pic=['img/g/tianfu-1.jpg', 'img/g/tianfu-3.jpg', 'img/chunxi.jpg', 'img/g/chunxi-1.jpg'], key='tianfusquare')
 I('jinsha', '', 'Jinsha Site Museum 金沙遗址博物馆', 'Chengdu', 'Sight', info='3,000-year-old Shu kingdom site, home of the golden Sun Bird. Indoor.', fam=('stroller', 'indoor'))
 I('qingcheng', '', 'Mount Qingcheng 青城山', 'Chengdu', 'Sight', info='Misty Taoist mountain with a cable car. Many steps and slippery in winter; for fit adults.', fam=('stairs', 'cold'))
@@ -289,8 +315,8 @@ def H(id, name, cn, area, addr, pros, cons, url, pic, fits, up, upnote, opened, 
     return {'id': id, 'name': name, 'cn': cn, 'area': area, 'address': addr, 'pros': pros, 'cons': cons, 'url': url, 
             'img': img(pic), 'gallery': hgal(id), 'fits': fits, 'up': up, 'upnote': upnote, 'opened': opened, 'reno': reno}
 hotels = {
- 'Chengdu': {'nights': 'Sun 13 → Wed 16 Dec (3 nights) and Sat 19 → Mon 21 Dec (2 nights + the evening)',
-  'tip': "Book the same hotel for both Chengdu stays: leave the big suitcases with the concierge while you're in Xi'an and take only overnight bags and the baby things on the train. Book the first night from Sun 13 Dec and tell the hotel you'll arrive around 1:30am, so the rooms are held.",
+ 'Chengdu': {'title': 'Chengdu · first stay', 'nights': 'Sun 13 → Wed 16 Dec (3 nights)',
+  'tip': "Book the first night from Sun 13 Dec and tell the hotel you'll arrive around 2am, so the rooms are held. The second stay (19–21 Dec) has its own vote below: pick the same hotel to leave the big bags with the concierge while you're in Xi'an, or try a second hotel.",
   'options': [
    H('jw', 'JW Marriott Hotel Chengdu', '成都茂业JW万豪酒店', 'Chunxi Road · Taikoo Li', '19 Dongyu Street 东御街19号',
      ['Guests with elite status report upgrades to executive suites', 'Executive lounge and breakfast for Platinum and Titanium', 'Walk to Chunxi Road, Taikoo Li and the IFS panda; Tianfu Square metro nearby'],
@@ -355,9 +381,13 @@ elite = [
  "Check the breakfast and lounge rules for children when you book; hotels often cap it at the member plus one guest, and kids' rules vary.",
  'Since 2025 Marriott only promises "an upgrade", not a suite, and upgrades in China are now decided by an algorithm, so treat suites as likely, not guaranteed.',
 ]
-for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (both stays)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?")):
-    decisions.append({'id': hid, 'city': cityname, 'day': '', 'time': '', 'title': cityname + ' hotel', 'question': q, 'kind': 'hotel',
-      'options': [{'id': h['id'], 'name': h['name'], 'city': cityname, 'blurb': h['fits'], 'fam': [], 'img': h['gallery'][0]['src'], 'gallery': [g['src'] for g in h['gallery']], 'items': []} for h in hotels[cityname]['options']]})
+# second Chengdu stay: same hotel list, its own vote (same hotel = bags stay; a different one = experience two hotels)
+hotels['Chengdu (2nd stay)'] = dict(hotels['Chengdu'], title='Chengdu · second stay', city='Chengdu', dec='h-chengdu2', nights='Sat 19 → Mon 21 Dec (2 nights + the evening)',
+    tip="Pick the same hotel as the first stay to keep it simple (the big bags wait with the concierge while you're in Xi'an), or pick a different one to experience two hotels.")
+hotels = {"Chengdu": hotels['Chengdu'], "Xi'an": hotels["Xi'an"], 'Chengdu (2nd stay)': hotels['Chengdu (2nd stay)']}
+for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (first stay, 13–16 Dec)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?"), ('Chengdu', 'h-chengdu2', 'Chengdu second stay (19–21 Dec): same hotel, or try another?')):
+    decisions.append({'id': hid, 'city': cityname, 'day': '', 'time': '', 'title': cityname + (' hotel, 2nd stay' if hid == 'h-chengdu2' else ' hotel'), 'question': q, 'kind': 'hotel',
+      'options': [{'id': h['id'], 'name': h['name'], 'city': cityname, 'blurb': h['fits'], 'fam': [], 'img': h['gallery'][0]['src'], 'gallery': [g['src'] for g in h['gallery']], 'items': []} for h in hotels['Chengdu (2nd stay)' if hid == 'h-chengdu2' else cityname]['options']]})
 
 # ---------- fixed blocks ----------
 blocks = []
@@ -366,14 +396,14 @@ def B(id, day, type, title, time='', key=None, **kw):
     b.update(kw); b['lat'], b['lng'] = at(key) if key else (None, None)
     b['mapq'] = {'land': '成都天府国际机场', 'tfu': '成都天府国际机场', 'g1': '成都东站', 'x1': '西安北站', 'g2': '西安北站', 'x2': '西安北站', 'd2van': '成都大熊猫繁育研究基地'}.get(id, '')
     b['mapen'] = {'land': 'Chengdu Tianfu International Airport', 'tfu': 'Chengdu Tianfu International Airport', 'g1': 'Chengdu East Railway Station', 'x1': "Xi'an North Railway Station", 'g2': "Xi'an North Railway Station", 'x2': "Xi'an North Railway Station", 'd2van': 'Chengdu Research Base of Giant Panda Breeding'}.get(id, '')
-    if type == 'hotel': b['dec'] = 'h-xian' if id.startswith('h2') else 'h-chengdu'
+    if type == 'hotel': b['dec'] = 'h-xian' if id.startswith('h2') else ('h-chengdu2' if id.startswith('h3') else 'h-chengdu')
     blocks.append(b)
 B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:00', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='Business · lands about 00:05–00:15 Monday · confirm exact times on the e-ticket')
 B('land', D[0], 'car', 'Land at Tianfu, immigration, vans to the hotel', '00:15', sort='24:15', key='tfu', tentative=True,
   note='+1 day · pre-book 2 × 7-seat vans (or a 12–14 seat minibus) for 10 people, luggage and pram · about 1h to the city centre')
 B('h1in', D[0], 'hotel', 'Check in: {hotel}', '02:00', sort='26:00', tentative=True, note="book this room from Sun 13 Dec so it's held for a ~2am arrival (immigration + bags for 10 take time)")
 B('d2van', D[2], 'car', 'Van to the Panda Base', '07:30', key='panda', note='about 30 min from the centre · be there at opening')
-B('h1out', D[3], 'hotel', 'Check out of {hotel}: leave the big bags with the concierge', '09:30', note='back to the same hotel on Sat 19 Dec')
+B('h1out', D[3], 'hotel', 'Check out of {hotel}', '09:30', note="if the family votes the same hotel for 19 Dec, leave the big bags with the concierge")
 B('g1', D[3], 'train', "G-train Chengdu East → Xi'an North", '11:30', key='cdeast', tentative=True, **{'from': 'Chengdu East 成都东', 'to': "Xi'an North 西安北"},
   note='about 3h10–3h40 · not booked · tickets open Wed 2 Dec (15 days ahead, counting the travel day) · First or Business class for the grandparents · under-6s ride free without a seat')
 B('x1', D[3], 'car', "Vans to the Xi'an hotel", '15:45', key='xianN', note='about 40 min to Qujiang')
@@ -383,7 +413,7 @@ B('h2out', D[6], 'hotel', 'Check out of {hotel}', '12:00')
 B('x2', D[6], 'car', "Vans to Xi'an North", '12:30', key='xianN', note='allow time for station security')
 B('g2', D[6], 'train', "G-train Xi'an North → Chengdu East", '14:00', key='xianN', tentative=True, **{'from': "Xi'an North 西安北", 'to': 'Chengdu East 成都东'},
   note='about 3h10–3h40 · tickets open Sat 5 Dec')
-B('h3in', D[6], 'hotel', 'Check in: back to {hotel}', '18:15', note='the big bags are waiting')
+B('h3in', D[6], 'hotel', 'Check in: {hotel}', '18:15', note='second Chengdu stay (its own hotel vote)')
 B('h3out', D[8], 'hotel', 'Check out of {hotel}', '21:15', note='keep the rooms till evening: late check-out, or book the night of 21 Dec')
 B('tfu', D[8], 'car', 'Vans to Tianfu Airport', '21:30', key='tfu', note='about 1h–1h15 · aim for check-in by 22:45')
 B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:05', sort='25:05', number='MH527', **{'from': 'TFU', 'to': 'KUL'},

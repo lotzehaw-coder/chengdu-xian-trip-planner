@@ -637,7 +637,7 @@ function hotelLabel(b){
   const nm = c ? optName(b.dec,c) : ld&&!ld.tie ? optName(b.dec, ld.opt)+' (leading)' : decCity(b.dec)+' hotel (vote in Hotels)';
   return b.title.replace('{hotel}', nm);
 }
-function hotelMapBtn(did){ const id=chosen(did) || ((leader(did)||{}).opt); if (!id) return ''; const city=decCity(did); const h=(SEED.hotels[city]||{options:[]}).options.find(x=>x.id===id); return h?mapBtn({q:h.cn,en:h.name,label:h.name,city}):''; }
+function hotelMapBtn(did){ const id=chosen(did) || ((leader(did)||{}).opt); if (!id) return ''; const city=decCity(did); const st=Object.values(SEED.hotels).find(x=>(x.dec||hotelDec(x.city||city))===did) || SEED.hotels[city] || {options:[]}; const h=st.options.find(x=>x.id===id); return h?mapBtn({q:h.cn,en:h.name,label:h.name,city}):''; }
 function blockStop(b){
   const title=hotelLabel(b);
   const sub=[b.number, (b.from||b.to)?`${esc(b.from||'?')} → ${esc(b.to||'?')}`:'', esc(b.note)].filter(Boolean).join(' · ');
@@ -776,10 +776,10 @@ $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-s
 // ---------- HOTELS ----------
 function renderHotels(){
   $('#hotelsIntro').textContent = TRIP.hotelsIntro || 'Vote for one hotel in each city.'; $('#hotelsTip').textContent = TRIP.hotelsTip || ''; $('#hotelsTip').hidden = !TRIP.hotelsTip;
-  $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([city, st])=>{
-    const did = hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
+  $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([key, st])=>{
+    const city = st.city || key; const did = st.dec || hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
     const ld=leader(did), lock=chosen(did);
-    return `<div class="stay" id="dec-${did}"><h2 style="margin-bottom:2px;color:${CITY_VAR[city]}">${esc(city)} ${CN[city]}</h2><div class="nights">${esc(st.nights)}</div>
+    return `<div class="stay" id="dec-${did}"><h2 style="margin-bottom:2px;color:${CITY_VAR[city]}">${esc(st.title||city)} ${CN[city]}</h2><div class="nights">${esc(st.nights)}</div>
       <div class="tip">💡 ${esc(st.tip)}</div>
       ${st.options.map((h,k)=>{ const n=t[h.id].length; return `<div class="hotel ${mine===h.id?'mine':''}">
         <div class="banner">${car(h.gallery,'',h.name)}${k===0?'<span class="badge">★ Our suggestion</span>':''}<div class="t"><b>${esc(h.name)}</b><span>${esc(h.cn)} · ${esc(h.area)}</span></div></div>

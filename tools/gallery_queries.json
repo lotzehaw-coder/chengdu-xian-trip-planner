@@ -568,5 +568,78 @@
    "tourists Tang costume Xi'an"
   ],
   "n": 0
+ },
+ "pandatower": {
+  "q": [
+   "Sichuan Radio and TV Tower Chengdu",
+   "Chengdu 339 tower",
+   "天府熊猫塔",
+   "Chengdu TV tower night"
+  ],
+  "n": 4
+ },
+ "mengzhuiwan": {
+  "q": [
+   "Mengzhuiwan Chengdu",
+   "猛追湾",
+   "Jinjiang River Chengdu night"
+  ],
+  "n": 3
+ },
+ "dongjiao": {
+  "q": [
+   "Eastern Suburb Memory Chengdu",
+   "东郊记忆",
+   "Chengdu East Music Park"
+  ],
+  "n": 4
+ },
+ "changan12": {
+  "q": [
+   "长安十二时辰 主题街区",
+   "Chang'an Twelve Hours Xi'an",
+   "长安十二时辰 西安 曼蒂"
+  ],
+  "n": 4
+ },
+ "gongyan": {
+  "q": [
+   "大明宫宴",
+   "唐宫宴 西安",
+   "Tang dynasty banquet performance"
+  ],
+  "n": 3
+ },
+ "tuoling": {
+  "q": [
+   "驼铃传奇",
+   "Camel Bell Legend show Xi'an",
+   "华夏文旅大剧院"
+  ],
+  "n": 3
+ },
+ "qianguqing": {
+  "q": [
+   "西安千古情",
+   "Xi'an Romance show",
+   "Xi'an Expo Park Chanba"
+  ],
+  "n": 3
+ },
+ "jinjiang": {
+  "q": [
+   "锦江剧场 成都",
+   "Jinjiang Theatre Chengdu Sichuan opera",
+   "悦来茶园"
+  ],
+  "n": 3
+ },
+ "emei": {
+  "q": [
+   "只有峨眉山",
+   "Only Emei Mountain theatre",
+   "Emei Shan town"
+  ],
+  "n": 3
  }
 }
