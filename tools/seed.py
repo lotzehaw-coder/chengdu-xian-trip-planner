@@ -31,7 +31,7 @@ def at(k):
 IMG = set(f[:-4] for f in os.listdir(os.path.join(HERE, '..', 'img')) if f.endswith('.jpg'))
 def img(k): return f'img/{k}.jpg' if k in IMG else ''
 import glob, re
-REST = ['img/g/rest-1.jpg', 'img/g/rest-2.jpg']
+REST = ['img/g/rest-1.jpg']
 def gal(k):
     """main photo first, then the carousel extras img/g/<k>-<n>.jpg in number order. A list is taken as-is."""
     if isinstance(k, list): return k

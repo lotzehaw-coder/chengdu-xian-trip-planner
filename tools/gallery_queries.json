@@ -372,7 +372,8 @@
   ],
   "n": 4,
   "reject": [
-   "File:King Baos Roujiamo.jpg"
+   "File:King Baos Roujiamo.jpg",
+   "File:King Baos - Roujiamo.jpg"
   ]
  },
  "biangbiang": {
@@ -518,13 +519,16 @@
  },
  "rest": {
   "q": [
-   "hotel indoor swimming pool",
-   "hotel swimming pool night",
-   "afternoon tea set hotel"
+   "hotel swimming pool",
+   "indoor swimming pool hotel China",
+   "luxury hotel indoor pool"
   ],
-  "n": 3,
+  "n": 1,
   "reject": [
-   "File:Indoor pool and shower of spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos front view.jpg"
+   "File:Indoor pool and shower of spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos front view.jpg",
+   "File:Indoor pool and showers of the spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+   "File:Indoor pool of spa with open door at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
+   "File:Swimming pool of Khan Pool Suite in Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg"
   ]
  },
  "datangnight": {

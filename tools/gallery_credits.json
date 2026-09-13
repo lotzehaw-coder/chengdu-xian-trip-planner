@@ -455,12 +455,6 @@
   "author": "David Pursehouse from Kawasaki, Japan",
   "license": "CC BY 2.0"
  },
- "roujiamo-1": {
-  "file": "File:King Baos - Roujiamo.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:King_Baos_-_Roujiamo.jpg",
-  "author": "Francesc Fort",
-  "license": "CC BY-SA 4.0"
- },
  "roujiamo-2": {
   "file": "File:古城樊氏腊汁肉夹馍1.JPG",
   "page": "https://commons.wikimedia.org/wiki/File:%E5%8F%A4%E5%9F%8E%E6%A8%8A%E6%B0%8F%E8%85%8A%E6%B1%81%E8%82%89%E5%A4%B9%E9%A6%8D1.JPG",
@@ -581,18 +575,6 @@
   "author": "N509FZ",
   "license": "CC BY-SA 4.0"
  },
- "rest-1": {
-  "file": "File:Indoor pool and showers of the spa at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Indoor_pool_and_showers_of_the_spa_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
-  "author": "Basile Morin",
-  "license": "CC BY-SA 4.0"
- },
- "rest-2": {
-  "file": "File:Indoor pool of spa with open door at Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Indoor_pool_of_spa_with_open_door_at_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg",
-  "author": "Basile Morin",
-  "license": "CC BY-SA 4.0"
- },
  "financial-1": {
   "file": "File:Chengdu Financial City Performing Arts Center.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Financial_City_Performing_Arts_Center.jpg",
@@ -621,6 +603,12 @@
   "file": "File:Chengdu Chengdu Panda Reserve Base Große Pandas 06.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Chengdu_Chengdu_Panda_Reserve_Base_Gro%C3%9Fe_Pandas_06.jpg",
   "author": "Zairon",
+  "license": "CC BY-SA 4.0"
+ },
+ "rest-1": {
+  "file": "File:Swimming Pool in a hotel in Tamil Nadu 03.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Swimming_Pool_in_a_hotel_in_Tamil_Nadu_03.jpg",
+  "author": "Kritzolina",
   "license": "CC BY-SA 4.0"
  }
 }
