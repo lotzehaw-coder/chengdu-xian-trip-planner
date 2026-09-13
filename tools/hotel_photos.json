@@ -81,11 +81,7 @@
  "stregis": [
   [
    "R/CTUXR/ctuxr-exterior-9965",
-   "Hotel exterior"
-  ],
-  [
-   "R/CTUXR/ctuxr-reception-9953",
-   "Reception"
+   "Entrance"
   ],
   [
    "R/CTUXR/ctuxr-deluxe-room-2228",
@@ -97,11 +93,11 @@
   ],
   [
    "R/CTUXR/ctuxr-pool-9941",
-   "Pool"
+   "Rooftop pool (outdoor, seasonal)"
   ],
   [
    "R/CTUXR/ctuxr-drawing-room-9944",
-   "Drawing room"
+   "Drawing room (lobby lounge)"
   ]
  ],
  "wxian": [

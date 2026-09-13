@@ -524,7 +524,7 @@ function mapTargets(o){
 // Open maps WITHOUT touching this page: a new tab that hands off to the app (Amap's link page calls the app itself;
 // Apple/Google links open their apps). The old "location.href = app, then fall back to the web page" replaced the
 // itinerary whenever the phone's browser couldn't open the app directly (e.g. inside WhatsApp).
-function openOut(url){ const w=window.open(url, '_blank', 'noopener'); if (!w){ const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); } }
+function openOut(url){ const w=window.open(url, '_blank'); if (w){ try{ w.opener=null; }catch(e){} return; } const a=document.createElement('a'); a.href=url; a.target='_blank'; a.rel='noopener'; document.body.appendChild(a); a.click(); a.remove(); }   // 'noopener' in window.open always returns null, which used to fire the fallback too (two tabs)
 function openMap(o){
   const t=mapTargets(o);
   const m=$('#mapMenu'); m.innerHTML=`<h3>${esc(t.title)}</h3><p>Opens in a new tab or the map app, so this page stays where it is. Shows the place itself (photos, reviews), not directions.</p>
@@ -544,7 +544,7 @@ const mapBtn = (o) => (o.q||(!TRIP.amap&&o.en)) ? `<button class="btn small map"
 function car(list, cls, alt){
   const g=(list||[]).map(x=>typeof x==='string'?{src:x,cap:''}:x).filter(x=>x&&x.src);
   if (!g.length) return '';
-  return `<div class="car ${cls||''}" data-n="${g.length}"><div class="track">${g.map(x=>`<figure><img src="${esc(x.src)}" alt="${esc(x.cap||alt||'')}" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade" onerror="this.closest('figure').remove()">${x.cap?`<figcaption>${esc(x.cap)}</figcaption>`:''}</figure>`).join('')}</div>
+  return `<div class="car ${cls||''}" data-n="${g.length}"><div class="track">${g.map(x=>`<figure><img src="${esc(x.src)}" alt="${esc(x.cap||alt||'')}" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade" onerror="carDrop(this)">${x.cap?`<figcaption>${esc(x.cap)}</figcaption>`:''}</figure>`).join('')}</div>
     ${g.length>1?`<button class="nav prev" data-car="-1" aria-label="Previous photo">‹</button><button class="nav next" data-car="1" aria-label="Next photo">›</button><div class="dots">${g.map((_,k)=>`<i class="${k?'':'on'}"></i>`).join('')}</div>`:''}</div>`;
 }
 document.addEventListener('click', e=>{ const b=e.target.closest('[data-car]'); if(!b) return; e.preventDefault(); e.stopPropagation();
@@ -552,6 +552,9 @@ document.addEventListener('click', e=>{ const b=e.target.closest('[data-car]'); 
   const to=((Math.round(tr.scrollLeft/w)+Number(b.dataset.car))%n+n)%n;           // wraps round at either end
   tr.scrollTo({left:to*w, behavior:'smooth'}); carDots(c, to);
   setTimeout(()=>{ if (Math.abs(tr.scrollLeft-to*w)>2) tr.scrollLeft=to*w; }, 450); }, true);
+function carDrop(img){ const f=img.closest('figure'), c=img.closest('.car'); if(!f||!c) return; f.remove(); const n=c.querySelectorAll('figure').length; c.dataset.n=n;
+  const dots=c.querySelectorAll('.dots i'); if (dots.length) dots[dots.length-1].remove(); if (n<=1) c.querySelectorAll('.nav,.dots').forEach(x=>x.remove()); if (!n) c.remove(); }
+window.carDrop=carDrop;
 function carDots(c, k){ c.querySelectorAll('.dots i').forEach((d,j)=>d.classList.toggle('on', j===k)); }
 document.addEventListener('scroll', e=>{ const tr=e.target; if (!tr.classList || !tr.classList.contains('track')) return;
   carDots(tr.parentElement, Math.round(tr.scrollLeft/Math.max(1,tr.clientWidth))); }, true);
@@ -567,6 +570,8 @@ $$('nav.tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.datase
 function goVote(did){ showTab(DEC[did].kind==='hotel'?'hotels':'vote'); setTimeout(()=>{ const el=$('#dec-'+CSS.escape(did)); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60); }
 
 // ---------- ITINERARY ----------
+const LEAD_TRAVEL = DAYS.length && DAYS[0].city==='Travel';
+const dayName = (idx) => LEAD_TRAVEL ? (idx===0 ? 'Departure' : 'Day '+idx) : 'Day '+(idx+1);
 function renderHero(){
   const t=todayKey(); const td=DAYS.find(d=>d.d===t); const city = td ? (td.city==='Travel'?HOME:td.city) : HOME;
   const start=new Date(TRIP.start); const daysTo=Math.ceil((start-new Date())/86400000);
@@ -576,7 +581,7 @@ function renderHero(){
   $('#hero').style.setProperty('--hc', cc.tint);
   $('#hero').innerHTML = `<div class="bg" style="background-image:url(${pic})"></div><svg class="land"><use href="#${LAND[city]}"/></svg>
     <h1>${TRIP.cities.map(c=>esc(c.name)).join(' <span>·</span> ')}</h1><div class="sub">${esc(TRIP.subtitle)}</div>
-    ${td ? `<div class="now"><b>Day ${DAYS.indexOf(td)}</b> ${esc(td.city)} · ${ns?`up next ${esc(ns.time)} ${esc(ns.name)}`:'nothing left today'}</div>`
+    ${td ? `<div class="now"><b>${dayName(DAYS.indexOf(td))}</b> ${esc(td.city)} · ${ns?`up next ${esc(ns.time)} ${esc(ns.name)}`:'nothing left today'}</div>`
          : daysTo>0 ? `<div class="now"><b>${daysTo} days</b> to go · ${SEED.decisions.length - votedCount()} of your votes left</div>` : `<div class="now"><b>Home</b> Hope it was a great trip</div>`}`;
 }
 function renderPrep(){
@@ -605,9 +610,9 @@ function renderItin(){
     const nv=ents.filter(e=>e.kind==='vote').length;
     const vis=ents.filter(e=>e.kind!=='item'||passes(e.i));
     return `<div class="day ${L.closed[d.d]?'closed':''}" id="day-${d.d}" style="--ci:${CITY_VAR[d.city]}">
-      <div class="dh" data-day="${d.d}"><div><div class="dn">${idx===0?'Departure':'Day '+idx}${d.d===t?' · today':''}</div><b>${fmtDay(d.d)}${d.city!=='Travel'?' · '+esc(d.city):''}</b><div class="dl">${esc(d.label)}</div></div>
+      <div class="dh" data-day="${d.d}"><div><div class="dn">${dayName(idx)}${d.d===t?' · today':''}</div><b>${fmtDay(d.d)}${d.city!=='Travel'?' · '+esc(d.city):''}</b><div class="dl">${esc(d.label)}</div></div>
         <svg class="land"><use href="#${LAND[d.city]}"/></svg><div class="tog"><svg><use href="#ico-chev"/></svg></div></div>
-      <div class="body"><div class="stats">${its.length?`${its.length} stop${its.length===1?'':'s'}`:'Travel day'}${dn?` · ${dn} done`:''}${nv?` · <b style="color:var(--c-vote)">${nv} to vote on</b>`:''}</div>
+      <div class="body"><div class="stats">${its.length?`${its.length} stop${its.length===1?'':'s'}`:(d.city==='Travel'?'Travel day':'Nothing planned yet')}${dn?` · ${dn} done`:''}${nv?` · <b style="color:var(--c-vote)">${nv} to vote on</b>`:''}</div>
       <div class="line">${vis.map(e=>e.kind==='block'?blockStop(e.b):e.kind==='vote'?voteStop(e.x):itemStop(e.i, ns&&ns.id===e.i.id)).join('') || '<div class="empty" style="padding:14px">Nothing here for this filter.</div>'}</div></div></div>`;
   }).join('');
   $('#toggleAll').textContent = DAYS.every(d=>L.closed[d.d]) ? 'Expand all' : 'Collapse all';
@@ -768,8 +773,8 @@ function renderHotels(){
       <div class="tip">💡 ${esc(st.tip)}</div>
       ${st.options.map((h,k)=>{ const n=t[h.id].length; return `<div class="hotel ${mine===h.id?'mine':''}">
         <div class="banner">${car(h.gallery,'',h.name)}${k===0?'<span class="badge">★ Our suggestion</span>':''}<div class="t"><b>${esc(h.name)}</b><span>${esc(h.cn)} · ${esc(h.area)}</span></div></div>
-        <div class="hb"><div class="up"><span class="stars" aria-label="Suite upgrade odds ${h.up} of 5">${'★'.repeat(h.up)}<i>${'★'.repeat(5-h.up)}</i></span> <b>Suite upgrade odds</b><span class="age">🏗 Opened ${esc(h.opened)} · ${esc(h.reno)}</span></div>
-          <div class="upnote">${esc(h.upnote)}</div>
+        <div class="hb"><div class="up">${h.up?`<span class="stars" aria-label="Suite upgrade odds ${h.up} of 5">${'★'.repeat(h.up)}<i>${'★'.repeat(5-h.up)}</i></span> <b>Suite upgrade odds</b>`:''}${h.opened?`<span class="age">🏗 Opened ${esc(h.opened)}${h.reno?' · '+esc(h.reno):''}</span>`:''}</div>
+          ${h.upnote?`<div class="upnote">${esc(h.upnote)}</div>`:''}
           <div class="row"><span class="chip">${esc(h.fits)}</span>${lock===h.id?'<span class="chip lock">locked in ✓</span>':ld&&!ld.tie&&ld.opt===h.id?'<span class="chip lead">leading</span>':''}</div>
           <ul>${h.pros.map(p=>`<li class="pro">${esc(p)}</li>`).join('')}${h.cons.map(p=>`<li class="con">${esc(p)}</li>`).join('')}</ul>
           <div class="addr">${esc(h.address)}</div>

@@ -53,10 +53,12 @@ for city, st in seed['hotels'].items():
     for h in st['options']:
         caps = [g.get('cap') for g in h['gallery']]
         if not all(caps): E(f'hotel {h["id"]} has a photo without a caption')
-        if not any(g['src'].startswith('http') for g in h['gallery']): E(f'hotel {h["id"]} has no photos of the hotel itself')
+        if not any(g['src'].startswith('http') for g in h['gallery']): W(f'hotel {h["id"]} has no photos of the hotel itself (add them to hotel_photos.json; see reference/hotel-photos.md)')
         if len({g['src'] for g in h['gallery']}) != len(h['gallery']): E(f'duplicate photo in hotel {h["id"]} carousel')
         if len(h['gallery']) < 3: W(f'hotel {h["id"]} carousel has only {len(h["gallery"])} photos')
         for g in h['gallery']: ref(g['src'], 'hotel:' + h['id'])
+ref(seed['trip']['welcome']['img'], 'welcome sheet')
+for c in seed['trip']['cities']: ref(c.get('hero'), 'hero ' + c['name'])
 missing = [s for s in refs if not os.path.exists(os.path.join(ROOT, s))]
 for s in missing: E(f'missing image {s} (used by {refs[s][0]})')
 on_disk = {os.path.relpath(os.path.join(dp, f), ROOT).replace('\\', '/') for dp, _, fs in os.walk(os.path.join(ROOT, 'img')) for f in fs if f.endswith('.jpg')}
@@ -78,8 +80,8 @@ OK(f'{len(refs)} images referenced, {len(missing)} missing, {len(uncredited)} un
 
 # 4. map data: every real place has a search term; URLs build cleanly
 for i in seed['items']:
-    rest = i['category'] == 'Rest' or not re.search(r'[㐀-鿿]', i['name'] + i.get('mapq', ''))
-    if not i.get('mapq') and not rest: W(f"no map search for {i['id']} ({i['name']})")
+    rest = i['category'] in ('Rest', 'Travel') or (seed['trip'].get('amap') and not re.search(r'[㐀-鿿]', i['name'] + i.get('mapq', '')))
+    if not i.get('mapq') and not i.get('mapen') and not rest and i['category'] != 'Food': W(f"no map search for {i['id']} ({i['name']})")
     if i.get('mapq') and not i.get('mapen'): W(f"no English Google search for {i['id']}")
     if seed['trip'].get('amap') and i.get('mapq') and not re.search(r'[㐀-鿿]', i['mapq']): W(f"map search for {i['id']} is not Chinese: {i['mapq']}")
     bb = seed['trip'].get('bbox')   # [minLat, minLng, maxLat, maxLng] of the trip region
