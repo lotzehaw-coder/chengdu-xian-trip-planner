@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-13T20:12+08:00",
+ "updated": "2026-09-13T20:42+08:00",
  "count": 4,
  "ballots": {
   "Chia Wei": {
@@ -71,10 +71,8 @@
     "h-chengdu2": "w",
     "d-d4pm": "huaqing"
    },
-   "hearts": [
-    "p:emei"
-   ],
-   "t": 1789299878824
+   "hearts": [],
+   "t": 1789301754059
   }
  }
 }
