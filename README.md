@@ -8,6 +8,8 @@ It's one file (`index.html`) plus photos in `img/`. There's no backend and no ac
 
 ## What's in it
 
+- **Photos**: every stop, vote option and idea swipes through several photos, and each hotel card swipes through captioned photos of its surroundings (arrows on desktop).
+- **Map**: opens the place itself in 高德地图 Amap, Google Maps (English reviews) or Apple Maps, so you can see its photos and reviews. It never gives directions from wherever you are now.
 - **Itinerary**: nine colour-coded days (Chengdu green, Xi'an terracotta, travel slate), with MH526/MH527, trains, vans and hotel check-ins as fixed blocks. Tap a stop to see the photo, the book-ahead note, Map (opens 高德地图 Amap directly), a ❤, your own note, a new time or a move to another day. Tap the dot to tick a stop done; during the trip the hero shows *up next* in China time. A **Before we go** checklist gives the booking dates (panda tickets, trains, Terracotta Army, the Shaanxi History Museum). The **Family guide** explains the icons (👶 stroller-friendly, 🧓 easy walking, 🪜 stairs, 🧣 cold, 🏠 indoor, 🎟 book ahead, 🌶 spicy) and has phrases to show waiters and drivers.
 - **Vote**: seven open slots (evenings, afternoons, the Sunday day trip, the last morning), each with 2–4 photo options. Extra ideas can be ❤'d.
 - **Hotels**: four Marriott Bonvoy options per city with pros and cons for a family, and a vote for each city.
@@ -33,7 +35,7 @@ python build.py     # seed.json + template.html -> ../index.html (checks JS synt
 
 Then commit and push. Stops nobody has touched follow the seed; anything someone moved or edited is left alone.
 
-To add or replace a photo, add an entry to `tools/image_queries.json` (a search query, or `"pin": "File:<exact Commons file name>"`) and run `python fetch_images.py <id> --force`. Photos come from Wikimedia Commons under CC0 / CC BY / CC BY-SA, and the credits are listed in the app under **Share → About → Photo credits**.
+Carousel extras live in `img/g/<id>-<n>.jpg`, fetched with `python fetch_gallery.py <id> --force` from `tools/gallery_queries.json` (queries, `pins`, `reject`). To add or replace a main photo, add an entry to `tools/image_queries.json` (a search query, or `"pin": "File:<exact Commons file name>"`) and run `python fetch_images.py <id> --force`. Photos come from Wikimedia Commons under CC0 / CC BY / CC BY-SA, and the credits are listed in the app under **Share → About → Photo credits**.
 
 Coordinates come from Wikipedia (WGS-84) and are converted to GCJ-02 for Chinese maps. Stops without coordinates, mostly restaurants, open a name search in Amap instead.
 
@@ -41,3 +43,8 @@ Coordinates come from Wikipedia (WGS-84) and are converted to GCJ-02 for Chinese
 
 - **Booked:** MH526 KUL→TFU on Sun 13 Dec (lands just after midnight), and MH527 TFU→KUL departing just after midnight (so technically Tue 22 Dec). Check the exact times on the e-ticket.
 - **Not booked:** hotels, trains, vans and all tickets. These are marked *tentative*.
+
+## Checking a change
+
+1. **Automated checks:** `python tools/check_site.py --links --live` checks the build, JavaScript syntax, that every photo exists and is credited, map search terms, overlapping times (including vote options against fixed stops), every external link, and the live site.
+2. **Human-style review:** a separate reviewer agent does the judgement calls: are the photos relevant, do the map searches find the right place, and does the plan make sense for a baby and grandparents. Its instructions are in `C:\Users\User\.claude\agents\trip-planner-reviewer.md` (a Claude Code agent definition, not a Python file). It reports findings and never edits.
