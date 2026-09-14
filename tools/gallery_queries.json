@@ -641,5 +641,175 @@
    "Emei Shan town"
   ],
   "n": 3
+ },
+ "food-dimsum": {
+  "q": [
+   "har gow shrimp dumpling",
+   "char siu bao",
+   "dim sum har gow siu mai",
+   "cheung fun rice noodle roll"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Dim Sum on the table.jpg",
+   "File:Dim sum at Cottage tea house.jpg",
+   "File:Yam Cha at tsuen wan.jpg",
+   "File:HK MK 旺角 Mongkok 奶路臣街 Nelson Street 雅蘭中心 One Grand Plaza mall 稻香漁港 Tao Heung The Pier Market Restaurant 香港飲早茶 breakfast tea 點心 dim sum Shrimp dumplings 蝦餃 Har gow May 2022 Px3 01.jpg",
+   "File:HK MK 旺角 Mongkok 奶路臣街 Nelson Street 雅蘭中心 One Grand Plaza mall 稻香漁港 Tao Heung The Pier Market Restaurant 香港飲早茶 breakfast tea 點心 dim sum Shrimp dumplings 蝦餃 Har gow May 2022 Px3 06.jpg"
+  ]
+ },
+ "food-tomatohotpot": {
+  "q": [
+   "tomato hot pot",
+   "Haidilao hot pot",
+   "hot pot tomato broth"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Vegan Hot Pot (5524406031).jpg",
+   "File:-2020-06-19 Hot dog with french fries, Trimingham, Norfolk.JPG",
+   "File:-2020-06-19 Hot dog with french fries, Trimingham, Norfolk (1).JPG"
+  ]
+ },
+ "food-teaduck": {
+  "q": [
+   "tea-smoked duck",
+   "Zhangcha duck",
+   "樟茶鸭"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Duck breast, smoked and panfried.jpg",
+   "File:TeaSmokedDuckGaiLanCrispySkin (8311425141).jpg"
+  ]
+ },
+ "food-qiaojiao": {
+  "q": [
+   "Qiaojiao beef",
+   "Leshan beef soup",
+   "跷脚牛肉"
+  ],
+  "n": 4,
+  "reject": [
+   "File:Quanniujiang Chuanxiaoguan restaurant at Hopson One B2 (20220330171934).jpg"
+  ]
+ },
+ "food-guotie": {
+  "q": [
+   "guotie potstickers",
+   "pan-fried dumplings potstickers",
+   "锅贴"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Making potstickers 7.jpeg",
+   "File:Making potstickers 6.jpeg"
+  ]
+ },
+ "food-haidilao": {
+  "q": [
+   "Haidilao",
+   "Haidilao hot pot restaurant",
+   "hot pot tomato soup base"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Haidilao Harris County.jpg",
+   "File:Haidilao Hot Pot at GR Shopping Mall (20200829181143).jpg"
+  ]
+ },
+ "food-roastgoose": {
+  "q": [
+   "Cantonese roast goose",
+   "siu ngo roast goose",
+   "roast goose Hong Kong"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Christmas-goose-(Weihnachtsgans) 1.jpg"
+  ]
+ },
+ "food-cheungfun": {
+  "q": [
+   "cheung fun rice noodle roll",
+   "rice noodle roll dim sum",
+   "肠粉"
+  ],
+  "n": 3,
+  "reject": []
+ },
+ "food-charsiubao": {
+  "q": [
+   "char siu bao",
+   "cha siu bao steamed bun",
+   "叉烧包"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Harvest Wheat Field Bakery Baked Char Siu Bao (43298834235).jpg"
+  ]
+ },
+ "food-pineapplebun": {
+  "q": [
+   "pineapple bun bolo bao",
+   "菠萝包"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Shima aji, yuzu - tapioca, uni - bolo bao (chicken liver) 02.jpg",
+   "File:Shima aji, yuzu - tapioca, uni - bolo bao (chicken liver) 01.jpg"
+  ]
+ },
+ "food-wontonsoup": {
+  "q": [
+   "wonton soup clear broth",
+   "chicken soup wontons",
+   "鸡汤抄手"
+  ],
+  "n": 3,
+  "reject": []
+ },
+ "food-huiguorou": {
+  "q": [
+   "twice cooked pork",
+   "回锅肉",
+   "huiguorou"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Twice cooked pork lunch box of NewDays.jpg",
+   "File:Twice cooked pork with soft-boiled egg set meal of Matsuya.jpg"
+  ]
+ },
+ "food-kaishui": {
+  "q": [
+   "kaishui baicai",
+   "cabbage in clear broth Sichuan",
+   "开水白菜"
+  ],
+  "n": 3,
+  "reject": []
+ },
+ "food-lionshead": {
+  "q": [
+   "lion head meatball",
+   "Lion's head meatballs Huaiyang",
+   "狮子头"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Lion S Head Hike Trail (191333841).jpeg"
+  ]
+ },
+ "food-hongshaorou": {
+  "q": [
+   "hong shao rou braised pork belly",
+   "red braised pork belly",
+   "红烧肉"
+  ],
+  "n": 2,
+  "reject": [
+   "File:Red braised pork belly.jpg"
+  ]
  }
 }

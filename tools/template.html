@@ -215,6 +215,12 @@ details.prep .inner{padding:0 14px 14px}
 .opt .pick{margin-top:6px;width:100%}
 .opt.mine .pick{background:var(--c-vote);border-color:var(--c-vote);color:#fff}
 .lockbtn{font-size:12px;color:var(--ink-3);background:none;border:0;padding:2px 0 0;cursor:pointer;text-decoration:underline;text-align:left}
+.mealfold{border:1px solid var(--line,#e3ddd2);border-radius:14px;margin:8px 0;background:var(--card,#fff)}
+.mealfold>summary{cursor:pointer;padding:12px 14px;display:flex;justify-content:space-between;gap:10px;align-items:center;list-style:none;font-size:15px}
+.mealfold>summary::-webkit-details-marker{display:none}
+.mealfold>summary span{font-size:13px;color:var(--ink-3);text-align:right}.mealfold>summary span.ok{color:#23704a}
+.mealfold>summary::after{content:'▾';color:var(--ink-3);margin-left:4px}.mealfold[open]>summary::after{content:'▴'}
+.mealfold .dec{margin:0 10px 10px}
 .ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media (min-width:640px){.ideas{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -401,6 +407,9 @@ details.more[open] > summary::after{content:" ▴"}
         <div class="pills" id="voteCity"></div>
         <p class="muted" id="autoNote" style="color:#23704a"></p>
         <div id="decList"></div>
+        <div id="mealWrap"><h2 id="mealsH">🍽 Lunch &amp; dinner: pick a place</h2>
+        <p class="muted">A few choices for each meal, picked to seat the whole family (a couple of snack places may need two tables). Some are not spicy at all. <span id="mealCount"></span></p>
+        <div id="mealList"></div></div>
         <h2 id="ideasH">Ideas: ❤ the ones you'd like</h2>
         <p class="muted">Not on a day yet. If lots of people heart one, we'll find it a slot.</p>
         <div class="ideas" id="ideaList"></div>
@@ -501,6 +510,10 @@ const FILTERS = [['all','Everything',''],['must','Must-see','var(--c-sight)'],['
 const LS_PLAN = TRIP.key+'.plan.v1', LS_LOCAL = TRIP.key+'.local.v1';
 const DEC = Object.fromEntries(SEED.decisions.map(d=>[d.id,d]));
 const ACT_DECS = SEED.decisions.filter(d=>d.kind==='activity');
+const MEAL_DECS = SEED.decisions.filter(d=>d.kind==='meal');   // restaurant choices: on the day like a vote, own section in the Vote tab, not in the progress ring
+const RING_DECS = SEED.decisions.filter(d=>d.kind!=='meal');
+const DAY_DECS = ACT_DECS.concat(MEAL_DECS);
+const depOk = (x) => { if (!x.onlyIf) return true; const [d,o]=x.onlyIf.split(':'); const c=chosen(d); if (c) return c===o; const ld=leader(d); return !ld || ld.tie || ld.opt===o; };
 
 const now = () => Date.now();
 const uid = (p) => p + ':' + Math.random().toString(36).slice(2,10) + now().toString(36);
@@ -511,7 +524,7 @@ const defLocal = () => ({me:'', filter:'all', closed:{}, voteCity:'', prep:{}});
 function read(k, def){ try{ const j=JSON.parse(localStorage.getItem(k)); if (j && typeof j==='object') return Object.assign(def(), j); }catch(e){} return def(); }
 let P = read(LS_PLAN, defPlan), L = read(LS_LOCAL, defLocal);
 // pick up plan edits from newer builds without losing anyone's changes
-for (const s of Object.values(seedItems())){ const cur=P.items[s.id]; if (!cur) P.items[s.id]=s; else if (!cur.updatedAt){ const keep={notes:cur.notes,done:cur.done,doneAt:cur.doneAt}; Object.assign(cur, s, keep); } else { for (const f of ['img','info','book','fam','lat','lng','opt']) cur[f]=s[f]; } }
+for (const s of Object.values(seedItems())){ const cur=P.items[s.id]; if (!cur) P.items[s.id]=s; else if (!cur.updatedAt){ const keep={notes:cur.notes,done:cur.done,doneAt:cur.doneAt}; Object.assign(cur, s, keep); } else { for (const f of ['name','category','city','img','gallery','info','book','fam','lat','lng','mapq','mapen','mapcity','details','opt']) cur[f]=s[f]; for (const [f,v] of Object.entries(s.was||{})) if (cur[f]===v) cur[f]=s[f]; } }
 for (const sb of seedBlocks()){ const cur=P.blocks.find(b=>b.id===sb.id); if (!cur) P.blocks.push(sb); else if (!cur.updatedAt) Object.assign(cur, sb); }
 P.blocks = P.blocks.filter(b=>!String(b.id).startsWith('seed:') || SEED.blocks.some(s=>s.id===b.id));
 function savePlan(){ P.updatedAt=now(); try{ localStorage.setItem(LS_PLAN, JSON.stringify(P)); }catch(e){ toast('Could not save — is storage blocked?'); } }
@@ -537,8 +550,8 @@ function heartsFor(id){ return Object.entries(P.ballots).filter(([,b])=>(b.heart
 function leader(did){ const t=tally(did); let best=null, n=0, tie=false; for (const [k,v] of Object.entries(t)){ if (v.length>n){ best=k; n=v.length; tie=false; } else if (v.length===n && n>0) tie=true; } return n? {opt:best, n, tie} : null; }
 const chosen = (did) => (P.locks[did]||{}).opt || '';
 const optName = (did, oid) => ((DEC[did].options.find(o=>o.id===oid))||{}).name || '';
-const votedCount = () => { const b=L.me&&P.ballots[L.me]; return b ? SEED.decisions.filter(d=>b.picks[d.id]).length : 0; };
-function updateBadge(){ const left=SEED.decisions.length - votedCount(); const b=$('#voteBadge'); b.textContent=left; b.classList.toggle('hidden', !L.me || left<=0); }
+const votedCount = (list=RING_DECS) => { const b=L.me&&P.ballots[L.me]; return b ? list.filter(d=>b.picks[d.id]).length : 0; };
+function updateBadge(){ const left=RING_DECS.length - votedCount(); const b=$('#voteBadge'); b.textContent=left; b.classList.toggle('hidden', !L.me || left<=0); }
 function lockIn(did, oid){ P.locks[did] = {opt: oid, t: now()}; for (const o of DEC[did].options) for (const id of o.items){ const it=P.items[id]; if (!it) continue; it.status = o.id===oid ? 'scheduled' : 'wishlist'; if (o.id===oid && !it.day) it.day=DEC[did].day; it.updatedAt=now(); } savePlan(); }
 function unlock(did){ const o=chosen(did); if (o) for (const id of (DEC[did].options.find(x=>x.id===o)||{items:[]}).items){ const it=P.items[id]; if (it){ it.status='wishlist'; it.updatedAt=now(); } } P.locks[did]={opt:'', t:now()}; savePlan(); }
 
@@ -629,7 +642,7 @@ function showTab(name){
   window.scrollTo({top:0});
 }
 $$('nav.tabs button').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
-function goVote(did){ showTab(DEC[did].kind==='hotel'?'hotels':'vote'); setTimeout(()=>{ const el=$('#dec-'+CSS.escape(did)); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60); }
+function goVote(did){ if (DEC[did].kind==='meal') MEAL_OPEN.add(did); showTab(DEC[did].kind==='hotel'?'hotels':'vote'); setTimeout(()=>{ const el=$('#dec-'+CSS.escape(did)); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60); }
 
 // ---------- ITINERARY ----------
 const LEAD_TRAVEL = DAYS.length && DAYS[0].city==='Travel';
@@ -644,7 +657,7 @@ function renderHero(){
   $('#hero').innerHTML = `<div class="bg" style="background-image:url(${pic})"></div><svg class="land"><use href="#${LAND[city]}"/></svg>
     <h1>${TRIP.cities.map(c=>esc(c.name)).join(' <span>·</span> ')}</h1><div class="sub">${esc(TRIP.subtitle)}</div>
     ${td ? `<div class="now"><b>${dayName(DAYS.indexOf(td))}</b> ${esc(td.city)} · ${ns?`up next ${esc(ns.time)} ${esc(ns.name)}`:'nothing left today'}</div>`
-         : daysTo>0 ? `<div class="now"><b>${daysTo} days</b> to go · ${SEED.decisions.length - votedCount()} of your votes left</div>` : `<div class="now"><b>Home</b> Hope it was a great trip</div>`}`;
+         : daysTo>0 ? `<div class="now"><b>${daysTo} days</b> to go · ${RING_DECS.length - votedCount()} of your votes left</div>` : `<div class="now"><b>Home</b> Hope it was a great trip</div>`}`;
 }
 function renderPrep(){
   const done=SEED.prep.filter((_,i)=>L.prep[i]).length;
@@ -657,7 +670,7 @@ $('#prepList').addEventListener('change', e=>{ const c=e.target.closest('[data-p
 function dayEntries(d){
   const blocks=P.blocks.filter(b=>b.day===d).map(b=>({kind:'block', t:b.sort||tk(b.time), o:0, b}));
   const items=dayItems(d).map(i=>({kind:'item', t:tk(i.time), o:i.order||0, i}));
-  const votes=ACT_DECS.filter(x=>x.day===d && !chosen(x.id)).map(x=>({kind:'vote', t:x.time, o:0, x}));
+  const votes=DAY_DECS.filter(x=>x.day===d && !chosen(x.id) && depOk(x)).map(x=>({kind:'vote', t:x.time, o:0, x}));
   return [...blocks,...items,...votes].sort((a,b)=> a.t.localeCompare(b.t) || (a.o-b.o));
 }
 function passes(i){ const f=L.filter||'all'; if (f==='all') return true; if (f==='must') return (i.tags||[]).includes('must-see'); if (f==='eat') return i.category==='Food'; if (f==='kids') return (i.fam||[]).includes('stroller'); if (f==='travel') return i.category==='Travel'; return true; }
@@ -717,7 +730,7 @@ function blockStop(b){
 function voteStop(x){
   const t=tally(x.id), ld=leader(x.id); const mine=(myBallot()||{picks:{}}).picks[x.id];
   return `<div class="stop vblock" style="--cc:var(--c-vote)"><div class="dot"></div><div class="card">
-    <div class="top"><span class="t">${esc(x.time)}</span><span class="kind">🗳 vote</span>${ld?`<span class="chip lead">${ld.tie?'tied':'leading: '+esc(optName(x.id,ld.opt))}</span>`:''}</div>
+    <div class="top"><span class="t">${esc(x.time)}</span><span class="kind">${x.kind==='meal'?'🍽 pick a place':'🗳 vote'}</span>${ld?`<span class="chip lead">${ld.tie?'tied':'leading: '+esc(optName(x.id,ld.opt))}</span>`:''}</div>
     <div class="name">${esc(x.title)}: ${esc(x.question)}</div>
     <div class="mini">${x.options.map(o=>`<button class="mo ${mine===o.id?'mine':''} ${ld&&!ld.tie&&ld.opt===o.id?'lead':''}" data-pick="${x.id}|${o.id}">${imgTag(o.img,'',o.name)}<span class="n">${t[o.id].length}</span><div><b>${esc(o.name)}</b>${famIcons(o.fam)}</div></button>`).join('')}</div>
     <div class="row" style="margin-top:6px"><button class="btn small" data-govote="${x.id}">See details</button>${ld&&!ld.tie?`<button class="btn small ghost" data-lock="${x.id}|${ld.opt}">Lock in "${esc(optName(x.id,ld.opt))}"</button>`:''}</div>
@@ -815,13 +828,20 @@ function decBlock(d){
     <div class="dt">${day?`${fmtDay(d.day)} · ${esc(day.city)} · ${esc(d.time)}`:''}</div><h3>${esc(d.title)}</h3><div class="q">${esc(d.question)}</div>
     <div class="opts ${d.options.length===4?'o4':''}">${d.options.map(o=>optCard(d,o,t,max)).join('')}</div></div>`;
 }
+const MEAL_OPEN = new Set();
+function mealFold(d){ const mine=(myBallot()||{picks:{}}).picks[d.id]; const ld=leader(d.id); const lk=chosen(d.id);
+  const state = lk ? `✓ ${esc(optName(d.id,lk))}` : mine ? `your pick: ${esc(optName(d.id,mine))}` : ld&&!ld.tie ? `leading: ${esc(optName(d.id,ld.opt))}` : 'not picked yet';
+  return `<details class="mealfold" data-meal="${esc(d.id)}" ${MEAL_OPEN.has(d.id)?'open':''}><summary><b>${fmtDay(d.day)} · ${esc(d.title)}</b><span class="${mine||lk?'ok':''}">${state}</span></summary>${decBlock(d)}</details>`; }
 function renderVote(){
-  const total=SEED.decisions.length, n=votedCount();
+  const total=RING_DECS.length, n=votedCount();
   $('#ring').style.setProperty('--p', total?Math.round(n/total*100):0); $('#ringTxt').textContent=`${n}/${total}`;
   $('#voteSub').textContent = !L.me ? 'Add your name first so your votes count.' : n>=total ? `All done, ${L.me}! Your votes are saved.` : `Hi ${L.me}: tap a picture to see what it is, then Pick. ${total-n} left (hotels are in the Hotels tab).`;
   $('#voteCity').innerHTML=[['','All days'], ...CITIES.map(c=>[c,c])].map(([k,l])=>`<button class="pill" data-vcity="${esc(k)}" aria-pressed="${(L.voteCity||'')===k}" ${k?`style="--pc:${CITY_VAR[k]}"`:''}>${k?'<i></i>':''}${l}</button>`).join('');
   const decs=ACT_DECS.filter(d=>!L.voteCity || (DAYS.find(x=>x.d===d.day)||{}).city===L.voteCity);
   $('#decList').innerHTML=decs.map(decBlock).join('') || '<div class="empty">Nothing for this city.</div>';
+  const meals=MEAL_DECS.filter(d=>!L.voteCity || (DAYS.find(x=>x.d===d.day)||{}).city===L.voteCity);
+  $('#mealWrap').hidden=!MEAL_DECS.length; $('#mealList').innerHTML=meals.map(mealFold).join('') || '<div class="empty">No meal choices for this city.</div>';
+  $('#mealCount').textContent = L.me ? `You've picked ${votedCount(MEAL_DECS)} of ${MEAL_DECS.length}.` : '';
   const ideas=Object.values(P.items).filter(i=>!i.opt && i.status!=='scheduled' && (!L.voteCity || i.city===L.voteCity));
   ideas.sort((a,b)=>heartsFor(b.id).length-heartsFor(a.id).length);
   $('#ideaList').innerHTML=ideas.map(i=>{ const hs=heartsFor(i.id), mine=L.me&&hs.includes(L.me);
@@ -832,6 +852,7 @@ function renderVote(){
       <div class="row"><button class="heart grow" data-heart="${esc(i.id)}" aria-pressed="${mine?'true':'false'}">❤ ${mine?'Want to go':'I\'d like this'}</button></div>
       <select data-sched="${esc(i.id)}" style="margin-top:6px;min-height:32px;padding:4px 8px;font-size:13px">${dayOptions(i.day)}</select></div></div>`; }).join('') || '<div class="empty">No extra ideas here.</div>';
 }
+$('#mealList').addEventListener('toggle', e=>{ const f=e.target.closest('details.mealfold'); if (!f) return; f.open?MEAL_OPEN.add(f.dataset.meal):MEAL_OPEN.delete(f.dataset.meal); }, true);
 $('#voteCity').addEventListener('click', e=>{ const b=e.target.closest('[data-vcity]'); if(!b) return; L.voteCity=b.dataset.vcity; saveLocal(); renderVote(); });
 $('#ideaList').addEventListener('change', e=>{ const s=e.target.closest('[data-sched]'); if(!s) return; schedule(s.dataset.sched, s.value); renderVote(); toast(s.value?'Added to '+fmtDay(s.value):'Back to ideas'); });
 
@@ -856,8 +877,8 @@ function showDetails(spec){
     <div class="sh-b"><h2>${esc(title)}</h2><div>${famIcons(fam||main.fam)}</div>
       <p class="lede">${esc(D.what||main.info||'')}</p>
       ${D.photo?`<p class="note">📷 ${esc(D.photo)}</p>`:''}
-      ${vidLinks(D.watch||[CN[main.city]||'', cjk(main.name)||main.mapq||''].join(' ').trim(), main.category==='Food', (main.mapen||main.name)+', '+(CITY_EN[main.city]||main.city||''))}
-      ${D.what?`<dl class="facts">${row('🕖 When',D.when)}${row('⏱ How long',D.length)}${row('🎟 Price',D.price)}${row('👶 Kids',D.kids)}${row('🧓 Grandparents',D.elderly)}${row('📍 Getting there',D.getting)}</dl>`:''}
+      ${vidLinks(D.watch||[CN[main.city]||'', cjk(main.name)||main.mapq||''].join(' ').trim(), main.category==='Food', (main.mapen||main.name)+', '+((main.mapcity&&main.mapcity!=='Travel'&&main.mapcity!==main.city)?main.mapcity:(CITY_EN[main.city]||main.city||'')))}
+      ${(D.what||D.when||D.price)?`<dl class="facts">${row('🕖 When',D.when)}${row('⏱ How long',D.length)}${row('🎟 Price',D.price)}${row('👶 Kids',D.kids)}${row('🧓 Grandparents',D.elderly)}${row('📍 Getting there',D.getting)}</dl>`:''}
       ${D.what&&main.info?`<details class="more"><summary>More about it</summary><p style="font-size:13.5px;color:var(--ink-2)">${esc(main.info)}</p></details>`:''}
       ${items.filter(x=>x!==main&&x.info).map(x=>`<p style="font-size:13.5px;color:var(--ink-2)"><b>${esc(x.name)}:</b> ${esc(x.info)}</p>`).join('')}
       ${main.book?`<div class="bookbox" style="display:block">🎟 ${esc(main.book)}</div>`:''}
@@ -947,7 +968,7 @@ function voteMessage(){
   const b=myBallot(); const lines=[`🗳 *${L.me}'s votes · ${TRIP.name}*`];
   for (const d of SEED.decisions){ const o=b.picks[d.id]; if (o) lines.push(`• ${d.title}: ${optName(d.id,o)}`); }
   const hs=b.hearts.map(id=>P.items[id]&&P.items[id].name).filter(Boolean); if (hs.length) lines.push(`❤ ${hs.join(', ')}`);
-  const left=SEED.decisions.length-votedCount(); if (left) lines.push(`(${left} not voted yet)`);
+  const left=RING_DECS.length-votedCount(); if (left) lines.push(`(${left} not voted yet)`);
   lines.push('', 'Tap to count my votes 👇', `${SITE}#v=${ballotCode()}`);
   return lines.join('\n');
 }
@@ -978,7 +999,7 @@ function renderShare(){
   $('#aboutText').textContent = TRIP.about || 'Everything is saved in this browser only: no accounts, no server.';
   $('#sName').value=L.me;
   const names=realVoters().sort();
-  $('#voters').innerHTML = names.map(n=>`<span>${esc(n)} <small style="color:var(--ink-3)">${SEED.decisions.filter(d=>P.ballots[n].picks[d.id]).length}/${SEED.decisions.length}</small></span>`).join('');
+  $('#voters').innerHTML = names.map(n=>`<span>${esc(n)} <small style="color:var(--ink-3)">${RING_DECS.filter(d=>P.ballots[n].picks[d.id]).length}/${RING_DECS.length}</small></span>`).join('');
   $('#results').innerHTML = !names.length ? '<div class="empty" style="border:0">No votes counted yet.</div>' : SEED.decisions.map(d=>{ const t=tally(d.id); const max=Math.max(1,...Object.values(t).map(v=>v.length));
     return `<div class="r"><b>${esc(d.title)}</b>${chosen(d.id)?` <span class="chip lock">✓ ${esc(optName(d.id,chosen(d.id)))}</span>`:''}<div class="rl">${d.options.map(o=>`<span>${esc(o.name)}</span><span>${t[o.id].length}</span><div class="bar"><i style="width:${Math.round(t[o.id].length/max*100)}%"></i></div>`).join('')}</div></div>`; }).join('');
   $('#credits').innerHTML = Object.entries(SEED.credits).map(([k,c])=>`<div><a href="${esc(c.page)}" target="_blank" rel="noopener">${esc(k)}</a>: ${esc(c.author||'unknown')} · ${esc(c.license)}</div>`).join('');

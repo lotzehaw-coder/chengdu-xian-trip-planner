@@ -110,64 +110,41 @@ def I(id, day, name, city, cat, time='', end='', info='', fam=(), tags=(), key=N
                   'day': day, 'suggestedDay': day, 'status': 'scheduled' if day and not opt else 'wishlist', 'opt': opt, 'order': n})
 
 # Day 1 — Mon 14 Dec
-I('lunch-mapo', D[1], 'Lunch — Chen Mapo Tofu 陈麻婆豆腐', 'Chengdu', 'Food', '12:00', '13:15',
-  'The famous name in mapo tofu (several branches; Map lists them). Order some dishes 微辣 (wēi là, mild) or 不辣 (bù là, no chilli) for the kids and elderly.', ('easy', 'spicy'), pic='mapotofu')
 I('peoplespark', D[1], "People's Park & Heming Teahouse 人民公园 · 鹤鸣茶社", 'Chengdu', 'Sight', '14:00', '15:30',
   'Chengdu at its most relaxed: bamboo chairs by the lake, a pot of jasmine tea, ear-cleaners doing the rounds, grandparents dancing. Flat paths all the way round.', ('stroller', 'easy'), ('must-see',))
 I('kuanzhai', D[1], 'Kuanzhai Alley 宽窄巷子', 'Chengdu', 'Sight', '16:00', '17:30',
   'Three restored Qing-era lanes of courtyard houses, snacks and tea shops. Flat and pram-friendly; busy after 5pm, so hold small hands.', ('stroller', 'easy'))
-I('dinner-hotpot', D[1], 'Dinner — Sichuan hot pot 火锅', 'Chengdu', 'Food', '18:00', '19:30',
-  'Ask for a 鸳鸯锅 (yuān yāng guō): a split pot with a spicy side and a clear broth side, so the kids and elderly eat from the mild half. Well-known chains: 小龙坎 Xiaolongkan, 蜀九香 Shu Jiu Xiang (several branches; Map lists them).', ('spicy', 'indoor'), pic='hotpot')
 # Day 2 — Tue 15 Dec
 I('panda', D[2], 'Giant Panda Base 成都大熊猫繁育研究基地', 'Chengdu', 'Sight', '08:00', '11:30',
   'Go at opening: pandas are most active in the cool morning. Use the ¥10 park shuttle bus between enclosures to save little and older legs. The nurseries with cubs are the highlight.',
   ('stroller', 'cold', 'book'), ('must-see',), book="Tickets open 14 days ahead (from Tue 1 Dec) on Trip.com or the base's WeChat mini-program; passport for each person. Book the shuttle bus at the same time.")
-I('lunch-longchaoshou', D[2], 'Lunch — Long Chao Shou wontons 龙抄手', 'Chengdu', 'Food', '12:15', '13:15',
-  'A Chengdu snack institution on Chunxi Road: wontons in clear or red-oil broth, plus small plates of Chengdu snacks. Gentle food for everyone.', ('easy', 'indoor'), pic='wonton')
 I('rest-d2', D[2], 'Back to the hotel — nap & rest', 'Chengdu', 'Rest', '13:30', '15:45',
   'Early start and a long walk: nap time for the baby and a rest for the elderly before the evening.', ('rest',), pic=REST)
-I('dinner-d2', D[2], 'Dinner — Sichuan home cooking', 'Chengdu', 'Food', '19:00', '20:30',
-  'e.g. 马旺子 Ma Wang Zi. Mild dishes that work for kids: 宫保鸡丁 kung pao chicken, 回锅肉 twice-cooked pork, 蒜蓉空心菜 garlic greens, 蛋炒饭 egg fried rice. Several branches; Map lists them.', ('indoor', 'spicy'), pic='sichuandishes')
 # Day 3 — Wed 16 Dec
 I('lunch-train', D[3], 'Lunch on the train', 'Travel', 'Food', '12:15', '13:00',
   'Buy buns and snacks at Chengdu East before boarding, or order a hot meal to your seat when booking on Trip.com / 铁路12306. Hot water taps in every carriage for baby bottles.', ('easy',), pic='hsr')
 I('wildgoose', D[3], 'Big Wild Goose Pagoda 大雁塔', "Xi'an", 'Sight', '17:15', '18:15',
   'The 7th-century Tang pagoda, beautifully lit at dusk. The squares around it are free and flat; going inside the temple grounds is optional.', ('stroller', 'easy', 'cold'), ('must-see',))
-I('dinner-dapaidang', D[3], "Dinner — Chang'an Da Pai Dang 长安大牌档", "Xi'an", 'Food', '18:30', '19:45',
-  "Lively Shaanxi restaurant with the Xi'an classics in one place: roujiamo, biangbiang noodles, liangpi, paomo. Staff in costume; kids love it. Several branches near the pagoda.", ('indoor',), pic='biangbiang')
 I('datang', D[3], 'Great Tang All Day Mall night walk 大唐不夜城', "Xi'an", 'Night', '19:45', '21:00',
   'A long pedestrian boulevard of Tang-dynasty light sculptures and street performers running south from the pagoda. Flat and wide, fine for strollers and wheelchairs. Very cold after dark in December.', ('stroller', 'easy', 'cold'), ('must-see',))
 # Day 4 — Thu 17 Dec
 I('terracotta', D[4], 'Terracotta Army 秦始皇兵马俑', "Xi'an", 'Sight', '09:00', '12:30',
   "Start at Pit 1 (the famous rows of 2,000-year-old warriors), then Pits 3 and 2. It's a long walk from the car park to the pits, so pace it for the elderly and bring the baby carrier as well as the stroller. The halls are big and cold in winter.",
   ('stroller', 'cold', 'book'), ('must-see',), book='Online only, up to 7 days ahead (from Thu 10 Dec); passport for each person. Book a private van for the day, about 1h each way.')
-I('lunch-lintong', D[4], 'Lunch in Lintong', "Xi'an", 'Food', '12:45', '13:45',
-  'Plenty of restaurants near the museum exit. Keep it simple and warm: noodles, dumplings, soup.', ('easy', 'indoor'), pic='biangbiang')
-I('dinner-defachang', D[4], 'Dinner — De Fa Chang dumpling banquet 德发长饺子宴', "Xi'an", 'Food', '18:30', '20:00',
-  'A long-established restaurant by the Bell Tower serving a banquet of dumplings in many shapes and fillings. Soft, not spicy, fun for kids and grandparents alike.', ('indoor', 'easy'), pic='dumplings')
 # Day 5 — Fri 18 Dec
 I('shaanximuseum', D[5], 'Shaanxi History Museum 陕西历史博物馆', "Xi'an", 'Sight', '09:00', '11:30',
   "One of China's great museums: Tang gold and silver, murals, Zhou bronzes. Warm and indoor, a good morning for everyone after yesterday's walking.",
   ('stroller', 'indoor', 'book'), ('must-see',), book="Free, but reserve with each person's passport on the museum's WeChat / website. Slots are released a few days ahead (reported 5–7 days); watch from Fri 11 Dec. Closed Mondays in winter.")
-I('lunch-noodles', D[5], 'Lunch — biangbiang noodles & roujiamo', "Xi'an", 'Food', '12:00', '13:00',
-  "Xi'an's two signatures: belt-wide hand-pulled noodles, and the \"Chinese burger\" of braised meat in a crisp bun (樊记腊汁肉夹馍 Fan Ji is the famous one).", ('easy',), pic='roujiamo')
 I('citywall', D[5], 'City Wall at South Gate 永宁门', "Xi'an", 'Sight', '14:00', '15:45',
   'The most complete old city wall in China, about 14km round and wide enough to cycle. Bikes for the energetic; everyone else strolls a short stretch for the view. There are steps up at the gate, so ask at the ticket office for the easiest way up with the grandparents and the pram.', ('stairs', 'cold'), ('must-see',))
 I('belltower', D[5], 'Bell & Drum Towers 钟楼 · 鼓楼', "Xi'an", 'Sight', '16:15', '17:15',
   'The two Ming towers at the heart of the old city, lit up at dusk. Seeing them from the square is free and easy; climbing is optional.', ('easy', 'cold'))
 # Day 6 — Sat 19 Dec
 I('lunch-d6', D[6], "Lunch at Xi'an North station", 'Travel', 'Food', '13:15', '13:45', 'Noodles and buns in the station food court, or pick up food for the train.', ('easy', 'indoor'), pic=[])
-I('night-d6', D[6], 'Dinner & Chunxi Road by night 春熙路', 'Chengdu', 'Night', '19:30', '21:00',
-  'Walk to the shopping streets for Christmas lights and street snacks: 钟水饺 Zhong dumplings, 糖油果子 sugar-fried dough balls, 冰粉 ice jelly.', ('stroller', 'easy'), pic='chunxi', key='chunxi')
 # Day 7 — Sun 20 Dec
-I('dinner-d7', D[7], 'Dinner near the hotel', 'Chengdu', 'Food', '19:00', '20:30', 'An easy one after a big day out.', ('easy', 'indoor'), pic=[])
 # Day 8 — Mon 21 Dec (most Chengdu museums close on Mondays)
-I('lunch-zhong', D[8], 'Lunch — Chengdu snacks 钟水饺 · 担担面', 'Chengdu', 'Food', '12:45', '13:45',
-  'Sweet-soy Zhong dumplings, dan dan noodles, 赖汤圆 glutinous rice balls. Order a spread and share.', ('easy', 'indoor'), pic='dumplings')
 I('rest-d8', D[8], 'Rest, showers & pack (keep the rooms)', 'Chengdu', 'Rest', '14:00', '17:30',
   'The flight leaves after midnight. Keep the rooms until evening (late check-out, or book the night of 21 Dec) so the baby naps and everyone showers before the airport.', ('rest',), pic=REST)
-I('dinner-farewell', D[8], 'Farewell dinner', 'Chengdu', 'Food', '18:00', '19:45',
-  'A proper Sichuan banquet to finish: book a private room 包间 for 10. Keep it early; the airport run starts at 21:30.', ('indoor',), pic='hotpot')
 
 # ---------- decisions: the family votes; the organiser locks the winner ----------
 decisions = []
@@ -184,7 +161,7 @@ I('pandatower', D[1], 'Panda Tower night view 天府熊猫塔', 'Chengdu', 'Nigh
   "The 339m TV tower, now 'Tianfu Panda Tower': a 1-minute lift to the 230m deck for Chengdu's best night view, with the Mengzhuiwan riverside bars below. Indoor deck, warm in December.", ('easy', 'indoor', 'book'),
   opt='d-d1eve:tower', pic=['img/g/pandatower-1.jpg', 'img/g/mengzhuiwan-1.jpg'],
   book='Tickets about ¥80 (standard lift) or ¥100 (sightseeing lift); under 1.2m free, discounts for 1.2–1.4m children and over-60s. Winter hours 10:00–21:00; confirm last entry and prices on its official account before going.')
-DEC('d-d1eve', D[1], '20:00', 'Monday evening', 'After hot pot on the first night, what next?', [
+DEC('d-d1eve', D[1], '20:00', 'Monday evening', 'After dinner on the first night, what next?', [
   O('opera', 'Sichuan Opera face-changing', 'Chengdu', 'The masks that change in a flash. 1.5h, seats with tea. Late-ish for the baby.', ('indoor', 'book'), 'sichuanopera', ['opera']),
   O('jinli', 'Jinli lanterns stroll', 'Chengdu', 'Short, pretty, lantern-lit old street. About 1 hour.', ('stroller', 'cold'), 'jinli', ['jinli-eve']),
   O('rest', 'Early night', 'Chengdu', 'We land after midnight the night before. Sleep wins.', ('rest',), REST, ['earlynight']),
@@ -213,7 +190,7 @@ I('qianguqing', D[4], "Xi'an Romance show 西安千古情", "Xi'an", 'Show', '15
   book='Tickets ¥278 / ¥328 / ¥580; under 1.2m or under 6 free without a seat (one per adult). Shows usually 13:00 / 15:30 / 17:30; confirm winter times on its WeChat. Similar indoor show in the same area: 驼铃传奇 Camel Bell Legend (see Ideas).')
 DEC('d-d4pm', D[4], '14:00', 'Thursday afternoon', 'After the Terracotta Army:', [
   O('huaqing', 'Huaqing Palace', "Xi'an", 'Imperial hot-spring gardens nearby, no extra long drive.', ('stroller', 'cold'), 'huaqing', ['huaqing']),
-  O('rest', 'Hotel & rest', "Xi'an", 'Head back, warm up and nap before the dumpling dinner.', ('rest',), REST, ['rest-d4']),
+  O('rest', 'Hotel & rest', "Xi'an", 'Head back, warm up and nap before dinner.', ('rest',), REST, ['rest-d4']),
   O('qgq', "Xi'an Romance show", "Xi'an", 'Big indoor spectacle, short detour on the drive back. From ¥278, little ones free.', ('indoor', 'easy', 'book'), ['img/g/qianguqing-1.jpg'], ['qianguqing'])])
 
 I('muslimquarter', D[5], 'Muslim Quarter street food 回民街', "Xi'an", 'Food', '17:30', '19:30',
@@ -248,7 +225,7 @@ DEC('d-d6am', D[6], '08:30', 'Saturday morning', 'Before the afternoon train bac
 
 I('leshan-train', D[7], 'G-train Chengdu East → Leshan 乐山', 'Chengdu', 'Travel', '08:30', '09:40', 'About 1 hour, then 30 min by van to the river pier.', ('book',), opt='d-d7:leshan', pic='hsr', key='cdeast',
   book='Train tickets open 15 days ahead counting the travel day: Sun 6 Dec for both the outbound and return trains.')
-I('leshan', D[7], 'Leshan Giant Buddha by boat 乐山大佛', 'Chengdu', 'Sight', '10:30', '14:00',
+I('leshan', D[7], 'Leshan Giant Buddha by boat 乐山大佛', 'Chengdu', 'Sight', '10:30', '12:30',
   'The 71m Buddha carved into a riverside cliff 1,200 years ago. The river boat shows the whole figure with no steps, which is best for the baby and grandparents. The path down beside the Buddha is hundreds of steep steps with long queues; optional for the fit.', ('cold',), opt='d-d7:leshan')
 I('leshan-back', D[7], 'G-train Leshan → Chengdu East', 'Chengdu', 'Travel', '15:00', '16:10', 'Taxi or van back to Leshan station after lunch, then about 1 hour to Chengdu East.', ('book',), opt='d-d7:leshan', pic='hsr', key='leshanstn')
 I('dujiangyan', D[7], 'Dujiangyan irrigation system 都江堰', 'Chengdu', 'Sight', '09:30', '14:30',
@@ -268,13 +245,214 @@ DEC('d-d7', D[7], '09:00', 'Sunday: the big one', 'Pick the whole day:', [
   O('dino', 'Dinosaur museum + easy afternoon', 'Chengdu', "Kids' pick: giant Sichuan dinosaurs, then tea and rest.", ('stroller', 'indoor'), 'naturalhistory', ['naturalhistory', 'tea-d7'])])
 
 I('wenshu', D[8], 'Wenshu Monastery 文殊院', 'Chengdu', 'Sight', '10:30', '12:30',
-  "Chengdu's busiest Buddhist temple: incense and quiet courtyards. Its well-known vegetarian restaurant can replace the snack lunch if you prefer.", ('stroller', 'easy'), opt='d-d8am:wenshu')
+  "Chengdu's busiest Buddhist temple: incense and quiet courtyards. Its well-known vegetarian restaurant can replace lunch if you prefer.", ('stroller', 'easy'), opt='d-d8am:wenshu')
 I('shopping', D[8], 'Last-minute shopping: IFS & Chunxi Road', 'Chengdu', 'Shop', '10:30', '12:30', 'Panda souvenirs, Sichuan pepper and tea to take home.', ('stroller', 'easy', 'indoor'), opt='d-d8am:shop', pic='ifspanda', key='ifs')
 I('pool-d8', D[8], 'Pool & slow morning', 'Chengdu', 'Rest', '10:30', '12:30', 'Rest up before the overnight flight.', ('rest',), opt='d-d8am:rest', pic=REST)
 DEC('d-d8am', D[8], '10:30', 'Monday morning', 'Last morning (most museums are closed on Mondays):', [
   O('wenshu', 'Wenshu Monastery', 'Chengdu', 'Temple courtyards, incense and ginkgo trees.', ('stroller', 'easy'), 'wenshu', ['wenshu']),
   O('shop', 'Shopping at IFS & Chunxi Rd', 'Chengdu', 'Souvenirs, tea, Sichuan pepper.', ('stroller', 'indoor'), 'ifspanda', ['shopping']),
   O('rest', 'Pool & slow morning', 'Chengdu', 'Save energy for the 1am flight.', ('rest',), REST, ['pool-d8'])])
+
+
+# ---------- meals: 2–3 places per lunch/dinner, all able to seat 10 (Tze, 14 Sep: "some are too spicy ... accommodate 10 pax") ----------
+# Checked 14 Sep 2026 on Ctrip / Trip.com / Qunar / 大众点评 / Bendibao listings. Hours and prices change; each sheet says to confirm when booking.
+# Existing meal ids are kept (people's phones hold them) and became options; kind='meal' keeps these votes out of the progress ring.
+MEAL_DET = {}
+DISH = 'Photos show the dish, not this restaurant. Tap 小红书 or 大众点评 for the place itself.'
+HDL = ['img/g/food-tomatohotpot-1.jpg', 'img/g/food-haidilao-1.jpg']
+def MO(oid, id, name, short, blurb, info, fam, pic, when, price, getting, kids='', elderly='', book='', watch='', cat='Food', mapcity=None, time=None, end=None, en=None):
+    return dict(oid=oid, id=id, name=name, short=short, blurb=blurb, info=info, fam=fam, pic=pic, book=book, cat=cat, mapcity=mapcity, time=time, end=end, en=en,
+                det={'when': when, 'price': price, 'getting': getting, 'kids': kids, 'elderly': elderly, 'watch': watch, 'photo': DISH if pic else 'No photos yet: tap 小红书 or 大众点评.'})
+def MEAL(did, day, time, end, title, question, *opts):
+    city = next(c for d, c, _ in DAYS if d == day)
+    out = []
+    for o in opts:
+        if o['mapcity']: MAPCITY[o['id']] = o['mapcity']
+        if o['det'].get('watch'):
+            MAPQ[o['id']] = re.sub(r'^(成都|西安|乐山) ', '', o['det']['watch'])
+            en = o['en'] or re.sub(r'\s+', ' ', re.sub(r'[㐀-鿿·]+', '', o['name'].split('— ', 1)[-1])).strip()
+            MAPEN[o['id']] = en
+        I(o['id'], day, o['name'], city, o['cat'], o['time'] or time, o['end'] or end, o['info'], o['fam'], pic=o['pic'], opt=f"{did}:{o['oid']}", book=o['book'])
+        MEAL_DET['p:' + o['id']] = {k: v for k, v in o['det'].items() if v}
+        out.append(O(o['oid'], o['short'], city, o['blurb'], o['fam'], o['pic'] or [], [o['id']]))
+    DEC(did, day, time, title, question, out, kind='meal')
+
+# --- Chengdu, Mon 14 Dec ---
+MEAL('m-d1lunch', D[1], '12:00', '13:15', 'Monday lunch', "Before People's Park:",
+  MO('mapo', 'lunch-mapo', 'Lunch — Chen Mapo Tofu 陈麻婆豆腐 (flagship)', 'Chen Mapo Tofu', 'The famous mapo tofu house. Spicy, but there are 不辣 dishes for the kids. About ¥50–70 each.',
+     "The flagship of the famous mapo tofu house. Spicy by nature: order mapo tofu 微辣 (mild) for the adults, and 不辣 (no chilli) dishes such as 宫保鸡丁 kung pao chicken and 鸡丝面 chicken noodles for the kids and elderly.",
+     ('easy', 'spicy'), 'mapotofu', 'Opens 11:00; closed mid-afternoon', 'About ¥50–70 per person', "青羊区东华门街51号 (富力中心B座), a short drive from People's Park",
+     kids='Order the 不辣 dishes; most of the menu has chilli', elderly='Several floors: ask for the lift', book='Private rooms have had a minimum spend (about ¥800 in older reviews); confirm when booking.', watch='成都 陈麻婆豆腐 总店'),
+  MO('lixuan', 'lixuan-d1', 'Lunch — Li Xuan Cantonese, Ritz-Carlton 丽轩', 'Li Xuan (Cantonese)', 'Dim sum and roast meats in a hotel private room. Not spicy. Pricier.',
+     "Cantonese dim sum and roast meats on the 26th floor of the Ritz-Carlton, in the same complex as Chen Mapo Tofu. Nothing spicy: 虾饺 har gow, 叉烧包 BBQ-pork buns, 冰烧三层肉 crispy pork belly, double-boiled soups. 11 private rooms.",
+     ('easy', 'indoor', 'book'), ['img/g/food-roastgoose-1.jpg', 'img/g/food-dimsum-1.jpg', 'img/g/food-charsiubao-1.jpg'], '11:30–14:00, 17:30–21:30', 'About ¥335 per person in older reviews; a dim sum lunch usually costs less',
+     '青羊区顺城大街269号 富力丽思卡尔顿酒店 26F', kids='Nothing spicy; high chairs', elderly='Lift all the way', book='Book a private room for 10: 028-83599207.', watch='成都 丽思卡尔顿 丽轩'),
+  MO('rongle', 'rongle-d1', 'Lunch — Rongle Garden 荣乐园', 'Rongle Garden (mild Sichuan)', 'Old-school Chengdu banquet cooking, famous for non-spicy classics. About ¥120 each.',
+     "Old-school Chengdu banquet cooking (荣派 style), known for its non-spicy classics: 樟茶鸭 tea-smoked duck, 咸烧白 steamed pork belly, 圆子汤 meatball soup, 锅贴 potstickers. Near Wenshu Monastery.",
+     ('easy', 'indoor', 'book'), ['img/g/food-teaduck-1.jpg', 'img/g/food-teaduck-2.jpg'], 'Confirm hours when booking', 'About ¥120 per person',
+     '青羊区文殊院街27号 (some listings say 29号), near Wenshu Monastery', kids='Mild dishes; ask for 不辣 on anything else', elderly='Older building: ask about stairs to the rooms', book='Book a private room ahead.', watch='成都 荣乐园 文殊院', en='Rongle Garden'))
+MEAL('m-d1din', D[1], '18:00', '19:30', 'Monday dinner', 'Before the evening out (the opera starts at 20:00):',
+  MO('hotpot', 'dinner-hotpot', 'Dinner — Huangcheng Laoma hot pot 皇城老妈', 'Hot pot, split pot', 'Real Chengdu hot pot with a clear-broth side, on the same road as the opera. About ¥120 each.',
+     "A famous Chengdu hot pot house on 琴台路, the same road as the 蜀风雅韵 opera theatre. Order a 鸳鸯锅 (yuān yāng guō) split pot: spicy on one side, clear broth for the kids and elderly. Gentle picks: 嫩鸡片 tender chicken, 手工虾丸 shrimp balls, 竹荪 bamboo fungus.",
+     ('spicy', 'indoor'), 'hotpot', '11:00–22:00', 'About ¥120 per person', '青羊区琴台路106号 (七宝楼旁)', kids='High chairs; keep them on the clear-broth side', elderly='Tables for 10+', watch='成都 皇城老妈 琴台'),
+  MO('yinxing', 'yinxing-d1', 'Dinner — Yinxing Jinge 银杏金阁', 'Yinxing Jinge (Cantonese + Sichuan)', 'Smart restaurant, nothing spicy: har gow, cabbage in clear broth, steamed ribs.',
+     "A smart Cantonese-and-Sichuan restaurant: 银杏虾饺皇 har gow, 开水白菜 cabbage in clear broth, 金银蒜蒸排骨 garlic steamed ribs. Not spicy. Private rooms. About 10 min by car to the opera; check the route in Amap.",
+     ('easy', 'indoor', 'book'), ['img/g/food-kaishui-1.jpg', 'img/g/food-dimsum-2.jpg'], 'Confirm hours when booking', 'About ¥270 per person (older figure)', '青羊区锦里中路2号 (彩虹桥路口)',
+     kids='Nothing spicy', elderly='Ask for a room near the lift', book='Book a private room for 10; hours and prices come from older listings.', watch='成都 银杏金阁'),
+  MO('hdl', 'hdl-d1', 'Dinner — Haidilao hot pot 海底捞 (Qunguang Plaza)', 'Haidilao (tomato / mushroom broth)', 'Hot pot without the heat, great with kids. 15–20 min from Kuanzhai Alley.',
+     "Hot pot without the heat: pick 番茄 tomato or 菌汤 mushroom broth. Known for looking after families (baby chairs, the noodle-pulling show). This branch is on Chunxi Road near the hotel, about 15–20 min from Kuanzhai Alley and from either opera theatre.",
+     ('easy', 'indoor'), HDL, '11:00–03:00', 'Roughly ¥90–110 per person (not confirmed for this branch)', '锦江区春熙路南段8号 群光广场 9F',
+     kids='Baby chairs (usual at Haidilao; confirm for this branch)', elderly='Mall lift', book='Book in the Haidilao app or on 028-65000088.', watch='成都 海底捞 群光广场'))
+# --- Chengdu, Tue 15 Dec ---
+MEAL('m-d2lunch', D[2], '12:15', '13:15', 'Tuesday lunch', 'After the pandas, on the way back for a nap:',
+  MO('lcs', 'lunch-longchaoshou', 'Lunch — Long Chao Shou wontons 龙抄手', 'Long Chao Shou wontons', 'Cheap, mild Chengdu snacks near the hotel. Canteen style. About ¥30.',
+     "A Chengdu snack institution near Chunxi Road: 鸡汤抄手 wontons in chicken soup, 赖汤圆 glutinous rice balls, 蛋烘糕 egg cakes, 银耳羹 white fungus soup. Mostly mild. Canteen style: order at the counter, no private rooms, so 10 people may need two tables.",
+     ('easy', 'indoor'), ['img/g/food-wontonsoup-1.jpg', 'img/g/food-wontonsoup-2.jpg'], 'About 09:00–21:30 (older data)', 'About ¥30 per person', '锦江区城守街63号 (近中山广场)', kids='Mild food; red-oil wontons are the spicy ones', elderly='Seating is downstairs: stairs', watch='成都 龙抄手 春熙路总店'),
+  MO('ddd', 'ddd-d2', 'Lunch — Dian Dou De dim sum 点都德 (Longfor Paradise Walk)', 'Dian Dou De dim sum', "Guangzhou dim sum in a mall on the way back. Not spicy. About ¥85 each.",
+     "Guangzhou's dim sum chain, in the 龙湖上城天街 mall on the ring road between the Panda Base and the city: 虾饺皇 har gow, 金沙红米肠 rice rolls, 流沙包 custard buns, 艇仔粥 congee. Not spicy; tables for 8–10.",
+     ('stroller', 'easy', 'indoor'), ['img/g/food-cheungfun-1.jpg', 'img/g/food-dimsum-1.jpg', 'img/g/food-charsiubao-3.jpg'], '10:00–21:30', 'About ¥85 per person', '金牛区一环路北二段 龙湖上城天街 4F', kids='Nothing spicy', elderly='Mall lift', watch='成都 点都德 上城天街'),
+  MO('manho', 'manho-d2', 'Lunch — Man Ho, JW Marriott 万豪中餐厅', 'Man Ho (only if at the JW)', 'Dim sum in the JW Marriott, then straight up for the nap. Only if we stay there.',
+     "Cantonese and Sichuan cooking on the JW Marriott's 7th floor: dim sum, roast meats, double-boiled soups. Eat, then straight up to the rooms for the nap. 2 private rooms. Only makes sense if the family picks the JW.",
+     ('easy', 'indoor', 'book'), ['img/g/food-roastgoose-2.jpg', 'img/g/food-dimsum-2.jpg'], '11:30–14:00, 17:30–21:30', 'About ¥140 per person', '锦江区东御街19号 成都茂业JW万豪酒店 7F',
+     kids='Nothing spicy unless you order Sichuan dishes', elderly='Lift from the rooms', book='Book a private room through the hotel (ext. 6333).', watch='成都 JW万豪 万豪中餐厅'))
+MEAL('m-d2din', D[2], '19:00', '20:30', 'Tuesday dinner', 'After the afternoon out:',
+  MO('ttj', 'ttj-d2', 'Dinner — Tao Tao Ju 陶陶居 (Taikoo Li)', 'Tao Tao Ju (Cantonese)', 'Famous Guangzhou teahouse inside Taikoo Li. Not spicy. Book: long queues.',
+     "A famous Guangzhou teahouse brand inside Taikoo Li: 虾饺 har gow, 烧鹅 roast goose, 红米肠 red rice rolls, 水牛奶菠萝包 buffalo-milk pineapple buns. Not spicy. Private rooms cost more.",
+     ('easy', 'indoor', 'book'), ['img/g/food-pineapplebun-3.jpg', 'img/g/food-roastgoose-1.jpg', 'img/g/food-cheungfun-2.jpg'], '10:30–16:30, 17:00–21:00', 'About ¥115–130 per person', '锦江区大慈寺路 成都太古里25栋 2F',
+     kids='Nothing spicy', elderly='On the 2nd floor; lift not confirmed', book='Big Tao Tao Ju branches often queue: try booking in its app or on 大众点评, or arrive before 12:00 / 18:30.', watch='成都 陶陶居 太古里'),
+  MO('woo', 'dinner-d2', "Dinner — The Woo's 吴氏荟", "The Woo's (Sichuan, can be mild)", 'Refined Sichuan in a villa, Michelin Bib Gourmand. Ask for 不辣.',
+     "Refined Sichuan with seafood in a three-storey villa near 合江亭, Michelin Bib Gourmand 2026. It can be made mild: 话梅小排 plum spare ribs, 黄鱼 yellow croaker, and ask for 不辣.",
+     ('indoor', 'spicy', 'book'), ['img/g/sichuandishes-1.jpg'], '11:30–14:00, 17:00–21:30', 'Mid to high; price not published', '锦江区宏济中路39号附17号, about 10 min from Taikoo Li',
+     kids='High chairs; ask for 不辣', elderly='Villa on 3 floors: ask for a ground-floor table', book='Book on +86 28 6527 2678 and ask for a room for 10 (rooms not confirmed).', watch='成都 吴氏荟'),
+  MO('hdl', 'hdl-d2', 'Dinner — Haidilao hot pot 海底捞 (Qunguang Plaza)', 'Haidilao (tomato / mushroom broth)', 'Hot pot without the heat, about 1 km from Taikoo Li. Great with kids.',
+     "Hot pot without the heat: pick 番茄 tomato or 菌汤 mushroom broth. Known for looking after families (baby chairs, the noodle-pulling show). About 1 km from Taikoo Li on Chunxi Road.",
+     ('easy', 'indoor'), HDL, '11:00–03:00', 'Roughly ¥90–110 per person (not confirmed for this branch)', '锦江区春熙路南段8号 群光广场 9F',
+     kids='Baby chairs (usual at Haidilao; confirm for this branch)', elderly='Mall lift', book='Book in the Haidilao app or on 028-65000088.', watch='成都 海底捞 群光广场'))
+
+# --- Xi'an, Wed 16 Dec ---
+MEAL('m-d3din', D[3], '18:30', '19:45', 'Wednesday dinner', 'By the Big Wild Goose Pagoda, before the night walk:',
+  MO('dpd', 'dinner-dapaidang', "Dinner — Chang'an Da Pai Dang 长安大牌档 (Joy City)", "Chang'an Da Pai Dang", 'Lively themed Shaanxi restaurant, kids love it. Mild dishes available. About ¥50 each.',
+     "A lively Journey-to-the-West themed Shaanxi restaurant in 曲江大悦城, a short walk from the Great Tang All Day Mall. Mild picks: 葫芦鸡 crispy gourd chicken, 妃子笑 shrimp balls, 毛笔酥 brush-shaped pastries, 醪糟冰淇淋 rice-wine ice cream. Skip the 油泼 chilli-oil noodles for the kids.",
+     ('indoor', 'book'), 'biangbiang', 'From 11:00', 'About ¥50 per person', '雁塔区慈恩西路777号 曲江大悦城 3F',
+     kids='Staff in costume; order the mild dishes', elderly='Mall lift; busy and loud', book='Private rooms go fast: book several days ahead on 029-65658866. The main hall is queue-only.', watch='西安 长安大牌档 西游漫记 大悦城'),
+  MO('xafz', 'xafz-d3', "Dinner — Xi'an Fanzhuang 西安饭庄 (Great Tang All Day Mall)", "Xi'an Fanzhuang (Shaanxi, mild)", "Xi'an's best-known old restaurant, on the night-walk street. Not spicy. Private rooms.",
+     "Xi'an's best-known old restaurant (since 1929), with a branch on the Great Tang All Day Mall itself: 金牌葫芦鸡 gourd chicken, 锅贴 potstickers, 糖醋小排 sweet-and-sour ribs, 桂花凉糕 osmanthus rice cake, mini roujiamo. Not spicy.",
+     ('easy', 'indoor', 'book'), ['img/g/food-guotie-1.jpg'], '11:00–24:00', 'About ¥75–100 per person', '雁塔区雁塔南路518号 大唐不夜城 A6-F区',
+     kids='Nothing spicy on the classics', elderly='Private room, no queue', book='Book a private room for 10.', watch='西安饭庄 大唐不夜城'),
+  MO('hdl', 'hdl-d3', 'Dinner — Haidilao hot pot 海底捞 (Qujiang Joy City)', 'Haidilao (tomato / mushroom broth)', 'Hot pot without the heat, in the same mall as Da Pai Dang. Great with kids.',
+     "Hot pot without the heat: pick 番茄 tomato or 菌汤 mushroom broth. Baby chairs and a kids' corner. In the same mall as Chang'an Da Pai Dang, a short walk from the night walk.",
+     ('easy', 'indoor'), HDL, 'Long hours', 'About ¥95 per person', '雁塔区慈恩路777号 曲江大悦城 4F (confirm in the Haidilao app)',
+     kids="Baby chairs, kids' corner", elderly='Mall lift', book='Book in the Haidilao app.', watch='西安 海底捞 曲江大悦城'))
+# --- Xi'an, Thu 17 Dec ---
+MEAL('m-d4lunch', D[4], '12:45', '13:45', 'Thursday lunch', 'In Lintong, after the Terracotta Army:',
+  MO('xafz', 'lunch-lintong', "Lunch — Xi'an Fanzhuang 西安饭庄 (Huaqing Palace)", "Xi'an Fanzhuang (Shaanxi, mild)", 'Mild Shaanxi classics by the Huaqing Palace gate. Private rooms. Reviews are mixed.',
+     "Xi'an Fanzhuang's branch by the Huaqing Palace gate, about 10–15 min by van from the Terracotta Army. Mild Shaanxi classics: 葫芦鸡 gourd chicken, 锅贴 potstickers, 牛肉泡馍 beef paomo, 泡泡油糕 bubble cakes. Reviews are mixed (3.9 on 大众点评).",
+     ('easy', 'indoor', 'book'), ['img/g/food-guotie-1.jpg'], '11:00–21:00', 'About ¥85–100 per person', '临潼区华清路44号 (大唐华清城)',
+     kids='Ask for 凉皮 liangpi without chilli', elderly='Private room, next to Huaqing Palace if that wins the afternoon vote', book='Book a private room: 029-81374111.', watch='西安饭庄 华清池店'),
+  MO('hdl', 'hdl-d4', 'Lunch — Haidilao hot pot 海底捞 (Lintong Yueronghui)', 'Haidilao (tomato / mushroom broth)', "Warm, no chilli, kids' play area. About 10 min by van from the museum.",
+     "Hot pot without the heat: pick 番茄 tomato or 菌汤 mushroom broth. Warm after the cold pits, with a kids' play area. About 10 min by van from the museum.",
+     ('easy', 'indoor'), HDL, '10:00–02:00', 'About ¥90 per person', '临潼区秦唐大道8555号 华清·悦荣荟 3F',
+     kids="Kids' play area, baby chairs", elderly='Mall lift', book='Book in the Haidilao app or on 029-83933555.', watch='西安 海底捞 临潼 悦荣荟'),
+  MO('yushan', 'yushan-d4', 'Lunch — Yu Shan Yuan, Huaqing Palace Hotel 御膳苑', 'Yu Shan Yuan (hotel, quiet)', 'Quiet, refined Shaanxi cooking in a hotel by the palace. Pricier.',
+     "Refined Shaanxi cooking in the Huaqing Palace Hotel, by the palace gate: 老陕葫芦鸡 gourd chicken, 贵妃凤翅 wings, steamed vegetables, mini roujiamo. Skip the 干辣子秦川牛 chilli beef. Quiet. It sits inside the Huaqing Palace area (reached by electric cart): ask whether a palace ticket is needed.",
+     ('easy', 'indoor', 'book'), [], '11:30–20:30', 'About ¥140–250 per person; may add an 8% service charge', '临潼区华清路038号 华清御汤酒店 (近骊山索道)',
+     kids='Mild dishes', elderly='Quiet hotel dining', book='Call 029-83839595 and ask whether they have a room for 10 (not confirmed).', watch='华清御汤酒店 御膳苑'))
+MEAL('m-d4din', D[4], '18:30', '20:00', 'Thursday dinner', 'Back in the city, near the Bell Tower:',
+  MO('dfc', 'dinner-defachang', 'Dinner — De Fa Chang dumpling banquet 德发长饺子宴', 'De Fa Chang dumpling banquet', 'A banquet of dumplings in many shapes. Soft, not spicy. 30+ private rooms.',
+     "A long-established restaurant by the Bell Tower serving a banquet of dumplings in many shapes and fillings. Soft, not spicy, fun for kids and grandparents alike. Over 30 private rooms.",
+     ('indoor', 'easy', 'book'), 'dumplings', '10:30–21:00', 'Dumpling banquets ¥138 / ¥188 / ¥268 per person; about ¥70 à la carte', '莲湖区西大街3号, by the Bell Tower',
+     kids='Nothing spicy', elderly='Private room', book='Book a room and a set banquet a few days ahead.', watch='西安 德发长 钟楼'),
+  MO('xafz', 'xafz-d4', "Dinner — Xi'an Fanzhuang flagship 西安饭庄 (East Street)", "Xi'an Fanzhuang flagship", "The famous old restaurant's main branch, with a small food museum inside. Not spicy.",
+     "The main branch of Xi'an's best-known old restaurant, about 1 km east of the Bell Tower, with a small Shaanxi food museum inside: 金奖葫芦鸡 gourd chicken, 金线油塔 layered pastry, 三鲜锅贴 potstickers, 枣沫糊 jujube porridge. Not spicy.",
+     ('easy', 'indoor', 'book'), ['img/g/food-guotie-1.jpg'], '11:00–22:00', 'About ¥105 per person', '碑林区东大街298号',
+     kids='Nothing spicy on the classics', elderly='Private room', book='Book a private room: 029-87378866.', watch='西安饭庄 东大街店'),
+  MO('tsx', 'tsx-d4', 'Dinner — Tong Sheng Xiang paomo 同盛祥 (Bell Tower)', 'Tong Sheng Xiang (paomo, halal)', "Xi'an's classic bread-in-soup. Kids enjoy breaking the bread. Halal, no pork. About ¥45.",
+     "Xi'an's classic 泡馍: you break flatbread into small pieces and it comes back in rich beef or lamb soup (kids like the breaking). Also 酱牛肉 braised beef and 蜂蜜凉粽 honey rice cake. Halal, so no pork. Next door to De Fa Chang.",
+     ('easy', 'indoor', 'book'), ['img/paomo.jpg', 'img/g/paomo-1.jpg'], '10:30–21:00', 'About ¥35–50 per person', '莲湖区西大街5号, by the Bell Tower',
+     kids='Mild; ask for 凉皮 without chilli', elderly='Rooms are on the 2nd floor (ground floor is a snack hall)', book='Book the 2nd-floor restaurant: 029-87218711.', watch='西安 同盛祥 钟楼店'))
+# --- Xi'an, Fri 18 Dec ---
+MEAL('m-d5lunch', D[5], '12:00', '13:30', 'Friday lunch', 'After the museum, before the City Wall (all three are in SEG mall, about 700 m from the museum):',
+  MO('dpd', 'lunch-noodles', "Lunch — Chang'an Da Pai Dang, museum-themed branch 长安大牌档 (SEG)", "Chang'an Da Pai Dang (museum theme)", "The lively Shaanxi chain's branch themed on the museum. Roujiamo and noodles. About ¥50.",
+     "The Da Pai Dang branch themed on the Shaanxi History Museum, on the 10th floor of SEG mall: 腊汁肉夹馍 roujiamo, 葫芦鸡 gourd chicken, 毛笔酥 brush pastries, and biangbiang noodles (ask for less chilli). Lively.",
+     ('indoor', 'book'), 'roujiamo', '10:00–22:00', 'About ¥50 per person', '雁塔区长安中路123号 赛格国际购物中心 10F',
+     kids='Order the mild dishes; skip the 油泼 chilli-oil ones', elderly='Mall lift', book='Book: 029-89326688.', watch='长安大牌档 陕历博文化餐厅 赛格'),
+  MO('ddd', 'ddd-d5', 'Lunch — Dian Dou De dim sum 点都德 (SEG)', 'Dian Dou De dim sum', "Cantonese dim sum, rated the best in Xi'an. Not spicy. Book: big tables wait ~1h.",
+     "Guangzhou's dim sum chain, opened here in autumn 2025 and rated 4.7: 虾饺皇 har gow, 蜜汁叉烧包 BBQ-pork buns, 红米肠 rice rolls, 艇仔粥 congee, 蒸排骨 steamed ribs. The most familiar food for a Malaysian family. Not spicy.",
+     ('stroller', 'easy', 'indoor', 'book'), ['img/g/food-dimsum-1.jpg', 'img/g/food-charsiubao-1.jpg', 'img/g/food-cheungfun-3.jpg'], 'Mall hours 10:00–22:00', 'About ¥90 per person', '雁塔区长安中路123号 赛格国际购物中心 8F',
+     kids='Nothing spicy', elderly='Mall lift', book='A table for 10 can mean a 1-hour wait: reserve on its WeChat, 大众点评 or 400-138-2828. Rooms have no extra charge.', watch='西安 点都德 赛格'),
+  MO('hdl', 'hdl-d5', 'Lunch — Haidilao hot pot 海底捞 (SEG)', 'Haidilao (tomato / mushroom broth)', 'Hot pot without the heat, same mall. Great with kids.',
+     "Hot pot without the heat: pick 番茄 tomato or 菌汤 mushroom broth. Baby chairs. In the same mall as the other two.",
+     ('easy', 'indoor'), HDL, 'Mall hours', 'About ¥90–100 per person', '雁塔区长安中路123号 赛格国际购物中心 7F (an older listing says 9F; check the app)',
+     kids='Baby chairs', elderly='Mall lift', book='Book in the Haidilao app.', watch='西安 海底捞 小寨赛格'))
+# --- Chengdu, Sat 19 Dec ---
+MEAL('m-d6din', D[6], '19:30', '21:00', 'Saturday dinner', 'Back in Chengdu after the train:',
+  MO('walk', 'night-d6', 'Dinner & Chunxi Road by night 春熙路', 'Chunxi Road snack walk', 'Christmas lights and street snacks, no booking. Mostly mild.',
+     'Walk to the shopping streets for Christmas lights and street snacks: 钟水饺 Zhong dumplings, 糖油果子 sugar-fried dough balls, 冰粉 ice jelly.',
+     ('stroller', 'easy'), 'chunxi', 'Evening', 'Pay as you go', 'Chunxi Road: walkable from the JW / Ritz area, 25–35 min by car from the W', cat='Night'),
+  MO('ddd', 'ddd-d6', 'Dinner — Dian Dou De dim sum 点都德 (Qunguang Plaza)', 'Dian Dou De dim sum', 'Sit-down Cantonese on Chunxi Road. Not spicy. About ¥95 each.',
+     "Guangzhou's dim sum chain on Chunxi Road: 虾饺皇 har gow, 金沙红米肠 rice rolls, 流沙包 custard buns, 干炒牛河 fried beef noodles. Not spicy; tables for 8–10. Closes 21:30, so go soon after checking in.",
+     ('stroller', 'easy', 'indoor'), ['img/g/food-cheungfun-2.jpg', 'img/g/food-dimsum-2.jpg'], '10:00–21:30', 'About ¥95 per person', '锦江区春熙路南段8号 群光广场 8F', kids='Nothing spicy', elderly='Mall lift', watch='成都 点都德 群光广场'),
+  MO('xlk', 'xlk-d6', 'Dinner — Xiaolongkan hot pot 小龙坎 (Chunxi Road)', 'Xiaolongkan hot pot, split pot', 'For the chilli fans: Chengdu hot pot with a clear side. Open late.',
+     "One of Chengdu's big hot pot names. Order a 鸳鸯锅 split pot so the kids and elderly eat from the clear side: 虾滑 shrimp paste, 牛肉 beef, 红糖糍粑 brown-sugar rice cakes to finish. Open until 2am.",
+     ('spicy', 'indoor'), ['img/g/hotpot-1.jpg', 'img/hotpot.jpg'], '11:00–02:00', 'About ¥90–100 per person', '锦江区下东大街36号 郁金香广场 2F', kids='Keep them on the clear side', elderly='2nd floor; ask for the lift', watch='成都 小龙坎 春熙店'))
+# --- Chengdu, Sun 20 Dec ---
+MEAL('m-d7lunch', D[7], '12:45', '13:45', 'Sunday lunch (Leshan day only)', 'If the family picks Leshan: lunch between the boat and the 15:00 train. Leshan beef soup is mild:',
+  MO('fsn', 'fsn-d7', 'Lunch — Feng Si Niang Leshan beef soup 冯四孃跷脚牛肉', 'Feng Si Niang beef soup', "Leshan's famous clear beef soup, chilli dip on the side. Top-rated, banquet hall. About ¥45.",
+     "Leshan's signature 跷脚牛肉: beef simmered in a clear herbal broth, with the chilli dip on the side, so it is mild unless you dip. Also 甜皮鸭 sweet-skin duck and 红糖饼 brown-sugar cakes. Banquet hall; top-rated on Ctrip.",
+     ('easy', 'indoor'), ['img/g/food-qiaojiao-1.jpg', 'img/g/food-qiaojiao-3.jpg'], '10:00–21:00', 'About ¥45 per person', '乐山市中区嘉兴路289–293号',
+     kids='Clear soup; keep the chilli dip away', elderly='Soft beef in soup', watch='乐山 冯四孃跷脚牛肉 嘉兴路', mapcity='Leshan'),
+  MO('xlw', 'xlw-d7', 'Lunch — Xie Lao Wu Leshan beef soup 谢老五跷脚牛肉', 'Xie Lao Wu beef soup', 'The old classic on the Zhanggongqiao food street. About ¥40.',
+     "The classic 跷脚牛肉 house on the 张公桥 food street: clear beef soup, 蒸肥肠 steamed pork intestine, 鲜烧牛杂 beef offal. Mild, except the 血旺 blood tofu, which is spicy.",
+     ('easy', 'indoor'), ['img/g/food-qiaojiao-2.jpg'], 'Confirm hours before going', 'About ¥35–45 per person', '乐山市中区演武街3号 1F (张公桥大市场)',
+     kids='Clear soup; skip the 血旺', elderly='Rooms are upstairs (stairs); tables downstairs', watch='乐山 谢老五跷脚牛肉 总店', mapcity='Leshan'))
+decisions[-1]['onlyIf'] = 'd-d7:leshan'   # the page shows this vote on Sunday only while Leshan is locked in or leading
+MEAL('m-d7din', D[7], '19:00', '20:30', 'Sunday dinner', 'After the big day out. Huaiyang Fu is near the W; the others are near the JW and Chunxi Road:',
+  MO('manho', 'dinner-d7', 'Dinner — Man Ho, JW Marriott 万豪中餐厅', 'Man Ho (only if at the JW)', 'No travel after a long day, if our second Chengdu stay is at the JW. Not spicy.',
+     "Cantonese and Sichuan cooking on the JW Marriott's 7th floor: dim sum, roast meats, double-boiled soups. No travel after a long day. 2 private rooms. Only makes sense if the second Chengdu stay is at the JW (the W is about 30 min away).",
+     ('easy', 'indoor', 'book'), ['img/g/food-roastgoose-2.jpg', 'img/g/food-dimsum-2.jpg'], '11:30–14:00, 17:30–21:30', 'About ¥140 per person', '锦江区东御街19号 成都茂业JW万豪酒店 7F',
+     kids='Nothing spicy unless you order Sichuan dishes', elderly='Lift from the rooms', book='Book a private room through the hotel (ext. 6333).', watch='成都 JW万豪 万豪中餐厅'),
+  MO('ddd', 'ddd-d7', 'Dinner — Dian Dou De Chin Yue, IFS 点都德·锦粤', 'Dian Dou De Chin Yue (IFS)', "Dian Dou De's smarter Cantonese restaurant in IFS. Not spicy. Rooms.",
+     "Dian Dou De's smarter Cantonese restaurant in IFS: 鲜虾云吞面 shrimp wonton noodles, 豉油鸡 soy-sauce chicken, 葱油蒸小黄鱼 steamed yellow croaker, truffle mushroom dumplings. Not spicy. Banquet hall and private rooms.",
+     ('stroller', 'easy', 'indoor', 'book'), ['img/g/food-wontonsoup-3.jpg', 'img/g/food-cheungfun-1.jpg'], '10:00–21:30', 'About ¥105 per person', '锦江区红星路三段1号 成都IFS 6F L607',
+     kids='Nothing spicy', elderly='Mall lift', book='Book a room for 10.', watch='成都 点都德 锦粤 IFS'),
+  MO('hyf', 'hyf-d7', 'Dinner — Huaiyang Fu, Chengdu SKP 淮扬府·游园京梦', 'Huaiyang Fu (near the W)', 'Mild Jiangsu cooking 7–10 min from the W, rooms and high chairs.',
+     "Gentle Jiangsu (Huaiyang) cooking in the SKP mall, 7–10 min by car from the W Chengdu: 蟹粉狮子头 crab-roe lion's-head meatballs, 萝卜红烧肉 braised pork with radish, 金陵烤鸭 roast duck, 年糕烧黄鱼 yellow croaker with rice cake. Not spicy. Private rooms and high chairs are listed; confirm when booking.",
+     ('easy', 'indoor', 'book'), ['img/g/food-lionshead-2.jpg', 'img/g/food-lionshead-1.jpg', 'img/g/food-hongshaorou-2.jpg'], '11:00–15:00, 17:00–21:00 (confirm when booking)', 'About ¥200–280 per person (other branches of the chain); the priciest choice here', '高新区天府大道北段2001号 成都SKP 美食大道 E2002',
+     kids='Nothing spicy; high chairs', elderly='Mall lift; private room', book='Book a private room for 10: 028-6083 1799 (number as listed on Trip.com), or ask the W concierge to book.', watch='成都 淮扬府 游园京梦 SKP', en='Huaiyang Fu Chengdu SKP'),
+  MO('sqy', 'sqy-d7', 'Dinner — Sanqueyi Chengdu home cooking 三缺一 (Chunxi Road)', 'Sanqueyi (Sichuan home cooking)', 'Everyday Sichuan dishes, rooms and high chairs. Ask for 不辣. About ¥100.',
+     "Everyday Chengdu home-style Sichuan with private rooms. Most dishes come in large or small portions, so 10 people can try a lot. Spicy by default: ask for 不辣 for the kids and elderly.",
+     ('indoor', 'spicy', 'book'), ['img/g/food-huiguorou-2.jpg', 'img/g/sichuandishes-2.jpg'], '11:00–21:00', 'About ¥100 per person', '锦江区纯阳观街1-41号 1–2F',
+     kids='High chairs; ask for 不辣', elderly='Wheelchair access', book='Book a private room for 10.', watch='成都 三缺一 春熙路店'))
+# --- Chengdu, Mon 21 Dec ---
+MEAL('m-d8lunch', D[8], '12:45', '13:45', 'Monday lunch', 'Last lunch in Chengdu, near Chunxi Road and IFS:',
+  MO('lcs', 'lunch-zhong', 'Lunch — Chengdu snacks at Long Chao Shou 钟水饺 · 担担面', 'Chengdu snacks, one roof', 'The classic Chengdu snacks in one place. Mostly mild. Canteen style, about ¥30.',
+     "The classic Chengdu snacks under one roof at 龙抄手's flagship: 钟水饺 sweet-soy Zhong dumplings, 担担面 dan dan noodles (these have chilli), 赖汤圆 glutinous rice balls, 抄手 wontons. Order a spread and share. Canteen style, no private rooms, so 10 people may need two tables.",
+     ('easy', 'indoor'), 'wonton', 'About 09:00–21:30 (older data)', 'About ¥30 per person', '锦江区城守街63号 (近中山广场)', kids='Mostly mild', elderly='Seating is downstairs: stairs', watch='成都 龙抄手 春熙路总店', en='Long Chao Shou Chunxi Road'),
+  MO('ttj', 'ttj-d8', 'Lunch — Tao Tao Ju 陶陶居 (Taikoo Li)', 'Tao Tao Ju (Cantonese)', 'Famous Guangzhou teahouse next to IFS. Not spicy. Book: long queues.',
+     "A famous Guangzhou teahouse brand in Taikoo Li, next to IFS: 虾饺 har gow, 烧鹅 roast goose, 红米肠 red rice rolls, 水牛奶菠萝包 buffalo-milk pineapple buns. Not spicy.",
+     ('easy', 'indoor', 'book'), ['img/g/food-pineapplebun-3.jpg', 'img/g/food-roastgoose-1.jpg'], '10:30–16:30, 17:00–21:00', 'About ¥115–130 per person', '锦江区大慈寺路 成都太古里25栋 2F',
+     kids='Nothing spicy', elderly='On the 2nd floor; lift not confirmed', book='Big Tao Tao Ju branches often queue: try booking in its app or on 大众点评, or arrive before 12:00 / 18:30.', watch='成都 陶陶居 太古里'),
+  MO('sqy', 'sqy-d8', 'Lunch — Sanqueyi Chengdu home cooking 三缺一 (Chunxi Road)', 'Sanqueyi (Sichuan, private room)', 'Everyday Sichuan dishes with a private room for 10. Ask for 不辣. About ¥100.',
+     "Everyday Chengdu home-style Sichuan with private rooms, near Chunxi Road. Most dishes come in large or small portions, so 10 people can try a lot. Spicy by default: ask for 不辣 for the kids and elderly.",
+     ('indoor', 'spicy', 'book'), ['img/g/sichuandishes-2.jpg', 'img/g/food-huiguorou-2.jpg'], '11:00–21:00', 'About ¥100 per person', '锦江区纯阳观街1-41号 1–2F',
+     kids='High chairs; ask for 不辣', elderly='Wheelchair access', book='Book a private room for 10.', watch='成都 三缺一 春熙路店'))
+MEAL('m-d8din', D[8], '18:00', '19:45', 'Farewell dinner', 'Last dinner, in a private room for 10, before the 21:30 airport run (Huaiyang Fu if we stay at the W):',
+  MO('rongle', 'dinner-farewell', 'Farewell dinner — Rongle Garden banquet 荣乐园', 'Rongle Garden banquet (mild Sichuan)', 'A proper Sichuan banquet in the mild old style. Pre-order the showpieces.',
+     "A proper Sichuan banquet to finish, in the mild old Chengdu (荣派) style: pre-order 开水白菜 cabbage in clear broth and 樟茶鸭 tea-smoked duck, plus 咸烧白 steamed pork belly and 圆子汤 meatball soup. Keep it early; the airport run starts at 21:30.",
+     ('indoor', 'easy', 'book'), ['img/g/food-kaishui-2.jpg', 'img/g/food-teaduck-1.jpg'], 'Confirm hours when booking', 'About ¥120 per person, more with the banquet dishes', '青羊区文殊院街27号, near Wenshu Monastery',
+     kids='Mild dishes', elderly='Older building: ask about stairs to the rooms', book='Book a private room and pre-order 开水白菜 a few days ahead.', watch='成都 荣乐园 文殊院', en='Rongle Garden'),
+  MO('manho', 'manho-d8', 'Farewell dinner — Man Ho, JW Marriott 万豪中餐厅', 'Man Ho (only if at the JW)', 'Private room in the hotel: no transfer before the airport run, if we stay at the JW.',
+     "Cantonese and Sichuan cooking on the JW Marriott's 7th floor, in a private room, with the bags already downstairs for the 21:30 airport run. Only makes sense if the last stay is at the JW.",
+     ('easy', 'indoor', 'book'), ['img/g/food-roastgoose-2.jpg', 'img/g/food-dimsum-2.jpg'], '11:30–14:00, 17:30–21:30', 'About ¥140 per person', '锦江区东御街19号 成都茂业JW万豪酒店 7F',
+     kids='Nothing spicy unless you order Sichuan dishes', elderly='Lift from the rooms', book='Book a private room through the hotel (ext. 6333).', watch='成都 JW万豪 万豪中餐厅'),
+  MO('hyf', 'hyf-d8', 'Farewell dinner — Huaiyang Fu, Chengdu SKP 淮扬府·游园京梦', 'Huaiyang Fu (near the W)', 'A private room 7–10 min from the W, on the airport side of town. Not spicy.',
+     "Gentle Jiangsu (Huaiyang) cooking in the SKP mall, 7–10 min by car from the W Chengdu: 蟹粉狮子头 crab-roe lion's-head meatballs, 萝卜红烧肉 braised pork with radish, 金陵烤鸭 roast duck, 年糕烧黄鱼 yellow croaker with rice cake. Not spicy. Private rooms and high chairs are listed; confirm when booking. From the W side of town the 21:30 airport run is also shorter.",
+     ('easy', 'indoor', 'book'), ['img/g/food-lionshead-2.jpg', 'img/g/food-lionshead-1.jpg', 'img/g/food-hongshaorou-2.jpg'], '11:00–15:00, 17:00–21:00 (confirm when booking)', 'About ¥200–280 per person (other branches of the chain); the priciest choice here', '高新区天府大道北段2001号 成都SKP 美食大道 E2002',
+     kids='Nothing spicy; high chairs', elderly='Mall lift; private room', book='Book a private room for 10: 028-6083 1799 (number as listed on Trip.com), or ask the W concierge to book.', watch='成都 淮扬府 游园京梦 SKP', en='Huaiyang Fu Chengdu SKP'),
+  MO('lixuan', 'lixuan-d8', 'Farewell dinner — Li Xuan, Ritz-Carlton 丽轩', 'Li Xuan (Cantonese, 26th floor)', 'Cantonese in a private room with a city view. Not spicy. Pricier.',
+     "Cantonese dim sum, roast meats and soups on the 26th floor of the Ritz-Carlton, with a view over the city centre. 11 private rooms. Nothing spicy.",
+     ('easy', 'indoor', 'book'), ['img/g/food-charsiubao-1.jpg', 'img/g/food-roastgoose-1.jpg'], '11:30–14:00, 17:30–21:30', 'About ¥335 per person in older reviews', '青羊区顺城大街269号 富力丽思卡尔顿酒店 26F',
+     kids='Nothing spicy; high chairs', elderly='Lift all the way', book='Book a private room for 10: 028-83599207.', watch='成都 丽思卡尔顿 丽轩'))
 
 # ---------- ideas: not on a day; heart the ones you want ----------
 I('emei', '', 'Only Emei Mountain theatre city 只有峨眉山', 'Chengdu', 'Show', info="Wang Chaoge's giant immersive theatre village at the foot of Mount Emei (the 'Only' series). Main show 19:30–21:00 (from ¥258). About 2h from Chengdu, so it means a late night or a night in Emei; pairs with the Leshan day trip.", fam=('book',), pic=[])
@@ -432,6 +610,7 @@ prep = [
  ['Sat 5 Dec', "Train back Xi'an → Chengdu for Sat 19 Dec."],
  ['Sun 6 Dec', 'Leshan trains, there and back, for Sun 20 Dec, if Leshan wins the vote.'],
  ['By 6 Dec', 'Book vans: Tianfu Airport pickup ~00:15 Mon 14 Dec (10 people + luggage + pram), the Terracotta day van, and the 21:30 airport run on Mon 21 Dec.'],
+ ['From 7 Dec', 'Book private rooms 包间 for the meal places the family picked (3–7 days ahead): 10 people including a baby, ask for a high chair and any minimum spend. Haidilao books in its app; Ma Wang Zi is walk-in.'],
  ['Thu 10 Dec', 'Terracotta Army tickets for Thu 17 Dec (online only, 7 days ahead, passports).'],
  ['Fri 11 Dec', 'Start watching for Shaanxi History Museum slots for Fri 18 Dec (free, passport per person, released a few days ahead).'],
  ['Pack', "Chengdu is about 5–12°C and damp; Xi'an about −3–8°C and dry. Thermals, gloves and beanies for everyone; a pram cover and baby carrier; tissues (many toilets have none); the grandparents' medicines in hand luggage."],
@@ -481,6 +660,9 @@ DETAILS = {
    'when': 'Main show 19:30–21:00', 'length': 'Allow 3 hours on site', 'price': 'From ¥258', 'kids': 'Lots of walking between stages', 'elderly': 'Walking and stairs between stages',
    'getting': 'About 2 hours from Chengdu: a late night or a night in Emei; pairs with the Leshan day trip', 'watch': '只有峨眉山 演出'},
 }
+for it in items:
+    if it['id'] == 'p:leshan': it['was'] = {'end': '14:00'}   # phones that locked Leshan before 14 Sep still hold the old end
+DETAILS.update(MEAL_DET)
 for it in items:
     if it['id'] in DETAILS: it['details'] = DETAILS[it['id']]
 seed = {'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
