@@ -718,17 +718,6 @@
    "File:Haidilao Hot Pot at GR Shopping Mall (20200829181143).jpg"
   ]
  },
- "food-roastgoose": {
-  "q": [
-   "Cantonese roast goose",
-   "siu ngo roast goose",
-   "roast goose Hong Kong"
-  ],
-  "n": 3,
-  "reject": [
-   "File:Christmas-goose-(Weihnachtsgans) 1.jpg"
-  ]
- },
  "food-cheungfun": {
   "q": [
    "cheung fun rice noodle roll",
@@ -747,17 +736,6 @@
   "n": 3,
   "reject": [
    "File:Harvest Wheat Field Bakery Baked Char Siu Bao (43298834235).jpg"
-  ]
- },
- "food-pineapplebun": {
-  "q": [
-   "pineapple bun bolo bao",
-   "菠萝包"
-  ],
-  "n": 3,
-  "reject": [
-   "File:Shima aji, yuzu - tapioca, uni - bolo bao (chicken liver) 02.jpg",
-   "File:Shima aji, yuzu - tapioca, uni - bolo bao (chicken liver) 01.jpg"
   ]
  },
  "food-wontonsoup": {
@@ -790,26 +768,35 @@
   "n": 3,
   "reject": []
  },
- "food-lionshead": {
+ "food-beefhotpot": {
   "q": [
-   "lion head meatball",
-   "Lion's head meatballs Huaiyang",
-   "狮子头"
+   "Chaoshan beef hotpot",
+   "Teochew beef hot pot",
+   "Chaoshan beef balls hot pot"
+  ],
+  "n": 3,
+  "reject": []
+ },
+ "food-luwei": {
+  "q": [
+   "braised pig trotters Chinese",
+   "lu wei braised meat",
+   "卤味"
   ],
   "n": 3,
   "reject": [
-   "File:Lion S Head Hike Trail (191333841).jpeg"
+   "File:Fish-flavoured shredded pork set meal on G2 (20180102114223).jpg"
   ]
  },
- "food-hongshaorou": {
+ "food-tangcu": {
   "q": [
-   "hong shao rou braised pork belly",
-   "red braised pork belly",
-   "红烧肉"
+   "sweet and sour pork tenderloin",
+   "tangcu liji",
+   "糖醋里脊"
   ],
-  "n": 2,
+  "n": 3,
   "reject": [
-   "File:Red braised pork belly.jpg"
+   "File:Tangcu liji.jpg"
   ]
  }
 }

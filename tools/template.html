@@ -100,6 +100,8 @@ label.f{display:block;font-size:13px;color:var(--ink-2);margin:10px 0 4px}
 .chip.next{background:var(--ink);color:#fff}
 .chip.lead{background:#efe6fb;color:var(--c-vote)}
 .chip.lock{background:#e3f1e8;color:#23704a}
+.chip.pp{background:#eef3ea;color:#2f5b3a}
+.chip.special{background:#fff1d6;color:#8a5a00}
 .fam{font-size:13px;letter-spacing:1px;white-space:nowrap}
 .card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:12px 14px;margin-bottom:10px;position:relative}
 .empty{padding:26px 14px;text-align:center;color:var(--ink-3);border:1px dashed var(--line);border-radius:var(--r);font-size:14.5px}
@@ -408,7 +410,7 @@ details.more[open] > summary::after{content:" ▴"}
         <p class="muted" id="autoNote" style="color:#23704a"></p>
         <div id="decList"></div>
         <div id="mealWrap"><h2 id="mealsH">🍽 Lunch &amp; dinner: pick a place</h2>
-        <p class="muted">A few choices for each meal, picked to seat the whole family (a couple of snack places may need two tables). Some are not spicy at all. <span id="mealCount"></span></p>
+        <p class="muted">A few choices for each meal, mostly everyday places at about ¥30–100 per person (the green tag). ✨ marks the two special meals. All are picked to seat the family (a couple of snack places may need two tables), and every meal has non-spicy choices. <span id="mealCount"></span></p>
         <div id="mealList"></div></div>
         <h2 id="ideasH">Ideas: ❤ the ones you'd like</h2>
         <p class="muted">Not on a day yet. If lots of people heart one, we'll find it a slot.</p>
@@ -732,7 +734,7 @@ function voteStop(x){
   return `<div class="stop vblock" style="--cc:var(--c-vote)"><div class="dot"></div><div class="card">
     <div class="top"><span class="t">${esc(x.time)}</span><span class="kind">${x.kind==='meal'?'🍽 pick a place':'🗳 vote'}</span>${ld?`<span class="chip lead">${ld.tie?'tied':'leading: '+esc(optName(x.id,ld.opt))}</span>`:''}</div>
     <div class="name">${esc(x.title)}: ${esc(x.question)}</div>
-    <div class="mini">${x.options.map(o=>`<button class="mo ${mine===o.id?'mine':''} ${ld&&!ld.tie&&ld.opt===o.id?'lead':''}" data-pick="${x.id}|${o.id}">${imgTag(o.img,'',o.name)}<span class="n">${t[o.id].length}</span><div><b>${esc(o.name)}</b>${famIcons(o.fam)}</div></button>`).join('')}</div>
+    <div class="mini">${x.options.map(o=>`<button class="mo ${mine===o.id?'mine':''} ${ld&&!ld.tie&&ld.opt===o.id?'lead':''}" data-pick="${x.id}|${o.id}">${imgTag(o.img,'',o.name)}<span class="n">${t[o.id].length}</span><div><b>${esc(o.name)}</b>${o.pp?` <small style="color:#2f5b3a">${esc(o.pp)}</small>`:''}${o.special?' ✨':''}${famIcons(o.fam)}</div></button>`).join('')}</div>
     <div class="row" style="margin-top:6px"><button class="btn small" data-govote="${x.id}">See details</button>${ld&&!ld.tie?`<button class="btn small ghost" data-lock="${x.id}|${ld.opt}">Lock in "${esc(optName(x.id,ld.opt))}"</button>`:''}</div>
   </div></div>`;
 }
@@ -814,7 +816,7 @@ function optCard(d, o, t, max){
   const mine=(myBallot()||{picks:{}}).picks[d.id]===o.id; const n=t[o.id].length; const locked=chosen(d.id)===o.id;
   return `<div class="opt ${mine?'mine':''}">
     <div class="ph" data-det="opt|${d.id}|${o.id}" style="cursor:pointer">${car(o.gallery&&o.gallery.length?o.gallery:[o.img],'',o.name)}<span class="fam">${famIcons(o.fam)||'&nbsp;'}</span><span class="tick"><svg><use href="#ico-check"/></svg></span></div>
-    <div class="bd"><b>${esc(o.name)}</b>${locked?'<span><span class="chip lock">locked in ✓</span></span>':''}<p>${esc(o.blurb)}</p>
+    <div class="bd"><b>${esc(o.name)}</b>${(o.pp||o.special||locked)?`<span>${o.pp?`<span class="chip pp">${esc(o.pp)} pp</span>`:''}${o.special?'<span class="chip special">✨ memorable</span>':''}${locked?'<span class="chip lock">locked in ✓</span>':''}</span>`:''}<p>${esc(o.blurb)}</p>
       <button class="btn small info" data-det="opt|${d.id}|${o.id}">ⓘ What is it?</button>
       <div class="bar"><i style="width:${max?Math.round(n/max*100):0}%"></i></div>
       <div class="who">${n?`${n} · ${esc(t[o.id].join(', '))}`:'no votes yet'}</div>

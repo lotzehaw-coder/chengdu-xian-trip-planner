@@ -641,12 +641,6 @@
   "author": "N509FZ",
   "license": "CC BY-SA 4.0"
  },
- "food-teaduck-2": {
-  "file": "File:Sichuan smoked duck.JPG",
-  "page": "https://commons.wikimedia.org/wiki/File:Sichuan_smoked_duck.JPG",
-  "author": "Terence Ong",
-  "license": "CC BY 2.5"
- },
  "food-qiaojiao-1": {
   "file": "File:Qiaojiao Beef at Li Si Niang Restaurant, Beijing (20211019184013).jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Qiaojiao_Beef_at_Li_Si_Niang_Restaurant,_Beijing_(20211019184013).jpg",
@@ -677,12 +671,6 @@
   "author": "ZhengZhou",
   "license": "CC BY-SA 4.0"
  },
- "food-dimsum-2": {
-  "file": "File:Har Gow at Canal Luna restaurant, InterContinental Guangzhou Exhibition Center (20180923125523).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Har_Gow_at_Canal_Luna_restaurant,_InterContinental_Guangzhou_Exhibition_Center_(20180923125523).jpg",
-  "author": "N509FZ",
-  "license": "CC BY-SA 4.0"
- },
  "food-guotie-1": {
   "file": "File:Guotie 锅贴 potstickers from 乐陵（laoling）.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Guotie_%E9%94%85%E8%B4%B4_potstickers_from_%E4%B9%90%E9%99%B5%EF%BC%88laoling%EF%BC%89.jpg",
@@ -695,28 +683,10 @@
   "author": "Shwangtianyuan",
   "license": "CC BY-SA 4.0"
  },
- "food-roastgoose-1": {
-  "file": "File:Cantonese roast goose served in Guangzhou, China, June 2026.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Cantonese_roast_goose_served_in_Guangzhou,_China,_June_2026.jpg",
-  "author": "Guangzhou Private Tours by Janvi",
-  "license": "CC BY 4.0"
- },
- "food-roastgoose-2": {
-  "file": "File:Cantonese roasted goose.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Cantonese_roasted_goose.jpg",
-  "author": "Dinkun Chen",
-  "license": "CC BY-SA 4.0"
- },
  "food-cheungfun-1": {
   "file": "File:Dried shrimp rice noodle roll.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Dried_shrimp_rice_noodle_roll.jpg",
   "author": "ZhengZhou",
-  "license": "CC BY-SA 4.0"
- },
- "food-cheungfun-2": {
-  "file": "File:Chaoshan rice noodle roll.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Chaoshan_rice_noodle_roll.jpg",
-  "author": "Asamboi",
   "license": "CC BY-SA 4.0"
  },
  "food-cheungfun-3": {
@@ -737,12 +707,6 @@
   "author": "Maksym Kozlenko",
   "license": "CC BY-SA 4.0"
  },
- "food-pineapplebun-3": {
-  "file": "File:Pineapple buns.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Pineapple_buns.jpg",
-  "author": "Party Lin",
-  "license": "CC BY 2.0"
- },
  "food-wontonsoup-1": {
   "file": "File:Clear Broth Wontons.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Clear_Broth_Wontons.jpg",
@@ -755,23 +719,11 @@
   "author": "Sumit Surai",
   "license": "CC BY-SA 4.0"
  },
- "food-wontonsoup-3": {
-  "file": "File:Wonton Chicken Soup in Claypot.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Wonton_Chicken_Soup_in_Claypot.jpg",
-  "author": "Ceeseven",
-  "license": "CC BY-SA 4.0"
- },
  "food-huiguorou-2": {
   "file": "File:Twice-cooked Pork 回锅肉 (1648213963).jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Twice-cooked_Pork_%E5%9B%9E%E9%94%85%E8%82%89_(1648213963).jpg",
   "author": "Alpha from Melbourne, Australia",
   "license": "CC BY-SA 2.0"
- },
- "food-kaishui-1": {
-  "file": "File:Kaishui Baicai at Restaurant Zen, Qianmen (20211008184009).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Kaishui_Baicai_at_Restaurant_Zen,_Qianmen_(20211008184009).jpg",
-  "author": "N509FZ",
-  "license": "CC BY-SA 4.0"
  },
  "food-kaishui-2": {
   "file": "File:Steamed Chinese Cabbage in Chicken Soup.jpg",
@@ -779,21 +731,39 @@
   "author": "Pauloleong2002",
   "license": "CC BY-SA 4.0"
  },
- "food-lionshead-1": {
-  "file": "File:Lions head meatballs in brown sauce.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Lions_head_meatballs_in_brown_sauce.jpg",
-  "author": "Jpatokal",
+ "food-beefhotpot-1": {
+  "file": "File:Chaoshan Beef Hot Pot at Baheli Haiji, ZGC1 (20221003132726).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chaoshan_Beef_Hot_Pot_at_Baheli_Haiji,_ZGC1_(20221003132726).jpg",
+  "author": "N509FZ",
   "license": "CC BY-SA 4.0"
  },
- "food-lionshead-2": {
-  "file": "File:Lions-head-MCB.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Lions-head-MCB.jpg",
-  "author": "MCB (Michael C. Berch)",
-  "license": "CC BY 3.0"
+ "food-beefhotpot-2": {
+  "file": "File:Chaoshan Cuisine3.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chaoshan_Cuisine3.jpg",
+  "author": "Clarayyt",
+  "license": "CC BY-SA 4.0"
  },
- "food-hongshaorou-2": {
-  "file": "File:Red braised pork (20141106191221).JPG",
-  "page": "https://commons.wikimedia.org/wiki/File:Red_braised_pork_(20141106191221).JPG",
+ "food-beefhotpot-3": {
+  "file": "File:Hot pot restaurant.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hot_pot_restaurant.jpg",
+  "author": "3steph14",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-luwei-2": {
+  "file": "File:2007-10-24 Lou Mei in Taipei.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:2007-10-24_Lou_Mei_in_Taipei.jpg",
+  "author": "Yun Huang Yong",
+  "license": "CC BY 2.0"
+ },
+ "food-luwei-3": {
+  "file": "File:Lou Mei Plate from Hung Ling Cantonese Restaurant.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lou_Mei_Plate_from_Hung_Ling_Cantonese_Restaurant.jpg",
+  "author": "Peachyeung316",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-tangcu-1": {
+  "file": "File:Sweet and sour pork tenderloin on Z99 (20260107181920).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sweet_and_sour_pork_tenderloin_on_Z99_(20260107181920).jpg",
   "author": "N509FZ",
   "license": "CC BY-SA 4.0"
  }
