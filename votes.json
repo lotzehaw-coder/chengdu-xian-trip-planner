@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-14T08:42+08:00",
+ "updated": "2026-09-14T14:12+08:00",
  "count": 6,
  "ballots": {
   "Chia Wei": {
@@ -89,14 +89,14 @@
    "picks": {
     "h-xian": "ritzxa",
     "d-d2pm": "dongjiao",
-    "d-d1eve": "opera",
     "d-d5eve": "gongyan",
     "d-d8am": "shop",
     "h-chengdu2": "w",
+    "d-d1eve": "tower",
     "h-chengdu": "jw"
    },
    "hearts": [],
-   "t": 1789309865739
+   "t": 1789364827027
   }
  }
 }
