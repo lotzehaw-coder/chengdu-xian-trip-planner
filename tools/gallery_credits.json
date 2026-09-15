@@ -455,18 +455,6 @@
   "author": "David Pursehouse from Kawasaki, Japan",
   "license": "CC BY 2.0"
  },
- "roujiamo-2": {
-  "file": "File:古城樊氏腊汁肉夹馍1.JPG",
-  "page": "https://commons.wikimedia.org/wiki/File:%E5%8F%A4%E5%9F%8E%E6%A8%8A%E6%B0%8F%E8%85%8A%E6%B1%81%E8%82%89%E5%A4%B9%E9%A6%8D1.JPG",
-  "author": "Steetsweet",
-  "license": "CC BY-SA 4.0"
- },
- "roujiamo-4": {
-  "file": "File:Yummy Lanzhou - Roujiamo.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Yummy_Lanzhou_-_Roujiamo.jpg",
-  "author": "Francesc Fort",
-  "license": "CC BY-SA 4.0"
- },
  "biangbiang-1": {
   "file": "File:Biang Biang Mian.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Biang_Biang_Mian.jpg",
@@ -489,12 +477,6 @@
   "file": "File:Xi’an Beef Paomo.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Xi%E2%80%99an_Beef_Paomo.jpg",
   "author": "Banej",
-  "license": "CC BY-SA 4.0"
- },
- "paomo-4": {
-  "file": "File:Lao mi jia paomo in Xi Yang Shi.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Lao_mi_jia_paomo_in_Xi_Yang_Shi.jpg",
-  "author": "我乃野云鹤",
   "license": "CC BY-SA 4.0"
  },
  "yongxingfang-3": {
@@ -544,24 +526,6 @@
   "page": "https://commons.wikimedia.org/wiki/File:%E6%9B%B2%E6%B1%9F%E6%B1%A0%E5%85%AC%E5%9B%AD%E8%88%AA%E6%8B%8D%E5%9B%BE.jpg",
   "author": "Ghrkya",
   "license": "CC BY-SA 4.0"
- },
- "wonton-1": {
-  "file": "File:Red Oil Wontons (红油抄手).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Red_Oil_Wontons_(%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B).jpg",
-  "author": "NeoBatfreak",
-  "license": "CC BY-SA 4.0"
- },
- "wonton-2": {
-  "file": "File:Red Oil Wontons (红油抄手) (2).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Red_Oil_Wontons_(%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B)_(2).jpg",
-  "author": "NeoBatfreak",
-  "license": "CC BY-SA 4.0"
- },
- "wonton-3": {
-  "file": "File:Food 四川紅油抄手, Pork Dumpling with Hot Chilli Vinaigrette, 樂天皇朝, PARADISE DYNASTY, 台北 (23072061063).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Food_%E5%9B%9B%E5%B7%9D%E7%B4%85%E6%B2%B9%E6%8A%84%E6%89%8B,_Pork_Dumpling_with_Hot_Chilli_Vinaigrette,_%E6%A8%82%E5%A4%A9%E7%9A%87%E6%9C%9D,_PARADISE_DYNASTY,_%E5%8F%B0%E5%8C%97_(23072061063).jpg",
-  "author": "bryan... from Taipei, Taiwan",
-  "license": "CC BY-SA 2.0"
  },
  "sichuandishes-1": {
   "file": "File:Kung Pao Chicken at Yujiayan Restaurant (20230510123120).jpg",
@@ -683,29 +647,11 @@
   "author": "Shwangtianyuan",
   "license": "CC BY-SA 4.0"
  },
- "food-cheungfun-1": {
-  "file": "File:Dried shrimp rice noodle roll.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Dried_shrimp_rice_noodle_roll.jpg",
-  "author": "ZhengZhou",
-  "license": "CC BY-SA 4.0"
- },
- "food-cheungfun-3": {
-  "file": "File:Rice Noodle Roll - Chaozhou - 20170302 (1).jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Rice_Noodle_Roll_-_Chaozhou_-_20170302_(1).jpg",
-  "author": "DragonSamYU",
-  "license": "CC BY-SA 4.0"
- },
  "food-charsiubao-1": {
   "file": "File:Char siu bun in lunch.jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Char_siu_bun_in_lunch.jpg",
   "author": "Apeach316",
   "license": "CC BY-SA 2.0"
- },
- "food-charsiubao-3": {
-  "file": "File:Steamed roast pork bun.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Steamed_roast_pork_bun.jpg",
-  "author": "Maksym Kozlenko",
-  "license": "CC BY-SA 4.0"
  },
  "food-wontonsoup-1": {
   "file": "File:Clear Broth Wontons.jpg",
@@ -764,6 +710,108 @@
  "food-tangcu-1": {
   "file": "File:Sweet and sour pork tenderloin on Z99 (20260107181920).jpg",
   "page": "https://commons.wikimedia.org/wiki/File:Sweet_and_sour_pork_tenderloin_on_Z99_(20260107181920).jpg",
+  "author": "N509FZ",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-beefhofun-1": {
+  "file": "File:Dry Fried Beef Ho Fun - Ho Chiak 2023-12-08.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dry_Fried_Beef_Ho_Fun_-_Ho_Chiak_2023-12-08.jpg",
+  "author": "Andy Li",
+  "license": "CC0"
+ },
+ "food-beefhofun-2": {
+  "file": "File:Beefchowfoon.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Beefchowfoon.jpg",
+  "author": "stu_spivack",
+  "license": "CC BY-SA 2.0"
+ },
+ "food-roastgoose-1": {
+  "file": "File:Cantonese roast goose served in Guangzhou, China, June 2026.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Cantonese_roast_goose_served_in_Guangzhou,_China,_June_2026.jpg",
+  "author": "Guangzhou Private Tours by Janvi",
+  "license": "CC BY 4.0"
+ },
+ "food-roastgoose-2": {
+  "file": "File:Cantonese roasted goose.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Cantonese_roasted_goose.jpg",
+  "author": "Dinkun Chen",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-lionshead-1": {
+  "file": "File:Lions head meatballs in brown sauce.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lions_head_meatballs_in_brown_sauce.jpg",
+  "author": "Jpatokal",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-lionshead-2": {
+  "file": "File:Lions-head-MCB.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lions-head-MCB.jpg",
+  "author": "MCB (Michael C. Berch)",
+  "license": "CC BY 3.0"
+ },
+ "food-crossbridge-1": {
+  "file": "File:Crossing the Bridge Noodle at Qian Xiang Yuan.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Crossing_the_Bridge_Noodle_at_Qian_Xiang_Yuan.jpg",
+  "author": "Baycrest",
+  "license": "CC BY-SA 2.5"
+ },
+ "food-crossbridge-2": {
+  "file": "File:Crossing the Bridge Rice Noodles in Mengzi (20200126132350).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Crossing_the_Bridge_Rice_Noodles_in_Mengzi_(20200126132350).jpg",
+  "author": "N509FZ",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-mushroomhotpot-1": {
+  "file": "File:野生菌火锅-1813888.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:%E9%87%8E%E7%94%9F%E8%8F%8C%E7%81%AB%E9%94%85-1813888.jpg",
+  "author": "Hyuki",
+  "license": "CC0"
+ },
+ "food-roastduck-1": {
+  "file": "File:Sliced Peking Roasted Duck from Peking Garden.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sliced_Peking_Roasted_Duck_from_Peking_Garden.jpg",
+  "author": "Peachyeung316",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-roastduck-2": {
+  "file": "File:Beijing Roast Duck slice and side dishes.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Beijing_Roast_Duck_slice_and_side_dishes.jpg",
+  "author": "Peachyeung316",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-xiaolongbao-1": {
+  "file": "File:Truffle Soup Dumplings at Din Tai Fung.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Truffle_Soup_Dumplings_at_Din_Tai_Fung.jpg",
+  "author": "Okadiputera",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-bamboo-1": {
+  "file": "File:Daetong-bap.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Daetong-bap.jpg",
+  "author": "Hyeon-Jeong Suk",
+  "license": "CC BY 2.0"
+ },
+ "food-pineapplebun-1": {
+  "file": "File:Pineapple Bun with Butter inside.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pineapple_Bun_with_Butter_inside.jpg",
+  "author": "Dennis Wong",
+  "license": "CC BY 2.0"
+ },
+ "food-coconutchicken-1": {
+  "file": "File:Yeziji Hainanese coconut chicken soup.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Yeziji_Hainanese_coconut_chicken_soup.jpg",
+  "author": "Jpatokal",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-youmian-1": {
+  "file": "File:Ordos.Shanxi youmian.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ordos.Shanxi_youmian.jpg",
+  "author": "Popolon",
+  "license": "CC BY-SA 4.0"
+ },
+ "food-youmian-2": {
+  "file": "File:Oat noodle rolls served in Beijing (20170406174236).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Oat_noodle_rolls_served_in_Beijing_(20170406174236).jpg",
   "author": "N509FZ",
   "license": "CC BY-SA 4.0"
  }

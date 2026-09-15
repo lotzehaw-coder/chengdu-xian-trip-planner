@@ -123,6 +123,15 @@ for i in seed['items']:
         did, oid = i['opt'].split(':')
         if did not in dec or i['id'] not in next((o['items'] for o in dec[did]['options'] if o['id'] == oid), []): E(f"{i['id']} points at vote {i['opt']} that doesn't list it")
     if i['day'] and i['day'] not in days: E(f"{i['id']} is on {i['day']}, outside the trip")
+# restaurants: each brand once across all meal votes (Tze 15 Sep: "don't show me repeated options")
+seen_brand = {}
+for x in [x for x in seed['decisions'] if x.get('kind') == 'meal']:
+    for o in x['options']:
+        for i in [i for i in seed['items'] if i['id'] in o['items'] and i.get('brand')]:
+            seen_brand.setdefault(i['brand'], []).append(x['id'])
+for b_, where in seen_brand.items():
+    if len(where) > 1: E(f"restaurant brand '{b_}' appears in {len(where)} meal votes: {', '.join(where)}")
+    elif len(set(where)) < len(where): E(f"restaurant brand '{b_}' repeated inside {where[0]}")
 OK('plan sanity checked')
 
 # 6. external links

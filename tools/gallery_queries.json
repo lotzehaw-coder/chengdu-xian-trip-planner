@@ -396,7 +396,8 @@
   "n": 4,
   "reject": [
    "File:Xiaochao Zhumo at Yellow River Restaurant, Beijing (20230606191446).jpg",
-   "File:Xiaochao Zhumo at Yellow River Restaurant, Beijing (20230606192601).jpg"
+   "File:Xiaochao Zhumo at Yellow River Restaurant, Beijing (20230606192601).jpg",
+   "File:Lao mi jia paomo in Xi Yang Shi.jpg"
   ]
  },
  "yongxingfang": {
@@ -677,7 +678,7 @@
    "Zhangcha duck",
    "樟茶鸭"
   ],
-  "n": 4,
+  "n": 3,
   "reject": [
    "File:Duck breast, smoked and panfried.jpg",
    "File:TeaSmokedDuckGaiLanCrispySkin (8311425141).jpg"
@@ -717,15 +718,6 @@
    "File:Haidilao Harris County.jpg",
    "File:Haidilao Hot Pot at GR Shopping Mall (20200829181143).jpg"
   ]
- },
- "food-cheungfun": {
-  "q": [
-   "cheung fun rice noodle roll",
-   "rice noodle roll dim sum",
-   "肠粉"
-  ],
-  "n": 3,
-  "reject": []
  },
  "food-charsiubao": {
   "q": [
@@ -798,5 +790,126 @@
   "reject": [
    "File:Tangcu liji.jpg"
   ]
+ },
+ "food-bamboo": {
+  "q": [
+   "bamboo shoot dish Chinese",
+   "竹筒饭 bamboo rice",
+   "stir fried bamboo shoots"
+  ],
+  "n": 3,
+  "reject": [
+   "File:The Middle Kingdom - a survey of the geography, government, education, social life, arts, and history of the Chinese Empire and its inhabitants (1913) (14764336102).jpg",
+   "File:Sister Song's Fish Soup (宋嫂魚羹).png"
+  ]
+ },
+ "food-pineapplebun": {
+  "q": [
+   "pineapple bun bolo bao",
+   "菠萝油",
+   "Hong Kong pineapple bun butter"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Shima aji, yuzu - tapioca, uni - bolo bao (chicken liver) 02.jpg",
+   "File:Shima aji, yuzu - tapioca, uni - bolo bao (chicken liver) 01.jpg"
+  ]
+ },
+ "food-beefhofun": {
+  "q": [
+   "beef chow fun",
+   "干炒牛河",
+   "beef ho fun noodles"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Beef chow fun.jpg"
+  ]
+ },
+ "food-roastgoose": {
+  "q": [
+   "Cantonese roast goose",
+   "siu ngo roast goose"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Christmas-goose-(Weihnachtsgans) 1.jpg"
+  ]
+ },
+ "food-lionshead": {
+  "q": [
+   "lion head meatball",
+   "Huaiyang lion head meatball",
+   "狮子头"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Lion S Head Hike Trail (191333841).jpeg"
+  ]
+ },
+ "food-crossbridge": {
+  "q": [
+   "crossing the bridge noodles",
+   "过桥米线",
+   "Yunnan rice noodles"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Crossing the Bridge Rice Noodles at Jian Xin Yuan, Tangzixiang (20210321135908).jpg"
+  ]
+ },
+ "food-mushroomhotpot": {
+  "q": [
+   "wild mushroom hot pot Yunnan",
+   "菌汤火锅",
+   "mushroom soup hotpot"
+  ],
+  "n": 3,
+  "reject": [
+   "File:香菇 腊肠 滑鸡 煲仔饭 Chicken, Shiitake Mushroom and Chinese Sausage Hotpot Rice - Soup, Box Hill (2171035663).jpg",
+   "File:牛腩煲仔饭 Beef Brisket Hotpot Rice - Soup, Box Hill (2171826488).jpg"
+  ]
+ },
+ "food-roastduck": {
+  "q": [
+   "Peking roast duck sliced",
+   "北京烤鸭",
+   "roast duck pancakes"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Roasted Beijing Duck sliced.jpg"
+  ]
+ },
+ "food-xiaolongbao": {
+  "q": [
+   "xiaolongbao soup dumplings",
+   "小笼包",
+   "Shanghai soup dumpling steamer"
+  ],
+  "n": 3,
+  "reject": [
+   "File:Steamed soup buns of Kaifeng.jpg"
+  ]
+ },
+ "food-coconutchicken": {
+  "q": [
+   "coconut chicken hotpot",
+   "椰子鸡火锅",
+   "Hainan coconut chicken"
+  ],
+  "n": 3,
+  "reject": [
+   "File:朝州式鱼头锅 Teochew Fish Hotpot - Yum Cha Inn (2929645779).jpg"
+  ]
+ },
+ "food-youmian": {
+  "q": [
+   "youmian oat noodles",
+   "莜面栲栳栳",
+   "oat noodle rolls steamer"
+  ],
+  "n": 2,
+  "reject": []
  }
 }
