@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-15T10:42+08:00",
- "count": 6,
+ "updated": "2026-09-15T15:42+08:00",
+ "count": 7,
  "ballots": {
   "Chia Wei": {
    "picks": {
@@ -85,6 +85,13 @@
     "p:biangbiang"
    ],
    "t": 1789305725271
+  },
+  "Shing": {
+   "picks": {
+    "m-d1lunch": "mapo"
+   },
+   "hearts": [],
+   "t": 1789458112562
   },
   "Tze": {
    "picks": {
