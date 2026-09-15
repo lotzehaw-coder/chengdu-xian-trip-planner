@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-15T23:12+08:00",
+ "updated": "2026-09-15T23:42+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -34,10 +34,23 @@
     "m-d1din": "sh",
     "m-d2lunch": "zy",
     "m-d2din": "sdx",
-    "m-d3din": "dpd"
+    "m-d3din": "dpd",
+    "m-d4lunch": "hg",
+    "m-d4din": "dfc",
+    "m-d5lunch": "zxz",
+    "m-d6din": "xlk",
+    "m-d7lunch": "gsx",
+    "m-d7din": "hqy",
+    "m-d8lunch": "trsj",
+    "m-d8din": "rongle",
+    "h-chengdu": "jw",
+    "h-xian": "ritzxa",
+    "h-chengdu2": "w"
    },
-   "hearts": [],
-   "t": 1789485062275
+   "hearts": [
+    "p:tangparadise"
+   ],
+   "t": 1789486650679
   },
   "Kennt": {
    "picks": {
