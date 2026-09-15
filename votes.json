@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-15T23:42+08:00",
+ "updated": "2026-09-16T07:12+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -61,10 +61,11 @@
     "d-d2pm": "taikoo",
     "d-d7": "leshan",
     "d-d5eve": "gongyan",
-    "d-d4pm": "huaqing"
+    "d-d4pm": "huaqing",
+    "m-d8lunch": "lus"
    },
    "hearts": [],
-   "t": 1789439557868
+   "t": 1789513703472
   },
   "Khan": {
    "picks": {
