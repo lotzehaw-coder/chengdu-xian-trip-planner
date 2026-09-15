@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-15T15:42+08:00",
+ "updated": "2026-09-15T16:12+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -88,10 +88,22 @@
   },
   "Shing": {
    "picks": {
-    "m-d1lunch": "mapo"
+    "m-d1lunch": "mapo",
+    "m-d1din": "sh",
+    "m-d2lunch": "zy",
+    "m-d2din": "ls",
+    "m-d3din": "dpd",
+    "m-d4lunch": "lty",
+    "m-d4din": "dfc",
+    "m-d5lunch": "zxz",
+    "m-d6din": "xlk",
+    "m-d7lunch": "gsx",
+    "m-d7din": "hqy",
+    "m-d8lunch": "trsj",
+    "m-d8din": "rongle"
    },
    "hearts": [],
-   "t": 1789458112562
+   "t": 1789458650631
   },
   "Tze": {
    "picks": {
