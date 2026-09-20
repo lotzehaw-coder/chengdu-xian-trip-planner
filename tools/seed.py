@@ -45,7 +45,7 @@ MAPQ = {'lunch-mapo': '陈麻婆豆腐', 'peoplespark': '鹤鸣茶社', 'kuanzha
   'wuhou': '成都武侯祠', 'huaqing': '华清宫', 'muslimquarter': '回民街', 'tangshow': '唐乐宫', 'yongxingfang': '永兴坊', 'hanfu': '大雁塔',
   'smallgoose': '小雁塔', 'leshan-train': '成都东站', 'leshan': '乐山大佛', 'dujiangyan': '都江堰景区', 'dufu': '杜甫草堂', 'sichuanmuseum': '四川博物院',
   'naturalhistory': '成都自然博物馆', 'wenshu': '文殊院', 'shopping': '成都国际金融中心', 'tianfu-idea': '天府广场', 'jinsha': '金沙遗址博物馆',
-  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼', 'leshan-back': '乐山站', 'pandatower': '天府熊猫塔', 'dongjiao': '东郊记忆', 'qianguqing': '西安千古情景区', 'gongyan': '大明宫宴 笃臣路', 'changan12': '长安十二时辰主题街区', 'emei': '只有峨眉山戏剧幻城', 'everlasting': '华清宫', 'tuoling': '驼铃传奇'}
+  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼', 'leshan-back': '乐山站', 'pandatower': '天府熊猫塔', 'dongjiao': '东郊记忆', 'qianguqing': '西安千古情景区', 'gongyan': '大明宫宴 笃臣路', 'changan12': '长安十二时辰主题街区', 'emei': '只有峨眉山戏剧幻城', 'everlasting': '华清宫', 'tuoling': '驼铃传奇', 'daqin': '赳赳大秦', 'juntuan': '大秦剧场 复活的军团', 'xianincident': '华清宫 瑚光阁剧院', 'mengchangan': '西安城墙永宁门', 'tangdream': '大唐芙蓉园', 'menghui': '大唐芙蓉园 凤鸣九天剧院'}
 # English search for Google Maps (pre-trip reviews in English)
 MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu", 'kuanzhai': 'Kuanzhai Alley', 
   'panda': 'Chengdu Research Base of Giant Panda Breeding', 'lunch-longchaoshou': 'Long Chao Shou Chunxi Road', 
@@ -56,7 +56,7 @@ MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu",
   'yongxingfang': 'Yongxingfang', 'hanfu': 'Big Wild Goose Pagoda', 'smallgoose': 'Small Wild Goose Pagoda', 'leshan-train': 'Chengdu East Railway Station',
   'leshan': 'Leshan Giant Buddha', 'dujiangyan': 'Dujiangyan Irrigation System', 'dufu': 'Du Fu Thatched Cottage', 'sichuanmuseum': 'Sichuan Museum',
   'naturalhistory': 'Chengdu Natural History Museum', 'wenshu': 'Wenshu Monastery', 'shopping': 'Chengdu IFS', 'tianfu-idea': 'Tianfu Square', 'jinsha': 'Jinsha Site Museum',
-  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station', 'pandatower': 'Tianfu Panda Tower Chengdu', 'dongjiao': 'Eastern Suburb Memory Chengdu', 'qianguqing': "Xi'an Romance Park", 'gongyan': 'Da Ming Gong Yan Tang banquet Xian', 'changan12': "Chang'an Twelve Hours Xi'an", 'emei': 'Only Emei Mountain Drama Fantasy City', 'everlasting': 'Huaqing Palace', 'tuoling': 'Huaxia Wenlv Grand Theatre Xian'}
+  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station', 'pandatower': 'Tianfu Panda Tower Chengdu', 'dongjiao': 'Eastern Suburb Memory Chengdu', 'qianguqing': "Xi'an Romance Park", 'gongyan': 'Da Ming Gong Yan Tang banquet Xian', 'changan12': "Chang'an Twelve Hours Xi'an", 'emei': 'Only Emei Mountain Drama Fantasy City', 'everlasting': 'Huaqing Palace', 'tuoling': 'Huaxia Wenlv Grand Theatre Xian', 'daqin': "Jiujiu Daqin Theatre Xi'an", 'juntuan': 'Daqin Theatre Lintong Xian', 'xianincident': 'Huaqing Palace Xian', 'mengchangan': "Yongningmen South Gate Xi'an City Wall", 'tangdream': 'Tang Paradise', 'menghui': 'Tang Paradise'}
 
 LANDS = {"chengdu": "<path d=\"M2 58h156M4 58c6-12 16-12 22 0M26 58c6-12 16-12 22 0M48 58c6-12 16-12 22 0M2 46h70M8 46l4-6h52l4 6M36 40v-4M30 36h12l-6-5z\"/><path d=\"M128 58V8M140 58V14M128 20h2M128 34h2M140 28h2M140 44h2M128 20c8-6 14-6 20-4M140 28c-8-8-16-8-24-4M128 34c-6 2-12 8-14 12\"/><circle cx=\"98\" cy=\"42\" r=\"12\"/><circle cx=\"88\" cy=\"31\" r=\"4\"/><circle cx=\"108\" cy=\"31\" r=\"4\"/><path d=\"M92 41c1-3 4-3 5 0M99 41c1-3 4-3 5 0M96 48c1 1 3 1 4 0\"/>", "xian": "<path d=\"M2 58h156M2 58V40h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h4v18M24 58v-8c0-7 14-7 14 0v8M104 58V22h22v36M100 50h30M101 42h28M102 34h26M103 27h24M107 22v-6h16v6M111 16l4-7 4 7M115 9V4M112 58v-6h6v6M140 58V46M136 46h8l-4-5z\"/>"}   # landmark line drawings for the day headers / hero (SVG path markup, 160x64)
 # ---------- the trip itself: everything the page shows that is specific to THIS trip ----------
@@ -193,6 +193,24 @@ DEC('d-d4pm', D[4], '14:00', 'Thursday afternoon', 'After the Terracotta Army:',
   O('rest', 'Hotel & rest', "Xi'an", 'Head back, warm up and nap before dinner.', ('rest',), REST, ['rest-d4']),
   O('qgq', "Xi'an Romance show", "Xi'an", 'Big indoor spectacle, short detour on the drive back. From ¥278, little ones free.', ('indoor', 'easy', 'book'), ['img/g/qianguqing-1.jpg'], ['qianguqing'])])
 
+I('juntuan', D[4], 'Resurrected Legion 复活的军团', "Xi'an", 'Show', '14:10', '15:20',
+  "An indoor walk-through war epic about the Qin army, at 大秦剧场 (临潼区秦陵北路166号) — the theatre next door to the Terracotta Army, so it needs no extra drive on a day you are already there. Four acts over 70 minutes with 360° projection; the audience moves between sets rather than sitting in numbered seats, but the theatre runs a separate 老人、小孩通道 (elderly and children route) so the grandparents are not carried along with the crowd. Loud battle sound and vibration effects. Sessions are usually about 12:40 / 14:10 / 16:40 and change daily.",
+  ('indoor', 'book'), opt='d-xashow:juntuan', pic=[],
+  book='From ¥268; under 1.2 m free without a seat; real-name tickets, maximum 6 per order. Confirm the session times for your date when booking — they are set day by day. Check it is 《复活的军团》 and not 《永生的军团》, which has used the same theatre.')
+
+I('everlasting', D[4], 'Everlasting Regret show 长恨歌', "Xi'an", 'Show', '18:00', '19:10',
+  "Xi'an's most famous show: an outdoor dance-drama on the real lake at Huaqing Palace, Mount Li behind it, telling the story of Emperor Xuanzong and Yang Guifei. It is in Lintong, next to the Terracotta Army, so it follows straight on from the day there. ⚠ It normally pauses for winter (November to about February). A heated-seat winter edition (冰火长恨歌) has run from 1 December in some years but did not run in winter 2025–26, and nothing is announced yet for 2026. Confirm in November before anyone counts on it.",
+  ('cold', 'book'), opt='d-xashow:changhen', pic=['https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419507854.webp', 'https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419729912.webp', 'https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419863063.webp'] + gal('huaqing'),
+  book='Only if a December run is confirmed: tickets open 5 days ahead at 09:30 China time, from ¥249. The show ticket does NOT include daytime entry to Huaqing Palace.')
+I('daqin', D[4], 'Majestic Qin 赳赳大秦', "Xi'an", 'Show', '19:45', '21:05',
+  "A big indoor 'epic fantasy' production about the rise of Qin, from the same company as 长恨歌: moving seats, projection and stage effects rather than a traditional theatre show. 80 minutes, no interval. At Fengdong New City in the west of the city (沣东大道 × 天台路), about 30–40 min from the Bell Tower — the opposite side of town from the Terracotta Army, so this is a drive back in and out again. ⚠ Under-5s are not admitted and every seat has a safety belt; the venue also turns away anyone with heart trouble, high blood pressure or difficulty walking.",
+  ('indoor', 'book'), opt='d-xashow:daqin', pic=['https://jjdq.changhenge.cn/skin/8154/static/picture/project-d1.jpg', 'https://jjdq.changhenge.cn/skin/8154/static/picture/project-d2.jpg', 'https://jjdq.changhenge.cn/skin/8154/static/picture/details01.jpg'],
+  book='Shows 14:45 / 16:45 / 19:45 daily; book 10–15 days ahead on 大麼/猫眼 or the official site. Children 5+ pay the adult price.')
+I('tuoling', D[4], 'Camel Bell Legend 驼铃传奇', "Xi'an", 'Show', '19:00', '20:10',
+  "Indoor Silk Road epic at 华夏大剧院 (灞桥区华文路1518号): real camels and horses on stage, an avalanche, a sandstorm and fire. It sits between Lintong and the city, about 30 min from the Terracotta Army, so it works as a stop on the drive back. ⚠ The auditorium itself rotates to face each scene, and the operator's own notice warns off anyone with heart disease, high blood pressure or difficulty walking. Loud and startling for a baby (free on a lap, but not really suitable). ⚠ Sessions change weekly and the theatre takes an annual maintenance break that fell on 2–20 December in 2024 — check the dates before buying.",
+  ('indoor', 'book'), opt='d-xashow:tuoling', pic=[],
+  book='¥278–458 by tier; under 1.2 m free on a lap, one per adult. Mostly non-refundable once issued. Confirm the December session times on the 华夏文旅西安度假区 WeChat the week before.')
+
 I('muslimquarter', D[5], 'Muslim Quarter street food 回民街', "Xi'an", 'Food', '17:30', '19:30',
   'The old Hui neighbourhood behind the Drum Tower: lamb skewers, persimmon cakes, sticky rice cake, pomegranate juice. Very crowded, so bring the baby carrier rather than the stroller.', ('cold',), opt='d-d5eve:muslim')
 I('tangshow', D[5], 'Tang Dynasty dinner & show 唐乐宫', "Xi'an", 'Show', '18:50', '20:40',
@@ -207,11 +225,21 @@ I('changan12', D[5], "Chang'an Twelve Hours Tang street 长安十二时辰", "Xi
   book='Entry ¥128 adult / ¥68 child, under 1.2m free; open 10:00–22:00. The 乐宴·盛唐 banquet inside is booked separately.')
 I('yongxingfang', '', 'Yongxingfang food street 永兴坊', "Xi'an", 'Food', '', '',
   'A calmer, tidier food street by the city wall, with snacks from all over Shaanxi.', ('stroller', 'cold'))
+I('eve-free', D[4], 'No show — dinner in town and an early night', "Xi'an", 'Rest', '18:30', '20:30',
+  'Your Thursday dinner pick near the Bell Tower, then bed after a long day on foot.', ('rest',), opt='d-xashow:none', pic=REST)
+DEC('d-xashow', D[4], '', 'Which show shall we book?', 'We can realistically fit ONE show, maybe two. Pick the one you most want to see and we will build the day around it. Everything below is confirmed to run in December — except 长恨歌, which is marked. ⚠ = something to read before you pick.', [
+  O('juntuan', '复活的军团 Resurrected Legion', "Xi'an", '¥268 · 70 min · indoor. Qin war epic in the theatre right next to the Terracotta Army, so it costs no extra driving on Thursday. You walk between four sets, but there is a separate elderly-and-children route. Loud battle effects.', ('indoor', 'book'), [], ['juntuan']),
+  O('menghui', '梦回大唐 Dream Back to the Tang', "Xi'an", '¥298–518 · 60 min · indoor, and park entry included. Tang court dance in a seated theatre, 17:00–18:00. The easiest on Ah Ma and Ah Gong: sit down, warm, early finish. Free entry for over-65s.', ('indoor', 'easy', 'book'), 'tangparadise', ['menghui']),
+  O('qgq', '西安千古情 Romance of Xi\'an', "Xi'an", 'From ¥278 · 60 min · indoor. Big song-and-dance spectacle with rain, flying sets and horses on stage, at Chanba — a short detour on the drive back from the Terracotta Army. Little ones free. (It is also on the Thursday-afternoon vote.)', ('indoor', 'easy', 'book'), ['img/g/qianguqing-1.jpg'], ['qianguqing']),
+  O('daqin', '赳赳大秦 Majestic Qin', "Xi'an", '80 min · indoor · 19:45, west of the city. The one locals rank top: moving seats, projection and stage machinery, more ride than play. ⚠ Under-5s are NOT admitted, so the baby cannot come, and the venue turns away anyone with heart trouble, high blood pressure or difficulty walking. Dinner would have to be early.', ('indoor', 'book'), ['https://jjdq.changhenge.cn/skin/8154/static/picture/project-d1.jpg', 'https://jjdq.changhenge.cn/skin/8154/static/picture/project-d2.jpg'], ['daqin']),
+  O('tuoling', '驼铃传奇 Camel Bell Legend', "Xi'an", '¥278–458 · 70 min · indoor. Silk Road epic with real camels and horses, between Lintong and the city so it fits the drive back. ⚠ The seating bank rotates, and the operator warns off heart, blood-pressure and walking trouble; loud for the baby. Its yearly maintenance break fell on 2–20 December in 2024 — check before booking.', ('indoor', 'book'), [], ['tuoling']),
+  O('changhen', '长恨歌 Everlasting Regret', "Xi'an", 'From ¥249 · 70 min · OUTDOORS at Huaqing Palace, next to the Terracotta Army. The famous one. ⚠ It normally shuts for winter (November to about February). A heated-seat December edition has run some years but did NOT run last winter and is not announced for 2026 — we would only know in November. Pick it if you want it if it happens.', ('cold', 'book'), ['https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419507854.webp', 'https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419729912.webp'], ['everlasting']),
+  O('none', 'No show — keep the evenings free', "Xi'an", 'Skip it. The Terracotta day is already long on foot, and the Muslim Quarter, the Great Tang night walk and the Tang banquet on Friday are evenings in themselves.', ('rest',), REST, ['eve-free'])])
 DEC('d-d5eve', D[5], '17:30', 'Friday evening', "Last night in Xi'an:", [
   O('muslim', 'Muslim Quarter food crawl', "Xi'an", 'The famous one: loud, crowded, delicious.', ('cold',), 'muslimquarter', ['muslimquarter']),
   O('tang', 'Tang Dynasty dinner show', "Xi'an", 'Sit-down dinner with a big costumed show. Easiest for the grandparents.', ('indoor', 'easy', 'book'), 'tangshow', ['tangshow']),
   O('gongyan', 'Tang palace banquet', "Xi'an", 'Dinner of Tang palace dishes with a 90-min show around the table. From ¥263 each, 19:00.', ('indoor', 'book'), ['img/g/datang-4.jpg'], ['gongyan']),
-  O('c12', "Chang'an Twelve Hours street", "Xi'an", 'Indoor Tang market street: performers, snacks, costumes. ¥128 entry.', ('indoor', 'stroller', 'book'), ['img/g/datang-1.jpg'], ['changan12'])])
+  O('c12', "Chang'an Twelve Hours street", "Xi'an", 'Indoor Tang market street: performers (极乐之宴 among them), snacks, costumes. ¥68 entry.', ('indoor', 'stroller', 'book'), ['img/g/datang-1.jpg'], ['changan12'])])
 
 I('hanfu', D[6], 'Tang costume family photoshoot 唐装 · 汉服', "Xi'an", 'Show', '08:00', '11:00',
   "Rent Tang-style robes near the Big Wild Goose Pagoda and take family portraits. Hair and make-up take about 45 min a head, so two stylists from 08:00 manage about 5 people by 11:00: choose who gets styled (the kids plus 1–2 adults). Pack before you go; back at the hotel about 11:40 to change and load for the 12:15 vans. Eat a proper breakfast and carry snacks: lunch is on the 14:06 train. If Friday's museum tickets fail and you get Saturday's, swap this to Friday morning.", ('easy', 'book'), opt='d-d6am:hanfu', pic=['img/g/datang-4.jpg', 'img/g/datang-3.jpg'], book='Book two stylists for 08:00, 1–2 days ahead (studios normally open ~10:00). Make-up ¥100–300 a head.')
@@ -497,8 +525,13 @@ MEAL('m-d8din', D[8], '18:00', '19:45', 'Farewell dinner', 'Last dinner, before 
 
 # ---------- ideas: not on a day; heart the ones you want ----------
 I('emei', '', 'Only Emei Mountain theatre city 只有峨眉山', 'Chengdu', 'Show', info="Wang Chaoge's giant immersive theatre village at the foot of Mount Emei (the 'Only' series). Main show 19:30–21:00 (from ¥258). About 2h from Chengdu, so it means a late night or a night in Emei; pairs with the Leshan day trip.", fam=('book',), pic=[])
-I('everlasting', '', 'Everlasting Regret show at Huaqing Palace 长恨歌', "Xi'an", 'Show', info="The famous outdoor lake-and-mountain show about Emperor Xuanzong and Yang Guifei, at Huaqing Palace next to the Terracotta Army. The heated-seat winter version (冰火长恨歌) did NOT run in winter 2025–26; the show pauses in winter and resumes around February. Assume no show in December 2026.", fam=('cold', 'book'), pic='huaqing')
-I('tuoling', '', 'Camel Bell Legend show 驼铃传奇', "Xi'an", 'Show', info="Indoor Silk Road epic at 华夏大剧院 (灞桥区华文路1518号, near Metro Line 3 务庄): camels, horses and a sandstorm on stage. Shows vary: weekdays about 14:45 / 17:15 / 19:00, weekends 15:30 / 17:30; from ¥288, under 1.2m free with an adult.", fam=('indoor', 'book'), pic=[])
+I('menghui', D[4], "Dream Back to the Tang 梦回大唐", "Xi'an", 'Show', '17:00', '18:00',
+  "The indoor Tang court dance-and-music show at Tang Paradise (凤鸣九天剧院). The gentlest option on the list: seated, warm, finished by 18:00, and the ticket includes entry to the park. Qujiang, close to the Westin/W end of town — if this one wins we would move it off the Terracotta day to Wednesday or Friday, where it fits without an hour of driving.",
+  ('indoor', 'easy', 'book'), opt='d-xashow:menghui', pic='tangparadise',
+  book='¥298 balcony / ¥398 stalls / ¥518 VIP; child ¥158–268 for 1.2–1.5 m; under 1.2 m free without a seat. Park entry is included, and is free anyway for over-65s.')
+I('tangdream', '', "Tang Dynasty Dream Chasing 大唐追梦", "Xi'an", 'Show', info="⚠ NOT ON IN DECEMBER. The boat-borne light show on the lake at Tang Paradise runs April to October only — it is outdoors on open water in an unheated boat, so it closes for winter (confirmed four ways). Listed so nobody hunts for it. In season it is 50 min, ¥318–618, park entry included. The indoor 梦回大唐 is the winter stand-in.", fam=('cold', 'book'), pic='tangparadise')
+I('xianincident', '', "The Xi'an Incident 12·12 西安事变", "Xi'an", 'Show', info="Immersive re-telling of the 1936 Xi'an Incident, indoors at 瑚光阁剧院 inside Huaqing Palace, Lintong — so it pairs with the Terracotta day. Runs all year (about 11:30 / 14:10 / 16:20, 60 min, ¥258, and the Huaqing Palace entry ticket is separate). ⚠ The audience STANDS for the whole first half while the actors move among them, and only sits for the second half — hard for the grandparents — and the gunfire and explosion effects are loud for a baby.", fam=('indoor', 'book'), pic=[])
+I('mengchangan', '', "Dream of Chang'an 梦长安 大唐迎宾盛礼", "Xi'an", 'Show', info="The Tang welcome ceremony staged on the city wall at the South Gate. ⚠ NOT ON in December: the season runs early April to the end of October, Tuesday to Sunday evenings, because it is entirely outdoors on the wall. Listed here only so nobody spends time looking for it — it is ¥280–880, 70 min, if you ever come back in spring.", fam=('cold', 'book'), pic=[])
 I('tianfu-idea', '', 'Tianfu Square & Chunxi Road 天府广场', 'Chengdu', 'Shop', info='The central square and main shopping street, walkable from the central Marriott hotels.', fam=('stroller', 'easy'), pic=['img/g/tianfu-1.jpg', 'img/g/tianfu-3.jpg', 'img/chunxi.jpg', 'img/g/chunxi-1.jpg'], key='tianfusquare')
 I('jinsha', '', 'Jinsha Site Museum 金沙遗址博物馆', 'Chengdu', 'Sight', info='3,000-year-old Shu kingdom site, home of the golden Sun Bird. Indoor.', fam=('stroller', 'indoor'))
 I('qingcheng', '', 'Mount Qingcheng 青城山', 'Chengdu', 'Sight', info='Misty Taoist mountain with a cable car. Many steps and slippery in winter; for fit adults.', fam=('stairs', 'cold'))
@@ -654,6 +687,7 @@ prep = [
  ['By 6 Dec', "Book vans: Tianfu Airport pickup ~00:15 Mon 14 Dec (10 people + luggage + pram); Wed 16 hotel → Chengdu East 08:45 and Xi'an North → hotel 14:45; the Terracotta day van Thu 17; Sat 19 hotel → Xi'an North 12:15 and Chengdu East → hotel 17:48; a spare van Wed evening for the grandparents and baby; the 21:30 airport run on Mon 21 Dec."],
  ['From 7 Dec', 'Book private rooms 包间 or big tables for the meal places the family picked (3–7 days ahead): 10 people including a baby; ask for a high chair and any minimum spend. Haidilao books in its app.'],
  ['Thu 10 Dec', 'Terracotta Army tickets for Thu 17 Dec (online only, 7 days ahead, passports).'],
+ ['Nov', "Thursday-evening show, if one wins the vote: check whether 长恨歌 is running a December (冰火) season — it is usually closed in winter. 赳赳大秦 runs all year: book 10–15 days ahead, and note no under-5s and no one with heart or mobility trouble."],
  ['Sun 13 Dec', "Shaanxi History Museum tickets for Fri 18 Dec: released 17:00 China time on its WeChat, gone in seconds. Pre-enter every passport before (under-6s and over-65s need none). One person on the phone at KLIA. Sold out? 14 Dec 17:00 releases Sat 19 Dec. Plan B: Small Wild Goose Pagoda + Xi'an Museum (free)."],
  ['Pack', "Chengdu is about 5–12°C and damp; Xi'an about −3–8°C and dry. Thermals, gloves and beanies for everyone; a pram cover and baby carrier; tissues (many toilets have none); the grandparents' medicines in hand luggage."],
  ['Rain/snow', "Xi'an: Wednesday, stay in 曲江大悦城 mall; the Terracotta pits are roofed; Friday, swap the City Wall for Xi'an Museum / Small Wild Goose Pagoda."],
@@ -690,15 +724,63 @@ DETAILS = {
    'when': 'Evening 19:00 (lunch sitting 12:00)', 'length': 'About 2 hours incl. a 15-min interval', 'price': 'From about ¥263 per person with the meal; children pay adult price; costume styling extra (kids\' costumes for ages 6–16)',
    'kids': 'Very photogenic; long sitting for the baby', 'elderly': 'Seated at tables throughout', 'watch': '大明宫宴', 'photo': 'Photo: a similar Tang performance, not this venue. Tap a video to see it.'},
  'p:changan12': {'what': "An indoor Tang-dynasty market street: costumed performers, snack stalls, costume rental and photo corners, based on the TV drama.",
-   'when': '10:00–22:00', 'length': '2–3 hours', 'price': 'Entry ¥128 adult / ¥68 child; under 1.2 m free (the banquet show inside is extra)',
+   'when': '10:00–22:00', 'length': '2–3 hours', 'price': 'Entry ¥68 adult / ¥38 child (1.2 m+, under 18); under 1.2 m free. Re-priced March 2026 — older pages still say ¥128. Entry covers all ~100 performances including 极乐之宴 (a 15-min Tang banquet tableau); only the immersive game costs extra',
    'kids': 'Lots to look at; crowded at night', 'elderly': 'Indoor and warm, but on your feet', 'watch': '长安十二时辰 主题街区', 'photo': 'Photo: the Great Tang All Day Mall next door, not the street itself.'},
- 'p:everlasting': {'what': "Xi'an's most famous show: an outdoor dance-drama on the real lake at Huaqing Palace, with Mount Li as the backdrop. It tells the love story of Emperor Xuanzong and Yang Guifei with a rising lake stage, water, fire and light effects. It pauses in winter (reports of the heated-seat 冰火长恨歌 version are mixed), so assume it is not on in December.",
-   'when': 'Not running in winter: it did not run in winter 2025–26, so assume no show in December', 'length': '70 min', 'price': 'From ¥249; under 1.3 m free without a seat. No Huaqing Palace ticket needed for the evening show',
-   'kids': 'Spectacular, but outdoors at night; only worth it if a December show is confirmed', 'elderly': 'Seated; dress very warmly', 'getting': 'Lintong, about 1 hour from the city, next to the Terracotta Army: fits after Thursday\'s Terracotta visit',
-   'watch': '冰火长恨歌', 'photo': 'Photos show Huaqing Palace, the venue. Tap a video to see the show itself.'},
- 'p:tuoling': {'what': "An indoor Silk Road epic: real camels and horses on stage, a sandstorm, and a caravan story set on the road out of Chang'an.",
-   'when': 'Afternoons to early evening (about 15:00–19:00; varies by day)', 'length': 'About 60 min', 'price': '¥288 / ¥338 / ¥388 / ¥458 by seat; under 1.2 m free with an adult',
-   'kids': 'Animals on stage are a hit', 'elderly': 'Indoor, seated', 'getting': 'Chanba, near Metro Line 3 务庄', 'watch': '驼铃传奇 秀'},
+ 'p:everlasting': {'what': "Xi'an's most famous show: an outdoor dance-drama staged on the real lake at Huaqing Palace, with Mount Li as the backdrop. The story of Emperor Xuanzong and Yang Guifei, told with a rising lake stage, water, fire and light.",
+   'when': '⚠ Winter is the problem. The regular season runs mid-March to end-October. A heated-seat winter edition (冰火长恨歌) has run from 1 December in some years (a single early show, about 18:00–19:10), but it did NOT run in winter 2025–26 and nothing is announced for 2026. Checked Sep 2026 — confirm in November.',
+   'length': '70 min', 'price': 'From ¥249; under 1.3 m free without a seat. The show ticket does not include daytime entry to Huaqing Palace',
+   'kids': 'Spectacular, but outdoors at night in the cold — only worth it if a December run is confirmed', 'elderly': 'Seated throughout; dress very warmly, it is an open-air hillside',
+   'getting': 'Lintong, about 1 hour from the city and next to the Terracotta Army, so it follows straight on from Thursday',
+   'watch': '冰火长恨歌', 'photo': 'First three are official production photos © 长恨歌; the rest show Huaqing Palace, the venue.'},
+ 'p:daqin': {'what': "A large indoor 'epic fantasy' production about the rise of the Qin dynasty, by the same company as 长恨歌. Moving seats, projection and stage machinery rather than a traditional stage show — closer to a theme-park ride with a story.",
+   'when': 'Daily 14:45 / 16:45 / 19:45, year-round (it paused only 4–9 Jan 2026 for maintenance). Checked Sep 2026', 'length': '80 min, no interval',
+   'price': 'By seating zone; children 5 and over pay the adult price',
+   'kids': '⚠ Under-5s are NOT admitted, so the baby cannot go in. Every seat has a safety belt',
+   'elderly': '⚠ The venue turns away anyone with heart disease, high blood pressure, epilepsy, mobility difficulty or who is pregnant. Check before booking for the grandparents',
+   'getting': 'Fengdong New City, west of the city (沣东大道 × 天台路) — about 30–40 min from the Bell Tower and the opposite side of town from the Terracotta Army',
+   'book': 'Book 10–15 days ahead on 大麼 / 猫眼 or the official site jjdq.changhenge.cn',
+   'watch': '赳赳大秦', 'photo': 'Official production photos © 赳赳大秦. Tap a video for the real thing.'},
+ 'p:tuoling': {'what': "An indoor Silk Road epic: real camels and horses on stage, an avalanche, a sandstorm and fire, following a caravan out of Chang'an. Seven acts in a 3,000-seat theatre whose seating bank ROTATES to face each scene.",
+   'when': 'Four to six sessions a day between about 10:30 and 19:45; they change weekly. ⚠ The theatre also takes an annual maintenance break — it fell on 2–20 December in 2024 and 5–30 January in 2026. The 2026–27 dates are not announced. Checked Sep 2026',
+   'length': 'About 70 min', 'price': '¥278–458 by tier; under 1.2 m free on a lap, one per adult. Usually non-refundable once issued',
+   'kids': '⚠ Free on a lap, but loud percussion, water mist in the front rows and startling effects — the operator warns young children may be frightened',
+   'elderly': "⚠ The venue's own notice asks anyone with heart disease, high blood pressure or difficulty walking to think twice: the auditorium rotates and it is a long walk from the car park. If you go, buy a top tier for the shortest walk",
+   'getting': '华夏大剧院, 灞桥区华文路1518号 — about 30 min from the Terracotta Army and on the way back to the city, so it fits Thursday',
+   'watch': '驼铃传奇 演出', 'photo': 'No photo here — tap a video to see it.'},
+ 'p:menghui': {'what': "Tang Paradise's indoor theatre show: Tang court dance and music in a seated theatre rather than out on the lake.",
+   'when': '17:00–18:00 daily, and it IS in the winter and Spring-Festival schedules. Checked Sep 2026', 'length': '60 min',
+   'price': '¥298 balcony / ¥398 stalls / ¥518 VIP; child ¥158–268 for 1.2–1.5 m; under 1.2 m free without a seat. The ticket includes entry to Tang Paradise',
+   'kids': 'Seated and only an hour; an early finish for the baby',
+   'elderly': 'The easiest show on this list: seated, indoors, done by 18:00. Tang Paradise entry is free for over-65s anyway',
+   'getting': '凤鸣九天剧院 inside Tang Paradise, Qujiang — close to the Westin/W end of town',
+   'watch': '梦回大唐 大唐芙蓉园', 'photo': 'Photos show Tang Paradise, the park the theatre sits in.'},
+ 'p:tangdream': {'what': "A boat-borne light and water spectacular on the lake at Tang Paradise: the audience rides in Tang-style barges between floating stages.",
+   'when': '⚠ NOT ON IN DECEMBER. April to October only, about 20:00–21:20. Confirmed four ways: the 2026 relaunch was announced for April, it was marked suspended in January, and it is absent from both the Spring-Festival and 2026 lantern-festival line-ups. Checked Sep 2026',
+   'length': '50 min', 'price': 'In season ¥318–618 adult / ¥168–318 child, park entry included',
+   'kids': 'Moot for December', 'elderly': 'Moot for December — and it is an open, unheated boat',
+   'getting': 'Tang Paradise, Qujiang, about 7.6 km from the Bell Tower',
+   'watch': '大唐追梦 大唐芙蓉园', 'photo': 'Photos show Tang Paradise, the park, not the show.'},
+ 'p:juntuan': {'what': "China's first immersive multimedia war epic: four acts over 70 minutes following two Qin soldiers, Hei Fu and Jing, from the oldest surviving Chinese family letter. A 7,000 m² set with 360° projection, a troop review and a city assault.",
+   'when': 'Several sessions a day, usually about 11:30 / 13:10 / 14:40 / 17:00 — they change daily, so confirm for your date. Venue open 09:00–18:30 all year, indoors, so it does not stop for winter. Checked Sep 2026',
+   'length': '70 min', 'price': '¥268 (often 20% off on the official channel); under 1.2 m free without a seat; real-name tickets, max 6 per order',
+   'kids': '⚠ Battle scenes are loud and the floor vibrates — a lot for a baby in arms',
+   'elderly': 'A walking show with no numbered seats, BUT the theatre runs a separate elderly-and-children route, so they are not carried along with the crowd',
+   'getting': '大秦剧场, 临潼区秦陵北路166号 — right beside the Terracotta Army, so it adds no extra driving on Thursday',
+   'book': 'Check you are buying 《复活的军团》 and not 《永生的军团》, which has used the same theatre',
+   'watch': '复活的军团 演出', 'photo': 'No photo here — the operator blocks them. Tap 小红书 or YouTube to see the real thing.'},
+ 'p:xianincident': {'what': "An immersive 'live-action picture' of the 1936 Xi'an Incident, when Chiang Kai-shek was seized at Huaqing Palace — staged indoors on the spot where it happened.",
+   'when': 'About 11:30 / 14:10 / 16:20 daily, all year round (indoor, so it does not stop for winter). Checked Sep 2026', 'length': '60 min',
+   'price': '¥258; the Huaqing Palace entry ticket (¥120) is separate unless you buy a combo; under 1.2 m free without a seat',
+   'kids': '⚠ Heavy gunfire and explosion sound design — hard on a baby',
+   'elderly': '⚠ The audience STANDS through the whole first half while the actors move among them; only the second half is seated, and seats are not numbered',
+   'getting': '瑚光阁剧院 inside Huaqing Palace, Lintong — about an hour east of the city, so it only makes sense on the Terracotta day',
+   'watch': '12·12 西安事变 实景影画', 'photo': 'No photo here — tap a video to see it.'},
+ 'p:mengchangan': {'what': "The Tang welcome ceremony on the city wall at the South Gate: drums, costumed guards and a court reception staged across the plaza, moat gate and barbican.",
+   'when': '⚠ NOT ON IN DECEMBER. The season runs early April to the end of October, Tuesday to Sunday, 20:00–21:10 (later in midsummer). It is entirely outdoors on the wall, which is why it closes for winter. Checked Sep 2026',
+   'length': '70 min', 'price': '¥280 (C/D), ¥380 (A/B), ¥880 VIP; under 1.2 m free without a seat',
+   'kids': 'Outdoors and late', 'elderly': 'Outdoors, and a walk between the plaza and the barbican',
+   'getting': 'Yongningmen South Gate, about 1.5 km south of the Bell Tower — walkable, but moot for a December trip',
+   'watch': '梦长安 大唐迎宾盛礼', 'photo': 'No photo here — tap a video to see it.'},
  'p:emei': {'what': "Wang Chaoge's giant immersive theatre village at the foot of Mount Emei: you walk through dozens of small stages and courtyards, then watch the main show.",
    'when': 'Main show 19:30–21:00', 'length': 'Allow 3 hours on site', 'price': 'From ¥258', 'kids': 'Lots of walking between stages', 'elderly': 'Walking and stairs between stages',
    'getting': 'About 2 hours from Chengdu: a late night or a night in Emei; pairs with the Leshan day trip', 'watch': '只有峨眉山 演出'},
