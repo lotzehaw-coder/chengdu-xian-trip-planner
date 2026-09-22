@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-16T07:12+08:00",
+ "updated": "2026-09-22T19:42+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -88,7 +88,6 @@
   },
   "Mc": {
    "picks": {
-    "d-d1eve": "opera",
     "d-d5eve": "tang",
     "d-d4pm": "huaqing",
     "d-d7": "leshan",
@@ -97,7 +96,9 @@
     "h-xian": "jwxa",
     "h-chengdu2": "w",
     "d-d2pm": "taikoo",
-    "d-d6am": "hanfu"
+    "d-d6am": "hanfu",
+    "d-d1eve": "opera",
+    "d-xashow": "qgq"
    },
    "hearts": [
     "p:drumtower-in",
@@ -105,7 +106,7 @@
     "p:tianfu-idea",
     "p:biangbiang"
    ],
-   "t": 1789305725271
+   "t": 1790076561252
   },
   "Shing": {
    "picks": {
