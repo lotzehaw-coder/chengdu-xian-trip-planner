@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-22T20:42+08:00",
+ "updated": "2026-09-23T09:12+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -122,10 +122,11 @@
     "m-d7lunch": "gsx",
     "m-d7din": "hqy",
     "m-d8lunch": "trsj",
-    "m-d8din": "rongle"
+    "m-d8din": "rongle",
+    "d-xashow": "qgq"
    },
    "hearts": [],
-   "t": 1789458650631
+   "t": 1790125131960
   },
   "Tze": {
    "picks": {
