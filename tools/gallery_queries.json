@@ -911,5 +911,15 @@
   ],
   "n": 2,
   "reject": []
+ },
+ "xiling": {
+  "q": [],
+  "n": 0,
+  "reject": [
+   "File:西岭雪山.jpg",
+   "File:FCAB EMD GT22CU-3 San Pedro - Ascotan.jpg",
+   "File:西岭雪山 - panoramio.jpg",
+   "File:在成都遥望雪山 西岭雪山主峰大雪塘 Chengdu skyline with a view of Da Xue Tang (Chengdu peak).jpg"
+  ]
  }
 }

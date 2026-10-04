@@ -45,7 +45,7 @@ MAPQ = {'lunch-mapo': '陈麻婆豆腐', 'peoplespark': '鹤鸣茶社', 'kuanzha
   'wuhou': '成都武侯祠', 'huaqing': '华清宫', 'muslimquarter': '回民街', 'tangshow': '唐乐宫', 'yongxingfang': '永兴坊', 'hanfu': '大雁塔',
   'smallgoose': '小雁塔', 'leshan-train': '成都东站', 'leshan': '乐山大佛', 'dujiangyan': '都江堰景区', 'dufu': '杜甫草堂', 'sichuanmuseum': '四川博物院',
   'naturalhistory': '成都自然博物馆', 'wenshu': '文殊院', 'shopping': '成都国际金融中心', 'tianfu-idea': '天府广场', 'jinsha': '金沙遗址博物馆',
-  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼', 'leshan-back': '乐山站', 'pandatower': '天府熊猫塔', 'dongjiao': '东郊记忆', 'qianguqing': '西安千古情景区', 'gongyan': '大明宫宴 笃臣路', 'changan12': '长安十二时辰主题街区', 'emei': '只有峨眉山戏剧幻城', 'everlasting': '华清宫', 'tuoling': '驼铃传奇', 'daqin': '赳赳大秦', 'juntuan': '复活的军团', 'xianincident': '华清宫 瑶光阁剧院', 'mengchangan': '西安城墙永宁门', 'tangdream': '大唐芙蓉园', 'menghui': '凤鸣九天剧院'}
+  'qingcheng': '青城山', 'tangparadise': '大唐芙蓉园', 'paomo': '老孙家泡馍', 'drumtower-in': '西安鼓楼', 'leshan-back': '乐山站', 'pandatower': '天府熊猫塔', 'dongjiao': '东郊记忆', 'qianguqing': '西安千古情景区', 'gongyan': '大明宫宴 笃臣路', 'changan12': '长安十二时辰主题街区', 'emei': '只有峨眉山戏剧幻城', 'xiling': '西岭雪山滑雪场', 'everlasting': '华清宫', 'tuoling': '驼铃传奇', 'daqin': '赳赳大秦', 'juntuan': '复活的军团', 'xianincident': '华清宫 瑶光阁剧院', 'mengchangan': '西安城墙永宁门', 'tangdream': '大唐芙蓉园', 'menghui': '凤鸣九天剧院'}
 # English search for Google Maps (pre-trip reviews in English)
 MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu", 'kuanzhai': 'Kuanzhai Alley', 
   'panda': 'Chengdu Research Base of Giant Panda Breeding', 'lunch-longchaoshou': 'Long Chao Shou Chunxi Road', 
@@ -56,7 +56,7 @@ MAPEN = {'lunch-mapo': 'Chen Mapo Tofu', 'peoplespark': "People's Park Chengdu",
   'yongxingfang': 'Yongxingfang', 'hanfu': 'Big Wild Goose Pagoda', 'smallgoose': 'Small Wild Goose Pagoda', 'leshan-train': 'Chengdu East Railway Station',
   'leshan': 'Leshan Giant Buddha', 'dujiangyan': 'Dujiangyan Irrigation System', 'dufu': 'Du Fu Thatched Cottage', 'sichuanmuseum': 'Sichuan Museum',
   'naturalhistory': 'Chengdu Natural History Museum', 'wenshu': 'Wenshu Monastery', 'shopping': 'Chengdu IFS', 'tianfu-idea': 'Tianfu Square', 'jinsha': 'Jinsha Site Museum',
-  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station', 'pandatower': 'Tianfu Panda Tower Chengdu', 'dongjiao': 'Eastern Suburb Memory Chengdu', 'qianguqing': "Xi'an Romance Park", 'gongyan': 'Da Ming Gong Yan Tang banquet Xian', 'changan12': "Chang'an Twelve Hours Xi'an", 'emei': 'Only Emei Mountain Drama Fantasy City', 'everlasting': 'Huaqing Palace', 'tuoling': 'Huaxia Wenlv Grand Theatre Xian', 'daqin': "Jiujiu Daqin Theatre Xi'an", 'juntuan': 'Daqin Theatre Lintong Xian', 'xianincident': 'Huaqing Palace Xian', 'mengchangan': "Yongningmen South Gate Xi'an City Wall", 'tangdream': 'Tang Paradise', 'menghui': 'Tang Paradise'}
+  'qingcheng': 'Mount Qingcheng', 'tangparadise': 'Tang Paradise', 'paomo': 'Lao Sun Jia Paomo', 'drumtower-in': "Drum Tower Xi'an", 'leshan-back': 'Leshan Railway Station', 'pandatower': 'Tianfu Panda Tower Chengdu', 'dongjiao': 'Eastern Suburb Memory Chengdu', 'qianguqing': "Xi'an Romance Park", 'gongyan': 'Da Ming Gong Yan Tang banquet Xian', 'changan12': "Chang'an Twelve Hours Xi'an", 'emei': 'Only Emei Mountain Drama Fantasy City', 'xiling': 'Xiling Snow Mountain ski resort', 'everlasting': 'Huaqing Palace', 'tuoling': 'Huaxia Wenlv Grand Theatre Xian', 'daqin': "Jiujiu Daqin Theatre Xi'an", 'juntuan': 'Daqin Theatre Lintong Xian', 'xianincident': 'Huaqing Palace Xian', 'mengchangan': "Yongningmen South Gate Xi'an City Wall", 'tangdream': 'Tang Paradise', 'menghui': 'Tang Paradise'}
 
 LANDS = {"chengdu": "<path d=\"M2 58h156M4 58c6-12 16-12 22 0M26 58c6-12 16-12 22 0M48 58c6-12 16-12 22 0M2 46h70M8 46l4-6h52l4 6M36 40v-4M30 36h12l-6-5z\"/><path d=\"M128 58V8M140 58V14M128 20h2M128 34h2M140 28h2M140 44h2M128 20c8-6 14-6 20-4M140 28c-8-8-16-8-24-4M128 34c-6 2-12 8-14 12\"/><circle cx=\"98\" cy=\"42\" r=\"12\"/><circle cx=\"88\" cy=\"31\" r=\"4\"/><circle cx=\"108\" cy=\"31\" r=\"4\"/><path d=\"M92 41c1-3 4-3 5 0M99 41c1-3 4-3 5 0M96 48c1 1 3 1 4 0\"/>", "xian": "<path d=\"M2 58h156M2 58V40h8v-6h8v6h8v-6h8v6h8v-6h8v6h8v-6h8v6h4v18M24 58v-8c0-7 14-7 14 0v8M104 58V22h22v36M100 50h30M101 42h28M102 34h26M103 27h24M107 22v-6h16v6M111 16l4-7 4 7M115 9V4M112 58v-6h6v6M140 58V46M136 46h8l-4-5z\"/>"}   # landmark line drawings for the day headers / hero (SVG path markup, 160x64)
 # ---------- the trip itself: everything the page shows that is specific to THIS trip ----------
@@ -74,7 +74,7 @@ TRIP = {
         {'name': 'Chengdu', 'local': '成都', 'color': '#2f7a55', 'tint': 'rgba(18,52,38,.94)', 'hero': 'img/chengduhero.jpg', 'hotelDec': 'h-chengdu', 'land': LANDS['chengdu']},
         {'name': "Xi'an", 'local': '西安', 'color': '#a3432a', 'tint': 'rgba(92,32,18,.94)', 'hero': 'img/xianhero.jpg', 'hotelDec': 'h-xian', 'land': LANDS['xian']},
     ],
-    'mapCities': {'Leshan': '乐山', 'Dujiangyan': '都江堰'},   # day-trip towns, so map searches land in the right city
+    'mapCities': {'Leshan': '乐山', 'Dujiangyan': '都江堰', 'Dayi': '大邑', 'Emeishan': '峨眉山'},   # day-trip towns, so map searches land in the right city
     'bbox': [28, 102, 36, 111],   # sanity box for coordinates (Sichuan + Shaanxi)
     'voteRelay': 'https://ntfy.sh/cdxa-votes-667bb654d090f8a0',   # votes are posted here from the page; tools/collect_votes.py copies them into votes.json every 30 min
     'country': 'China', 'hotelLinkLabel': 'Marriott',
@@ -101,7 +101,7 @@ D = [d for d, _, _ in DAYS]
 # fam tags: stroller = pram-friendly, easy = little walking, stairs = many steps, cold = outdoors in winter,
 #           indoor, book = book ahead, spicy = watch the chilli, rest = downtime
 items = []; order = {}
-MAPCITY = {'leshan': 'Leshan', 'leshan-back': 'Leshan', 'dujiangyan': 'Dujiangyan', 'qingcheng': 'Dujiangyan', 'emei': 'Emeishan'}
+MAPCITY = {'leshan': 'Leshan', 'leshan-back': 'Leshan', 'dujiangyan': 'Dujiangyan', 'qingcheng': 'Dujiangyan', 'emei': 'Emeishan', 'xiling': 'Dayi'}
 def I(id, day, name, city, cat, time='', end='', info='', fam=(), tags=(), key=None, pic=None, opt='', book=''):
     n = order.get(day, 0) + 1; order[day] = n
     lat, lng = at(key or id)
@@ -266,11 +266,18 @@ I('sichuanmuseum', D[7], 'Sichuan Museum 四川博物院', 'Chengdu', 'Sight', '
 I('naturalhistory', D[7], 'Chengdu Natural History Museum (dinosaurs) 成都自然博物馆', 'Chengdu', 'Sight', '10:00', '13:00',
   'A huge hall of dinosaur skeletons found in Sichuan, plus minerals and animals. Indoor and warm, made for the kids.', ('stroller', 'indoor', 'book'), opt='d-d7:dino', book='Reserve on its WeChat a few days ahead; closed Mondays.')
 I('tea-d7', D[7], "Afternoon tea & rest", 'Chengdu', 'Rest', '14:00', '17:00', "Back to the hotel, or a second round of tea in People's Park.", ('rest',), opt='d-d7:dino', pic='peoplespark', key='peoplespark')
+I('xiling-van', D[7], 'Van to Xiling Snow Mountain 西岭雪山', 'Chengdu', 'Travel', '07:00', '09:30',
+  'About 2–2.5 hours west to Dayi County by private van, longer if it snows or the Sunday traffic is heavy. Book a driver who carries snow chains; the mountain road often has snow and ice in winter.', ('book',), opt='d-d7:xiling', pic=[])
+I('xiling', D[7], 'Snow day at Xiling Snow Mountain 西岭雪山', 'Chengdu', 'Sight', '09:30', '14:15',
+  "Chengdu's own snow mountain. The van stops at the visitor centre; everyone, baby and grandparents included, rides the 鸳鸯池 cable car and a shuttle bus up to the snow area at 映雪广场 (about 2,200–2,400 m), so expect to be on the snow around 10:30. Snow play, sledging, beginner ski lessons and lunch at the resort. A second cable car climbs to 日月坪 (about 3,250 m): thin, freezing air, for fit adults only. Leave the snow by about 14:15 to be back at the gate by 15:00. ⚠ The snow season may not have opened yet on 20 Dec: decide in mid-December.",
+  ('cold', 'book'), opt='d-d7:xiling', book="Opening varies year to year: skiing started 18 Dec in 2024, but the 2025 snow season only launched 26 Dec. Check the 西岭雪山 WeChat snow report in mid-December; if it is not open, switch Sunday to Dujiangyan or the city day. Tickets on Trip.com or the 西岭雪山 WeChat; bring passports.")
+I('xiling-back', D[7], 'Van back to Chengdu', 'Chengdu', 'Travel', '15:00', '17:30', 'Leave the gate by 15:00, before the roads freeze. Back at the hotel about 17:30–18:30 depending on traffic and chains, so dinner may slip a little.', ('easy',), opt='d-d7:xiling', pic=[])
 DEC('d-d7', D[7], '09:00', 'Sunday: the big one', 'Pick the whole day:', [
   O('leshan', 'Leshan Giant Buddha', 'Chengdu', 'Day trip by 1h fast train. See the 71m cliff Buddha from a boat, no stairs needed.', ('cold', 'book'), 'leshan', ['leshan-train', 'leshan', 'leshan-back']),
   O('djy', 'Dujiangyan', 'Chengdu', 'Ancient waterworks, bridges and temples in green hills. 1h by van, some steps.', ('stairs', 'cold'), 'dujiangyan', ['dujiangyan']),
   O('city', 'Du Fu Cottage + Sichuan Museum', 'Chengdu', 'Stay in town: bamboo garden in the morning, museum next door after lunch.', ('stroller', 'easy'), 'dufu', ['dufu', 'sichuanmuseum']),
-  O('dino', 'Dinosaur museum + easy afternoon', 'Chengdu', "Kids' pick: giant Sichuan dinosaurs, then tea and rest.", ('stroller', 'indoor'), 'naturalhistory', ['naturalhistory', 'tea-d7'])])
+  O('dino', 'Dinosaur museum + easy afternoon', 'Chengdu', "Kids' pick: giant Sichuan dinosaurs, then tea and rest.", ('stroller', 'indoor'), 'naturalhistory', ['naturalhistory', 'tea-d7']),
+  O('xiling', 'Xiling Snow Mountain (snow day)', 'Chengdu', "Real snow 2–2.5h from Chengdu: snow play and sledging at about 2,200 m. Long van day. ⚠ May not be open yet on 20 Dec (opened 18 Dec in 2024, 26 Dec in 2025); we'd confirm mid-Dec, with Dujiangyan or the city day as plan B.", ('cold', 'book'), 'xiling', ['xiling-van', 'xiling', 'xiling-back'])])
 
 I('wenshu', D[8], 'Wenshu Monastery 文殊院', 'Chengdu', 'Sight', '10:30', '12:30',
   "Chengdu's busiest Buddhist temple: incense and quiet courtyards. Its well-known vegetarian restaurant can replace lunch if you prefer.", ('stroller', 'easy'), opt='d-d8am:wenshu')
@@ -691,6 +698,7 @@ prep = [
  ['Sun 13 Dec', "Shaanxi History Museum tickets for Fri 18 Dec: released 17:00 China time on its WeChat, gone in seconds. Pre-enter every passport before (under-6s and over-65s need none). One person on the phone at KLIA. Sold out? 14 Dec 17:00 releases Sat 19 Dec. Plan B: Small Wild Goose Pagoda + Xi'an Museum (free)."],
  ['Pack', "Chengdu is about 5–12°C and damp; Xi'an about −3–8°C and dry. Thermals, gloves and beanies for everyone; a pram cover and baby carrier; tissues (many toilets have none); the grandparents' medicines in hand luggage."],
  ['Rain/snow', "Xi'an: Wednesday, stay in 曲江大悦城 mall; the Terracotta pits are roofed; Friday, swap the City Wall for Xi'an Museum / Small Wild Goose Pagoda."],
+ ['Mid-Dec', 'If Xiling Snow Mountain wins Sunday: check on the 西岭雪山 WeChat that the snow season has opened for Sun 20 Dec (it opened 18 Dec in 2024 but 26 Dec in 2025); if not, switch to Dujiangyan or the city day. If it is open, book a van whose driver carries snow chains (07:00 pickup). Snow boots and waterproof gloves for everyone, or rent them there.'],
 ]
 family = [['stroller', '👶', 'Stroller-friendly'], ['easy', '🧓', 'Easy walking'], ['stairs', '🪜', 'Lots of stairs'], ['cold', '🧣', 'Outdoors, dress warm'],
           ['indoor', '🏠', 'Indoor & warm'], ['book', '🎟', 'Book ahead'], ['spicy', '🌶', 'Spicy: ask for 微辣 / 不辣'], ['rest', '😴', 'Downtime']]
@@ -781,6 +789,14 @@ DETAILS = {
    'kids': 'Outdoors and late', 'elderly': 'Outdoors, and a walk between the plaza and the barbican',
    'getting': 'Yongningmen South Gate, about 1.5 km south of the Bell Tower — walkable, but moot for a December trip',
    'watch': '梦长安 大唐迎宾盛礼', 'photo': 'No photo here — tap a video to see it.'},
+ 'p:xiling': {'what': "Chengdu's own snow mountain in Dayi County, the 'snows of Xiling' that Du Fu saw from his window. The van parks at the visitor centre; the 鸳鸯池 cable car and a shuttle bus take everyone up to the snow area at 映雪广场 (about 2,200–2,400 m) for snow play, sledging, snow tubing and beginner ski lessons. A kids' snow park (熊猫雪世界) opened partway through the 2025 season, so it may or may not be running. A second cable car climbs to 日月坪 (about 3,250 m) for the view of the 5,364 m main peak.",
+   'when': "⚠ Opening is the risk. The operator says the season opens 'mid-to-late December': skiing started 18 Dec in 2024, but the 2025 snow season only launched 26 Dec. Sun 20 Dec may be too early, so we decide from the official WeChat snow report in mid-December, with Dujiangyan or the city day as plan B. Confirm the winter cable-car hours then too. Checked Oct 2026.",
+   'length': 'A full day: about 2–2.5 h each way by van, about 4 hours on the snow. Weekends are the busiest days for traffic and cable-car queues.',
+   'price': 'Realistic minimum about ¥240 per adult: entry ¥120 + the 鸳鸯池 transport cable car ¥120 return. 日月坪 cable car another ¥120 return (view package with both ¥338). Package with 2 h of skiing about ¥328. Under 6 or under 1.2 m free; ages 6–18 half price; ages 60–65 free entry outside public holidays and over-65s free entry always (cable cars still paid). 2024–25 prices from 本地宝.',
+   'kids': "Real snow is the highlight for the kids. The baby comes up the cable car too and stays at snow-area level, well wrapped; the warm lodges are up there, the van is a cable car and bus ride below.",
+   'elderly': 'They ride the cable car and shuttle up with everyone, then stay around 映雪广场 and the lodges: snowy paths are slippery. 日月坪 at 3,250 m is thin, freezing air (visitors report breathlessness): fit adults only, never the baby.',
+   'getting': 'Private van with snow chains: about 2–2.5 h from the hotel, longer if it snows. Leave 07:00, at the gate 09:30, on the snow about 10:30, leave the snow about 14:15, gate by 15:00, back 17:30–18:30.',
+   'watch': '西岭雪山 滑雪场 亲子', 'photo': 'Only one free photo exists (snow at the ski area). Tap a video to see the snow park and cable car.'},
  'p:emei': {'what': "Wang Chaoge's giant immersive theatre village at the foot of Mount Emei: you walk through dozens of small stages and courtyards, then watch the main show.",
    'when': 'Main show 19:30–21:00', 'length': 'Allow 3 hours on site', 'price': 'From ¥258', 'kids': 'Lots of walking between stages', 'elderly': 'Walking and stairs between stages',
    'getting': 'About 2 hours from Chengdu: a late night or a night in Emei; pairs with the Leshan day trip', 'watch': '只有峨眉山 演出'},
