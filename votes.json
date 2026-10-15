@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07T09:12+08:00",
+ "updated": "2026-10-15T08:42+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -27,7 +27,6 @@
     "d-d2pm": "taikoo",
     "d-d4pm": "huaqing",
     "d-d5eve": "gongyan",
-    "d-d7": "leshan",
     "d-d6am": "hanfu",
     "d-d8am": "shop",
     "m-d1lunch": "mapo",
@@ -46,12 +45,13 @@
     "h-chengdu": "jw",
     "h-xian": "ritzxa",
     "h-chengdu2": "w",
-    "d-xashow": "daqin"
+    "d-xashow": "daqin",
+    "d-d7": "xiling"
    },
    "hearts": [
     "p:tangparadise"
    ],
-   "t": 1790474119197
+   "t": 1792023404905
   },
   "Kennt": {
    "picks": {
