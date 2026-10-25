@@ -90,8 +90,8 @@ DAYS = [
  ('2026-12-15', 'Chengdu', 'Pandas in the morning'),
  ('2026-12-16', "Xi'an",   'Train north · pagoda by night'),
  ('2026-12-17', "Xi'an",   'Terracotta Army'),
- ('2026-12-18', "Xi'an",   'Museum, city wall & Muslim Quarter'),
- ('2026-12-19', 'Chengdu', 'Train back to Chengdu'),
+ ('2026-12-18', "Xi'an",   'Museum · Tang costume photoshoot'),
+ ('2026-12-19', 'Chengdu', 'City Wall & Bell Tower · train back'),
  ('2026-12-20', 'Chengdu', "Family's pick: day trip or city"),
  ('2026-12-21', 'Chengdu', 'Last day · fly home after midnight'),
 ]
@@ -134,11 +134,11 @@ I('terracotta', D[4], 'Terracotta Army 秦始皇兵马俑', "Xi'an", 'Sight', '0
 # Day 5 — Fri 18 Dec
 I('shaanximuseum', D[5], 'Shaanxi History Museum 陕西历史博物馆', "Xi'an", 'Sight', '09:00', '11:30',
   "One of China's great museums: Tang gold and silver, murals, Zhou bronzes. Warm and indoor, a good morning for everyone after yesterday's walking.",
-  ('stroller', 'indoor', 'book'), ('must-see',), book="Free, but tickets are a sprint: released 5 days ahead at 17:00 China time, only on the 陕西历史博物馆 WeChat account, real-name, gone in seconds. For Fri 18 Dec that is Sun 13 Dec 17:00 (at KLIA before the flight). If Friday sells out, 14 Dec 17:00 releases Sat 19 Dec: take that and swap it with Saturday's photoshoot. Pre-enter every passport first. Under-6s (or under 1.4 m) and over-65s need no ticket. Winter 09:00–17:30, last entry 16:00, closed Mondays. Plan B if it fails: Small Wild Goose Pagoda + Xi'an Museum (free) this morning.")
-I('citywall', D[5], 'City Wall at South Gate 永宁门', "Xi'an", 'Sight', '14:00', '15:45',
+  ('stroller', 'indoor', 'book'), ('must-see',), book="Free, but tickets are a sprint: released 5 days ahead at 17:00 China time, only on the 陕西历史博物馆 WeChat account, real-name, gone in seconds. For Fri 18 Dec that is Sun 13 Dec 17:00 (at KLIA before the flight). If Friday sells out, 14 Dec 17:00 releases Sat 19 Dec: take that and swap the museum with Saturday morning's City Wall and Bell Tower (the photoshoot stays Friday afternoon). Pre-enter every passport first. Under-6s (or under 1.4 m) and over-65s need no ticket. Winter 09:00–17:30, last entry 16:00, closed Mondays. Plan B if it fails: Small Wild Goose Pagoda + Xi'an Museum (free) this morning.")
+I('citywall', D[6], 'City Wall at South Gate 永宁门', "Xi'an", 'Sight', '09:00', '10:15',
   'The most complete old city wall in China, about 14km round and wide enough to cycle. Bikes for the energetic; everyone else strolls a short stretch for the view. South Gate is stairs only, so go up as one group by the lift at 含光门 (inside the Hanguang Gate museum, family toilets on top), stroll a short stretch, come down the same lift and have the vans meet you there. It is about 1.5 km along the wall to South Gate, too far there and back for the grandparents. Winter 08:00–19:00, last entry 18:00.', ('stairs', 'cold'), ('must-see',))
-I('belltower', D[5], 'Bell & Drum Towers 钟楼 · 鼓楼', "Xi'an", 'Sight', '16:15', '17:15',
-  'The two Ming towers at the heart of the old city, lit up at dusk. Winter 08:30–18:00, last entry 17:30. Entry is through the underpass (metro exit C has a lift) and the tower is spiral stairs, so the grandparents enjoy it from the free square. No stopping at the roundabout: meet the vans on 西大街 by De Fa Chang.', ('easy', 'cold'))
+I('belltower', D[6], 'Bell & Drum Towers 钟楼 · 鼓楼', "Xi'an", 'Sight', '10:30', '11:15',
+  'The two Ming towers at the heart of the old city, ten minutes from the wall. Back at the hotel about 11:45 for the 12:15 vans. Winter 08:30–18:00, last entry 17:30. Entry is through the underpass (metro exit C has a lift) and the tower is spiral stairs, so the grandparents enjoy it from the free square. No stopping at the roundabout: meet the vans on 西大街 by De Fa Chang.', ('easy', 'cold'))
 # Day 6 — Sat 19 Dec
 I('lunch-d6', D[6], 'Lunch on the train', 'Travel', 'Food', '14:30', '15:15', "No time for a sit-down lunch at the station: buy buns and roujiamo at Xi'an North, or order a hot meal to your seat when booking on Trip.com / 铁路12306. Hot water taps in every carriage.", ('easy', 'indoor'), pic=[])
 # Day 7 — Sun 20 Dec
@@ -211,12 +211,12 @@ I('tuoling', D[4], 'Camel Bell Legend 驼铃传奇', "Xi'an", 'Show', '19:00', '
   ('indoor', 'book'), opt='d-xashow:tuoling', pic=[],
   book='¥288–458 by tier; under 1.2 m free on a lap, one per adult. Mostly non-refundable once issued. Confirm the December session times on the 华夏文旅西安度假区 WeChat the week before.')
 
-I('muslimquarter', D[5], 'Muslim Quarter street food 回民街', "Xi'an", 'Food', '17:30', '19:30',
+I('muslimquarter', D[5], 'Muslim Quarter street food 回民街', "Xi'an", 'Food', '18:00', '20:00',
   'The old Hui neighbourhood behind the Drum Tower: lamb skewers, persimmon cakes, sticky rice cake, pomegranate juice. Very crowded, so bring the baby carrier rather than the stroller.', ('cold',), opt='d-d5eve:muslim')
 I('tangshow', D[5], 'Tang Dynasty dinner & show 唐乐宫', "Xi'an", 'Show', '18:50', '20:40',
   "Seated dinner from 18:50, then the costumed Tang-court show 《大唐女皇》 19:30–20:40 (19:00 / 20:30 on double-show days). Warm, comfortable, no walking, and done by 20:40 for the baby. 长安北路75号, 10 min from the Bell Tower.", ('indoor', 'easy', 'book'), opt='d-d5eve:tang', book='Dinner packages ¥350 (dumpling banquet) / ¥550 (palace banquet). Winter shows run on demand, so book several days ahead on Trip.com.')
 I('gongyan', D[5], 'Tang palace banquet 大明宫宴', "Xi'an", 'Show', '18:15', '21:30',
-  "The Xiaohongshu-famous 'go to the palace for dinner': a banquet of Tang palace dishes while a 90-minute show of dance, aerial acts and light plays out on a revolving stage around the tables. Optional Tang costume and make-up before. In the old city's north, near Xi'an Railway Station (新城区笃臣路6号), about 15 min from the Bell Tower. (Photo: a similar Tang performance, not the venue.)", ('indoor', 'book'),
+  "The Xiaohongshu-famous 'go to the palace for dinner': a banquet of Tang palace dishes while a 90-minute show of dance, aerial acts and light plays out on a revolving stage around the tables. You will already be in Tang robes from the afternoon shoot: ask the studio if they can stay on for dinner. In the old city's north, near Xi'an Railway Station (新城区笃臣路6号), about 15 min from the Bell Tower. (Photo: a similar Tang performance, not the venue.)", ('indoor', 'book'),
   opt='d-d5eve:gongyan', pic=['img/g/datang-4.jpg'],
   book='Doors 17:30, evening show 19:00 (lunch 12:00): arrive 30 min early, or 1 h (18:00) with costumes. From about ¥263 per person with the meal; children pay the adult price; costume styling costs extra. Book 1–2 days ahead (Qunar / Trip.com or its mini-program, tel 400-009-6616) and ask for seats together for 10.')
 I('changan12', D[5], "Chang'an Twelve Hours Tang street 长安十二时辰", "Xi'an", 'Show', '18:00', '21:00',
@@ -235,21 +235,17 @@ DEC('d-xashow', D[4], '', 'Which show shall we book?', 'We can realistically fit
   O('tuoling', '驼铃传奇 Camel Bell Legend', "Xi'an", '¥288–458 · 70 min · indoor. Silk Road epic with real camels and horses, between Lintong and the city so it fits the drive back. ⚠ The seating bank rotates, and the operator warns off heart, blood-pressure and walking trouble; loud for the baby. Its yearly maintenance break fell on 2–20 December in 2024 — check before booking.', ('indoor', 'book'), [], ['tuoling']),
   O('changhen', '长恨歌 Everlasting Regret', "Xi'an", 'From ¥249 · 70 min · OUTDOORS at Huaqing Palace, next to the Terracotta Army. The famous one. ⚠ It normally shuts for winter (November to about February). A heated-seat December edition has run some years but did NOT run last winter and is not announced for 2026 — we would only know in November. Pick it if you want it if it happens.', ('cold', 'book'), ['https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419507854.webp', 'https://drive.xile.eu.org/d/inf-xtt/images/2026/05/1779419729912.webp'], ['everlasting']),
   O('none', 'No show — keep the evenings free', "Xi'an", 'Skip it. The Terracotta day is already long on foot, and the Muslim Quarter, the Great Tang night walk and the Tang banquet on Friday are evenings in themselves.', ('rest',), REST, ['eve-free'])])
-DEC('d-d5eve', D[5], '17:30', 'Friday evening', "Last night in Xi'an:", [
+DEC('d-d5eve', D[5], '17:45', 'Friday evening', "Last night in Xi'an:", [
   O('muslim', 'Muslim Quarter food crawl', "Xi'an", 'The famous one: loud, crowded, delicious.', ('cold',), 'muslimquarter', ['muslimquarter']),
   O('tang', 'Tang Dynasty dinner show', "Xi'an", 'Sit-down dinner with a big costumed show. Easiest for the grandparents.', ('indoor', 'easy', 'book'), 'tangshow', ['tangshow']),
   O('gongyan', 'Tang palace banquet', "Xi'an", 'Dinner of Tang palace dishes with a 90-min show around the table. From ¥263 each, 19:00.', ('indoor', 'book'), ['img/g/datang-4.jpg'], ['gongyan']),
   O('c12', "Chang'an Twelve Hours street", "Xi'an", 'Indoor Tang market street: performers (极乐之宴 among them), snacks, costumes. ¥68 entry.', ('indoor', 'stroller', 'book'), ['img/g/datang-1.jpg'], ['changan12'])])
 
-I('hanfu', D[6], 'Tang costume family photoshoot 唐装 · 汉服', "Xi'an", 'Show', '08:00', '11:00',
-  "Rent Tang-style robes near the Big Wild Goose Pagoda and take family portraits. Hair and make-up take about 45 min a head, so two stylists from 08:00 manage about 5 people by 11:00: choose who gets styled (the kids plus 1–2 adults). Pack before you go; back at the hotel about 11:40 to change and load for the 12:15 vans. Eat a proper breakfast and carry snacks: lunch is on the 14:06 train. If Friday's museum tickets fail and you get Saturday's, swap this to Friday morning.", ('easy', 'book'), opt='d-d6am:hanfu', pic=['img/g/datang-4.jpg', 'img/g/datang-3.jpg'], book='Book two stylists for 08:00, 1–2 days ahead (studios normally open ~10:00). Make-up ¥100–300 a head.')
-I('smallgoose', D[6], "Small Wild Goose Pagoda & Xi'an Museum 小雁塔 · 西安博物院", "Xi'an", 'Sight', '09:30', '11:30',
-  'Quiet temple garden with a slender Tang pagoda, and a free city museum in the same grounds. Calm and flat.', ('stroller', 'easy'), opt='d-d6am:goose')
-I('slow-d6', D[6], 'Slow morning, brunch & pack', "Xi'an", 'Rest', '09:30', '11:30', 'Lie-in before the train.', ('rest',), opt='d-d6am:slow', pic=REST)
-DEC('d-d6am', D[6], '08:00', 'Saturday morning', 'Before the afternoon train back to Chengdu:', [
-  O('hanfu', 'Tang costume family photos', "Xi'an", 'Tang robes for portraits by the pagoda: about 5 people styled (kids + 1–2 adults), two stylists from 08:00.', ('easy', 'book'), ['img/g/datang-4.jpg', 'img/g/datang-3.jpg'], ['hanfu']),
-  O('goose', 'Small Wild Goose Pagoda', "Xi'an", 'Peaceful garden and free museum.', ('stroller', 'easy'), 'smallgoose', ['smallgoose']),
-  O('slow', 'Slow morning', "Xi'an", 'Sleep in, brunch, pack.', ('rest',), REST, ['slow-d6'])])
+I('hanfu', D[5], 'Tang costume family photoshoot 唐装 · 汉服', "Xi'an", 'Show', '13:00', '17:30',
+  "The whole afternoon for it. Hair and make-up 13:00–15:30 at a studio by the Big Wild Goose Pagoda: about 45 min a head, so three stylists can do all 10 (or two stylists for the kids plus 4–5 adults). The baby naps in the pram meanwhile. Then 15:30–17:30 portraits round the pagoda squares and the Great Tang All Day Mall in the late light, with the lanterns coming on at sunset (about 17:39). Most studios open about 10:00, so an afternoon slot is easy to get. Ask whether the robes can stay on for the Tang banquet.", ('easy', 'book'), ('must-see',), pic=['img/g/datang-4.jpg', 'img/g/datang-3.jpg'], book='Book the studio 2–3 days ahead for Fri 18 Dec 13:00: three stylists, 10 people (say how many children). Make-up ¥100–300 a head plus robe rental; ask about keeping the robes for the evening and a photographer for 2 hours.')
+I('smallgoose', '', "Small Wild Goose Pagoda & Xi'an Museum 小雁塔 · 西安博物院", "Xi'an", 'Sight', '', '',
+  'Quiet temple garden with a slender Tang pagoda, and a free city museum in the same grounds. Calm and flat. Plan B if the Shaanxi History Museum tickets fail.', ('stroller', 'easy'))
+I('slow-d6', '', 'Slow morning, brunch & pack', "Xi'an", 'Rest', '', '', 'Lie-in before the train.', ('rest',), pic=REST)
 
 I('leshan-train', D[7], 'G-train Chengdu East → Leshan 乐山', 'Chengdu', 'Travel', '08:30', '09:40', 'About 1 hour, then 30 min by van to the river pier.', ('book',), opt='d-d7:leshan', pic='hsr', key='cdeast',
   book='Train tickets open 15 days ahead counting the travel day: Sun 6 Dec for both the outbound and return trains.')
@@ -432,7 +428,7 @@ MEAL('m-d4din', D[4], '18:30', '20:00', 'Thursday dinner', 'Back in the city, ne
      ('easy', 'indoor', 'book'), ['img/g/food-xiaolongbao-1.jpg', 'img/g/food-lionshead-1.jpg'], '11:00–21:00', 'About ¥110 per person: the priciest here', '莲湖区西大街3号 (by the Bell Tower)',
      kids='Soup dumplings; nothing spicy', elderly='Private room', book='Book a private room: 029-87346688.', watch='西安 东亚饭店 钟楼', en='Dongya Restaurant Xian', pp='¥110'))
 # --- Xi'an, Fri 18 Dec ---
-MEAL('m-d5lunch', D[5], '12:00', '13:30', 'Friday lunch', 'After the museum, before the City Wall:',
+MEAL('m-d5lunch', D[5], '11:45', '12:45', 'Friday lunch', 'After the museum, before hair & make-up at 13:00:',
   MO('zxz', 'zxz-d5', "Lunch — Zhaixiangzi Shaanxi 窄巷子陕菜馆 (Big Wild Goose Pagoda)", 'Zhaixiangzi (Shaanxi, mild)', 'Shaanxi cooking described as not spicy and not oily. About ¥60.',
      "A Shaanxi restaurant 5 min by van from the museum, described in reviews as 不辣不油 (not spicy, not oily) and good for kids and grandparents: 葫芦鸡 gourd chicken, 山楂鲜山药 hawthorn and yam, and the usual Shaanxi staples.",
      ('easy', 'indoor', 'book'), ['img/g/food-guotie-1.jpg'], '11:00–14:30, 17:00–21:30', 'About ¥60 per person', '雁塔区雁塔西路6号',
@@ -442,7 +438,7 @@ MEAL('m-d5lunch', D[5], '12:00', '13:30', 'Friday lunch', 'After the museum, bef
      ('stroller', 'easy', 'indoor'), ['img/g/food-youmian-2.jpg', 'img/g/food-youmian-1.jpg'], '10:30–21:00', 'About ¥65 per person', '雁塔区长安中路123号 赛格国际购物中心 7F',
      kids='Made for kids', elderly='Mall lift', book='Queue-number system; ask them to join tables. Xibei closed some branches from Oct 2025, so confirm this one is open.', watch='西安 西贝莜面村 赛格', en='Xibei Youmian Village SEG Xian', pp='¥65'),
   MO('dfx', 'dfx-d5', 'Lunch — Defaxing HK café 德发兴茶冰厅 (South Gate)', 'Defaxing HK café (by the City Wall)', 'Hong Kong café food right by the South Gate, so no rush for the wall. About ¥50.',
-     "A Hong Kong-style café right by the South Gate, about 15 min by van from the museum and a short walk to the 14:00 City Wall: 烧腊三件套 roast meat platter, 干炒牛河 beef ho fun, 冰火菠萝油 pineapple bun with butter, 虾球捞面 prawn noodles. Nothing spicy.",
+     "A Hong Kong-style café right by the South Gate, about 15 min by van from the museum and 15 min from the photo studio: 烧腊三件套 roast meat platter, 干炒牛河 beef ho fun, 冰火菠萝油 pineapple bun with butter, 虾球捞面 prawn noodles. Nothing spicy.",
      ('stroller', 'easy', 'indoor'), ['img/g/food-beefhofun-2.jpg', 'img/g/food-pineapplebun-1.jpg'], 'Confirm hours when booking', 'About ¥50 per person', '碑林区环城南路东段334号, by the South Gate 永宁门',
      kids='Familiar Cantonese food', elderly='Mall lift', book='Call ahead and confirm a table for 10.', watch='西安 德发兴茶冰厅 南门店', en='Defaxing Cha Bing Teng South Gate Xian', pp='¥50'))
 # --- Chengdu, Sat 19 Dec ---
@@ -696,6 +692,7 @@ prep = [
  ['From 7 Dec', 'Book private rooms 包间 or big tables for the meal places the family picked (3–7 days ahead): 10 people including a baby; ask for a high chair and any minimum spend. Haidilao books in its app.'],
  ['Thu 10 Dec', 'Terracotta Army tickets for Thu 17 Dec (online only, 7 days ahead, passports).'],
  ['Sun 13 Dec', "Shaanxi History Museum tickets for Fri 18 Dec: released 17:00 China time on its WeChat, gone in seconds. Pre-enter every passport before (under-6s and over-65s need none). One person on the phone at KLIA. Sold out? 14 Dec 17:00 releases Sat 19 Dec. Plan B: Small Wild Goose Pagoda + Xi'an Museum (free)."],
+ ['Tue 15 Dec', 'Book the Tang costume studio by the Big Wild Goose Pagoda for Fri 18 Dec 13:00: three stylists for hair and make-up, 10 people, robes, and a photographer for about 2 hours. Ask if the robes can stay on for dinner.'],
  ['Pack', "Chengdu is about 5–12°C and damp; Xi'an about −3–8°C and dry. Thermals, gloves and beanies for everyone; a pram cover and baby carrier; tissues (many toilets have none); the grandparents' medicines in hand luggage."],
  ['Rain/snow', "Xi'an: Wednesday, stay in 曲江大悦城 mall; the Terracotta pits are roofed; Friday, swap the City Wall for Xi'an Museum / Small Wild Goose Pagoda."],
  ['Mid-Dec', 'If Xiling Snow Mountain wins Sunday: check on the 西岭雪山 WeChat that the snow season has opened for Sun 20 Dec (it opened 18 Dec in 2024 but 26 Dec in 2025); if not, switch to Dujiangyan or the city day. If it is open, book a van whose driver carries snow chains (07:00 pickup). Snow boots and waterproof gloves for everyone, or rent them there.'],
@@ -803,8 +800,13 @@ DETAILS = {
 }
 for it in items:
     if it['id'] == 'p:leshan': it['was'] = {'end': '14:00'}   # phones that locked Leshan before 14 Sep still hold the old end
-    WAS = {'p:terracotta': {'time': '09:00'}, 'p:tangshow': {'time': '18:00', 'end': '21:40'}, 'p:gongyan': {'time': '18:45', 'end': '20:45'}, 'p:hanfu': {'time': '08:30', 'end': '11:15'},
-           'p:lunch-d6': {'time': '13:15', 'end': '13:45'}}   # Xi'an review applied 15 Sep
+    WAS = {'p:terracotta': {'time': '09:00'}, 'p:tangshow': {'time': '18:00', 'end': '21:40'}, 'p:gongyan': {'time': '18:45', 'end': '20:45'}, 'p:hanfu': {'day': D[6], 'time': '08:00', 'end': '11:00', 'status': 'wishlist'},
+           'p:lunch-d6': {'time': '13:15', 'end': '13:45'},
+           # 25 Oct: photoshoot moved to Fri afternoon, City Wall + Bell Tower to Sat morning
+           'p:citywall': {'day': D[5], 'time': '14:00', 'end': '15:45'}, 'p:belltower': {'day': D[5], 'time': '16:15', 'end': '17:15'},
+           'p:smallgoose': {'day': D[6], 'time': '09:30', 'end': '11:30'}, 'p:slow-d6': {'day': D[6], 'time': '09:30', 'end': '11:30'},
+           'p:muslimquarter': {'time': '17:30', 'end': '19:30'},
+           'p:zxz-d5': {'time': '12:00', 'end': '13:30'}, 'p:xb-d5': {'time': '12:00', 'end': '13:30'}, 'p:dfx-d5': {'time': '12:00', 'end': '13:30'}}   # Xi'an review applied 15 Sep
     if it['id'] in WAS: it['was'] = WAS[it['id']]
 DETAILS.update(MEAL_DET)
 for it in items:
