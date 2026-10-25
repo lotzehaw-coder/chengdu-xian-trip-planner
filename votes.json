@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25T19:12+08:00",
+ "updated": "2026-10-25T20:12+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -10,7 +10,6 @@
     "d-d5eve": "gongyan",
     "d-d7": "leshan",
     "d-d8am": "shop",
-    "d-d6am": "hanfu",
     "h-chengdu": "jw",
     "h-xian": "ritzxa",
     "h-chengdu2": "w"
@@ -45,8 +44,7 @@
     "h-xian": "ritzxa",
     "h-chengdu2": "w",
     "d-xashow": "daqin",
-    "d-d7": "xiling",
-    "d-d6am": "hanfu"
+    "d-d7": "xiling"
    },
    "hearts": [
     "p:tangparadise"
@@ -76,7 +74,6 @@
     "d-d2pm": "taikoo",
     "d-d4pm": "rest",
     "d-d5eve": "tang",
-    "d-d6am": "goose",
     "d-d7": "leshan",
     "d-d8am": "shop",
     "h-chengdu": "w",
@@ -100,7 +97,6 @@
     "h-xian": "jwxa",
     "h-chengdu2": "w",
     "d-d2pm": "taikoo",
-    "d-d6am": "hanfu",
     "d-d1eve": "opera",
     "d-xashow": "qgq"
    },
@@ -147,7 +143,7 @@
     "d-d7": "xiling"
    },
    "hearts": [],
-   "t": 1791334923962
+   "t": 1792929718772
   }
  }
 }
