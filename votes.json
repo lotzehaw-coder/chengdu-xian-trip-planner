@@ -1,10 +1,10 @@
 {
- "updated": "2026-10-25T20:12+08:00",
+ "updated": "2026-10-25T21:42+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
    "picks": {
-    "d-d1eve": "opera",
+    "d-d1eve": "tower",
     "d-d2pm": "taikoo",
     "d-d4pm": "huaqing",
     "d-d5eve": "gongyan",
@@ -12,13 +12,14 @@
     "d-d8am": "shop",
     "h-chengdu": "jw",
     "h-xian": "ritzxa",
-    "h-chengdu2": "w"
+    "h-chengdu2": "w",
+    "d-xashow": "qgq"
    },
    "hearts": [
     "p:tangparadise",
     "p:biangbiang"
    ],
-   "t": 1789335401611
+   "t": 1792934086345
   },
   "Isabel": {
    "picks": {
