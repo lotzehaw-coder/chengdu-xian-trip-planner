@@ -695,7 +695,7 @@ prep = [
  ['Tue 15 Dec', 'Book the Tang costume studio by the Big Wild Goose Pagoda for Fri 18 Dec 13:00: three stylists for hair and make-up, 10 people, robes, and a photographer for about 2 hours. Ask if the robes can stay on for dinner.'],
  ['Pack', "Chengdu is about 5–12°C and damp; Xi'an about −3–8°C and dry. Thermals, gloves and beanies for everyone; a pram cover and baby carrier; tissues (many toilets have none); the grandparents' medicines in hand luggage."],
  ['Rain/snow', "Xi'an: Wednesday, stay in 曲江大悦城 mall; the Terracotta pits are roofed; Friday, swap the City Wall for Xi'an Museum / Small Wild Goose Pagoda."],
- ['Mid-Dec', 'If Xiling Snow Mountain wins Sunday: check on the 西岭雪山 WeChat that the snow season has opened for Sun 20 Dec (it opened 18 Dec in 2024 but 26 Dec in 2025); if not, switch to Dujiangyan or the city day. If it is open, book a van whose driver carries snow chains (07:00 pickup). Snow boots and waterproof gloves for everyone, or rent them there.'],
+ ['Mid-Dec', 'If Xiling Snow Mountain wins Sunday: check on the 西岭雪山 WeChat that the snow season has opened for Sun 20 Dec (it opened 18 Dec in 2024, but last winter the slopes only opened on 6 Jan 2026, so 20 Dec is a gamble); if not, switch to Dujiangyan or the city day. If it is open, book a van whose driver carries snow chains (07:00 pickup). Snow boots and waterproof gloves for everyone, or rent them there.'],
 ]
 family = [['stroller', '👶', 'Stroller-friendly'], ['easy', '🧓', 'Easy walking'], ['stairs', '🪜', 'Lots of stairs'], ['cold', '🧣', 'Outdoors, dress warm'],
           ['indoor', '🏠', 'Indoor & warm'], ['book', '🎟', 'Book ahead'], ['spicy', '🌶', 'Spicy: ask for 微辣 / 不辣'], ['rest', '😴', 'Downtime']]
