@@ -64,7 +64,7 @@ TRIP = {
     'name': "Chengdu · Xi'an family trip", 'dates': '13–22 Dec 2026',
     'app': 'chengdu-xian-trip-planner', 'key': 'cdxa',                 # key: localStorage prefix + map source id. NEVER change once shared (it holds everyone's votes)
     'site': 'https://lotzehaw-coder.github.io/chengdu-xian-trip-planner/',
-    'nightsFoot': ['✈ land ~00:15 Mon 14 (13th night booked)', 'Mon 21: rooms to the evening · ✈ 01:05'],   # the two ends of the Hotels-tab nights bar
+    'nightsFoot': ['✈ land ~00:15 Mon 14 (13th night booked)', 'Mon 21: rooms to the evening · ✈ 01:15'],   # the two ends of the Hotels-tab nights bar
     'title': "Chengdu · Xi'an Family Trip", 'brand': "Chengdu · Xi'an", 'brand_sub': '13–22 Dec 2026 · family of 10',
     'subtitle': '13–22 Dec 2026 · family of 10 · pandas, warriors & dumplings',
     'og_title': "Chengdu · Xi'an family trip — 13–22 Dec 2026", 'og_desc': 'Vote on where we go. Pandas, the Terracotta Army, hot pot and dumplings.',
@@ -80,7 +80,7 @@ TRIP = {
     'country': 'China', 'hotelLinkLabel': 'Marriott',
     'hotelsIntro': 'All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Booked: JW Marriott Chengdu (13–16 Dec), W Xi\'an (16–19 Dec) and the St. Regis Chengdu (19–21 Dec).',
     'hotelsTip': "Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.",
-    'about': 'Flights MH526 / MH527 are booked; exact times are on the e-ticket. Hotels are booked: JW Marriott Chengdu, W Xi\'an, then the St. Regis Chengdu. Trains and vans are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps. Votes are saved online under the name you type (no accounts); your notes and plan changes stay on this phone.',
+    'about': 'Flights MH526 (Sun 13 Dec 19:25) and MH527 (Tue 22 Dec 01:15) are booked. Hotels are booked: JW Marriott Chengdu, W Xi\'an, then the St. Regis Chengdu. Trains and vans are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps. Votes are saved online under the name you type (no accounts); your notes and plan changes stay on this phone.',
 }
 
 # ---------- days ----------
@@ -656,9 +656,9 @@ def B(id, day, type, title, time='', key=None, **kw):
     b['mapen'] = {'land': 'Chengdu Tianfu International Airport', 'tfu': 'Chengdu Tianfu International Airport', 'g1': 'Chengdu East Railway Station', 'cdvan': 'Chengdu East Railway Station', 'x1': "Xi'an North Railway Station", 'g2': "Xi'an North Railway Station", 'x2': "Xi'an North Railway Station", 'd2van': 'Chengdu Research Base of Giant Panda Breeding'}.get(id, '')
     if type == 'hotel': b['dec'] = 'h-xian' if id.startswith('h2') else ('h-chengdu2' if id.startswith('h3') else 'h-chengdu')
     blocks.append(b)
-B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:00', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='Business · lands about 00:05–00:15 Monday · confirm exact times on the e-ticket')
+B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:25', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='KUL T1 19:25 → TFU T1 00:15 Mon 14 Dec')
 B('land', D[0], 'car', 'Land at Tianfu, immigration, vans to the hotel', '00:15', sort='24:15', key='tfu', tentative=True,
-  note='+1 day · pre-book 2 × 7-seat vans (or a 12–14 seat minibus) for 10 people, luggage and pram · about 1h to the city centre')
+  note='+1 day · Car 1 booked (飞猪 Fliggy, 1 × 7-seat, driver accepted · meets MH526 · free cancel to 13 Dec 23:15) — it seats 6, so we still need a 2nd car for the other 4 + pram · about 1h to the city centre')
 B('h1in', D[0], 'hotel', 'Check in: {hotel}', '02:00', sort='26:00', note="booked from Sun 13 Dec, so the rooms are held for a ~2am arrival (immigration + bags for 10 take time)")
 B('d2van', D[2], 'car', 'Van to the Panda Base', '07:30', key='panda', note='about 30 min from the centre · be there at opening')
 B('h1out', D[3], 'hotel', 'Check out of {hotel}', '08:30', note="the second Chengdu stay is the St. Regis: take the big bags to Xi'an, or ask the JW to hold them until 19 Dec")
@@ -675,8 +675,8 @@ B('g2', D[6], 'train', "D-train D1939 Xi'an North → Chengdu East", '14:06', ke
 B('h3in', D[6], 'hotel', 'Check in: {hotel}', '18:45', note='second Chengdu stay · collect any bags the JW held')
 B('h3out', D[8], 'hotel', 'Check out of {hotel}', '21:15', note='keep the rooms till evening: late check-out, or book the night of 21 Dec')
 B('tfu', D[8], 'car', 'Vans to Tianfu Airport', '21:30', key='tfu', note='about 1h–1h15 · aim for check-in by 22:45')
-B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:05', sort='25:05', number='MH527', **{'from': 'TFU', 'to': 'KUL'},
-  note='departs just after midnight, so technically Tue 22 Dec · lands about 06:10 · Business · confirm exact times on the e-ticket')
+B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:15', sort='25:15', number='MH527', **{'from': 'TFU', 'to': 'KUL'},
+  note='TFU T1 01:15 Tue 22 Dec → KUL T1 06:20')
 
 # ---------- before we go ----------
 prep = [
@@ -811,7 +811,27 @@ for it in items:
 DETAILS.update(MEAL_DET)
 for it in items:
     if it['id'] in DETAILS: it['details'] = DETAILS[it['id']]
-seed = {'booked': {'h-chengdu': 'jw', 'h-xian': 'wxian', 'h-chengdu2': 'stregis'}, 'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
+
+# ---------- bookings (Tze, 28 Nov 2026) ----------
+# PUBLIC page: names and flight numbers only. No prices, confirmation / booking numbers, seats or payment details
+# (Tze: "exclude all the pricing and sensitive info"). Those live in the family WhatsApp group and the emails.
+bookings = {'title': 'Bookings', 'stays': {
+ 'h-chengdu': {'when': 'Sun 13 → Wed 16 Dec · 3 nights', 'room': 'JW Premium, 1 King',
+   'rooms': [{'guest': 'TZE HAW LO'}, {'guest': 'KIEN HAW LO'}, {'guest': 'WAI SHING LIM'}, {'guest': 'KHAN HAW LO'}]},
+ 'h-xian': {'when': 'Wed 16 → Sat 19 Dec · 3 nights', 'room': '2 Queen, breakfast included',
+   'rooms': [{'guest': 'TZE HAW LO'}, {'guest': 'KHAN HAW LO'}, {'guest': 'KIEN HAW LO'}, {'guest': 'WAI SHING LIM'}]},
+ 'h-chengdu2': {'when': 'Sat 19 → Mon 21 Dec · 2 nights', 'room': '1 King, breakfast included',
+   'rooms': [{'guest': 'TZE HAW LO'}, {'guest': 'WAI SHING LIM'}, {'guest': 'KIEN HAW LO'}, {'guest': 'KHAN HAW LO'}]},
+}}
+FLIGHTS = {   # Malaysia Airlines (booked 27 May 2026; no schedule change found, checked 28 Nov)
+ 'segments': [
+   {'no': 'MH526', 'date': 'Sun 13 Dec', 'route': 'Kuala Lumpur T1 → Chengdu Tianfu T1', 'times': 'dep 19:25 → arr 00:15 Mon 14 Dec'},
+   {'no': 'MH527', 'date': 'Tue 22 Dec (the night of Mon 21)', 'route': 'Chengdu Tianfu T1 → Kuala Lumpur T1', 'times': 'dep 01:15 → arr 06:20'}],
+ 'names': ['TZE HAW LO', 'KIEN HAW LO', 'KHAN HAW LO', 'MIOW CHONG CHIA', 'KEE LENG LO', 'KOO POOI LENG', 'LO ZIQI', 'YIJIE LO'],
+}
+if FLIGHTS: bookings['flights'] = FLIGHTS
+
+seed = {'bookings': bookings, 'booked': {'h-chengdu': 'jw', 'h-xian': 'wxian', 'h-chengdu2': 'stregis'}, 'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
 json.dump(seed, open(os.path.join(HERE, 'seed.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 ids = {i['id'] for i in items}
 bad = [x for d in decisions for o in d['options'] for x in o['items'] if x not in ids]
