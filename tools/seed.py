@@ -658,7 +658,7 @@ def B(id, day, type, title, time='', key=None, **kw):
     blocks.append(b)
 B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:25', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='KUL T1 19:25 → TFU T1 00:15 Mon 14 Dec')
 B('land', D[0], 'car', 'Land at Tianfu, 2 cars to the JW', '00:15', sort='24:15', key='tfu',
-  note='+1 day · 2 × 7-seat cars booked on 飞猪 Fliggy, both drivers confirmed · free 60-min wait · about 1h to the hotel')
+  note='+1 day · 2 × black Voyah Dreamer 岚图梦想家 7-seaters booked on 飞猪 Fliggy, plates assigned · about 1h to the hotel')
 B('h1in', D[0], 'hotel', 'Check in: {hotel}', '02:00', sort='26:00', note="booked from Sun 13 Dec, so the rooms are held for a ~2am arrival (immigration + bags for 10 take time)")
 B('d2van', D[2], 'car', 'Van to the Panda Base', '07:30', key='panda', note='about 30 min from the centre · be there at opening')
 B('h1out', D[3], 'hotel', 'Check out of {hotel}', '08:30', note="the second Chengdu stay is the St. Regis: take the big bags to Xi'an, or ask the JW to hold them until 19 Dec")
@@ -674,7 +674,7 @@ B('g2', D[6], 'train', "D-train D1939 Xi'an North → Chengdu East", '14:06', ke
   note='D1939 14:06 → 17:48 (3h42) · there is no 14:00 train; next are G1975 14:33 and G1573 14:50 · tickets open Sat 5 Dec')
 B('h3in', D[6], 'hotel', 'Check in: {hotel}', '18:45', note='second Chengdu stay · collect any bags the JW held')
 B('h3out', D[8], 'hotel', 'Check out of {hotel}', '19:45', note='bags down by 19:45 for the 20:00 cars · ask for late check-out to keep the rooms till evening')
-B('tfu', D[8], 'car', '2 cars to Tianfu Airport', '20:00', key='tfu', note='2 × 7-seat cars booked on 飞猪 Fliggy from the St. Regis · drivers not assigned yet · about 1h–1h15, so at T1 around 21:15 for the 01:15 flight')
+B('tfu', D[8], 'car', '2 cars to Tianfu Airport', '20:00', key='tfu', note='2 × black Voyah Dreamer 岚图梦想家 7-seaters booked on 飞猪 Fliggy from the St. Regis, plates assigned · about 1h–1h15, so at T1 around 21:15 for the 01:15 flight')
 B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:15', sort='25:15', number='MH527', **{'from': 'TFU', 'to': 'KUL'},
   note='TFU T1 01:15 Tue 22 Dec → KUL T1 06:20')
 
@@ -823,13 +823,13 @@ bookings = {'title': 'Bookings', 'stays': {
  'h-chengdu2': {'when': 'Sat 19 → Mon 21 Dec · 2 nights', 'room': '1 King, breakfast included',
    'rooms': [{'guest': 'TZE HAW LO'}, {'guest': 'WAI SHING LIM'}, {'guest': 'KIEN HAW LO'}, {'guest': 'KHAN HAW LO'}]},
 }}
-bookings['cars'] = {   # 飞猪 Fliggy screenshots from Tze, 28 Nov
- 'seed:land': {'title': 'Airport pickup · Mon 14 Dec 00:15', 'route': '天府国际机场 T1 → 成都茂业JW万豪酒店 (春熙路太古里)',
-   'cars': ['Car 1 · 川ACC3971 grey ARCFOX 阿尔法S5 · 王师傅 · 日初出行', 'Car 2 · 川ACX8887 white 江淮瑞风E3 · 龙师傅 · 方舟行'],
-   'note': 'Each: 7-seater, 6 passengers incl. kids + 4 bags · free 60-min wait'},
+bookings['cars'] = {   # 飞猪 Fliggy 行程 screenshots from Tze, 28 Nov 19:47 (replaces the earlier ARCFOX / 瑞风 cars)
+ 'seed:land': {'title': 'Airport pickup · Mon 14 Dec 00:15', 'route': '成都天府国际机场 T1 → 成都茂业JW万豪酒店 (春熙路太古里)',
+   'cars': ['Car 1 · 川ABT6823 · black Voyah Dreamer 岚图梦想家', 'Car 2 · 川AP55905 · black Voyah Dreamer 岚图梦想家'],
+   'note': '7-seat MPVs (经济7座) · the driver contact shows in Fliggy on the day'},
  'seed:tfu': {'title': 'Airport drop-off · Mon 21 Dec 20:00', 'route': '成都瑞吉酒店 → 天府国际机场 T1',
-   'cars': ['Car 1 · driver not assigned yet', 'Car 2 · driver not assigned yet'],
-   'note': 'Booked with 伙力专车 · car and driver details come nearer the day'},
+   'cars': ['Car 1 · 川AAR6664 · black Voyah Dreamer 岚图梦想家', 'Car 2 · 川ABT0776 · black Voyah Dreamer 岚图梦想家'],
+   'note': '7-seat MPVs (经济7座) · the driver contact shows in Fliggy on the day'},
 }
 FLIGHTS = {   # Malaysia Airlines (booked 27 May 2026; no schedule change found, checked 28 Nov)
  'segments': [
