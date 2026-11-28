@@ -80,7 +80,7 @@ TRIP = {
     'country': 'China', 'hotelLinkLabel': 'Marriott',
     'hotelsIntro': 'All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Booked: JW Marriott Chengdu (13–16 Dec), W Xi\'an (16–19 Dec) and the St. Regis Chengdu (19–21 Dec).',
     'hotelsTip': "Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.",
-    'about': 'Flights MH526 (Sun 13 Dec 19:25) and MH527 (Tue 22 Dec 01:15) are booked. Hotels are booked: JW Marriott Chengdu, W Xi\'an, then the St. Regis Chengdu. Trains and vans are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps. Votes are saved online under the name you type (no accounts); your notes and plan changes stay on this phone.',
+    'about': 'Flights MH526 (Sun 13 Dec 19:25) and MH527 (Tue 22 Dec 01:15) are booked. Hotels are booked: JW Marriott Chengdu, W Xi\'an, then the St. Regis Chengdu. The airport cars both ways are booked. Trains and the other vans are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps. Votes are saved online under the name you type (no accounts); your notes and plan changes stay on this phone.',
 }
 
 # ---------- days ----------
@@ -512,9 +512,9 @@ MEAL('m-d8lunch', D[8], '12:45', '13:45', 'Monday lunch', 'Last lunch in Chengdu
      "Everyday Chengdu home-style Sichuan with private rooms, near Chunxi Road. Most dishes come in large or small portions, so 10 people can try a lot. Spicy by default: ask for 不辣 for the kids and elderly.",
      ('indoor', 'spicy', 'book'), ['img/g/sichuandishes-2.jpg', 'img/g/food-huiguorou-2.jpg'], '11:00–21:00', 'About ¥100 per person', '锦江区纯阳观街1-41号 1–2F',
      kids='High chairs; ask for 不辣', elderly='Wheelchair access', book='Book a private room for 10.', watch='成都 三缺一 春熙路店', pp='¥100'))
-MEAL('m-d8din', D[8], '18:00', '19:45', 'Farewell dinner', 'Last dinner, before the 21:15 check-out and 21:30 airport vans. ✨ Rongle Garden (old centre) is the special one. The other two are in Huayang, 40+ min from the St. Regis in the centre — or take the bags and go to the airport straight from dinner:',
+MEAL('m-d8din', D[8], '18:00', '19:45', 'Farewell dinner', 'Last dinner, before the 20:00 airport cars from the St. Regis: finish by about 19:30. ✨ Rongle Garden (old centre) is the special one. The other two are in Huayang, 40+ min from the St. Regis, which no longer fits unless we eat earlier:',
   MO('rongle', 'dinner-farewell', 'Farewell dinner — Rongle Garden banquet 荣乐园', 'Rongle Garden banquet (mild Sichuan)', 'A proper Sichuan banquet in the mild old style. Pre-order the showpieces.',
-     "A proper Sichuan banquet to finish, in the mild old Chengdu (荣派) style: pre-order 开水白菜 cabbage in clear broth and 樟茶鸭 tea-smoked duck, plus 咸烧白 steamed pork belly and 圆子汤 meatball soup. Keep it early; the airport run starts at 21:30.",
+     "A proper Sichuan banquet to finish, in the mild old Chengdu (荣派) style: pre-order 开水白菜 cabbage in clear broth and 樟茶鸭 tea-smoked duck, plus 咸烧白 steamed pork belly and 圆子汤 meatball soup. Keep it early; the airport cars leave the St. Regis at 20:00.",
      ('indoor', 'easy', 'book'), ['img/g/food-kaishui-2.jpg'], 'Confirm hours when booking', 'About ¥120 per person, more with the banquet dishes', '青羊区文殊院街27号, near Wenshu Monastery',
      kids='Mild dishes', elderly='Older building: ask about stairs to the rooms', book='Book a private room and pre-order 开水白菜 a few days ahead.', watch='成都 荣乐园 文殊院', en='Rongle Garden', pp='¥120–150', special=True),
   MO('dry', 'dry-d8', 'Farewell dinner — Zhuojin new Sichuan banquet 卓锦新川菜 (Huafu)', 'Zhuojin banquet (Huayang)', 'Big banquet restaurant south of the city in Huayang. Set menus for a table of 10.',
@@ -657,8 +657,8 @@ def B(id, day, type, title, time='', key=None, **kw):
     if type == 'hotel': b['dec'] = 'h-xian' if id.startswith('h2') else ('h-chengdu2' if id.startswith('h3') else 'h-chengdu')
     blocks.append(b)
 B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:25', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='KUL T1 19:25 → TFU T1 00:15 Mon 14 Dec')
-B('land', D[0], 'car', 'Land at Tianfu, immigration, vans to the hotel', '00:15', sort='24:15', key='tfu', tentative=True,
-  note='+1 day · Car 1 booked (飞猪 Fliggy, 1 × 7-seat, driver accepted · meets MH526 · free cancel to 13 Dec 23:15) — it seats 6, so we still need a 2nd car for the other 4 + pram · about 1h to the city centre')
+B('land', D[0], 'car', 'Land at Tianfu, 2 cars to the JW', '00:15', sort='24:15', key='tfu',
+  note='+1 day · 2 × 7-seat cars booked on 飞猪 Fliggy, both drivers confirmed · free 60-min wait · about 1h to the hotel')
 B('h1in', D[0], 'hotel', 'Check in: {hotel}', '02:00', sort='26:00', note="booked from Sun 13 Dec, so the rooms are held for a ~2am arrival (immigration + bags for 10 take time)")
 B('d2van', D[2], 'car', 'Van to the Panda Base', '07:30', key='panda', note='about 30 min from the centre · be there at opening')
 B('h1out', D[3], 'hotel', 'Check out of {hotel}', '08:30', note="the second Chengdu stay is the St. Regis: take the big bags to Xi'an, or ask the JW to hold them until 19 Dec")
@@ -673,8 +673,8 @@ B('x2', D[6], 'car', "Vans to Xi'an North", '12:15', key='xianN', note='about 40
 B('g2', D[6], 'train', "D-train D1939 Xi'an North → Chengdu East", '14:06', key='xianN', tentative=True, **{'from': "Xi'an North 西安北", 'to': 'Chengdu East 成都东'},
   note='D1939 14:06 → 17:48 (3h42) · there is no 14:00 train; next are G1975 14:33 and G1573 14:50 · tickets open Sat 5 Dec')
 B('h3in', D[6], 'hotel', 'Check in: {hotel}', '18:45', note='second Chengdu stay · collect any bags the JW held')
-B('h3out', D[8], 'hotel', 'Check out of {hotel}', '21:15', note='keep the rooms till evening: late check-out, or book the night of 21 Dec')
-B('tfu', D[8], 'car', 'Vans to Tianfu Airport', '21:30', key='tfu', note='about 1h–1h15 · aim for check-in by 22:45')
+B('h3out', D[8], 'hotel', 'Check out of {hotel}', '19:45', note='bags down by 19:45 for the 20:00 cars · ask for late check-out to keep the rooms till evening')
+B('tfu', D[8], 'car', '2 cars to Tianfu Airport', '20:00', key='tfu', note='2 × 7-seat cars booked on 飞猪 Fliggy from the St. Regis · drivers not assigned yet · about 1h–1h15, so at T1 around 21:15 for the 01:15 flight')
 B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:15', sort='25:15', number='MH527', **{'from': 'TFU', 'to': 'KUL'},
   note='TFU T1 01:15 Tue 22 Dec → KUL T1 06:20')
 
@@ -688,7 +688,7 @@ prep = [
  ['Wed 2 Dec', "Train tickets to Xi'an for Wed 16 Dec (rail sales open 15 days ahead, counting the travel day)."],
  ['Sat 5 Dec', "Train back Xi'an → Chengdu for Sat 19 Dec."],
  ['Sun 6 Dec', 'Leshan trains, there and back, for Sun 20 Dec, if Leshan wins the vote.'],
- ['By 6 Dec', "Book vans: Tianfu Airport pickup ~00:15 Mon 14 Dec (10 people + luggage + pram); Wed 16 hotel → Chengdu East 08:45 and Xi'an North → hotel 14:45; the Terracotta day van Thu 17; Sat 19 hotel → Xi'an North 12:15 and Chengdu East → hotel 17:48; a spare van Wed evening for the grandparents and baby; the 21:30 airport run on Mon 21 Dec."],
+ ['By 6 Dec', "Book vans (airport cars both ways are booked): Wed 16 hotel → Chengdu East 08:45 and Xi'an North → hotel 14:45; the Terracotta day van Thu 17; Sat 19 hotel → Xi'an North 12:15 and Chengdu East → hotel 17:48; a spare van Wed evening for the grandparents and baby."],
  ['From 7 Dec', 'Book private rooms 包间 or big tables for the meal places the family picked (3–7 days ahead): 10 people including a baby; ask for a high chair and any minimum spend. Haidilao books in its app.'],
  ['Thu 10 Dec', 'Terracotta Army tickets for Thu 17 Dec (online only, 7 days ahead, passports).'],
  ['Sun 13 Dec', "Shaanxi History Museum tickets for Fri 18 Dec: released 17:00 China time on its WeChat, gone in seconds. Pre-enter every passport before (under-6s and over-65s need none). One person on the phone at KLIA. Sold out? 14 Dec 17:00 releases Sat 19 Dec. Plan B: Small Wild Goose Pagoda + Xi'an Museum (free)."],
@@ -823,6 +823,14 @@ bookings = {'title': 'Bookings', 'stays': {
  'h-chengdu2': {'when': 'Sat 19 → Mon 21 Dec · 2 nights', 'room': '1 King, breakfast included',
    'rooms': [{'guest': 'TZE HAW LO'}, {'guest': 'WAI SHING LIM'}, {'guest': 'KIEN HAW LO'}, {'guest': 'KHAN HAW LO'}]},
 }}
+bookings['cars'] = {   # 飞猪 Fliggy screenshots from Tze, 28 Nov
+ 'seed:land': {'title': 'Airport pickup · Mon 14 Dec 00:15', 'route': '天府国际机场 T1 → 成都茂业JW万豪酒店 (春熙路太古里)',
+   'cars': ['Car 1 · 川ACC3971 grey ARCFOX 阿尔法S5 · 王师傅 · 日初出行', 'Car 2 · 川ACX8887 white 江淮瑞风E3 · 龙师傅 · 方舟行'],
+   'note': 'Each: 7-seater, 6 passengers incl. kids + 4 bags · free 60-min wait'},
+ 'seed:tfu': {'title': 'Airport drop-off · Mon 21 Dec 20:00', 'route': '成都瑞吉酒店 → 天府国际机场 T1',
+   'cars': ['Car 1 · driver not assigned yet', 'Car 2 · driver not assigned yet'],
+   'note': 'Booked with 伙力专车 · car and driver details come nearer the day'},
+}
 FLIGHTS = {   # Malaysia Airlines (booked 27 May 2026; no schedule change found, checked 28 Nov)
  'segments': [
    {'no': 'MH526', 'date': 'Sun 13 Dec', 'route': 'Kuala Lumpur T1 → Chengdu Tianfu T1', 'times': 'dep 19:25 → arr 00:15 Mon 14 Dec'},

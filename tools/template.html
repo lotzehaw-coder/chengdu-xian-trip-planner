@@ -975,14 +975,20 @@ function flightCard(no){
     ${f.segments.filter(g=>!no||g.no===no).map(g=>`<div class="seg"><span class="no">${esc(g.no)}</span><span><b>${esc(g.date)}</b> · ${esc(g.route)}<br><span style="color:var(--ink-2)">${esc(g.times)}</span></span></div>`).join('')}
     <div class="names">${(f.names||[]).map(n=>`<span>${esc(n)}</span>`).join('')}</div></div>`;
 }
+function carCard(id){
+  const c=(BK.cars||{})[id]; if (!c) return '';
+  return `<div class="bk" style="--ci:var(--c-car)"><div class="sub"><b>${esc(c.title)}</b><br>${esc(c.route)}</div>
+    <div class="names" style="flex-direction:column;align-items:flex-start">${c.cars.map(x=>`<span>🚐 ${esc(x)}</span>`).join('')}</div>${c.note?`<div class="sub" style="margin:6px 0 0">${esc(c.note)}</div>`:''}</div>`;
+}
 function blockBooking(b){
   let inner='', label='';
   if (b.type==='flight' && BK.flights && BK.flights.segments.some(g=>g.no===b.number)){ inner=`<div class="bk" style="--ci:var(--c-flight)"><div class="names" style="margin-top:0">${(BK.flights.names||[]).map(n=>`<span>${esc(n)}</span>`).join('')}</div></div>`; label=`👥 Passengers (${(BK.flights.names||[]).length})`; }
+  else if (b.type==='car' && (BK.cars||{})[b.id]){ inner=carCard(b.id); label=`🚐 Cars booked (${BK.cars[b.id].cars.length})`; }
   else if (b.type==='hotel' && b.dec && /^seed:h\din$/.test(b.id) && (BK.stays||{})[b.dec]){ inner=bookingCard(b.dec, (DAYS.find(d=>d.d===b.day)||{}).city); label=`🛏 Rooms booked under (${BK.stays[b.dec].rooms.length})`; }
   return inner ? `<details class="bkd"><summary>${esc(label)}</summary>${inner}</details>` : '';
 }
 function renderHotels(){
-  renderNightBar(); $('#flightCard').innerHTML = BK.flights ? `<h3 style="margin:4px 0">✈ Flights</h3>${flightCard('')}` : ''; if (BK.title) $('#hotelsH').textContent = BK.title;
+  renderNightBar(); $('#flightCard').innerHTML = (BK.flights ? `<h3 style="margin:4px 0">✈ Flights</h3>${flightCard('')}` : '') + (BK.cars ? `<h3 style="margin:4px 0">🚐 Airport cars</h3>${Object.keys(BK.cars).map(carCard).join('')}` : ''); if (BK.title) $('#hotelsH').textContent = BK.title;
   $('#hotelsIntro').textContent = TRIP.hotelsIntro || 'Vote for a hotel for each stay.'; $('#hotelsTip').textContent = TRIP.hotelsTip || ''; $('#hotelsTip').hidden = !TRIP.hotelsTip;
   $('#hotelList').innerHTML = Object.entries(SEED.hotels).map(([key, st])=>{
     const city = st.city || key; const did = st.dec || hotelDec(city); const t=tally(did); const max=Math.max(0,...Object.values(t).map(v=>v.length)); const mine=(myBallot()||{picks:{}}).picks[did];
