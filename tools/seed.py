@@ -78,9 +78,9 @@ TRIP = {
     'bbox': [28, 102, 36, 111],   # sanity box for coordinates (Sichuan + Shaanxi)
     'voteRelay': 'https://ntfy.sh/cdxa-votes-667bb654d090f8a0',   # votes are posted here from the page; tools/collect_votes.py copies them into votes.json every 30 min
     'country': 'China', 'hotelLinkLabel': 'Marriott',
-    'hotelsIntro': 'All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Vote for a hotel for each stay (Chengdu has two stays, so you can try two hotels).',
+    'hotelsIntro': 'All Marriott Bonvoy. Ranked for this family: how likely a Titanium/Platinum member is to get a suite (from Flyert 飞客, SMZDM, Trip.com, TripAdvisor and FlyerTalk reports), how new the hotel is, and the location. Booked: JW Marriott Chengdu (13–16 Dec), W Xi\'an (16–19 Dec) and the St. Regis Chengdu (19–21 Dec).',
     'hotelsTip': "Rooms for 10: plan on 4–5 rooms, with connecting rooms for each family and a room near the lift for the grandparents. Hotels in China often limit rooms to 2 adults + 1 child, so confirm the cot, extra bed and kids' breakfast rules when you book.",
-    'about': 'Flights MH526 / MH527 are booked; exact times are on the e-ticket. Trains, vans and hotels are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps. Votes are saved online under the name you type (no accounts); your notes and plan changes stay on this phone.',
+    'about': 'Flights MH526 / MH527 are booked; exact times are on the e-ticket. Hotels are booked: JW Marriott Chengdu, W Xi\'an, then the St. Regis Chengdu. Trains and vans are not booked yet and are marked tentative. Map opens the place in 高德地图 Amap, Google Maps or Apple Maps. Votes are saved online under the name you type (no accounts); your notes and plan changes stay on this phone.',
 }
 
 # ---------- days ----------
@@ -477,15 +477,15 @@ MEAL('m-d7lunch', D[7], '12:45', '13:45', 'Sunday lunch (Leshan day only)', 'If 
      ('easy', 'indoor', 'book'), ['img/g/food-qiaojiao-3.jpg'], '10:00–20:30', 'About ¥60–67 per person', '乐山市市中区苏稽镇桂花路85–89号',
      kids='Clear soup; the broth is peppery', elderly='Wooden building: ask about stairs', book='Call 0833-2565466. It is the wrong way from the station, so keep the van.', watch='乐山 古市香跷脚牛肉 苏稽', en='Gushixiang Qiaojiao Beef Suji', mapcity='Leshan', pp='¥60–67'))
 decisions[-1]['onlyIf'] = 'd-d7:leshan'   # the page shows this vote on Sunday only while Leshan is locked in or leading
-MEAL('m-d7din', D[7], '19:00', '20:30', 'Sunday dinner', 'After the big day out. These are all near the W (the second Chengdu stay is leaning that way):',
+MEAL('m-d7din', D[7], '19:00', '20:30', 'Sunday dinner', 'After the big day out. These are all in the Yofun mall area by the W Chengdu in Gaoxin, about 25–35 min by car from the St. Regis:',
   MO('dd', 'dd-d7', 'Dinner — Diandang Chaoshan beef hot pot 掂档 (Yofun mall, by the W)', 'Chaoshan beef hot pot (by the W)', "Clear-broth beef hot pot a few minutes' walk from the W. Not spicy.",
      "Chaoshan clear-broth beef hot pot in the 悠方 mall next to the W, a few minutes' walk: 吊龙 beef, 手打牛肉丸 hand-beaten beef balls, 潮汕炸腐竹 fried tofu skin. Nothing spicy unless you add the dip.",
      ('easy', 'indoor', 'book'), ['img/g/food-beefhotpot-2.jpg', 'img/g/food-beefhotpot-1.jpg'], '10:00–22:00', 'About ¥105–111 per person', '高新区交子大道 悠方购物中心 5F L506',
-     kids='Clear broth; beef balls', elderly='Walk from the W; mall lift', book='Call 028-65188139 to book and confirm a table for 10.', watch='成都 掂档潮汕牛肉火锅 悠方', en='Diandang Chaoshan Beef Hot Pot Yofun', pp='¥105'),
+     kids='Clear broth; beef balls', elderly='Mall lift; 25–35 min by car from the St. Regis', book='Call 028-65188139 to book and confirm a table for 10.', watch='成都 掂档潮汕牛肉火锅 悠方', en='Diandang Chaoshan Beef Hot Pot Yofun', pp='¥105'),
   MO('hqy', 'hqy-d7', 'Dinner — Huajian Qingyan Huaiyang 花间青宴 (Yofun mall)', 'Huajian Qingyan (Huaiyang, mild)', 'Gentle Jiangsu cooking in the same mall as the W. Not spicy.',
-     "Huaiyang (Jiangsu) cooking in the 悠方 mall beside the W, so there is no drive at all: 招牌狮子头 lion's-head meatballs, 乾隆九丝汤 shredded soup, 功夫松鼠鱼 sweet-and-sour fish. Nothing spicy. (Skip the 花雕醉熟虾 for the kids: cooked prawns steeped in wine.) A Dec 2025 diner post recommends it for family dinners.",
+     "Huaiyang (Jiangsu) cooking in the 悠方 mall beside the W Chengdu: 招牌狮子头 lion's-head meatballs, 乾隆九丝汤 shredded soup, 功夫松鼠鱼 sweet-and-sour fish. Nothing spicy. (Skip the 花雕醉熟虾 for the kids: cooked prawns steeped in wine.) A Dec 2025 diner post recommends it for family dinners.",
      ('easy', 'indoor', 'book'), ['img/g/food-lionshead-1.jpg', 'img/g/food-lionshead-2.jpg'], 'Confirm hours when booking', 'Not published; a smart mall restaurant, so probably ¥100+', '高新区交子大道 悠方购物中心 (by the W)',
-     kids='Meatballs and sweet fish', elderly='No drive from the hotel', book='Book through 大众点评 or ask the W concierge.' + CONFIRM, watch='成都 花间青宴 悠方', en='Huajian Qingyan Huaiyang Chengdu', pp='¥100+'),
+     kids='Meatballs and sweet fish', elderly='Mall lift; 25–35 min by car from the St. Regis', book='Book through 大众点评 or ask the St. Regis concierge.' + CONFIRM, watch='成都 花间青宴 悠方', en='Huajian Qingyan Huaiyang Chengdu', pp='¥100+'),
   MO('yzyw', 'yzyw-d7', 'Dinner — Yizuoyiwang Yunnan 一坐一忘 (Chengdu SKP)', 'Yizuoyiwang (Yunnan)', 'Yunnan cooking in SKP, mostly mild. Round tables in the hall.',
      "The well-known Yunnan restaurant in Chengdu SKP: 铜锅牛肝菌焖饭 mushroom rice in a copper pot, 香茅草烤鲈鱼 lemongrass grilled fish, 薄荷牛肉卷 mint beef rolls, 腾冲小锅米线 rice noodles. Mostly mild — a few dishes use chilli, so ask when ordering.",
      ('easy', 'indoor', 'book'), ['img/g/food-crossbridge-1.jpg', 'img/g/food-crossbridge-2.jpg'], '11:00–21:30', 'Not published in Chengdu; the Beijing branch is about ¥149, so it may be over ¥100', '高新区天府大道北段2001号 成都SKP 美食大道 E2006',
@@ -512,13 +512,13 @@ MEAL('m-d8lunch', D[8], '12:45', '13:45', 'Monday lunch', 'Last lunch in Chengdu
      "Everyday Chengdu home-style Sichuan with private rooms, near Chunxi Road. Most dishes come in large or small portions, so 10 people can try a lot. Spicy by default: ask for 不辣 for the kids and elderly.",
      ('indoor', 'spicy', 'book'), ['img/g/sichuandishes-2.jpg', 'img/g/food-huiguorou-2.jpg'], '11:00–21:00', 'About ¥100 per person', '锦江区纯阳观街1-41号 1–2F',
      kids='High chairs; ask for 不辣', elderly='Wheelchair access', book='Book a private room for 10.', watch='成都 三缺一 春熙路店', pp='¥100'))
-MEAL('m-d8din', D[8], '18:00', '19:45', 'Farewell dinner', 'Last dinner, before the 21:15 check-out and 21:30 airport vans. ✨ Rongle Garden (old centre) is the special one. The other two are in Huayang, about 25 min from the W or 40+ min from a central hotel — or take the bags and go to the airport straight from dinner:',
+MEAL('m-d8din', D[8], '18:00', '19:45', 'Farewell dinner', 'Last dinner, before the 21:15 check-out and 21:30 airport vans. ✨ Rongle Garden (old centre) is the special one. The other two are in Huayang, 40+ min from the St. Regis in the centre — or take the bags and go to the airport straight from dinner:',
   MO('rongle', 'dinner-farewell', 'Farewell dinner — Rongle Garden banquet 荣乐园', 'Rongle Garden banquet (mild Sichuan)', 'A proper Sichuan banquet in the mild old style. Pre-order the showpieces.',
      "A proper Sichuan banquet to finish, in the mild old Chengdu (荣派) style: pre-order 开水白菜 cabbage in clear broth and 樟茶鸭 tea-smoked duck, plus 咸烧白 steamed pork belly and 圆子汤 meatball soup. Keep it early; the airport run starts at 21:30.",
      ('indoor', 'easy', 'book'), ['img/g/food-kaishui-2.jpg'], 'Confirm hours when booking', 'About ¥120 per person, more with the banquet dishes', '青羊区文殊院街27号, near Wenshu Monastery',
      kids='Mild dishes', elderly='Older building: ask about stairs to the rooms', book='Book a private room and pre-order 开水白菜 a few days ahead.', watch='成都 荣乐园 文殊院', en='Rongle Garden', pp='¥120–150', special=True),
   MO('dry', 'dry-d8', 'Farewell dinner — Zhuojin new Sichuan banquet 卓锦新川菜 (Huafu)', 'Zhuojin banquet (Huayang)', 'Big banquet restaurant south of the city in Huayang. Set menus for a table of 10.',
-     "A large new-Sichuan banquet restaurant in 华阳, south of the city: about 25 min from the W, 40+ min from a central hotel. Ask for a set menu with the spicy dishes left out. Banquet-style rooms; set menus were listed at ¥999–1,588 per table of 10.",
+     "A large new-Sichuan banquet restaurant in 华阳, south of the city: 40+ min from the St. Regis in the centre. Ask for a set menu with the spicy dishes left out. Banquet-style rooms; set menus were listed at ¥999–1,588 per table of 10.",
      ('easy', 'indoor', 'book'), [], 'Confirm hours when booking', 'About ¥100–160 per person as a table set menu', '双流区天府大道南段182号 (华府店)',
      kids='Ask for a non-spicy set menu', elderly='Banquet room, no stairs', book='Call 13880802852 (number from an older listing; confirm) and ask for a room for 10 and a mild set menu.', watch='成都 卓锦新川菜 华府店', en='Zhuojin Xin Chuancai Huafu Chengdu', pp='¥100–160', brand='卓锦新川菜'),
   MO('dyl', 'dyl-d8', 'Farewell dinner — Da Ya Li roast duck 大鸭梨烤鸭 (Yuanda mall)', 'Da Ya Li roast duck', 'Beijing roast duck with a banquet hall and high chairs. About ¥104.',
@@ -574,7 +574,7 @@ def H(id, name, cn, area, addr, pros, cons, url, pic, fits, up, upnote, opened, 
             'short': SHORT.get(id, name)}
 hotels = {
  'Chengdu': {'title': 'Chengdu · first stay', 'dec': 'h-chengdu', 'city': 'Chengdu', 'nights': 'Sun 13 → Wed 16 Dec (3 nights)', 'start': '2026-12-13', 'n': 3, 'short': 'Chengdu',
-  'tip': "Book the first night from Sun 13 Dec and tell the hotel you'll arrive around 2am, so the rooms are held. The second stay (19–21 Dec) has its own vote below: pick the same hotel to leave the big bags with the concierge while you're in Xi'an, or try a second hotel.",
+  'tip': "Booked from Sun 13 Dec: tell the hotel you'll arrive around 2am, so the rooms are held. The second Chengdu stay (19–21 Dec) is a different hotel, the St. Regis, so either take the big bags to Xi'an or ask the JW whether they will hold them until 19 Dec.",
   'options': [
    H('jw', 'JW Marriott Hotel Chengdu', '成都茂业JW万豪酒店', 'Chunxi Road · Taikoo Li', '19 Dongyu Street 东御街19号',
      ['Guests with elite status report upgrades to executive suites', 'Executive lounge and breakfast for Platinum and Titanium', 'Walk to Chunxi Road, Taikoo Li and the IFS panda; Tianfu Square metro nearby'],
@@ -635,13 +635,13 @@ elite = [
  "Book direct on Marriott.com or the Bonvoy app. Most third-party bookings (Trip.com, Agoda) don't get elite benefits.",
  "Titanium members: put Suite Night Awards on the rooms that matter most (the grandparents' room and the room with the baby). They're confirmed a few days before arrival.",
  'About 1–2 weeks before, email the hotel: a multi-generational family of 10, all Titanium/Platinum, 5 rooms. Ask for connecting or adjacent rooms, suites if available, a cot, and how many people can use the lounge per room.',
- 'Chengdu is one hotel with a 3-night + 2-night split: ask them to note the upgrade on both bookings, so you return to the same suite on 19 Dec.',
+ 'Chengdu is two separate bookings: the JW Marriott for 13–16 Dec and the St. Regis for 19–21 Dec. Email each hotel about the group.',
  "Check the breakfast and lounge rules for children when you book; hotels often cap it at the member plus one guest, and kids' rules vary.",
  'Since 2025 Marriott only promises "an upgrade", not a suite, and upgrades in China are now decided by an algorithm, so treat suites as likely, not guaranteed.',
 ]
 # second Chengdu stay: same hotel list, its own vote (same hotel = bags stay; a different one = experience two hotels)
 hotels['Chengdu (2nd stay)'] = dict(hotels['Chengdu'], title='Chengdu · second stay', city='Chengdu', dec='h-chengdu2', fallback='h-chengdu', nights='Sat 19 → Mon 21 Dec (2 nights + the evening)', start='2026-12-19', n=2,
-    tip="Pick the same hotel as the first stay to keep it simple (the big bags wait with the concierge while you're in Xi'an), or pick a different one to experience two hotels.")
+    tip="A different hotel from the first stay (the JW), so the family gets to try two. Collect any bags the JW held for you on the way in.")
 hotels = {"Chengdu": hotels['Chengdu'], "Xi'an": hotels["Xi'an"], 'Chengdu (2nd stay)': hotels['Chengdu (2nd stay)']}
 for cityname, hid, q in (('Chengdu', 'h-chengdu', 'Where should we stay in Chengdu (first stay, 13–16 Dec)?'), ("Xi'an", 'h-xian', "Where should we stay in Xi'an?"), ('Chengdu', 'h-chengdu2', 'Chengdu second stay (19–21 Dec): same hotel, or try another?')):
     decisions.append({'id': hid, 'city': cityname, 'day': '', 'time': '', 'title': cityname + (' hotel, 2nd stay' if hid == 'h-chengdu2' else ' hotel'), 'question': q, 'kind': 'hotel',
@@ -659,20 +659,20 @@ def B(id, day, type, title, time='', key=None, **kw):
 B('mh526', D[0], 'flight', 'Fly to Chengdu Tianfu', '19:00', number='MH526', **{'from': 'KUL', 'to': 'TFU'}, note='Business · lands about 00:05–00:15 Monday · confirm exact times on the e-ticket')
 B('land', D[0], 'car', 'Land at Tianfu, immigration, vans to the hotel', '00:15', sort='24:15', key='tfu', tentative=True,
   note='+1 day · pre-book 2 × 7-seat vans (or a 12–14 seat minibus) for 10 people, luggage and pram · about 1h to the city centre')
-B('h1in', D[0], 'hotel', 'Check in: {hotel}', '02:00', sort='26:00', tentative=True, note="book this room from Sun 13 Dec so it's held for a ~2am arrival (immigration + bags for 10 take time)")
+B('h1in', D[0], 'hotel', 'Check in: {hotel}', '02:00', sort='26:00', note="booked from Sun 13 Dec, so the rooms are held for a ~2am arrival (immigration + bags for 10 take time)")
 B('d2van', D[2], 'car', 'Van to the Panda Base', '07:30', key='panda', note='about 30 min from the centre · be there at opening')
-B('h1out', D[3], 'hotel', 'Check out of {hotel}', '08:30', note="if the family votes the same hotel for 19 Dec, leave the big bags with the concierge")
+B('h1out', D[3], 'hotel', 'Check out of {hotel}', '08:30', note="the second Chengdu stay is the St. Regis: take the big bags to Xi'an, or ask the JW to hold them until 19 Dec")
 B('cdvan', D[3], 'car', 'Vans to Chengdu East station', '08:45', key='cdeast', note='30–35 min on a weekday morning · 10 people with a pram and bags need 45–60 min for real-name gates and security')
 B('g1', D[3], 'train', "G-train G1574 Chengdu East → Xi'an North", '10:33', key='cdeast', tentative=True, **{'from': 'Chengdu East 成都东', 'to': "Xi'an North 西安北"},
   note='G1574 10:33 → 14:21 (or G3880 10:32) · daytime trains take 3h50–4h20, the 11:30 lands too late for the pagoda · not booked · tickets open Wed 2 Dec (15 days ahead, counting the travel day) · First or Business class for the grandparents · under-6s ride free without a seat')
-B('x1', D[3], 'car', "Vans to the Xi'an hotel", '14:45', key='xianN', note='about 40 min to Qujiang (Westin/W), 40–50 min to the Ritz in Gaoxin')
-B('h2in', D[3], 'hotel', 'Check in: {hotel}', '15:30', tentative=True, note='a real rest before the pagoda at 17:15')
-B('d4van', D[4], 'car', 'Private van for the Terracotta day', '07:45', tentative=True, note='about 1h each way from Qujiang, 1h15–1h30 from the Ritz in Gaoxin · keep the van all day')
+B('x1', D[3], 'car', "Vans to the Xi'an hotel", '14:45', key='xianN', note='about 40 min to the W in Qujiang')
+B('h2in', D[3], 'hotel', 'Check in: {hotel}', '15:30', note='a real rest before the pagoda at 17:15')
+B('d4van', D[4], 'car', 'Private van for the Terracotta day', '07:45', tentative=True, note='about 1h each way from the W in Qujiang · keep the van all day')
 B('h2out', D[6], 'hotel', 'Check out of {hotel}', '12:00', note='pack before breakfast · vans leave 12:15 · Platinum/Titanium late check-out (to 16:00) lets bags and a nap wait in the room')
-B('x2', D[6], 'car', "Vans to Xi'an North", '12:15', key='xianN', note='40–50 min from the Ritz · 10 people with a pram need 45–60 min for real-name gates and security; gates close 3 min before departure')
+B('x2', D[6], 'car', "Vans to Xi'an North", '12:15', key='xianN', note='about 40 min from the W in Qujiang · 10 people with a pram need 45–60 min for real-name gates and security; gates close 3 min before departure')
 B('g2', D[6], 'train', "D-train D1939 Xi'an North → Chengdu East", '14:06', key='xianN', tentative=True, **{'from': "Xi'an North 西安北", 'to': 'Chengdu East 成都东'},
   note='D1939 14:06 → 17:48 (3h42) · there is no 14:00 train; next are G1975 14:33 and G1573 14:50 · tickets open Sat 5 Dec')
-B('h3in', D[6], 'hotel', 'Check in: {hotel}', '18:45', note='second Chengdu stay (its own hotel vote)')
+B('h3in', D[6], 'hotel', 'Check in: {hotel}', '18:45', note='second Chengdu stay · collect any bags the JW held')
 B('h3out', D[8], 'hotel', 'Check out of {hotel}', '21:15', note='keep the rooms till evening: late check-out, or book the night of 21 Dec')
 B('tfu', D[8], 'car', 'Vans to Tianfu Airport', '21:30', key='tfu', note='about 1h–1h15 · aim for check-in by 22:45')
 B('mh527', D[8], 'flight', 'Fly home to Kuala Lumpur', '01:05', sort='25:05', number='MH527', **{'from': 'TFU', 'to': 'KUL'},
@@ -811,7 +811,7 @@ for it in items:
 DETAILS.update(MEAL_DET)
 for it in items:
     if it['id'] in DETAILS: it['details'] = DETAILS[it['id']]
-seed = {'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
+seed = {'booked': {'h-chengdu': 'jw', 'h-xian': 'wxian', 'h-chengdu2': 'stregis'}, 'trip': TRIP, 'elite': elite, 'days': days, 'items': items, 'blocks': blocks, 'decisions': decisions, 'hotels': hotels, 'prep': prep, 'family': family, 'phrases': phrases, 'credits': credits}
 json.dump(seed, open(os.path.join(HERE, 'seed.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
 ids = {i['id'] for i in items}
 bad = [x for d in decisions for o in d['options'] for x in o['items'] if x not in ids]
