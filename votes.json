@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-22T12:42+08:00",
+ "updated": "2026-11-28T08:42+08:00",
  "count": 7,
  "ballots": {
   "Chia Wei": {
@@ -131,20 +131,20 @@
   },
   "Tze": {
    "picks": {
-    "h-xian": "ritzxa",
     "d-d2pm": "taikoo",
     "d-d5eve": "gongyan",
     "d-d8am": "shop",
-    "h-chengdu2": "w",
     "d-d1eve": "tower",
     "m-d1lunch": "mapo",
-    "d-xashow": "tuoling",
+    "d-xashow": "qgq",
     "m-d1din": "sh",
     "d-d7": "xiling",
-    "h-chengdu": "jw"
+    "h-chengdu": "jw",
+    "h-chengdu2": "stregis",
+    "h-xian": "wxian"
    },
    "hearts": [],
-   "t": 1794128104175
+   "t": 1795825410846
   }
  }
 }
